@@ -1,0 +1,281 @@
+//******************************************************************************************
+//
+//		Script Renfort Toutes unités
+//		Inspiré de Hoppah
+//		Edité par Superjajaman75 pour MOD CSP-IRG
+//
+//******************************************************************************************
+
+//MEDICAL
+const char PROTO_VSAV[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
+const char PROTO_VSAV2[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
+const char PROTO_PSR[] 					= "mod:Prototypes/Vehicles/Ambulance/PSR.e4p";
+const char PROTO_ARIveco[] 				= "mod:Prototypes/Vehicles/Ambulance/ARiveco.e4p";
+const char PROTO_ARMaster[] 			= "mod:Prototypes/Vehicles/Ambulance/ARmaster.e4p";
+const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC.e4p";
+const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
+const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
+const char PROTO_VES[] 					= "mod:Prototypes/Vehicles/Ambulance/VES.e4p";
+
+//POMPIER
+const char PROTO_CA[] 					= "mod:Prototypes/Vehicles/Fire Department/CA.e4p";
+const char PROTO_CCR[]					= "mod:Prototypes/Vehicles/Fire Department/CCR.e4p";
+const char PROTO_CD[]					= "mod:Prototypes/Vehicles/Fire Department/CD.e4p";
+const char PROTO_CESD[]					= "mod:Prototypes/Vehicles/Fire Department/CESD.e4p";
+const char PROTO_CIC_CRR[]				= "mod:Prototypes/Vehicles/Fire Department/CICCRR.e4p";
+const char PROTO_CRAC[] 				= "mod:Prototypes/Vehicles/Fire Department/CRAC.e4p";
+const char PROTO_CSP[] 					= "mod:Prototypes/Vehicles/Fire Department/CSP.e4p";
+const char PROTO_EPAAtego[] 			= "mod:Prototypes/Vehicles/Fire Department/EPA_atego.e4p";
+const char PROTO_EPAIveco[]				= "mod:Prototypes/Vehicles/Fire Department/EPA_iveco.e4p";
+const char PROTO_FPTAtego[]				= "mod:Prototypes/Vehicles/Fire Department/FPTatego.e4p";
+const char PROTO_FPTMidlum[]			= "mod:Prototypes/Vehicles/Fire Department/FPTmidlum.e4p";
+const char PROTO_VIMP[]					= "mod:Prototypes/Vehicles/Fire Department/VIMP.e4p";
+const char PROTO_PEV[]					= "mod:Prototypes/Vehicles/Fire Department/PEV.e4p";
+const char PROTO_PSE4[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE4.e4p";
+const char PROTO_PSE5[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE5.e4p";
+const char PROTO_PST[] 					= "mod:Prototypes/Vehicles/Fire Department/PST.e4p";
+const char PROTO_SIS[] 					= "mod:Prototypes/Vehicles/Fire Department/SIS.e4p";
+const char PROTO_SPTT[] 				= "mod:Prototypes/Vehicles/Fire Department/SPTT.e4p";
+const char PROTO_SPVL2clio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVL2clio.e4p";
+const char PROTO_SPVLclio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio.e4p";
+const char PROTO_SPVLkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLkangoo.e4p";
+const char PROTO_VAG[] 					= "mod:Prototypes/Vehicles/Fire Department/VAG.e4p";
+const char PROTO_VIDkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/VIDkangoo.e4p";
+const char PROTO_VIGI[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI.e4p";
+const char PROTO_VPS[] 					= "mod:Prototypes/Vehicles/Fire Department/VPS.e4p";
+const char PROTO_VSC[] 					= "mod:Prototypes/Vehicles/Fire Department/VSC.e4p";
+const char PROTO_VPB[] 					= "mod:Prototypes/Vehicles/Fire Department/VPB.e4p";
+
+//TEC
+const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
+const char PROTO_EDF[] 					= "mod:Prototypes/Vehicles/TEC/erdf.e4p";
+const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
+
+//POLICE
+const char PROTO_207sw[]				= "mod:Prototypes/Vehicles/Police/207sw.e4p";
+const char PROTO_308PN[]				= "mod:Prototypes/Vehicles/Police/308_pn.e4p";
+const char PROTO_308GIGN[]				= "mod:Prototypes/Vehicles/Police/308gign.e4p";
+const char PROTO_BERLINGOPN[]			= "mod:Prototypes/Vehicles/Police/berlingo_pn.e4p";
+const char PROTO_C4BAN[]				= "mod:Prototypes/Vehicles/Police/c4_ban.e4p";
+const char PROTO_C4GN[]					= "mod:Prototypes/Vehicles/Police/c4_gend.e4p";
+const char PROTO_C8GIGN[]				= "mod:Prototypes/Vehicles/Police/c8_gign.e4p";
+const char PROTO_ESPACEGIGN[]			= "mod:Prototypes/Vehicles/Police/espace_gign.e4p";
+const char PROTO_EXPERTGIGN[]			= "mod:Prototypes/Vehicles/Police/expert_gign.e4p";
+const char PROTO_GIGN[]					= "mod:Prototypes/Vehicles/Police/gign.e4p";
+const char PROTO_GIGN2[]				= "mod:Prototypes/Vehicles/Police/gign2.e4p";
+const char PROTO_MASTERCRS[]			= "mod:Prototypes/Vehicles/Police/master_crs.e4p";
+const char PROTO_DEMINAGE[]				= "mod:Prototypes/Vehicles/Police/master_deminage.e4p";
+const char PROTO_MASTERGIGN[]			= "mod:Prototypes/Vehicles/Police/master_gign.e4p";
+const char PROTO_MASTERPN[]				= "mod:Prototypes/Vehicles/Police/master_pn.e4p";
+const char PROTO_MASTERPN2[]			= "mod:Prototypes/Vehicles/Police/master_pn2.e4p";
+const char PROTO_MASTERPN3[]			= "mod:Prototypes/Vehicles/Police/master_pn3.e4p";
+const char PROTO_MASTERPN4[]			= "mod:Prototypes/Vehicles/Police/master_pn4.e4p";
+const char PROTO_MASTERVTD[]			= "mod:Prototypes/Vehicles/Police/master_vtd.e4p";
+const char PROTO_MONDEO75N[]			= "mod:Prototypes/Vehicles/Police/mondeo_75n.e4p";
+const char PROTO_SCENIC[]				= "mod:Prototypes/Vehicles/Police/scenic_pn.e4p";
+const char PROTO_TRANSITCRS[]			= "mod:Prototypes/Vehicles/Police/TRANSIT_crs.e4p";
+const char PROTO_GETAWAY[]				= "mod:Prototypes/Vehicles/Police/getawaycar.e4p";
+const char PROTO_MOTOGN[]				= "mod:Prototypes/Vehicles/Police/BMW1200RT.e4p";
+const char PROTO_MOTOPN[]				= "mod:Prototypes/Vehicles/Police/BMW1200RTPN.e4p";
+
+//MEDICAL 2
+
+//CS ETAT-MAJOR
+const char PROTO_VSAV12[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV12.e4p";
+const char PROTO_VSAV39[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV39.e4p";
+const char PROTO_VSAV109[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV109.e4p";
+const char PROTO_PS202[] 				= "mod:Prototypes/Vehicles/Fire Department/PS202.e4p";
+const char PROTO_EPAN8[] 				= "mod:Prototypes/Vehicles/Fire Department/EPAN8.e4p";
+const char PROTO_PS132[] 				= "mod:Prototypes/Vehicles/Fire Department/PS132.e4p";
+const char PROTO_FPT21[]				= "mod:Prototypes/Vehicles/Fire Department/FPT21.e4p";
+const char PROTO_CD8[]					= "mod:Prototypes/Vehicles/Fire Department/CD8.e4p";
+const char PROTO_VID183[] 				= "mod:Prototypes/Vehicles/Fire Department/VID183.e4p";
+const char PROTO_VID220[] 				= "mod:Prototypes/Vehicles/Fire Department/VID220.e4p";
+const char PROTO_VPC1[] 				= "mod:Prototypes/Vehicles/Fire Department/VPC1.e4p";
+const char PROTO_SPVL370[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL370.e4p";
+const char PROTO_SPVL920[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL920.e4p";
+const char PROTO_VPS6[] 				= "mod:Prototypes/Vehicles/Fire Department/VPS6.e4p";
+const char PROTO_VIGI10[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI10.e4p";
+const char PROTO_CESD2[]				= "mod:Prototypes/Vehicles/Fire Department/CESD2.e4p";
+const char PROTO_VIMP7[]				= "mod:Prototypes/Vehicles/Fire Department/VIMP7.e4p";
+const char PROTO_PEV5[]					= "mod:Prototypes/Vehicles/Fire Department/PEV5.e4p";
+const char PROTO_VAG2[] 				= "mod:Prototypes/Vehicles/Fire Department/VAG2.e4p";
+const char PROTO_CA25[] 				= "mod:Prototypes/Vehicles/Fire Department/CA25.e4p";
+//const char PROTO_CMO1[] 				= "mod:Prototypes/Vehicles/Fire Department/CMO1.e4p";
+const char PROTO_AR50[] 				= "mod:Prototypes/Vehicles/Ambulance/AR50.e4p";
+const char PROTO_AR63[] 				= "mod:Prototypes/Vehicles/Ambulance/AR63.e4p";
+const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
+
+const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPC.e4p";
+
+
+//CS BITCHE
+const char PROTO_VSAV15[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV15.e4p";
+const char PROTO_PS189[] 				= "mod:Prototypes/Vehicles/Fire Department/PS189.e4p";
+const char PROTO_PS191[] 				= "mod:Prototypes/Vehicles/Fire Department/PS191.e4p";
+const char PROTO_EPAN3[]				= "mod:Prototypes/Vehicles/Fire Department/EPAN3.e4p";
+const char PROTO_SPVL212[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL212.e4p";
+const char PROTO_VID180[] 				= "mod:Prototypes/Vehicles/Fire Department/VID180.e4p";
+
+
+
+const char UNNAMED[] 					= "Unnamed";
+
+
+
+class ClassSpawn: CommandScript
+{
+
+	void Create(GameObject *Caller, char PROTO[], char NAME[],  int NbMaxPassager, int NbMaxTransport)
+	{
+		GameObjectList vehList(NAME);
+		GameObject veh;
+		
+		if (vehList.GetNumObjects() == 1)
+		{
+			veh = vehList.GetObject(0);			
+			Vector vehPos = veh.GetPosition();
+			float r[9];
+			veh.GetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+
+			
+			Vehicle newVeh = Game::CreateVehicle(PROTO, UNNAMED);
+			
+			newVeh.SetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+			newVeh.SetPosition(vehPos);
+			newVeh.UpdatePlacement();
+			newVeh.SetMaxPassengers(NbMaxPassager);
+			newVeh.SetMaxTransports(NbMaxTransport);			
+			newVeh.SetPlayerMP(Caller->GetPlayerMP());
+			newVeh.EnableBlueLights(false);
+			newVeh.EnableHeadLights(false);
+		} else {
+			System::Log("[INIT] veh non trouve");
+		}
+		
+		
+	}
+};
+
+object Init_CSLAND : CommandScript
+{
+	Init_CSLAND()
+	{
+		SetIcon("CSLAND");
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+	bool CheckPossible(GameObject *Caller) { 
+		if (Game::IsCampaign() || Game::IsMission() || Game::IsFreeplay())
+			return false; 
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		ClassSpawn::Create(Caller, PROTO_SPVL370,  "SPVL 370", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVL920,  "SPVL 920", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VSAV12,  "VSAV 12", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VSAV39,  "VSAV 39", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VSAV109,  "VSAV 109", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_PS202,  "PS 202", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_PS132,  "PS 132", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_EPAN8,  "EPAN 8", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_FPT21,  "FPT 21", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_CD8,  "CD 8", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VIGI10,  "VIGI 10", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_VPS6,  "VPS 6", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_AR50,  "AR 50", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_AR63,  "AR 63", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_ADPC4,  "ADPC 4", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VIMP7,  "VIMP 7", 5, 0);
+		ClassSpawn::Create(Caller, PROTO_VAG2,  "VAG 2", 5, 0);
+		ClassSpawn::Create(Caller, PROTO_CESD2,  "CESD 2", 4, 0);
+		ClassSpawn::Create(Caller, PROTO_CA25,  "CA 25", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_PEV5,  "PEV 5", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_VID183,  "VID 183", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VID220,  "VID 220", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VPC1,  "VPC 1", 2, 0);
+		//ClassSpawn::Create(Caller, PROTO_CMO1,  "CMO 1", 4, 0);
+		
+		if (Game::IsFreeplay())
+		{
+			GameObjectList vehList("VPCM");
+			
+			if (vehList.GetNumObjects() == 1)
+			{
+				GameObject veh = vehList.GetObject(0);			
+				Vector vehPos = veh.GetPosition();
+				float r[9];
+				veh.GetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+
+				Vehicle m = Game::CreateVehicle(PROTO_VPCM, UNNAMED);
+				m.EnableBlueLights(false);
+				m.EnableHeadLights(false);
+				m.SetPosition(vehPos);
+				m.SetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+				m.UpdatePlacement();
+				m.SetMaxPassengers(6);
+				m.PushActionWait(ACTION_NEWLIST, 1.0f);
+				m.AssignCommand("MoveTo");
+				Person p1;
+				Person p2;
+				Person p3;
+				Person p4;
+				Person p5;
+				Person p6;
+				p1 = Game::CreatePerson("mod:Prototypes/Persons/Ambulance/COSsamu.e4p", UNNAMED);
+				p2 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COSsp.e4p", UNNAMED);
+				p3 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COScta.e4p", UNNAMED);
+				p4 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSpn.e4p", UNNAMED);
+				p5 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSgn.e4p", UNNAMED);
+				p6 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSgign.e4p", UNNAMED);
+				p1.SetPlayerMP(Caller->GetPlayerMP());
+				p2.SetPlayerMP(Caller->GetPlayerMP());
+				p3.SetPlayerMP(Caller->GetPlayerMP());
+				p4.SetPlayerMP(Caller->GetPlayerMP());
+				p5.SetPlayerMP(Caller->GetPlayerMP());
+				p6.SetPlayerMP(Caller->GetPlayerMP());
+				m.AddPassenger(&p1);
+				m.AddPassenger(&p2);
+				m.AddPassenger(&p3);
+				m.AddPassenger(&p4);
+				m.AddPassenger(&p5);
+				m.AddPassenger(&p6);
+				Game::AddToGroup(&p1, 0);
+				Game::AddToGroup(&p2, 1);
+				Game::AddToGroup(&p3, 2);
+				Game::AddToGroup(&p4, 3);
+				Game::AddToGroup(&p5, 4);
+				Game::AddToGroup(&p6, 5);
+			}
+		}
+	}
+};
+
+object Init_CSBITCHE : CommandScript
+{
+	Init_CSBITCHE()
+	{
+		SetIcon("CSBITCHE");
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+	bool CheckPossible(GameObject *Caller) { 
+		if (Game::IsCampaign() || Game::IsMission() || Game::IsFreeplay())
+			return false; 
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		ClassSpawn::Create(Caller, PROTO_VSAV15,  "VSAV 15", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_PS189,  "PS 189", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_PS191,  "PS 191", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_EPAN3,  "EPAN 3", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVL212,  "SPVL 212", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_VID180,  "VID 180", 2, 0);
+	}
+};

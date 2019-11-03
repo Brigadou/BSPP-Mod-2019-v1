@@ -1,0 +1,589 @@
+const char CMD_AUTOSIREN_OFF[]			= "VcmdAutoSirenOff";
+const char CMD_WARNINGLIGHTS[] 		= "VcmdWarningLightsOn";
+const char DUMMY_WARNINGLIGHTS[]		= "DummyHasWarningLights";
+const char CMD_FLOODLIGHTS_OFF[] 		= "VcmdFloodLightsOff";
+const char CMD_FLOODLIGHTS_ON[] 		= "VcmdFloodLightsOn";
+const char CMD_FLASHINGLIGHTS[] 		= "VcmdFlashingLights";
+const char CMD_TOHOSPITAL[] 			= "VcmdToHospital";
+	
+const char DUMMY_DISABLE[] 				= "DummyDisableSiren";
+const char DUMMY_HASSIREN[] 			= "DummyHasSiren";
+const char DUMMY_PATROL[] 				= "DummyPatrol";
+const char DUMMY_FIRESTATION[]			= "DummyAtFireStation";
+const char DUMMY_CHECKPARKED[] 			= "DummyCheckParked";
+	
+
+const char VO_SPAWNLAND[]				= "vo_spawn_land";
+const char VO_SPAWNBITCHE[]				= "vo_spawn_bitche";
+const char VO_SPAWNSAMU[]				= "vo_spawn_samu";
+const char VO_SPAWNTEC[]				= "vo_spawn_tec";
+	
+const char VO_CASERNELAND[]				= "vo_caserne_land";
+const char VO_CASERNEBITCHE[]			= "vo_caserne_bitche";
+const char VO_SQUADSAMU[]				= "vo_samu";
+const char VO_SQUADTEC[]				= "vo_TEC";
+	
+//CS ETAT-MAJOR
+const char OBJ_VSAV12[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV12.e4p";
+const char OBJ_VSAV39[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV39.e4p";
+const char OBJ_VSAV109[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV109.e4p";
+const char OBJ_PS202[] 				= "mod:Prototypes/Vehicles/Fire Department/PS202.e4p";
+const char OBJ_EPAN8[] 				= "mod:Prototypes/Vehicles/Fire Department/EPAN8.e4p";
+const char OBJ_PS132[] 				= "mod:Prototypes/Vehicles/Fire Department/PS132.e4p";
+const char OBJ_FPT21[]				= "mod:Prototypes/Vehicles/Fire Department/FPT21.e4p";
+const char OBJ_CD8[]					= "mod:Prototypes/Vehicles/Fire Department/CD8.e4p";
+const char OBJ_VID183[] 				= "mod:Prototypes/Vehicles/Fire Department/VID183.e4p";
+const char OBJ_VID220[] 				= "mod:Prototypes/Vehicles/Fire Department/VID220.e4p";
+const char OBJ_VPC1[] 				= "mod:Prototypes/Vehicles/Fire Department/VPC1.e4p";
+const char OBJ_SPVL370[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL370.e4p";
+const char OBJ_SPVL920[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL920.e4p";
+const char OBJ_VPS6[] 				= "mod:Prototypes/Vehicles/Fire Department/VPS6.e4p";
+const char OBJ_VIGI10[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI10.e4p";
+const char OBJ_CESD2[]				= "mod:Prototypes/Vehicles/Fire Department/CESD2.e4p";
+const char OBJ_VIMP7[]				= "mod:Prototypes/Vehicles/Fire Department/VIMP7.e4p";
+const char OBJ_PEV5[]					= "mod:Prototypes/Vehicles/Fire Department/PEV5.e4p";
+const char OBJ_VAG2[] 				= "mod:Prototypes/Vehicles/Fire Department/VAG2.e4p";
+const char OBJ_CA25[] 				= "mod:Prototypes/Vehicles/Fire Department/CA25.e4p";
+//const char OBJ_CMO1[] 				= "mod:Prototypes/Vehicles/Fire Department/CMO1.e4p";
+const char OBJ_AR50[] 				= "mod:Prototypes/Vehicles/Ambulance/AR50.e4p";
+const char OBJ_AR63[] 				= "mod:Prototypes/Vehicles/Ambulance/AR63.e4p";
+const char OBJ_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
+
+//CS BITCHE
+const char OBJ_VSAV15[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV15.e4p";
+const char OBJ_PS189[] 				= "mod:Prototypes/Vehicles/Fire Department/PS189.e4p";
+const char OBJ_PS191[] 				= "mod:Prototypes/Vehicles/Fire Department/PS191.e4p";
+const char OBJ_EPAN3[]				= "mod:Prototypes/Vehicles/Fire Department/EPAN3.e4p";
+const char OBJ_SPVL212[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL212.e4p";
+const char OBJ_VID180[] 				= "mod:Prototypes/Vehicles/Fire Department/VID180.e4p";
+
+//TEC
+const char OBJ_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
+const char OBJ_EDF[] 					= "mod:Prototypes/Vehicles/TEC/erdf.e4p";
+const char OBJ_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
+
+
+//SAMU
+const char OBJ_UMH1[] 				= "mod:Prototypes/Vehicles/Ambulance/ARValenciennes.e4p";
+const char OBJ_UMH2[] 				= "mod:Prototypes/Vehicles/Ambulance/ARSmur28.e4p";
+const char OBJ_PCDSM[]					= "mod:Prototypes/Vehicles/Ambulance/va.e4p";
+const char OBJ_PFG[]					= "mod:Prototypes/Vehicles/Ambulance/vlmdouai.e4p";
+const char OBJ_VES[]					= "mod:Prototypes/Vehicles/Ambulance/S-Max_2010_NEF.e4p";
+const char OBJ_PF1[]					= "mod:Prototypes/Vehicles/Ambulance/PF_FOURGON1.e4p";
+const char OBJ_PF2[]					= "mod:Prototypes/Vehicles/Ambulance/PF_FOURGON2.e4p";
+const char OBJ_DRAGON[]				= "mod:Prototypes/Vehicles/Ambulance/Dragon62.e4p";
+
+	
+const char SND_TOSTATION2[]			= "mod:Audio/FX/radio/ccgc.wav";
+const char SND_TOSTATION3[]			= "mod:Audio/FX/radio/ccrm.wav";
+const char SND_TOSTATION4[]			= "mod:Audio/FX/radio/epa.wav";
+const char SND_TOSTATION5[]			= "mod:Audio/FX/radio/fc.wav";
+const char SND_TOSTATION6[]			= "mod:Audio/FX/radio/FPTAtego.wav";
+const char SND_TOSTATION7[]			= "mod:Audio/FX/radio/FPTMidlum.wav";	
+const char SND_TOSTATION8[]			= "mod:Audio/FX/radio/vlc.wav";
+const char SND_TOSTATION9[]			= "mod:Audio/FX/radio/vli.wav";
+const char SND_TOSTATION10[]			= "mod:Audio/FX/radio/vpc.wav";
+const char SND_TOSTATION11[]			= "mod:Audio/FX/radio/vpl.wav";
+const char SND_TOSTATION12[]			= "mod:Audio/FX/radio/vrch.wav";
+const char SND_TOSTATION13[]			= "mod:Audio/FX/radio/vsav1.wav";
+const char SND_TOSTATION14[]			= "mod:Audio/FX/radio/vsav2.wav";
+const char SND_TOSTATION15[]			= "mod:Audio/FX/radio/PSR.wav";
+const char SND_TOSTATION16[]			= "mod:Audio/FX/radio/vsr.wav";
+const char SND_TOSTATION17[]			= "mod:Audio/FX/radio/emod.wav";
+const char SND_TOSTATION18[]			= "mod:Audio/FX/radio/cdhr.wav";
+const char SND_TOSTATION19[]			= "mod:Audio/FX/radio/ccf.wav";
+const char SND_TOSTATION20[]			= "mod:Audio/FX/radio/vtu.wav";
+const char SND_TOSTATION21[]			= "mod:Audio/FX/radio/pma.wav";
+const char SND_TOSTATION22[]			= "mod:Audio/FX/radio/umh.wav";
+const char SND_TOSTATION23[]			= "mod:Audio/FX/radio/vlm.wav";
+	
+const char HINT_NOTVALID[] 				= "Ce vehicule ne fait pas partie de la caserne, il rentre a la base!";
+const char HINT_NOSPACE[] 				= "Pas de place a la caserne, le vehicule retourne a la base!";
+const char HINT_NOSPACE_AMBULANCE[] 	= "Pas de place a la caserne, le vehicule part en patrouille!";
+const char HINT_TRANSPORTS[] 			= "Le vehicule transporte une victime, il va a l'hopital en premier!";
+const char HINT_ERREUR[] 				= "Erreur";
+
+
+int DummyGroup = 32;
+
+object VcmdToFireStation : CommandScript
+{
+	VcmdToFireStation()
+	{
+		SetCursor("tofirestation");
+		SetIcon("tofirestation");
+		SetGroupID(DummyGroup);
+ 		SetGroupLeader(true);
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+	}
+
+	bool CheckPossible(GameObject *Caller)
+	{
+		if (!Caller->IsValid())
+			return false;
+
+ 		Vehicle v(Caller);		
+		if (!v.HasCommand("MoveTo"))
+			return false;
+		if(v.IsInstalled())
+			return false;
+		if (v.HasCommand("DummyWaterSupplyOn") || v.HasCommand("DummyWaterSupplyFromTankerOn"))
+			return false;
+		if (Game::IsCampaign() || Game::IsMission())
+			return false;
+			
+		return true;
+	}
+	
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+		if (!Caller->IsValid() || !Target->IsValid() || (Caller->GetID() != Target->GetID()))
+			return false;
+			
+		return true;
+	}
+
+	void FirstReturnParking(GameObject *Caller, char NAME[], char SQUAD[], char PROTO[], const char sons[])
+	{
+		Vehicle v(Caller);
+		int soundID;
+		
+		if (StrCompare(NAME, "") == 0) {
+			Mission::PlayHint(HINT_NOTVALID);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+		
+		if (v.GetVehicleType() == VT_AMBULANCE_RTW && v.GetNumTransported() > 0)
+		{
+			v.PushActionExecuteCommand(ACTION_NEWLIST, CMD_TOHOSPITAL, Caller, 0, false);
+			Mission::PlayHint(HINT_TRANSPORTS);
+			return;
+		}
+		if (v.IsBlueLightEnabled())
+			Game::ExecuteCommand(CMD_FLASHINGLIGHTS, &v, &v);
+
+		if (v.HasCommand(DUMMY_WARNINGLIGHTS))
+		{
+			v.EnableBlinker(BLT_NONE);
+			v.RemoveCommand(DUMMY_WARNINGLIGHTS);
+			v.AssignCommand(CMD_WARNINGLIGHTS);
+		}
+		if (v.HasCommand(CMD_FLOODLIGHTS_OFF))
+		{
+			v.EnableSpecialLights(false);
+			v.RemoveCommand(CMD_FLOODLIGHTS_OFF);
+			v.AssignCommand(CMD_FLOODLIGHTS_ON);
+		}
+		if (v.HasObjectPath(NULL))
+			Game::ExecuteCommand(DUMMY_PATROL, &v, &v);
+		if (v.HasCommand(DUMMY_HASSIREN) && v.HasCommand(CMD_AUTOSIREN_OFF))
+			Game::ExecuteCommand(DUMMY_DISABLE, &v, &v);
+		
+		GameObjectList vehList(NAME);
+		GameObject maker;
+		if (vehList.GetNumObjects() == 1)
+		{
+			System::Log("[CASERNE] veh trouve");
+			maker = vehList.GetObject(0);
+			if (maker.GetPlayerMP() == Caller->GetPlayerMP())
+				System::Log("[CASERNE] veh true");				
+		} else {
+			System::Log("[CASERNE] veh non trouve");
+			Mission::PlayHint(HINT_NOTVALID);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+		if (StrCompare(sons, "") != 0)
+		{
+			soundID = Audio::PlaySample3D(sons, Caller->GetPosition());
+			v.AttachSound(soundID);
+		}
+		
+		GameObjectList l1;
+ 		Game::CollectObstaclesOnVirtualObject(SQUAD, l1, ACTOR_VEHICLE);
+		for (int i = 0; i < l1.GetNumObjects(); i++)
+		{
+			GameObject *veh = l1.GetObject(i);
+			if(StrCompare(veh->GetPrototypeFileName(), PROTO) == 0) {
+				Mission::PlayHint(HINT_NOSPACE);
+				veh->PushActionReturnToBase(ACTION_NEWLIST);
+			}
+		}
+		
+		Vector FirstPoint = (maker.GetPosition() + Vector(100.f, 0.f, 0.f));
+		v.PushActionMove(ACTION_NEWLIST, FirstPoint);
+		v.PushActionWait(ACTION_APPEND, 1.0f);
+		v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_CHECKPARKED, Caller, 0, false);
+		
+	}
+	
+void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Vehicle v(Caller);
+		if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV12) == 0)
+		{
+			FirstReturnParking(Caller, "VSAV 12", VO_CASERNELAND, OBJ_VSAV12, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV39) == 0)
+		{
+			FirstReturnParking(Caller, "VSAV 39", VO_CASERNELAND, OBJ_VSAV39, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV109) == 0)
+		{
+			FirstReturnParking(Caller, "VSAV 109", VO_CASERNELAND, OBJ_VSAV109, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS202) == 0)
+		{
+			FirstReturnParking(Caller, "PS 202", VO_CASERNELAND, OBJ_PS202, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN8) == 0)
+		{
+			FirstReturnParking(Caller, "EPAN 8", VO_CASERNELAND, OBJ_EPAN8, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS132) == 0)
+		{
+			FirstReturnParking(Caller, "PS 132", VO_CASERNELAND, OBJ_PS132, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_FPT21) == 0)
+		{
+			FirstReturnParking(Caller, "FPT 21", VO_CASERNELAND, OBJ_FPT21, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CD8) == 0)
+		{
+			FirstReturnParking(Caller, "CD 8", VO_CASERNELAND, OBJ_CD8, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID183) == 0)
+		{
+			FirstReturnParking(Caller, "VID 183", VO_CASERNELAND, OBJ_VID183, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID220) == 0)
+		{
+			FirstReturnParking(Caller, "VID 220", VO_CASERNELAND, OBJ_VID220, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPC1) == 0)
+		{
+			FirstReturnParking(Caller, "VPC 1", VO_CASERNELAND, OBJ_VPC1, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL370) == 0)
+		{
+			FirstReturnParking(Caller, "SPVL 370", VO_CASERNELAND, OBJ_SPVL370, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL920) == 0)
+		{
+			FirstReturnParking(Caller, "SPVL 920", VO_CASERNELAND, OBJ_SPVL920, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPS6) == 0)
+		{
+			FirstReturnParking(Caller, "VPS 6", VO_CASERNELAND, OBJ_VPS6, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIGI10) == 0)
+		{
+			FirstReturnParking(Caller, "VIGI 10", VO_CASERNELAND, OBJ_VIGI10, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CESD2) == 0)
+		{
+			FirstReturnParking(Caller, "CESD 2", VO_CASERNELAND, OBJ_CESD2, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIMP7) == 0)
+		{
+			FirstReturnParking(Caller, "VIMP 7", VO_CASERNELAND, OBJ_VIMP7, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PEV5) == 0)
+		{
+			FirstReturnParking(Caller, "PEV 5", VO_CASERNELAND, OBJ_PEV5, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VAG2) == 0)
+		{
+			FirstReturnParking(Caller, "VAG 2", VO_CASERNELAND, OBJ_VAG2, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CA25) == 0)
+		{
+			FirstReturnParking(Caller, "CA 25", VO_CASERNELAND, OBJ_CA25, "");
+		}
+		//else if(StrCompare(v.GetPrototypeFileName(), OBJ_CMO1) == 0)
+		//{
+			//FirstReturnParking(Caller, "CMO 1", VO_CASERNELAND, OBJ_CMO1, "");
+		//}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR50) == 0)
+		{
+			FirstReturnParking(Caller, "AR 50", VO_CASERNELAND, OBJ_AR50, "");
+		}		
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR63) == 0)
+		{
+			FirstReturnParking(Caller, "AR 63", VO_CASERNELAND, OBJ_AR63, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_ADPC4) == 0)
+		{
+			FirstReturnParking(Caller, "ADPC 4", VO_CASERNELAND, OBJ_ADPC4,"");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN3) == 0)
+		{
+			FirstReturnParking(Caller, "EPAN 3", VO_CASERNEBITCHE, OBJ_EPAN3, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV15) == 0)
+		{
+			FirstReturnParking(Caller, "VSAV 15", VO_CASERNEBITCHE, OBJ_VSAV15, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL212) == 0)
+		{
+			FirstReturnParking(Caller, "SPVL 212", VO_CASERNEBITCHE, OBJ_SPVL212, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID180) == 0)
+		{
+			FirstReturnParking(Caller, "VID 180", VO_CASERNEBITCHE, OBJ_VID180, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS189) == 0)
+		{
+			FirstReturnParking(Caller, "PS 189", VO_CASERNEBITCHE, OBJ_PS189, "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS191) == 0)
+		{
+			FirstReturnParking(Caller, "PS 191", VO_CASERNEBITCHE, OBJ_PS191, "");
+		}
+		else
+		{
+			Mission::PlayHint(HINT_NOTVALID);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+	}
+};
+
+object DummyCheckParked : CommandScript
+{
+	DummyCheckParked()
+	{
+		SetGroupID(DummyGroup);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int ChildID)
+	{
+	}
+
+	void EndReturnParking(GameObject *Caller, char NAME[])
+	{
+		Vehicle v(Caller);
+		
+		GameObjectList vehList(NAME);
+		GameObject veh;
+		if (vehList.GetNumObjects() == 1)
+		{
+			System::Log("[CASERNE] veh trouve");
+			veh = vehList.GetObject(0);
+			if (veh.GetPlayerMP() == Caller->GetPlayerMP())
+				System::Log("[CASERNE] veh true");				
+		} else {
+			System::Log("[CASERNE] veh non trouve");
+			Mission::PlayHint(HINT_NOTVALID);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+
+		
+		v.PushActionMove(ACTION_APPEND, veh.GetPosition());
+		v.PushActionWait(ACTION_APPEND, 0.5f);	
+		v.SetPosition(veh.GetPosition());
+		float rot[9];
+		veh.GetRotation(rot[0], rot[1], rot[2], rot[3], rot[4], rot[5], rot[6], rot[7], rot[8]);
+		v.SetRotation(rot[0], rot[1], rot[2], rot[3], rot[4], rot[5], rot[6], rot[7], rot[8]);
+		v.UpdatePlacement();
+
+
+		
+		PersonList passengers = v.GetPassengers();
+		if (passengers.GetNumPersons() > 0)
+			v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_FIRESTATION, Caller, 0, false);
+		v.PushActionWait(ACTION_APPEND, 2.2f);
+		
+		if (v.HasCommand(DUMMY_WARNINGLIGHTS))
+		{
+			v.EnableBlinker(BLT_NONE);
+			v.RemoveCommand(DUMMY_WARNINGLIGHTS);
+			v.AssignCommand(CMD_WARNINGLIGHTS);
+		} else
+			v.EnableBlinker(BLT_NONE);
+		v.EnableHeadLights(false);
+
+		if (v.HasCommand("DummyVehicleCalled"))
+			v.RemoveCommand("DummyVehicleCalled");
+		
+	}
+	
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{	
+		Vehicle v(Caller);
+		if(StrCompare(v.GetPrototypeFileName(), OBJ_FPT21) == 0)
+		{
+			EndReturnParking(Caller, "FPT 21");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN8) == 0)
+		{
+			EndReturnParking(Caller, "EPAN 8");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN3) == 0)
+		{
+			EndReturnParking(Caller, "EPAN 3");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL370) == 0)
+		{
+			EndReturnParking(Caller, "SPVL 370");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL920) == 0)
+		{
+			EndReturnParking(Caller, "SPVL 920");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV12) == 0)
+		{
+			EndReturnParking(Caller, "VSAV 12");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV39) == 0)
+		{
+			EndReturnParking(Caller, "VSAV 39");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV109) == 0)
+		{
+			EndReturnParking(Caller, "VSAV 109");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAV15) == 0)
+		{
+			EndReturnParking(Caller, "VSAV 15");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CA25) == 0)
+		{
+			EndReturnParking(Caller, "CA 25");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS202) == 0)
+		{
+			EndReturnParking(Caller, "PSE 202");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS132) == 0)
+		{
+			EndReturnParking(Caller, "PSE 132");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS189) == 0)
+		{
+			EndReturnParking(Caller, "PSE 189");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS191) == 0)
+		{
+			EndReturnParking(Caller, "PSE 191");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CD8) == 0)
+		{
+			EndReturnParking(Caller, "CD 8");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIGI10) == 0)
+		{
+			EndReturnParking(Caller, "VIGI 10");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPS6) == 0)
+		{
+			EndReturnParking(Caller, "VPS 6");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR50) == 0)
+		{
+			EndReturnParking(Caller, "AR 50");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR63) == 0)
+		{
+			EndReturnParking(Caller, "AR 63");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_ADPC4) == 0)
+		{
+			EndReturnParking(Caller, "ADPC 4");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIMP7) == 0)
+		{
+			EndReturnParking(Caller, "VIMP 7");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VAG2) == 0)
+		{
+			EndReturnParking(Caller, "VAG 2");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CESD2) == 0)
+		{
+			EndReturnParking(Caller, "CESD 2");
+		}
+		//else if(StrCompare(v.GetPrototypeFileName(), OBJ_CMO1) == 0)
+		//{
+			//EndReturnParking(Caller, "CMO 1");
+		//}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PEV5) == 0)
+		{
+			EndReturnParking(Caller, "PEV 5");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPC1) == 0)
+		{
+			EndReturnParking(Caller, "VPC 1");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID183) == 0)
+		{
+			EndReturnParking(Caller, "VID 183");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID220) == 0)
+		{
+			EndReturnParking(Caller, "VID 220");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID180) == 0)
+		{
+			EndReturnParking(Caller, "VID 180");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL212) == 0)
+		{
+			EndReturnParking(Caller, "SPVL 212");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL370) == 0)
+		{
+			EndReturnParking(Caller, "SPVL 370");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL920) == 0)
+		{
+			EndReturnParking(Caller, "SPVL 920");
+		}
+	}
+};
+
+object DummyAtFireStation : CommandScript
+{
+	DummyAtFireStation()
+	{
+		SetGroupID(DummyGroup);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int ChildID)
+	{
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Vehicle v(Caller);
+		ActorList l1;
+
+		if(v.IsCollidingWithVirtualObject(VO_CASERNELAND))
+			l1 = Game::GetActors(VO_SPAWNLAND);
+		else if(v.IsCollidingWithVirtualObject(VO_SQUADSAMU))
+			l1 = Game::GetActors(VO_SPAWNSAMU);
+		else if(v.IsCollidingWithVirtualObject(VO_SQUADTEC))
+			l1 = Game::GetActors(VO_SPAWNTEC);
+		else if(v.IsCollidingWithVirtualObject(VO_CASERNEBITCHE))
+			l1 = Game::GetActors(VO_SPAWNBITCHE);
+		else
+			return;
+
+		if(l1.GetNumActors() > 0)
+			Vector Delete = l1.GetActor(0)->GetPosition();
+
+		PersonList passengers = v.GetPassengers();
+		if (passengers.GetNumPersons() > 0)
+		{
+			for(int i=0; i<passengers.GetNumPersons(); i++)
+			{
+				Person *p = passengers.GetPerson(i);
+				p->PushActionLeaveCar(ACTION_NEWLIST, Caller);
+				p->PushActionMove(ACTION_APPEND, Delete);
+				p->PushActionDeleteOwner(ACTION_APPEND);
+			}
+		}
+	}
+};

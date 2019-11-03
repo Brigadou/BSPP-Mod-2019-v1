@@ -1,0 +1,57 @@
+object BasketDown: CommandScript
+{
+	BasketDown()
+	{
+		SetValidTargets(ACTOR_VEHICLE | ACTOR_FLOOR);
+		SetDoubleClickable(true);
+		SetGroupID(CGROUP_DLK_BASKET);
+		SetPriority(80);
+	}
+
+	bool CheckGroupVisibility(GameObject *Caller)
+	{
+		if(!Caller->IsValid())
+			return false;
+		if (Caller->GetType() == ACTOR_PERSON)
+		{
+			Person p(Caller);
+			return p.IsInDLKBasket() && p.CanLeaveDLK();
+		}
+		else if (Caller->GetType() == ACTOR_VEHICLE)
+		{
+			Vehicle v(Caller);
+			return v.IsUplifted();
+		}
+		return false;
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+		if(!Caller->IsValid())
+			return false;
+		if(Caller->GetType() == ACTOR_VEHICLE)
+		{
+			if (!Target->IsValid() || Target->GetID() != Caller->GetID())
+			   	return false;
+			Vehicle v(Caller);
+			if (!v.IsInstalled() || !v.IsUplifted() || v.IsUplifting())
+				return false;
+			if (v.GetInstallTargetID() != -1 && v.IsCannonInUse())
+				return false;
+			return true;
+		}
+		else if(Caller->GetType() == ACTOR_PERSON && !Target->IsValid())
+		{
+			Person p(Caller);
+			return p.CanLeaveDLK();
+		}
+
+		return false;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Vector Pos = Game::GetCommandPos();
+		Caller->PushActionBasketDown(ACTION_NEWLIST, Pos);
+	}
+};

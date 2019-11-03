@@ -1,0 +1,2465 @@
+//******************************************************************************************
+//
+//		Script Renfort Toutes unités
+//		Inspiré de Hoppah
+//		
+//******************************************************************************************
+
+//{ REGION CONST
+const char CMD_SIREN[]					= "Deux_Tons";
+const char CMD_AUTOSIREN_OFF[]			= "VcmdAutoSirenOff";
+const char CMD_WARNINGLIGHTS_OFF[] 	= "VcmdWarningLightsOff";
+const char CMD_WARNINGLIGHTS_ON[] 		= "VcmdWarningLightsOn";
+const char CMD_FLOODLIGHTS_OFF[] 		= "VcmdFloodLightsOff";
+const char CMD_FLOODLIGHTS_ON[] 		= "VcmdFloodLightsOn";
+
+const char DUMMY_HASSIREN[] 			= "DummyHasSiren";
+const char DUMMY_PATROL[] 				= "DummyPatrol";
+const char DUMMY_CALLCREW[] 			= "DummyCallCrew";
+const char DUMMY_VCALLED[]				= "DummyVehicleCalled";
+
+
+const char VO_SPAWN_ALL1[] 				= "spawn_all1";
+const char VO_SPAWN_ALL2[] 				= "spawn_all2";
+const char VO_SPAWN_ALL3[] 				= "spawn_all3";
+const char VO_SPAWN_ALL4[] 				= "spawn_all4";
+
+
+const char VO_CASERNELAND[] 			= "vo_caserne_land";
+const char VO_BITCHE[] 				= "vo_caserne_bitche";
+const char VO_SQUADPOL[] 				= "vo_commissariat";
+
+const char sNULL[]						= "";
+
+
+const char OBJ_SAMUBRA[]				= "mod:Prototypes/Persons/Ambulance/SAMU_brancard.e4p";
+const char OBJ_SAMUMED[]				= "mod:Prototypes/Persons/Ambulance/SAMU_medecin.e4p";
+const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/SAMU_infirmier.e4p";
+const char OBJ_MRG[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
+const char OBJ_COSSAMU[]					= "mod:Prototypes/Persons/Ambulance/COSsamu.e4p";
+
+const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/brancardier_sp.e4p";
+const char OBJ_SECSP[]					= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
+const char OBJ_SECCA[]					= "mod:Prototypes/Persons/Ambulance/secouriste_ca.e4p";
+const char OBJ_INFSP[]					= "mod:Prototypes/Persons/Ambulance/infirmier_sp.e4p";
+const char OBJ_MEDSP[]					= "mod:Prototypes/Persons/Ambulance/medecin_sp.e4p";
+const char OBJ_GILET[]					= "mod:Prototypes/Persons/Fire Department/gilet.e4p";
+const char OBJ_GILETCPT[]				= "mod:Prototypes/Persons/Fire Department/gilet_cpt.e4p";
+const char OBJ_CYNO[]					= "mod:Prototypes/Persons/Fire Department/tenue_cyno.e4p";
+const char OBJ_VIMP[]					= "mod:Prototypes/Persons/Fire Department/tenue_VIMP.e4p";
+const char OBJ_PLO[]					= "mod:Prototypes/Persons/Fire Department/diver.e4p";
+const char OBJ_NBC[]					= "mod:Prototypes/Persons/Fire Department/tenue_nbc.e4p";
+const char OBJ_FEU[]					= "mod:Prototypes/Persons/Fire Department/feu.e4p";
+const char OBJ_FEUCA[]					= "mod:Prototypes/Persons/Fire Department/feu_ca.e4p";
+const char OBJ_FEUCPT[]					= "mod:Prototypes/Persons/Fire Department/feu_cpt.e4p";
+const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
+const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
+const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
+const char OBJ_COSCTA[]					= "mod:Prototypes/Persons/Fire Department/COScta.e4p";
+const char OBJ_COSSP[]					= "mod:Prototypes/Persons/Fire Department/COSsp.e4p";
+
+const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
+const char OBJ_DDE[]					= "mod:Prototypes/Persons/TEC/bspp_dde1.e4p";
+const char OBJ_COSTEC[]					= "mod:Prototypes/Persons/TEC/cost.e4p";
+
+const char OBJ_308GIGN[]					= "mod:Prototypes/Persons/Police/308GIGN.e4p";
+const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
+const char OBJ_CRS[]					= "mod:Prototypes/Persons/Police/crs_mobile.e4p";
+const char OBJ_DEM[]					= "mod:Prototypes/Persons/Police/deminage.e4p";
+const char OBJ_GENNEG[]					= "mod:Prototypes/Persons/Police/gend_negociateur.e4p";
+const char OBJ_GEN[]					= "mod:Prototypes/Persons/Police/tenue_gn.e4p";
+const char OBJ_GEN2[]					= "mod:Prototypes/Persons/Police/tenue_gn2.e4p";
+const char OBJ_GEN3[]					= "mod:Prototypes/Persons/Police/tenue_gn3.e4p";
+const char OBJ_GENMOB[]					= "mod:Prototypes/Persons/Police/gn_mobile.e4p";
+const char OBJ_PSIG[]					= "mod:Prototypes/Persons/Police/tenue_psig.e4p";
+const char OBJ_GIGNNEG[]				= "mod:Prototypes/Persons/Police/gign_negociateur.e4p";
+const char OBJ_GIGNSNIP[]				= "mod:Prototypes/Persons/Police/gign_sniper.e4p";
+const char OBJ_GIGNASS[]				= "mod:Prototypes/Persons/Police/gign_assaut.e4p";
+const char OBJ_GIGNECL[]				= "mod:Prototypes/Persons/Police/gign_eclaireur.e4p";
+const char OBJ_POL[]					= "mod:Prototypes/Persons/Police/tenue_pn.e4p";
+const char OBJ_POL2[]					= "mod:Prototypes/Persons/Police/tenue_pn2.e4p";
+const char OBJ_POL3[]					= "mod:Prototypes/Persons/Police/tenue_pn3.e4p";
+const char OBJ_MOTOGN[]					= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
+const char OBJ_MOTOPN[]					= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
+const char OBJ_DOUANE[]					= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
+const char OBJ_COSPN[]					= "mod:Prototypes/Persons/Police/COSpn.e4p";
+const char OBJ_COSGN[]					= "mod:Prototypes/Persons/Police/COSgn.e4p";
+const char OBJ_COSGIGN[]				= "mod:Prototypes/Persons/Police/COSgign.e4p";
+
+//MEDICAL
+const char PROTO_VSAV[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
+const char PROTO_VSAV2[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
+const char PROTO_PSR[] 					= "mod:Prototypes/Vehicles/Ambulance/PSR.e4p";
+const char PROTO_ARIveco[] 				= "mod:Prototypes/Vehicles/Ambulance/ARiveco.e4p";
+const char PROTO_ARMaster[] 			= "mod:Prototypes/Vehicles/Ambulance/ARmaster.e4p";
+const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC.e4p";
+const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
+const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
+const char PROTO_VES[] 					= "mod:Prototypes/Vehicles/Ambulance/VES.e4p";
+
+//POMPIER
+const char PROTO_CA[] 					= "mod:Prototypes/Vehicles/Fire Department/CA.e4p";
+const char PROTO_CCR[]					= "mod:Prototypes/Vehicles/Fire Department/CCR.e4p";
+const char PROTO_CD[]					= "mod:Prototypes/Vehicles/Fire Department/CD.e4p";
+const char PROTO_CESD[]					= "mod:Prototypes/Vehicles/Fire Department/CESD.e4p";
+const char PROTO_CIC_CRR[]				= "mod:Prototypes/Vehicles/Fire Department/CICCRR.e4p";
+const char PROTO_CRAC[] 				= "mod:Prototypes/Vehicles/Fire Department/CRAC.e4p";
+const char PROTO_CSP[] 					= "mod:Prototypes/Vehicles/Fire Department/CSP.e4p";
+const char PROTO_EPAAtego[] 			= "mod:Prototypes/Vehicles/Fire Department/EPA_atego.e4p";
+const char PROTO_EPAIveco[]				= "mod:Prototypes/Vehicles/Fire Department/EPA_iveco.e4p";
+const char PROTO_FPTAtego[]				= "mod:Prototypes/Vehicles/Fire Department/FPTatego.e4p";
+const char PROTO_FPTMidlum[]			= "mod:Prototypes/Vehicles/Fire Department/FPTmidlum.e4p";
+const char PROTO_VIMP[]					= "mod:Prototypes/Vehicles/Fire Department/VIMP.e4p";
+const char PROTO_PEV[]					= "mod:Prototypes/Vehicles/Fire Department/PEV.e4p";
+const char PROTO_PSE2[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE2.e4p";
+const char PROTO_PSE3[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE3.e4p";
+const char PROTO_PSE4[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE4.e4p";
+const char PROTO_PSE5[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE5.e4p";
+const char PROTO_PST[] 					= "mod:Prototypes/Vehicles/Fire Department/PST.e4p";
+const char PROTO_SIS[] 					= "mod:Prototypes/Vehicles/Fire Department/SIS.e4p";
+const char PROTO_SPTT[] 				= "mod:Prototypes/Vehicles/Fire Department/SPTT.e4p";
+const char PROTO_SPVL2clio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVL2clio.e4p";
+const char PROTO_SPVLclio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio.e4p";
+const char PROTO_SPVLkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLkangoo.e4p";
+const char PROTO_VAG[] 					= "mod:Prototypes/Vehicles/Fire Department/VAG.e4p";
+const char PROTO_VID[] 					= "mod:Prototypes/Vehicles/Fire Department/VID.e4p";
+const char PROTO_VIGI[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI.e4p";
+const char PROTO_VPS[] 					= "mod:Prototypes/Vehicles/Fire Department/VPS.e4p";
+const char PROTO_VSC[] 					= "mod:Prototypes/Vehicles/Fire Department/VSC.e4p";
+const char PROTO_VPB[] 					= "mod:Prototypes/Vehicles/Fire Department/VPB.e4p";
+
+//TEC
+const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
+const char PROTO_EDF[] 					= "mod:Prototypes/Vehicles/TEC/erdf.e4p";
+const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
+
+
+//SAMU
+const char PROTO_UMH1[] 				= "mod:Prototypes/Vehicles/Ambulance/ARValenciennes.e4p";
+const char PROTO_UMH2[] 				= "mod:Prototypes/Vehicles/Ambulance/ARSmur28.e4p";
+const char PROTO_VPCM[]					= "mod:Prototypes/Vehicles/Ambulance/va.e4p";
+const char PROTO_PFG[]					= "mod:Prototypes/Vehicles/Ambulance/vlmdouai.e4p";
+const char PROTO_VES[]					= "mod:Prototypes/Vehicles/Ambulance/S-Max_2010_NEF.e4p";
+const char PROTO_PF1[]					= "mod:Prototypes/Vehicles/Ambulance/PF_FOURGON1.e4p";
+const char PROTO_PF2[]					= "mod:Prototypes/Vehicles/Ambulance/PF_FOURGON2.e4p";
+const char PROTO_DRAGON[]				= "mod:Prototypes/Vehicles/Ambulance/Dragon62.e4p";
+
+//POLICE
+const char PROTO_207sw[]				= "mod:Prototypes/Vehicles/Police/207sw.e4p";
+const char PROTO_308PN[]				= "mod:Prototypes/Vehicles/Police/308_pn.e4p";
+const char PROTO_308GIGN[]				= "mod:Prototypes/Vehicles/Police/308gign.e4p";
+const char PROTO_BERLINGOPN[]			= "mod:Prototypes/Vehicles/Police/berlingo_pn.e4p";
+const char PROTO_C4BAN[]				= "mod:Prototypes/Vehicles/Police/c4_ban.e4p";
+const char PROTO_C4GN[]					= "mod:Prototypes/Vehicles/Police/c4_gend.e4p";
+const char PROTO_C8GIGN[]				= "mod:Prototypes/Vehicles/Police/c8_gign.e4p";
+const char PROTO_ESPACEGIGN[]			= "mod:Prototypes/Vehicles/Police/espace_gign.e4p";
+const char PROTO_EXPERTGIGN[]			= "mod:Prototypes/Vehicles/Police/expert_gign.e4p";
+const char PROTO_GIGN[]					= "mod:Prototypes/Vehicles/Police/gign.e4p";
+const char PROTO_GIGN2[]				= "mod:Prototypes/Vehicles/Police/gign2.e4p";
+const char PROTO_MASTERCRS[]			= "mod:Prototypes/Vehicles/Police/master_crs.e4p";
+const char PROTO_DEMINAGE[]				= "mod:Prototypes/Vehicles/Police/master_deminage.e4p";
+const char PROTO_MASTERGIGN[]			= "mod:Prototypes/Vehicles/Police/master_gign.e4p";
+const char PROTO_MASTERPN[]				= "mod:Prototypes/Vehicles/Police/master_pn.e4p";
+const char PROTO_MASTERPN2[]			= "mod:Prototypes/Vehicles/Police/master_pn2.e4p";
+const char PROTO_MASTERPN3[]			= "mod:Prototypes/Vehicles/Police/master_pn3.e4p";
+const char PROTO_MASTERPN4[]			= "mod:Prototypes/Vehicles/Police/master_pn4.e4p";
+const char PROTO_MASTERVTD[]			= "mod:Prototypes/Vehicles/Police/master_vtd.e4p";
+const char PROTO_MONDEO75N[]			= "mod:Prototypes/Vehicles/Police/mondeo_75n.e4p";
+const char PROTO_SCENICPN[]				= "mod:Prototypes/Vehicles/Police/scenic_pn.e4p";
+const char PROTO_TRANSITCRS[]			= "mod:Prototypes/Vehicles/Police/TRANSIT_crs.e4p";
+const char PROTO_ECUREUIL[]				= "mod:Prototypes/Vehicles/03 LA Police/as350_lapd.e4p";
+const char PROTO_GETAWAY[]				= "mod:Prototypes/Vehicles/Police/getawaycar.e4p";
+const char PROTO_MOTOGN[]				= "mod:Prototypes/Vehicles/Police/BMW1200RT.e4p";
+const char PROTO_MOTOPN[]				= "mod:Prototypes/Vehicles/Police/BMW1200RTPN.e4p";
+
+//CS ETAT-MAJOR
+const char PROTO_VSAV12[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV12.e4p";
+const char PROTO_VSAV39[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV39.e4p";
+const char PROTO_VSAV109[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV109.e4p";
+const char PROTO_PS202[] 				= "mod:Prototypes/Vehicles/Fire Department/PS202.e4p";
+const char PROTO_EPAN8[] 				= "mod:Prototypes/Vehicles/Fire Department/EPAN8.e4p";
+const char PROTO_PS132[] 				= "mod:Prototypes/Vehicles/Fire Department/PS132.e4p";
+const char PROTO_FPT21[]				= "mod:Prototypes/Vehicles/Fire Department/FPT21.e4p";
+const char PROTO_CD8[]					= "mod:Prototypes/Vehicles/Fire Department/CD8.e4p";
+const char PROTO_VID183[] 				= "mod:Prototypes/Vehicles/Fire Department/VID183.e4p";
+const char PROTO_VID220[] 				= "mod:Prototypes/Vehicles/Fire Department/VID220.e4p";
+const char PROTO_VPC1[] 				= "mod:Prototypes/Vehicles/Fire Department/VPC1.e4p";
+const char PROTO_SPVL370[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL370.e4p";
+const char PROTO_SPVL920[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL920.e4p";
+const char PROTO_VPS6[] 				= "mod:Prototypes/Vehicles/Fire Department/VPS6.e4p";
+const char PROTO_VIGI10[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI10.e4p";
+const char PROTO_CESD2[]				= "mod:Prototypes/Vehicles/Fire Department/CESD2.e4p";
+const char PROTO_VIMP7[]				= "mod:Prototypes/Vehicles/Fire Department/VIMP7.e4p";
+const char PROTO_PEV5[]					= "mod:Prototypes/Vehicles/Fire Department/PEV5.e4p";
+const char PROTO_VAG2[] 				= "mod:Prototypes/Vehicles/Fire Department/VAG2.e4p";
+const char PROTO_CA25[] 				= "mod:Prototypes/Vehicles/Fire Department/CA25.e4p";
+//const char PROTO_CMO1[] 				= "mod:Prototypes/Vehicles/Fire Department/CMO1.e4p";
+const char PROTO_AR50[] 				= "mod:Prototypes/Vehicles/Ambulance/AR50.e4p";
+const char PROTO_AR63[] 				= "mod:Prototypes/Vehicles/Ambulance/AR63.e4p";
+const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
+
+const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPC.e4p";
+
+//CS BITCHE
+const char PROTO_VSAV15[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV15.e4p";
+const char PROTO_PS189[] 				= "mod:Prototypes/Vehicles/Fire Department/PS189.e4p";
+const char PROTO_PS191[] 				= "mod:Prototypes/Vehicles/Fire Department/PS191.e4p";
+const char PROTO_EPAN3[]				= "mod:Prototypes/Vehicles/Fire Department/EPAN3.e4p";
+const char PROTO_SPVL212[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL212.e4p";
+const char PROTO_VID180[] 				= "mod:Prototypes/Vehicles/Fire Department/VID180.e4p";
+
+
+const char SND_VSAV[]					= "mod:Audio/FX/depart/VSAV1.wav";
+const char SND_VSAV2[]					= "mod:Audio/FX/radio/VSAV2.wav";
+const char SND_PSR[]					= "mod:Audio/FX/radio/VSAVrenfort.wav";
+const char SND_AR[]						= "mod:Audio/FX/radio/AR1.wav";
+const char SND_AR2[]					= "mod:Audio/FX/radio/AR2.wav";
+
+const char UNNAMED[] 					= "Unnamed";
+
+Vector myVector;
+char vo_spawn[20];
+
+//}
+
+
+class ClassRenfort: CommandScript
+{	
+
+
+	char* GetProrotypePerson(int childP)
+	{
+		switch(childP)
+		{
+			case 0 : return NULL; break;
+			case 1 : return OBJ_SAMUBRA; break;
+			case 2 : return OBJ_SAMUMED;break;
+			case 3 : return OBJ_SAMUINF;break;
+			case 4 : return OBJ_MRG;break;
+			case 5 : return OBJ_BRASP;break;
+			case 6 : return OBJ_SECSP;break;
+			case 7 : return OBJ_SECCA;break;
+			case 8 : return OBJ_INFSP;break;
+			case 9 : return OBJ_MEDSP;break;
+			case 10 : return OBJ_GILET;break;
+			case 11 : return OBJ_GILETCPT;break;
+			case 12 : return OBJ_CYNO;break;
+			case 13 : return OBJ_VIMP;break;
+			case 15 : return OBJ_PLO;break;
+			case 16 : return OBJ_NBC;break;
+			case 17 : return OBJ_FEU;break;
+			case 18 : return OBJ_FEUCA;break;
+			case 19 : return OBJ_FEUCPT;break;
+			case 20 : return OBJ_FDF;break;
+			case 21 : return OBJ_ARI;break;
+			case 22 : return OBJ_ARICA;break;
+			case 23 : return OBJ_ERDF;break;
+			case 24 : return OBJ_DDE;break;
+			case 25 : return OBJ_308GIGN;break;
+			case 26 : return OBJ_BRI;break;
+			case 27 : return OBJ_CRS;break;
+			case 28 : return OBJ_DEM;break;
+			case 29 : return OBJ_GENNEG;break;
+			case 30 : return OBJ_GEN;break;
+			case 31 : return OBJ_GEN2;break;
+			case 32 : return OBJ_GEN3;break;
+			case 33 : return OBJ_GENMOB;break;
+			case 34 : return OBJ_PSIG;break;
+			case 35 : return OBJ_GIGNNEG;break;
+			case 36 : return OBJ_GIGNSNIP;break;
+			case 37 : return OBJ_GIGNASS;break;
+			case 38 : return OBJ_GIGNECL;break;
+			case 39 : return OBJ_POL;break;
+			case 40 : return OBJ_POL2;break;
+			case 41 : return OBJ_POL3;break;
+			case 42 : return OBJ_MOTOGN;break;
+			case 43 : return OBJ_MOTOPN;break;
+			case 44 : return OBJ_DOUANE;break;
+			case 45 : return OBJ_COSSAMU;break;
+			case 46 : return OBJ_COSSP;break;
+			case 47 : return OBJ_COSCTA;break;
+			case 48 : return OBJ_COSPN;break;
+			case 49 : return OBJ_COSGN;break;
+			case 50 : return OBJ_COSGN;break;
+			case 51 : return OBJ_COSTEC;break;
+			default :
+				System::Log("[RENFORT] un child Id n'a pas été trouvé");
+				return;
+		}
+	}
+
+
+	void Renfort(GameObject *Caller, Vector targetDep, char PROTO[], VehicleType TYPE, char SQUAD[], int ChildP[], int NbMaxPassager, int NbMaxTransport)
+	{
+		Caller->PushActionSwitchAnim(ACTION_APPEND, "talkmike");
+		Caller->PushActionWait(ACTION_APPEND, 3.5f);
+		Caller->PushActionSwitchAnim(ACTION_APPEND, "idle");
+		
+		if (Game::IsCampaign() || Game::IsMission()) 
+			return; 
+		
+		Vehicle *theCar = NULL;
+		float bestCar = 0.;
+		VehicleList allCars(TYPE, TYPE);
+		for (int i = 0; i < allCars.GetNumVehicles(); i++) 
+		{
+			Vehicle *aCar = allCars.GetVehicle(i);
+			
+			if (aCar->GetPlayerMP() == Caller->GetPlayerMP() && 						//appartient bien au joueur
+			StrCompare(aCar->GetPrototypeFileName(), PROTO) == 0 && 					//et bien le veh en question
+			!aCar->IsInstalled() &&														//n'est pas installé
+			!aCar->IsCurrentAction("EActionCrossBridge") &&								//ne traverse pas un pont flottant
+			!aCar->IsCurrentAction("EActioninstall") &&									//n'est pas installé
+			!aCar->IsCurrentAction("EActionloadup") &&									//ne charge pas
+			!aCar->IsCurrentAction("EActionUnload") &&									//ne décharge pas
+			!aCar->IsCurrentAction("EActionDropWithCrane") &&							//ne pose pas avec la grue
+			!aCar->HasCommand("DummyWaterSupplyOn") &&									//n'a pas de lance installé
+			!aCar->HasCommand(DUMMY_VCALLED))											//n'est pas deja appelé
+			{
+				float distCurrCar = Math::dist(targetDep.x, targetDep.y, aCar->GetPosition().x, aCar->GetPosition().y);
+				if (distCurrCar < bestCar || bestCar == 0.) 
+				{
+					theCar = aCar;
+					bestCar = distCurrCar;
+				}
+			}
+		}
+		
+		if (theCar)
+		{
+			bool VehicleCalled = false;
+			//Si la voiture n'est pas dans la caserne
+			if (!theCar->IsCollidingWithVirtualObject(SQUAD))
+			{
+				theCar->PushActionWait(ACTION_NEWLIST, 0.1f);
+				if (theCar->HasCommand(DUMMY_PATROL))
+					theCar->PushActionExecuteCommand(ACTION_APPEND, DUMMY_PATROL, theCar, 1, false);
+
+				if (!theCar->HasCommand(DUMMY_HASSIREN) && theCar->HasCommand(CMD_AUTOSIREN_OFF))
+					Game::ExecuteCommand(CMD_SIREN, theCar, theCar);
+				if (theCar->HasCommand(CMD_WARNINGLIGHTS_OFF)) 
+				{
+					theCar->EnableBlinker(BLT_NONE);
+					theCar->RemoveCommand(CMD_WARNINGLIGHTS_OFF);
+					theCar->AssignCommand(CMD_WARNINGLIGHTS_ON);
+				}
+				if (theCar->HasCommand(CMD_FLOODLIGHTS_OFF))
+				{
+					theCar->EnableSpecialLights(false);
+					theCar->RemoveCommand(CMD_FLOODLIGHTS_OFF);
+					theCar->AssignCommand(CMD_FLOODLIGHTS_ON);
+				}
+				theCar->PushActionMove(ACTION_APPEND, targetDep);
+				theCar->AssignCommand(DUMMY_VCALLED);
+				return;
+			}
+			else if (theCar->IsCollidingWithVirtualObject(SQUAD))
+			{
+				if (!VehicleCalled && !theCar->HasCommand(DUMMY_VCALLED))
+				{
+					theCar->AssignCommand(DUMMY_VCALLED);
+					Vehicle v = theCar;
+					VehicleCalled = true;
+				}	
+			}
+
+			if (VehicleCalled)
+			{
+				PersonList passengers = v.GetPassengers();
+				v.PushActionWait(ACTION_NEWLIST, 0.1f);
+
+				if (passengers.GetNumPersons() == 0)
+				{
+					for (int i = 0 ; i < 6 ; i++)
+					{
+						int currentChildP = ChildP[i];
+						if (currentChildP != 0) 
+						{
+							v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_CALLCREW, Caller, currentChildP, false);
+							v.PushActionWait(ACTION_APPEND, 0.5f);
+						}
+					}
+				}
+				int truePassengers = 0;
+				for (int i = 0 ; i < 6 ; i++)
+				{
+					if (ChildP[i] > 0) 
+						truePassengers++;
+				}
+				if (passengers.GetNumPersons() != truePassengers)		//en cas que tous le perso n'a pas embarqué
+					v.PushActionExecuteCommand(ACTION_APPEND, "DummyWaitSquad", Caller, truePassengers, false);
+
+				if (!v.HasCommand(DUMMY_HASSIREN) && v.HasCommand(CMD_AUTOSIREN_OFF))
+					v.PushActionExecuteCommand(ACTION_APPEND, CMD_SIREN, Caller, 0, false);
+
+				if (v.HasCommand(CMD_WARNINGLIGHTS_OFF))
+				{
+					v.EnableBlinker(BLT_NONE);
+					v.RemoveCommand(CMD_WARNINGLIGHTS_OFF);
+					v.AssignCommand(CMD_WARNINGLIGHTS_ON);
+				}
+				if (v.HasCommand(CMD_FLOODLIGHTS_OFF))
+				{
+					v.EnableSpecialLights(false);
+					v.RemoveCommand(CMD_FLOODLIGHTS_OFF);
+					v.AssignCommand(CMD_FLOODLIGHTS_ON);
+				}
+				v.PushActionMove(ACTION_APPEND, targetDep);
+				v.PushActionExecuteCommand(ACTION_APPEND, "DUMMYDisableSiren", Caller, 0, false); 
+				System::Log("[RENFORT] parti");
+				return;
+			}
+			
+		} else {	
+			Person p(Caller);
+			char spawn[10];
+
+			
+			int Choix = Math::rand() % 4;
+			
+			if (Choix == 0)
+			{
+				snprintf(vo_spawn,20,"%s",VO_SPAWN_ALL1);
+				snprintf(spawn,10,"%s","spawn1");
+				
+			} else if (Choix == 1)
+			{
+				snprintf(vo_spawn,20,"%s",VO_SPAWN_ALL2);
+				snprintf(spawn,10,"%s","spawn2");
+			} else if (Choix == 2)
+			{
+				snprintf(vo_spawn,20,"%s",VO_SPAWN_ALL3);
+				snprintf(spawn,10,"%s","spawn3");
+			} else if (Choix == 3)
+			{
+				snprintf(vo_spawn,20,"%s",VO_SPAWN_ALL4);
+				snprintf(spawn,10,"%s","spawn4");
+			}
+			
+			GameObjectList spawn_List(spawn);
+			GameObject obj_spawn;
+			if (spawn_List.GetNumObjects() == 1)
+			{
+				System::Log("test trouve");
+				obj_spawn = spawn_List.GetObject(0);
+			} else {
+				System::Log("[RENFORT] spawn non trouve");
+				return;
+			}
+						
+			Vehicle n = Game::CreateVehicle(PROTO, UNNAMED);
+			n.SetPlayerMP(p.GetPlayerMP());
+			n.SetMaxPassengers(NbMaxPassager);
+			n.SetMaxTransports(NbMaxTransport);
+
+			for (int i = 0 ; i < 6 ; i++)
+			{
+				int currentChildP = ChildP[i];
+
+				if(currentChildP != 0)
+				{
+					char obj[] = GetProrotypePerson(currentChildP);
+					if(obj != NULL && StrCompare("", obj) != 0)
+					{
+						Person p = Game::CreatePerson(obj, UNNAMED);
+						p.SetPlayerMP(Caller->GetPlayerMP());
+						p.SetUpgradeLevel(3);
+						n.AddPassenger(&p);
+
+						if ((StrCompare(p.GetPrototypeFileName(), OBJ_SAMUMED) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SAMUINF) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SECSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_INFSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_MEDSP) == 0))
+							p.SetEquipment(EQUIP_EMERGENCY_CASE);
+						if (StrCompare(p.GetPrototypeFileName(), OBJ_GIGNECL) == 0)
+							p.SetEquipment(EQUIP_LAPTOP);
+						if (StrCompare(p.GetPrototypeFileName(), OBJ_GIGNNEG) == 0 || (StrCompare(p.GetPrototypeFileName(), OBJ_GENNEG) == 0))
+							p.SetEquipment(EQUIP_MEGAPHONE);
+						if (StrCompare(p.GetPrototypeFileName(), OBJ_GIGNSNIP) == 0)
+							p.SetEquipment(EQUIP_RIFLE);
+						if (StrCompare(p.GetPrototypeFileName(), OBJ_ERDF) == 0)
+							p.SetEquipment(EQUIP_THW_CASE);
+					}
+					else
+					{
+						System::Log("[RENFORT] BUG : pas de prototype corespondant au nombre %i - %s", currentChildP, obj);
+					}
+				}
+			}
+			
+			
+			n.SetPosition(obj_spawn.GetPosition());
+			float rot[9];
+			obj_spawn.GetRotation(rot[0], rot[1], rot[2], rot[3], rot[4], rot[5], rot[6], rot[7], rot[8]);
+			n.SetRotation(rot[0], rot[1], rot[2], rot[3], rot[4], rot[5], rot[6], rot[7], rot[8]);
+			n.UpdatePlacement();
+			n.Hide();
+
+			
+			GameObjectList l1;
+			Game::CollectObstaclesOnVirtualObject(vo_spawn, l1, ACTOR_VEHICLE);
+			if (l1.GetNumObjects() == 0)
+			{
+				n.PushActionShowHide(ACTION_NEWLIST, false);
+				n.PushActionMove(ACTION_APPEND, targetDep);				
+			} else {
+				int Alea2 = Math::rand() % 10;
+				System::Log("[RENFORT] Alea2 %i", Alea2);
+				n.PushActionWait(ACTION_APPEND, Alea2);
+				
+				myVector=targetDep;
+				n.PushActionExecuteCommand(ACTION_APPEND, "DummyWaitVeh", Caller, 0, false); 
+			}	
+
+			n.AssignCommand(DUMMY_VCALLED);
+			
+			if (!n.HasCommand(DUMMY_HASSIREN) && n.HasCommand(CMD_AUTOSIREN_OFF) && !Input::LShiftPressed() && !Input::RShiftPressed())
+				Game::ExecuteCommand(CMD_SIREN, &n, &n);
+		}
+	}
+};
+
+
+/*********************************************************************
+********   CS ET-BITCHE   *************************************************
+*********************************************************************/
+object Renfort_VSAV12 : CommandScript
+{
+	Renfort_VSAV12()
+	{
+		SetIcon("VSAV");
+		SetCursor("VSAV");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV12, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 2, 1);
+		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
+	}
+};
+
+object Renfort_VSAV39 : CommandScript
+{
+	Renfort_VSAV39()
+	{
+		SetIcon("VSAV");
+		SetCursor("VSAV");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV39, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 2, 1);
+		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
+	}
+};
+
+object Renfort_VSAV109 : CommandScript
+{
+	Renfort_VSAV109()
+	{
+		SetIcon("VSAV");
+		SetCursor("VSAV");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV109, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 2, 1);
+		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
+	}
+};
+
+object Renfort_VSAV15 : CommandScript
+{
+	Renfort_VSAV15()
+	{
+		SetIcon("VSAV");
+		SetCursor("VSAV");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV15, VT_AMBULANCE_RTW, VO_BITCHE, personnelVehicule, 2, 1);
+		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
+	}
+};
+
+object Renfort_AR50 : CommandScript
+{
+	Renfort_AR50()
+	{
+		SetIcon("ARIveco");
+		SetCursor("ARIveco");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,8,9,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_AR50, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 3, 1);
+		Audio::PlaySample3D(SND_AR2, Caller->GetPosition());
+	}
+};
+
+object Renfort_AR63 : CommandScript
+{
+	Renfort_AR63()
+	{
+		SetIcon("ARmaster");
+		SetCursor("ARmaster");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,8,9,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_AR63, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 3, 1);
+		Audio::PlaySample3D(SND_AR, Caller->GetPosition());
+	}
+};
+
+object Renfort_ADPC4 : CommandScript
+{
+	Renfort_ADPC4()
+	{
+		SetIcon("MasterPC");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC4, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 2, 1);
+	}
+};
+
+object Renfort_CMO1 : CommandScript
+{
+	Renfort_CMO1()
+	{
+		SetIcon("VPCM");
+		SetCursor("VPCM");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {9,9,8,8,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CMO1, VT_AMBULANCE_NEF, VO_CASERNELAND, personnelVehicule, 4, 0);
+	}
+};
+
+object Renfort_CA25 : CommandScript
+{
+	Renfort_CA25()
+	{
+		SetIcon("CA");
+		SetCursor("CA");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CA25, VT_FIREFIGHTERS_RW, VO_CASERNELAND,  personnelVehicule, 2, 0);
+	
+	}
+};
+
+object Renfort_CD8 : CommandScript
+{
+	Renfort_CD8()
+	{
+		SetIcon("CD");
+		SetCursor("CD");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,10,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CD8, VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 2, 0);	
+	}
+};
+
+object Renfort_CESD2 : CommandScript
+{
+	Renfort_CESD2()
+	{
+		SetIcon("CESD");
+		SetCursor("CESD");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,10,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CESD2, VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 3, 0);	
+	}
+};
+
+object Renfort_EPAN8 : CommandScript
+{
+	Renfort_EPAN8()
+	{
+		SetIcon("EPAAtego");
+		SetCursor("EPAAtego");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+	
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,17,18,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAN8, VT_FIREFIGHTERS_DLK, VO_CASERNELAND, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_EPAN3 : CommandScript
+{
+	Renfort_EPAN3()
+	{
+		SetIcon("EPAIveco");
+		SetCursor("EPAIveco");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,17,18,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAN3, VT_FIREFIGHTERS_DLK, VO_BITCHE, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_FPT21 : CommandScript
+{
+	Renfort_FPT21()
+	{
+		SetIcon("FPTMidlum");
+		SetCursor("FPTMidlum");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_FPT21, VT_FIREFIGHTERS_GTF, VO_CASERNELAND, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_VIMP7 : CommandScript
+{
+	Renfort_VIMP7()
+	{
+		SetIcon("VIMP");
+		SetCursor("VIMP");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {13,13,13,13,13,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VIMP7, VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 5, 0);
+	}
+};
+
+object Renfort_PEV5 : CommandScript
+{
+	Renfort_PEV5()
+	{
+		SetIcon("PEV");
+		SetCursor("PEV");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,17,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PEV5, VT_FIREFIGHTERS_RW, VO_CASERNELAND,  personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_PS202 : CommandScript
+{
+	Renfort_PS202()
+	{
+		SetIcon("PSE5");
+		SetCursor("PSE5");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PS202, VT_FIREFIGHTERS_GTF, VO_CASERNELAND, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_PS132 : CommandScript
+{
+	Renfort_PS132()
+	{
+		SetIcon("PSE4");
+		SetCursor("PSE4");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PS132, VT_FIREFIGHTERS_GTF, VO_CASERNELAND, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_PS189 : CommandScript
+{
+	Renfort_PS189()
+	{
+		SetIcon("PSE4");
+		SetCursor("PSE4");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PS189, VT_FIREFIGHTERS_GTF, VO_BITCHE, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_PS191 : CommandScript
+{
+	Renfort_PS191()
+	{
+		SetIcon("PSE4");
+		SetCursor("PSE4");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PS191, VT_FIREFIGHTERS_GTF, VO_BITCHE, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_SPVL370 : CommandScript
+{
+	Renfort_SPVL370()
+	{
+		SetIcon("SPVLclio");
+		SetCursor("SPVLclio");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {11,10,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL370,  VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_SPVL920 : CommandScript
+{
+	Renfort_SPVL920()
+	{
+		SetIcon("SPVLkangoo");
+		SetCursor("SPVLkangoo");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL920,  VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_SPVL212 : CommandScript
+{
+	Renfort_SPVL212()
+	{
+		SetIcon("SPVLkangoo");
+		SetCursor("SPVLkangoo");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL212,  VT_FIREFIGHTERS_RW, VO_BITCHE, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VAG2 : CommandScript
+{
+	Renfort_VAG2()
+	{
+		SetIcon("VAG");
+		SetCursor("VAG");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {13,13,13,13,13,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VAG2,  VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 5, 0);
+	}
+};
+
+object Renfort_VID220 : CommandScript
+{
+	Renfort_VID220()
+	{
+		SetIcon("VIDkangoo");
+		SetCursor("VIDkangoo");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID220,  VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VID183 : CommandScript
+{
+	Renfort_VID183()
+	{
+		SetIcon("VIDkangoo");
+		SetCursor("VIDkangoo");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID183,  VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VID180 : CommandScript
+{
+	Renfort_VID180()
+	{
+		SetIcon("VIDkangoo");
+		SetCursor("VIDkangoo");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID180,  VT_FIREFIGHTERS_RW, VO_BITCHE, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VIGI10 : CommandScript
+{
+	Renfort_VIGI10()
+	{
+		SetIcon("VIGI");
+		SetCursor("VIGI");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,17,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VIGI10, VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_VPS6 : CommandScript
+{
+	Renfort_VPS6()
+	{
+		SetIcon("VPS");
+		SetCursor("VPS");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,10,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPS6,  VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VPC1 : CommandScript
+{
+	Renfort_VPC1()
+	{
+		SetIcon("VPC");
+		SetCursor("VPC");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {12,12,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPC1,  VT_FIREFIGHTERS_RW, VO_CASERNELAND, personnelVehicule, 2, 2);
+	}
+};
+
+
+/*********************************************************************
+********   MEDICAL   *************************************************
+*********************************************************************/
+object Renfort_VSAV : CommandScript
+{
+	Renfort_VSAV()
+	{
+		SetIcon("VSAV");
+		SetCursor("VSAV");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 1);
+		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
+	}
+};
+
+object Renfort_VSAV2 : CommandScript
+{
+	Renfort_VSAV2()
+	{
+		SetIcon("VSAV2");
+		SetCursor("VSAV2");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV2, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 1);
+		Audio::PlaySample3D(SND_VSAV2, Caller->GetPosition());
+	}
+};
+
+object Renfort_PSR : CommandScript
+{
+	Renfort_PSR()
+	{
+		SetIcon("VSAV2");
+		SetCursor("VSAV2");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSR, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 1);
+		Audio::PlaySample3D(SND_PSR, Caller->GetPosition());		
+	}
+};
+
+object Renfort_ARMaster : CommandScript
+{
+	Renfort_ARMaster()
+	{
+		SetIcon("ARMaster");
+		SetCursor("ARmaster");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,8,9,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ARMaster, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 3, 1);
+		Audio::PlaySample3D(SND_AR2, Caller->GetPosition());
+	}
+};
+
+object Renfort_ARIveco : CommandScript
+{
+	Renfort_ARIveco()
+	{
+		SetIcon("ARIveco");
+		SetCursor("ARiveco");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,8,9,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ARIveco, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 3, 1);
+		Audio::PlaySample3D(SND_AR, Caller->GetPosition());
+	}
+};
+
+object Renfort_MasterPC : CommandScript
+{
+	Renfort_MasterPC()
+	{
+		SetIcon("MasterPC");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 1);
+	}
+};
+
+object Renfort_VPCM : CommandScript
+{
+	Renfort_VPCM()
+	{
+		SetIcon("VPCM");
+		SetCursor("VPCM");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {9,9,8,8,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPCM, VT_AMBULANCE_NEF, sNULL, personnelVehicule, 4, 0);
+	}
+};
+
+object Renfort_PFG : CommandScript
+{
+	Renfort_PFG()
+	{
+		SetIcon("PFG");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {4,4,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PFG, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 5);
+	}
+};
+
+object Renfort_VES : CommandScript
+{
+	Renfort_VES()
+	{
+		SetIcon("VES");
+		SetCursor("VES");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {9,9,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VES, VT_AMBULANCE_NEF, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+/*********************************************************************
+********   POMPIER   *************************************************
+*********************************************************************/
+
+object Renfort_CA : CommandScript
+{
+	Renfort_CA()
+	{
+		SetIcon("CA");
+		SetCursor("CA");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CA, VT_FIREFIGHTERS_RW, sNULL,  personnelVehicule, 2, 0);
+	
+	}
+};
+
+object Renfort_CCR : CommandScript
+{
+	Renfort_CCR()
+	{
+		SetIcon("CCR");
+		SetCursor("CCR");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+	
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,18,10};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CCR, VT_FIREFIGHTERS_TLF, sNULL, personnelVehicule, 6, 0);	
+	}
+};
+
+object Renfort_CD : CommandScript
+{
+	Renfort_CD()
+	{
+		SetIcon("CD");
+		SetCursor("CD");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,10,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CD, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);	
+	}
+};
+
+object Renfort_CESD : CommandScript
+{
+	Renfort_CESD()
+	{
+		SetIcon("CESD");
+		SetCursor("CESD");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,10,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CESD, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 3, 0);	
+	}
+};
+
+object Renfort_CIC_CRR : CommandScript
+{
+	Renfort_CIC_CRR()
+	{
+		SetIcon("ciccrr");
+		SetCursor("ciccrr");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {16,16,16,16,10,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CIC_CRR, VT_FIREFIGHTERS_DEKONP, sNULL, personnelVehicule, 5, 2);
+	}
+};
+
+object Renfort_CRAC : CommandScript
+{
+	Renfort_CRAC()
+	{
+		SetIcon("CRAC");
+		SetCursor("CRAC");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CRAC, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_CSP : CommandScript
+{
+	Renfort_CSP()
+	{
+		SetIcon("CSP");
+		SetCursor("CSP");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {15,15,15,10,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CSP, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 4, 0);
+	}
+};
+
+object Renfort_SIS : CommandScript
+{
+	Renfort_SIS()
+	{
+		SetIcon("SIS");
+		SetCursor("SIS");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {15,15,15,10,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SIS, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 4, 0);
+	}
+};
+
+object Renfort_EPAAtego : CommandScript
+{
+	Renfort_EPAAtego()
+	{
+		SetIcon("EPAAtego");
+		SetCursor("EPAAtego");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+	
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,17,18,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAAtego, VT_FIREFIGHTERS_DLK, sNULL, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_EPAIveco : CommandScript
+{
+	Renfort_EPAIveco()
+	{
+		SetIcon("EPAIveco");
+		SetCursor("EPAIveco");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,17,18,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAIveco, VT_FIREFIGHTERS_DLK, sNULL, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_FPTAtego : CommandScript
+{
+	Renfort_FPTAtego()
+	{
+		SetIcon("FPTAtego");
+		SetCursor("FPTAtego");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_FPTAtego, VT_FIREFIGHTERS_GTF, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_FPTMidlum : CommandScript
+{
+	Renfort_FPTMidlum()
+	{
+		SetIcon("FPTMidlum");
+		SetCursor("FPTMidlum");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_FPTMidlum, VT_FIREFIGHTERS_GTF, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_VIMP : CommandScript
+{
+	Renfort_VIMP()
+	{
+		SetIcon("VIMP");
+		SetCursor("VIMP");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {13,13,13,13,13,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VIMP, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 5, 0);
+	}
+};
+
+object Renfort_PEV : CommandScript
+{
+	Renfort_PEV()
+	{
+		SetIcon("PEV");
+		SetCursor("PEV");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,17,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PEV, VT_FIREFIGHTERS_RW, sNULL,  personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_PSE2 : CommandScript
+{
+	Renfort_PSE2()
+	{
+		SetIcon("PSE2");
+		SetCursor("PSE2");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE2, VT_FIREFIGHTERS_GTF, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_PSE2 : CommandScript
+{
+	Renfort_PSE2()
+	{
+		SetIcon("PSE2");
+		SetCursor("PSE2");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE2, VT_FIREFIGHTERS_GTF, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_PSE3 : CommandScript
+{
+	Renfort_PSE3()
+	{
+		SetIcon("PSE3");
+		SetCursor("PSE3");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE3, VT_FIREFIGHTERS_GTF, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_PSE4 : CommandScript
+{
+	Renfort_PSE4()
+	{
+		SetIcon("PSE4");
+		SetCursor("PSE4");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE4, VT_FIREFIGHTERS_GTF, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_PSE5 : CommandScript
+{
+	Renfort_PSE5()
+	{
+		SetIcon("PSE5");
+		SetCursor("PSE5");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {21,21,21,21,21,18};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE5, VT_FIREFIGHTERS_GTF, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_SPTT : CommandScript
+{
+	Renfort_SPTT()
+	{
+		SetIcon("SPTT");
+		SetCursor("SPTT");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,17,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPTT,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_SPVLclio : CommandScript
+{
+	Renfort_SPVLclio()
+	{
+		SetIcon("SPVLclio");
+		SetCursor("SPVLclio");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {11,10,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLclio,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_SPVL2clio : CommandScript
+{
+	Renfort_SPVL2clio()
+	{
+		SetIcon("SPVL2clio");
+		SetCursor("SPVL2clio");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {11,10,18,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL2clio, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_SPVLkangoo : CommandScript
+{
+	Renfort_SPVLkangoo()
+	{
+		SetIcon("SPVLkangoo");
+		SetCursor("SPVLkangoo");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLkangoo,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VAG : CommandScript
+{
+	Renfort_VAG()
+	{
+		SetIcon("VAG");
+		SetCursor("VAG");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {13,13,13,13,13,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VAG,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 5, 0);
+	}
+};
+
+object Renfort_VID : CommandScript
+{
+	Renfort_VID()
+	{
+		SetIcon("VIDkangoo");
+		SetCursor("VIDkangoo");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VIGI : CommandScript
+{
+	Renfort_VIGI()
+	{
+		SetIcon("VIGI");
+		SetCursor("VIGI");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,17,17,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VIGI, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_VPS : CommandScript
+{
+	Renfort_VPS()
+	{
+		SetIcon("VPS");
+		SetCursor("VPS");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,10,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPS,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_VSC : CommandScript
+{
+	Renfort_VSC()
+	{
+		SetIcon("VSC");
+		SetCursor("VSC");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {12,12,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSC,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 2);
+	}
+};
+
+object Renfort_VPB : CommandScript
+{
+	Renfort_VPB()
+	{
+		SetIcon("VPB");
+		SetCursor("VPB");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {10,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPB,  VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+/*********************************************************************
+********   POLICE   **************************************************
+*********************************************************************/
+
+object Renfort_207sw : CommandScript
+{
+	Renfort_207sw()
+	{
+		SetIcon("207sw");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {25,25,25,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_207sw, VT_POLICE_STW, VO_SQUADPOL, personnelVehicule, 3, 1);
+	}
+};
+
+object Renfort_308PN : CommandScript
+{
+	Renfort_308PN()
+	{
+		SetIcon("308pn");
+		SetCursor("308pn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {39,40,40,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_308PN, VT_POLICE_STW, VO_SQUADPOL, personnelVehicule, 3, 1);	
+	}
+};
+
+object Renfort_308GIGN : CommandScript
+{
+	Renfort_308GIGN()
+	{
+		SetIcon("308GIGN");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {35,38,37,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_308GIGN, VT_POLICE_STW, sNULL, personnelVehicule, 3, 1);	
+	}
+};
+
+object Renfort_BerlingoPN : CommandScript
+{
+	Renfort_BerlingoPN()
+	{
+		SetIcon("berlingopn");
+		SetCursor("berlingopn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {39,40,40,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BERLINGOPN, VT_POLICE_STW, VO_SQUADPOL, personnelVehicule, 3, 1);	
+	}
+};
+
+object Renfort_C4BAN : CommandScript
+{
+	Renfort_C4BAN()
+	{
+		SetIcon("c4ban");
+		SetCursor("c4ban");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {25,25,25,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_C4BAN, VT_POLICE_STW, VO_SQUADPOL, personnelVehicule, 3, 1);	
+	}
+};
+
+object Renfort_C4GN : CommandScript
+{
+	Renfort_C4GN()
+	{
+		SetIcon("c4");
+		SetCursor("c4");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {30,31,31,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_C4GN, VT_POLICE_STW, sNULL, personnelVehicule, 3, 1);
+	}
+};
+
+object Renfort_C8GIGN : CommandScript
+{
+	Renfort_C8GIGN()
+	{
+		SetIcon("c8gign");
+		SetCursor("c8gign");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {37,37,37,37,37,37};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_C8GIGN, VT_POLICE_WAW, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_DEMINAGE : CommandScript
+{
+	Renfort_DEMINAGE()
+	{
+		SetIcon("Deminage");
+		SetCursor("Deminage");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {28,28,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_DEMINAGE, VT_POLICE_MTW, sNULL, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_ESPACEGIGN : CommandScript
+{
+	Renfort_ESPACEGIGN()
+	{
+		SetIcon("espacegign");
+		SetCursor("espacegign");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {36,36,37,37,37,37};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ESPACEGIGN, VT_POLICE_STW, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_EXPERTGIGN : CommandScript
+{
+	Renfort_EXPERTGIGN()
+	{
+		SetIcon("espacegign");
+		SetCursor("espacegign");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+	
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {37,37,37,37,37,37};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EXPERTGIGN, VT_POLICE_STW, sNULL, personnelVehicule, 6, 0);	
+	}
+};
+
+object Renfort_GIGN : CommandScript
+{
+	Renfort_GIGN()
+	{
+		SetIcon("bri");
+		SetCursor("bri");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {37,37,37,37,36,36};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GIGN, VT_POLICE_STW, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_GIGN2 : CommandScript
+{
+	Renfort_GIGN2()
+	{
+		SetIcon("bri");
+		SetCursor("bri");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {36,36,37,37,37,37};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GIGN2, VT_POLICE_STW, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_MASTERCRS : CommandScript
+{
+	Renfort_MASTERCRS()
+	{
+		SetIcon("mastercrs");
+		SetCursor("mastercrs");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {27,27,27,27,27,27};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERCRS, VT_POLICE_MTW, sNULL, personnelVehicule, 6, 0);
+	}
+};
+
+object Renfort_MASTERGIGN : CommandScript
+{
+	Renfort_MasterGIGN()
+	{
+		SetIcon("MASTERGIGN");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {37,37,37,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERGIGN, VT_POLICE_STW, sNULL, personnelVehicule, 3, 0);
+	}
+};
+
+object Renfort_MASTERPN : CommandScript
+{
+	Renfort_MASTERPN()
+	{
+		SetIcon("masterpn");
+		SetCursor("masterpn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {41,41,41,40,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERPN, VT_POLICE_MTW, VO_SQUADPOL, personnelVehicule, 4, 3);	
+	}
+};
+
+object Renfort_MASTERPN2 : CommandScript
+{
+	Renfort_MASTERPN2()
+	{
+		SetIcon("masterpn");
+		SetCursor("masterpn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {41,41,41,40,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERPN2, VT_POLICE_MTW, VO_SQUADPOL, personnelVehicule, 4, 3);	
+	}
+};
+
+object Renfort_MASTERPN3 : CommandScript
+{
+	Renfort_MASTERPN3()
+	{
+		SetIcon("masterpn");
+		SetCursor("masterpn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {41,41,41,40,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERPN3, VT_POLICE_MTW, VO_SQUADPOL, personnelVehicule, 4, 3);	
+	}
+};
+
+object Renfort_MASTERPN4 : CommandScript
+{
+	Renfort_MASTERPN4()
+	{
+		SetIcon("masterpn");
+		SetCursor("masterpn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {41,41,41,40,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERPN4, VT_POLICE_MTW, VO_SQUADPOL, personnelVehicule, 4, 3);	
+	}
+};
+
+object Renfort_MASTERVTD : CommandScript
+{
+	Renfort_MASTERVTD()
+	{
+		SetIcon("vtd");
+		SetCursor("vtd");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {26,26,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERVTD, VT_POLICE_MTW, sNULL, personnelVehicule, 2, 9);	
+	}
+};
+
+object Renfort_TRANSITCRS : CommandScript
+{
+	Renfort_TRANSITCRS()
+	{
+		SetIcon("crstransit");
+		SetCursor("crstransit");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {27,27,27,27,27,27};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_TRANSITCRS, VT_POLICE_MTW, sNULL, personnelVehicule, 6, 0);	
+	}
+};
+
+object Renfort_MONDEO75N : CommandScript
+{
+	Renfort_MONDEO75N()
+	{
+		SetIcon("bac75n2");
+		SetCursor("bac75n2");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {39,39,39,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MONDEO75N, VT_POLICE_STW, VO_SQUADPOL, personnelVehicule, 6, 0);	
+	}
+};
+
+object Renfort_SCENICPN : CommandScript
+{
+	Renfort_SCENICPN()
+	{
+		SetIcon("scenicpn");
+		SetCursor("scenicpn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {39,39,39,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SCENICPN, VT_POLICE_STW, VO_SQUADPOL, personnelVehicule, 6, 0);	
+	}
+};
+
+object Renfort_MOTOPN : CommandScript
+{
+	Renfort_MOTOPN()
+	{
+		SetIcon("motopn");
+		SetCursor("motopn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {43,0,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MOTOPN, VT_POLICE_STW, sNULL, personnelVehicule, 1, 0);
+	}
+};
+
+object Renfort_MOTOGN : CommandScript
+{
+	Renfort_MOTOGN()
+	{
+		SetIcon("motogn");
+		SetCursor("motogn");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {42,0,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MOTOGN, VT_POLICE_STW, sNULL, personnelVehicule, 1, 0);
+	}
+};
+
+object Renfort_Fuite : CommandScript
+{
+	Renfort_Fuite()
+	{
+		SetIcon("fuite");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {0,0,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GETAWAY, VT_POLICE_GETAWAY, sNULL, personnelVehicule, 0, 1);
+	}
+};
+
+/*********************************************************************
+********   TEC   *****************************************************
+*********************************************************************/
+
+
+object Renfort_EDF : CommandScript
+{
+	Renfort_EDF()
+	{
+		SetIcon("ERDF");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {23,0,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EDF, VT_THW_FGRI_EKW, sNULL, personnelVehicule, 1, 0);
+	}
+};
+
+object Renfort_GRUE : CommandScript
+{
+	Renfort_GRUE()
+	{
+		SetIcon("GRUE");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {24,0,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GRUE, VT_THW_FGRR_BKF, VO_SQUADTEC, personnelVehicule, 1, 0);
+	}
+};
+
+object Renfort_DEPAN : CommandScript
+{
+	Renfort_DEPAN()
+	{
+		SetIcon("Depan");
+		SetCursor("callassistance");
+		//SetKeepAsCurrentCommand(true);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {24,0,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_DEPAN, VT_FIREFIGHTERS_ASF, sNULL, personnelVehicule, 1, 0);
+	}
+};
+
+/*********************************************************************
+********   HELICO  *****************************************************
+*********************************************************************/
+
+
+object DummyVehicleCalled : CommandScript
+{
+	DummyVehicleCalled() { SetGroupID(20); }
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID) {}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Vehicle v(Caller);
+		if (v.HasCommand(DUMMY_VCALLED))
+			v.RemoveCommand(DUMMY_VCALLED);
+	}
+};
+
+
+object DummyVehicleParked : CommandScript
+{
+	DummyVehicleParked() { SetGroupID(20); }
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID) {}
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID) {}
+};
+
+object DummyWaitSquad : CommandScript
+{
+	DummyWaitSquad() {}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Vehicle v(Caller);
+		PersonList passengers = v.GetPassengers();
+		if (passengers.GetNumPersons() != ChildID) {
+			v.PushActionWait(ACTION_APPEND, 3.0f);
+			v.PushActionExecuteCommand(ACTION_INSERT, "DummyWaitSquad", Caller, ChildID, false);
+		} else {
+			return;
+		}
+	}
+};
+
+object PhysicFreez: CommandScript
+{
+	PhysicFreez() {}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Vehicle n(Caller);
+
+		if (n.IsPhysicsFreezed())
+		{
+			n.PushActionShowHide(ACTION_NEWLIST, true);
+			int Alea = Math::rand() % 10;
+			System::Log("[PhysicFreez] Alea %i", Alea);
+			n.PushActionWait(ACTION_APPEND, Alea);
+			n.PushActionShowHide(ACTION_NEWLIST, false);
+			n.PushActionMove(ACTION_APPEND, myVector);
+		} 
+	}
+};
+
+object DummyWaitVeh: CommandScript
+{
+	DummyWaitVeh() {}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Vehicle n(Caller);
+
+		GameObjectList l1;
+ 		Game::CollectObstaclesOnVirtualObject(vo_spawn, l1, ACTOR_VEHICLE);
+		if (l1.GetNumObjects() != 0)
+		{
+			n.PushActionWait(ACTION_APPEND, 3.0f);
+			n.PushActionExecuteCommand(ACTION_INSERT, "DummyWaitVeh", Caller, 0, false); 	
+		} else {
+			n.PushActionShowHide(ACTION_APPEND, false);
+			n.PushActionMove(ACTION_APPEND, myVector);
+		}
+	}
+};
