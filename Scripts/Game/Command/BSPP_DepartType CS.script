@@ -13,6 +13,75 @@ const char DUMMY_PATROL[] 				= "DummyPatrol";
 const char VO_CASERNELAND[] 			= "vo_caserne_land";
 const char VO_CASERNEBITCHE[] 			= "vo_caserne_bitche";
 
+const char VO_VSAV1[] 			= "VSAV 12";
+const char VO_VSAV2[] 			= "VSAV 39";
+const char VO_VSAV3[] 			= "VSAV 109";
+const char VO_VSAV4[] 			= "VSAV 15";
+const char VO_FPT1[] 			= "FPT 21";
+const char VO_PSE1[] 			= "PS 202";
+const char VO_PSE2[] 			= "PS 132";
+const char VO_PSE3[] 			= "PS 189";
+const char VO_PSE4[] 			= "PS 191";
+const char VO_EPAN1[] 			= "EPAN 3";
+const char VO_EPAN2[] 			= "EPAN 8";
+const char VO_VID1[] 			= "VID 180";
+const char VO_VID2[] 			= "VID 183";
+const char VO_VID3[] 			= "VID 220";
+const char VO_SPVL1[] 			= "SPVL 212";
+const char VO_SPVL2[] 			= "SPVL 370";
+const char VO_SPVL3[] 			= "SPVL 920";
+const char VO_CD1[] 			= "CD 8";
+const char VO_VPC1[] 			= "VPC 1";
+const char VO_VPS6[] 			= "VPS 6";
+const char VO_VIGI10[] 			= "VIGI 10";
+const char VO_CESD2[] 			= "CESD 2";
+const char VO_VIMP7[] 			= "VIMP 7";
+const char VO_PEV5[] 			= "PEV 5";
+const char VO_VAG2[] 			= "VAG 2";
+const char VO_CA25[] 			= "CA 25";
+const char VO_CMO1[] 			= "CMO 1";
+const char VO_AR50[] 			= "AR 50";
+const char VO_AR63[] 			= "AR 63";
+const char VO_ADPC4[] 			= "ADPC 4";
+
+//CS ETAT-MAJOR
+const char PROTO_VSAV12[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV12.e4p";
+const char PROTO_VSAV39[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV39.e4p";
+const char PROTO_VSAV109[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV109.e4p";
+const char PROTO_PS202[] 				= "mod:Prototypes/Vehicles/Fire Department/PS202.e4p";
+const char PROTO_EPAN8[] 				= "mod:Prototypes/Vehicles/Fire Department/EPAN8.e4p";
+const char PROTO_PS132[] 				= "mod:Prototypes/Vehicles/Fire Department/PS132.e4p";
+const char PROTO_FPT21[]				= "mod:Prototypes/Vehicles/Fire Department/FPT21.e4p";
+const char PROTO_CD8[]					= "mod:Prototypes/Vehicles/Fire Department/CD8.e4p";
+const char PROTO_VID183[] 				= "mod:Prototypes/Vehicles/Fire Department/VID183.e4p";
+const char PROTO_VID220[] 				= "mod:Prototypes/Vehicles/Fire Department/VID220.e4p";
+const char PROTO_VPC1[] 				= "mod:Prototypes/Vehicles/Fire Department/VPC1.e4p";
+const char PROTO_SPVL370[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL370.e4p";
+const char PROTO_SPVL920[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL920.e4p";
+const char PROTO_VPS6[] 				= "mod:Prototypes/Vehicles/Fire Department/VPS6.e4p";
+const char PROTO_VIGI10[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI10.e4p";
+const char PROTO_CESD2[]				= "mod:Prototypes/Vehicles/Fire Department/CESD2.e4p";
+const char PROTO_VIMP7[]				= "mod:Prototypes/Vehicles/Fire Department/VIMP7.e4p";
+const char PROTO_PEV5[]					= "mod:Prototypes/Vehicles/Fire Department/PEV5.e4p";
+const char PROTO_VAG2[] 				= "mod:Prototypes/Vehicles/Fire Department/VAG2.e4p";
+const char PROTO_CA25[] 				= "mod:Prototypes/Vehicles/Fire Department/CA25.e4p";
+//const char PROTO_CMO1[] 				= "mod:Prototypes/Vehicles/Fire Department/CMO1.e4p";
+const char PROTO_AR50[] 				= "mod:Prototypes/Vehicles/Ambulance/AR50.e4p";
+const char PROTO_AR63[] 				= "mod:Prototypes/Vehicles/Ambulance/AR63.e4p";
+const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
+
+const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPC.e4p";
+
+//CS BITCHE
+const char PROTO_VSAV15[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV15.e4p";
+const char PROTO_PS189[] 				= "mod:Prototypes/Vehicles/Fire Department/PS189.e4p";
+const char PROTO_PS191[] 				= "mod:Prototypes/Vehicles/Fire Department/PS191.e4p";
+const char PROTO_EPAN3[]				= "mod:Prototypes/Vehicles/Fire Department/EPAN3.e4p";
+const char PROTO_SPVL212[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL212.e4p";
+const char PROTO_VID180[] 				= "mod:Prototypes/Vehicles/Fire Department/VID180.e4p";
+
+
+
 const char HINT_FEULEGER[] 				= "DEPART FEU LEGER ! PSE au depart";
 const char HINT_NORMAL[] 				= "DEPART NORMAL ! FPT - PS - EPA - VLRCGI au depart";
 const char HINT_RENFORTINCENDIE[] 		= "RENFORT INCENDIE ! FPT - PS - EPA - EPA - EPA - CA - CESD - VSAV - AR - CD - PEV - 1 GRCP (VSAV - CRAC) au depart";
@@ -45,9 +114,9 @@ const char SND_GIFF[]							= "mod:Audio/FX/depart/RonfleurLong.wav";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-object FeuLeger : CommandScript
+object FeuLegerCS : CommandScript
 {
-	FeuLeger()
+	FeuLegerCS()
 	{
 		SetIcon("FL");
 		SetCursor("FL");
@@ -74,14 +143,29 @@ object FeuLeger : CommandScript
 	{	
 		Mission::PlayHint(HINT_FEULEGER);
 		Audio::PlaySample3D(SND_FEUXLEGER, Caller->GetPosition());
-		
-		Game::ExecuteCommand("Renfort_PSE4", Caller);
+
+		GameObjectList l1;
+		GameObjectList l2;
+		GameObjectList l3;
+		GameObjectList l4;
+		Game::CollectObstaclesOnVirtualObject(VO_PSE1, l1, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE2, l2, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE3, l3, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE4, l4, ACTOR_VEHICLE);
+		if(l1.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS202", Caller);
+		else if(l2.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS132", Caller);
+		else if(l3.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS189", Caller);
+		else if(l4.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS191", Caller);
 	}
 };
 
-object DepartNormal : CommandScript
+object DepartNormalCS : CommandScript
 {
-	DepartNormal()
+	DepartNormalCS()
 	{
 		SetIcon("DN");
 		SetCursor("DN");
@@ -109,17 +193,17 @@ object DepartNormal : CommandScript
 		Mission::PlayHint(HINT_NORMAL);
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 
-		Game::ExecuteCommand("Renfort_FPTAtego", Caller);
-		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
-		Game::ExecuteCommand("Renfort_PSE5", Caller);
-		Game::ExecuteCommand("Renfort_VLRCGI", Caller);
+		Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
+		Game::ExecuteCommand("Renfort_EPAN3", Caller);
+		Game::ExecuteCommand("Renfort_PS191", Caller);
+		//Game::ExecuteCommand("Renfort_VLRCGI", Caller);
 
 	}
 };
 
-object RenfortIncendie : CommandScript
+object RenfortIncendieCS : CommandScript
 {
-	RenfortIncendie()
+	RenfortIncendieCS()
 	{
 		SetIcon("RI");
 		SetCursor("RI");
@@ -147,24 +231,24 @@ object RenfortIncendie : CommandScript
 		Mission::PlayHint(HINT_RENFORTINCENDIE);	
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 		
-		Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
-		Game::ExecuteCommand("Renfort_PSE5", Caller);
+		Game::ExecuteCommand("Renfort_FPT21", Caller);
+		Game::ExecuteCommand("Renfort_EPAN8", Caller);
+		Game::ExecuteCommand("Renfort_EPAN3", Caller);
 		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
-		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
-		Game::ExecuteCommand("Renfort_EPAIveco", Caller);
-		Game::ExecuteCommand("Renfort_CA", Caller);
-		Game::ExecuteCommand("Renfort_CESD", Caller);
-		Game::ExecuteCommand("Renfort_VSAV", Caller);
-		Game::ExecuteCommand("Renfort_ARIveco", Caller);
-		Game::ExecuteCommand("Renfort_CD", Caller);
-		Game::ExecuteCommand("Renfort_PEV", Caller);
+		Game::ExecuteCommand("Renfort_PS202", Caller);
+		Game::ExecuteCommand("Renfort_CA25", Caller);
+		Game::ExecuteCommand("Renfort_CESD2", Caller);
+		Game::ExecuteCommand("Renfort_VSAV12", Caller);
+		Game::ExecuteCommand("Renfort_AR50", Caller);
+		Game::ExecuteCommand("Renfort_CD2", Caller);
+		Game::ExecuteCommand("Renfort_PEV5", Caller);
 		Game::ExecuteCommand("Renfort_CRAC", Caller);
-		Game::ExecuteCommand("Renfort_ARMaster", Caller);
+		Game::ExecuteCommand("Renfort_AR63", Caller);
 	}
 };
-object RenfortHabitation : CommandScript
+object RenfortHabitationCS : CommandScript
 {
-	RenfortHabitation()
+	RenfortHabitationCS()
 	{
 		SetIcon("RH");
 		SetCursor("RH");
@@ -193,28 +277,28 @@ object RenfortHabitation : CommandScript
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 		
 			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
-			Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
-			Game::ExecuteCommand("Renfort_PSE4", Caller);
-			Game::ExecuteCommand("Renfort_PSE5", Caller);
+			Game::ExecuteCommand("Renfort_FPT21", Caller);
+			Game::ExecuteCommand("Renfort_PS202", Caller);
+			Game::ExecuteCommand("Renfort_PS132", Caller);
 			Game::ExecuteCommand("Renfort_PSE3", Caller);
-			Game::ExecuteCommand("Renfort_EPAAtego", Caller);
-			Game::ExecuteCommand("Renfort_EPAIveco", Caller);
-			Game::ExecuteCommand("Renfort_VSAV", Caller);
-			Game::ExecuteCommand("Renfort_VSAV2", Caller);
-			Game::ExecuteCommand("Renfort_ARIveco", Caller);
-			Game::ExecuteCommand("Renfort_ARMaster", Caller);
-			Game::ExecuteCommand("Renfort_PEV", Caller);
-			Game::ExecuteCommand("Renfort_CD", Caller);
+			Game::ExecuteCommand("Renfort_EPAN8", Caller);
+			Game::ExecuteCommand("Renfort_EPAN3", Caller);
+			Game::ExecuteCommand("Renfort_VSAV39", Caller);
+			Game::ExecuteCommand("Renfort_VSAV109", Caller);
+			Game::ExecuteCommand("Renfort_AR50", Caller);
+			Game::ExecuteCommand("Renfort_AR63", Caller);
+			Game::ExecuteCommand("Renfort_PEV5", Caller);
+			Game::ExecuteCommand("Renfort_CD8", Caller);
 			Game::ExecuteCommand("Renfort_CRAC", Caller);
-			Game::ExecuteCommand("Renfort_VLRDSM", Caller);
-			Game::ExecuteCommand("Renfort_VLROGC", Caller);
-			Game::ExecuteCommand("Renfort_VLRCDG", Caller);
+			//Game::ExecuteCommand("Renfort_VLRDSM", Caller);
+			//Game::ExecuteCommand("Renfort_VLROGC", Caller);
+			//Game::ExecuteCommand("Renfort_VLRCDG", Caller);
 			Game::ExecuteCommand("Renfort_VPC", Caller);
 	}
 };
-object RenfortAnticipation : CommandScript
+object RenfortAnticipationCS : CommandScript
 {
-	RenfortAnticipation()
+	RenfortAnticipationCS()
 	{
 		SetIcon("RA");
 		SetCursor("RA");
@@ -244,16 +328,16 @@ object RenfortAnticipation : CommandScript
 		
 
 			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
-		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
-			Game::ExecuteCommand("Renfort_VSAV", Caller);
-			Game::ExecuteCommand("Renfort_ARMaster", Caller);
-		Game::ExecuteCommand("Renfort_CRAC", Caller);
+			Game::ExecuteCommand("Renfort_EPAN3", Caller);
+			Game::ExecuteCommand("Renfort_VSAV15", Caller);
+			Game::ExecuteCommand("Renfort_AR63", Caller);
+			Game::ExecuteCommand("Renfort_CRAC", Caller);
 		//Game::ExecuteCommand("Renfort_EDF", Caller);
 	}
 };
-object RenfortCommandement : CommandScript
+object RenfortCommandementCS : CommandScript
 {
-	RenfortCommandement()
+	RenfortCommandementCS()
 	{
 		SetIcon("RC");
 		SetCursor("RC");
@@ -281,15 +365,15 @@ object RenfortCommandement : CommandScript
 		Mission::PlayHint(HINT_RENFORTCOMMANDEMENT);	
 		Audio::PlaySample3D(SND_RENFORTCOMMANDEMENT, Caller->GetPosition());
 		
-		Game::ExecuteCommand("Renfort_PC", Caller);
-		Game::ExecuteCommand("Renfort_VPCM", Caller);
+		//Game::ExecuteCommand("Renfort_VPC", Caller);
+		//Game::ExecuteCommand("Renfort_CMO1", Caller);
 		Game::ExecuteCommand("Renfort_SPVLKangoo", Caller);
 		Game::ExecuteCommand("Renfort_SPVLClio", Caller);
 	}
 };
-object SecoursRoutierMoyen : CommandScript
+object SecoursRoutierMoyenCS : CommandScript
 {
-	SecoursRoutierMoyen()
+	SecoursRoutierMoyenCS()
 	{
 		SetIcon("SRM");
 		SetCursor("SRM");
@@ -321,16 +405,16 @@ object SecoursRoutierMoyen : CommandScript
 		Mission::PlayHint(HINT_SRM);	
 		Audio::PlaySample3D(SND_SECOURROUTIERMOYEN, Caller->GetPosition());
 		
-		Game::ExecuteCommand("Renfort_CD", Caller);
-			Game::ExecuteCommand("Renfort_VSAV2", Caller);
-			Game::ExecuteCommand("Renfort_PSE5", Caller);
-		Game::ExecuteCommand("Renfort_VPS", Caller);
+			Game::ExecuteCommand("Renfort_CD8", Caller);
+			Game::ExecuteCommand("Renfort_VSAV39", Caller);
+			Game::ExecuteCommand("Renfort_PS132", Caller);
+			Game::ExecuteCommand("Renfort_VPS6", Caller);
 	}
 };
 
-object SecoursRoutierLourd : CommandScript
+object SecoursRoutierLourdCS : CommandScript
 {
-	SecoursRoutierLourd()
+	SecoursRoutierLourdCS()
 	{
 		SetIcon("SRLo");
 		SetCursor("SRLo");
@@ -359,17 +443,17 @@ object SecoursRoutierLourd : CommandScript
 		Mission::PlayHint(HINT_SRLO);
 		Audio::PlaySample3D(SND_SECOUROUTIERLOURD, Caller->GetPosition());
 		
-		Game::ExecuteCommand("Renfort_CD", Caller);
-			Game::ExecuteCommand("Renfort_PSR", Caller);
-			Game::ExecuteCommand("Renfort_PSE4", Caller);
-		Game::ExecuteCommand("Renfort_VPS", Caller);
-			Game::ExecuteCommand("Renfort_ARIveco", Caller);
+			Game::ExecuteCommand("Renfort_CD8", Caller);
+			Game::ExecuteCommand("Renfort_VSAV109", Caller);
+			Game::ExecuteCommand("Renfort_PS202", Caller);
+			Game::ExecuteCommand("Renfort_VPS6", Caller);
+			Game::ExecuteCommand("Renfort_AR50", Caller);
 	}
 };
 
-object SecoursRoutierAquatique: CommandScript
+object SecoursRoutierAquatiqueCS: CommandScript
 {
-	SecoursRoutierAquatique()
+	SecoursRoutierAquatiqueCS()
 	{
 		SetIcon("SRA");
 		SetCursor("SRA");
@@ -398,18 +482,18 @@ object SecoursRoutierAquatique: CommandScript
 		Audio::PlaySample3D(SND_SECOUROUTIERAQUATIQUE, Caller->GetPosition());
 		
 	
-		Game::ExecuteCommand("Renfort_CD", Caller);
-			Game::ExecuteCommand("Renfort_VSAV", Caller);
-		Game::ExecuteCommand("Renfort_CSP", Caller);
-		Game::ExecuteCommand("Renfort_SIS", Caller);
-		Game::ExecuteCommand("Renfort_VPS", Caller);
-			Game::ExecuteCommand("Renfort_ARMaster", Caller);
+			Game::ExecuteCommand("Renfort_CD8", Caller);
+			Game::ExecuteCommand("Renfort_VSAV15", Caller);
+			Game::ExecuteCommand("Renfort_CSP", Caller);
+			Game::ExecuteCommand("Renfort_SIS", Caller);
+			Game::ExecuteCommand("Renfort_VPS6", Caller);
+			Game::ExecuteCommand("Renfort_AR63", Caller);
 	}
 };
 
-object UrgenceMedicale: CommandScript
+object UrgenceMedicaleCS: CommandScript
 {
-	UrgenceMedicale()
+	UrgenceMedicaleCS()
 	{
 		SetIcon("UM");
 		SetCursor("UM");
@@ -438,13 +522,13 @@ object UrgenceMedicale: CommandScript
 		Audio::PlaySample3D(SND_URGENCEMEDICALE, Caller->GetPosition());
 		
 
-			Game::ExecuteCommand("Renfort_ARIveco", Caller);
+			Game::ExecuteCommand("Renfort_AR50", Caller);
 	}
 };
 
-object SecoursMedical: CommandScript
+object SecoursMedicalCS: CommandScript
 {
-	SecoursMedical()
+	SecoursMedicalCS()
 	{
 		SetIcon("SM");
 		SetCursor("SM");
@@ -472,13 +556,13 @@ object SecoursMedical: CommandScript
 		Mission::PlayHint(HINT_SM);
 		Audio::PlaySample3D(SND_SECOURSMEDICALE, Caller->GetPosition());
 		
-			Game::ExecuteCommand("Renfort_VSAV", Caller);
+			Game::ExecuteCommand("Renfort_VSAV12", Caller);
 	}
 };
 
-object TentativeSuicide: CommandScript
+object TentativeSuicideCS: CommandScript
 {
-	TentativeSuicide()
+	TentativeSuicideCS()
 	{
 		SetIcon("TS");
 		SetCursor("TS");
@@ -507,18 +591,18 @@ object TentativeSuicide: CommandScript
 		Audio::PlaySample3D(SND_TENTATIVEDESUICIDE, Caller->GetPosition());	
 		
 
-			Game::ExecuteCommand("Renfort_PSE4", Caller);
-		Game::ExecuteCommand("Renfort_EPAIveco", Caller);
-			Game::ExecuteCommand("Renfort_VSAV2", Caller);
-		Game::ExecuteCommand("Renfort_VIMP", Caller);
-		Game::ExecuteCommand("Renfort_VAG", Caller);
+		Game::ExecuteCommand("Renfort_PS202", Caller);
+		Game::ExecuteCommand("Renfort_EPAN8", Caller);
+		Game::ExecuteCommand("Renfort_VSAV12", Caller);
+		Game::ExecuteCommand("Renfort_VIMP7", Caller);
+		Game::ExecuteCommand("Renfort_VAG2", Caller);
 		Game::ExecuteCommand("Renfort_KangooPN", Caller);
 	}
 };
 
-object GroupeInterventionFeuForet : CommandScript
+object GroupeInterventionFeuForetCS : CommandScript
 {
-	GroupeInterventionFeuForet()
+	GroupeInterventionFeuForetCS()
 	{
 		SetIcon("GIFF");
 		SetCursor("GIFF");
