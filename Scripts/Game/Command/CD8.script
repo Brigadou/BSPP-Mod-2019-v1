@@ -1,7 +1,7 @@
 
 object InstallSignal_CD8: CommandScript
 {
-	InstallSignal_CD()
+	InstallSignal_CD8()
 	{
 		SetIcon("Install");
 		SetCursor("Install");
@@ -50,7 +50,7 @@ object InstallSignal_CD8: CommandScript
 
 object InstallSignal2_CD8: CommandScript
 {
-	InstallSignal2_CD()
+	InstallSignal2_CD8()
 	{
 	}
 
@@ -107,7 +107,7 @@ object DeInstallSignal_CD8: CommandScript
 {
 	bool deinstall;
 
-	DeInstallSignal_CD()
+	DeInstallSignal_CD8()
 	{
       	SetIcon("Deinstall");
       	SetCursor("Deinstall");
@@ -175,7 +175,7 @@ object DeInstallSignal_CD8: CommandScript
 
 object DeInstallSignal2_CD8: CommandScript
 {
-	DeInstallSignal2_CD()
+	DeInstallSignal2_CD8()
 	{
 	}
 
