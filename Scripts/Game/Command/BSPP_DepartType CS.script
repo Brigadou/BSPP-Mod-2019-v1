@@ -44,44 +44,6 @@ const char VO_AR50[] 			= "AR 50";
 const char VO_AR63[] 			= "AR 63";
 const char VO_ADPC4[] 			= "ADPC 4";
 
-//CS ETAT-MAJOR
-const char PROTO_VSAV12[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV12.e4p";
-const char PROTO_VSAV39[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV39.e4p";
-const char PROTO_VSAV109[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV109.e4p";
-const char PROTO_PS202[] 				= "mod:Prototypes/Vehicles/Fire Department/PS202.e4p";
-const char PROTO_EPAN8[] 				= "mod:Prototypes/Vehicles/Fire Department/EPAN8.e4p";
-const char PROTO_PS132[] 				= "mod:Prototypes/Vehicles/Fire Department/PS132.e4p";
-const char PROTO_FPT21[]				= "mod:Prototypes/Vehicles/Fire Department/FPT21.e4p";
-const char PROTO_CD8[]					= "mod:Prototypes/Vehicles/Fire Department/CD8.e4p";
-const char PROTO_VID183[] 				= "mod:Prototypes/Vehicles/Fire Department/VID183.e4p";
-const char PROTO_VID220[] 				= "mod:Prototypes/Vehicles/Fire Department/VID220.e4p";
-const char PROTO_VPC1[] 				= "mod:Prototypes/Vehicles/Fire Department/VPC1.e4p";
-const char PROTO_SPVL370[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL370.e4p";
-const char PROTO_SPVL920[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL920.e4p";
-const char PROTO_VPS6[] 				= "mod:Prototypes/Vehicles/Fire Department/VPS6.e4p";
-const char PROTO_VIGI10[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI10.e4p";
-const char PROTO_CESD2[]				= "mod:Prototypes/Vehicles/Fire Department/CESD2.e4p";
-const char PROTO_VIMP7[]				= "mod:Prototypes/Vehicles/Fire Department/VIMP7.e4p";
-const char PROTO_PEV5[]					= "mod:Prototypes/Vehicles/Fire Department/PEV5.e4p";
-const char PROTO_VAG2[] 				= "mod:Prototypes/Vehicles/Fire Department/VAG2.e4p";
-const char PROTO_CA25[] 				= "mod:Prototypes/Vehicles/Fire Department/CA25.e4p";
-//const char PROTO_CMO1[] 				= "mod:Prototypes/Vehicles/Fire Department/CMO1.e4p";
-const char PROTO_AR50[] 				= "mod:Prototypes/Vehicles/Ambulance/AR50.e4p";
-const char PROTO_AR63[] 				= "mod:Prototypes/Vehicles/Ambulance/AR63.e4p";
-const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
-
-const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPC.e4p";
-
-//CS BITCHE
-const char PROTO_VSAV15[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV15.e4p";
-const char PROTO_PS189[] 				= "mod:Prototypes/Vehicles/Fire Department/PS189.e4p";
-const char PROTO_PS191[] 				= "mod:Prototypes/Vehicles/Fire Department/PS191.e4p";
-const char PROTO_EPAN3[]				= "mod:Prototypes/Vehicles/Fire Department/EPAN3.e4p";
-const char PROTO_SPVL212[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL212.e4p";
-const char PROTO_VID180[] 				= "mod:Prototypes/Vehicles/Fire Department/VID180.e4p";
-
-
-
 const char HINT_FEULEGER[] 				= "DEPART FEU LEGER ! PSE au depart";
 const char HINT_NORMAL[] 				= "DEPART NORMAL ! FPT - PS - EPA - VLRCGI au depart";
 const char HINT_RENFORTINCENDIE[] 		= "RENFORT INCENDIE ! FPT - PS - EPA - EPA - EPA - CA - CESD - VSAV - AR - CD - PEV - 1 GRCP (VSAV - CRAC) au depart";
@@ -193,9 +155,31 @@ object DepartNormalCS : CommandScript
 		Mission::PlayHint(HINT_NORMAL);
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 
-		Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
-		Game::ExecuteCommand("Renfort_EPAN3", Caller);
-		Game::ExecuteCommand("Renfort_PS191", Caller);
+		Game::ExecuteCommand("Renfort_FPT21", Caller);
+		GameObjectList l1;
+		GameObjectList l2;
+ 		Game::CollectObstaclesOnVirtualObject(VO_EPAN8, l1, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_EPAN3, l2, ACTOR_VEHICLE);
+		if(l1.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_EPAN8", Caller);
+		else if(l2.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_EPAN3", Caller);
+		GameObjectList l1;
+		GameObjectList l2;
+		GameObjectList l3;
+		GameObjectList l4;
+		Game::CollectObstaclesOnVirtualObject(VO_PSE1, l1, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE2, l2, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE3, l3, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE4, l4, ACTOR_VEHICLE);
+		if(l1.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS202", Caller);
+		else if(l2.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS132", Caller);
+		else if(l3.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS189", Caller);
+		else if(l4.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS191", Caller);
 		//Game::ExecuteCommand("Renfort_VLRCGI", Caller);
 
 	}
@@ -235,7 +219,22 @@ object RenfortIncendieCS : CommandScript
 		Game::ExecuteCommand("Renfort_EPAN8", Caller);
 		Game::ExecuteCommand("Renfort_EPAN3", Caller);
 		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
-		Game::ExecuteCommand("Renfort_PS202", Caller);
+		GameObjectList l1;
+		GameObjectList l2;
+		GameObjectList l3;
+		GameObjectList l4;
+		Game::CollectObstaclesOnVirtualObject(VO_PSE1, l1, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE2, l2, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE3, l3, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE4, l4, ACTOR_VEHICLE);
+		if(l1.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS202", Caller);
+		else if(l2.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS132", Caller);
+		else if(l3.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS189", Caller);
+		else if(l4.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PS191", Caller);
 		Game::ExecuteCommand("Renfort_CA25", Caller);
 		Game::ExecuteCommand("Renfort_CESD2", Caller);
 		Game::ExecuteCommand("Renfort_VSAV12", Caller);
@@ -293,7 +292,7 @@ object RenfortHabitationCS : CommandScript
 			//Game::ExecuteCommand("Renfort_VLRDSM", Caller);
 			//Game::ExecuteCommand("Renfort_VLROGC", Caller);
 			//Game::ExecuteCommand("Renfort_VLRCDG", Caller);
-			Game::ExecuteCommand("Renfort_VPC", Caller);
+			Game::ExecuteCommand("Renfort_VPC1", Caller);
 	}
 };
 object RenfortAnticipationCS : CommandScript
@@ -367,8 +366,8 @@ object RenfortCommandementCS : CommandScript
 		
 		//Game::ExecuteCommand("Renfort_VPC", Caller);
 		//Game::ExecuteCommand("Renfort_CMO1", Caller);
-		Game::ExecuteCommand("Renfort_SPVLKangoo", Caller);
-		Game::ExecuteCommand("Renfort_SPVLClio", Caller);
+		Game::ExecuteCommand("Renfort_SPVL370", Caller);
+		Game::ExecuteCommand("Renfort_SPVL920", Caller);
 	}
 };
 object SecoursRoutierMoyenCS : CommandScript
@@ -521,8 +520,14 @@ object UrgenceMedicaleCS: CommandScript
 		Mission::PlayHint(HINT_UM);
 		Audio::PlaySample3D(SND_URGENCEMEDICALE, Caller->GetPosition());
 		
-
+		GameObjectList l1;
+		GameObjectList l2;
+ 		Game::CollectObstaclesOnVirtualObject(VO_AR50, l1, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_AR63, l2, ACTOR_VEHICLE);
+		if(l1.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_AR50", Caller);
+		else if(l2.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_AR63", Caller);
 	}
 };
 
@@ -556,7 +561,22 @@ object SecoursMedicalCS: CommandScript
 		Mission::PlayHint(HINT_SM);
 		Audio::PlaySample3D(SND_SECOURSMEDICALE, Caller->GetPosition());
 		
+		GameObjectList l1;
+		GameObjectList l2;
+		GameObjectList l3;
+		GameObjectList l4;
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV1, l1, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV2, l2, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV3, l3, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV4, l4, ACTOR_VEHICLE);
+		if(l1.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_VSAV12", Caller);
+		else if(l2.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_VSAV39", Caller);
+		else if(l3.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_VSAV109", Caller);
+		else if(l4.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_VSAV15", Caller);
 	}
 };
 
