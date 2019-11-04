@@ -15,7 +15,7 @@
 
 //  (DUMMY = Mannequin)
 // 
-const char IMG[] = "deux_tons";
+const char IMG[] = "deux_tons_on";
 
 const char EACTION_FINDPATH[] = "EActionFindPath";
 
