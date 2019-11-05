@@ -124,7 +124,7 @@ object COSDepartCS : CommandScript
  	COSDepartCS()
  	{
 		SetRestrictions(RESTRICT_SELFEXECUTE);
-		SetIcon("depart_type");
+		SetIcon("departcs");
  	}
  
  	bool CheckPossible(GameObject *Caller)
