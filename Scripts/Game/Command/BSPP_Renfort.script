@@ -534,8 +534,8 @@ object Renfort_VSAV12 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV12, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 2, 1);
+		int personnelVehicule[6] = {5,6,7,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV12, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 3, 1);
 		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
 	}
 };
@@ -554,8 +554,8 @@ object Renfort_VSAV39 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV39, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 2, 1);
+		int personnelVehicule[6] = {5,6,7,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV39, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 3, 1);
 		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
 	}
 };
@@ -574,8 +574,8 @@ object Renfort_VSAV109 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV109, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 2, 1);
+		int personnelVehicule[6] = {5,6,7,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV109, VT_AMBULANCE_RTW, VO_CASERNELAND, personnelVehicule, 3, 1);
 		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
 	}
 };
@@ -594,8 +594,8 @@ object Renfort_VSAV15 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV15, VT_AMBULANCE_RTW, VO_BITCHE, personnelVehicule, 2, 1);
+		int personnelVehicule[6] = {5,6,7,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV15, VT_AMBULANCE_RTW, VO_BITCHE, personnelVehicule, 3, 1);
 		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
 	}
 };
@@ -1115,8 +1115,8 @@ object Renfort_VSAV : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 1);
+		int personnelVehicule[6] = {5,6,7,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 3, 1);
 		Audio::PlaySample3D(SND_VSAV, Caller->GetPosition());
 	}
 };
@@ -1135,8 +1135,8 @@ object Renfort_VSAV2 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV2, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 1);
+		int personnelVehicule[6] = {5,6,7,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV2, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 3, 1);
 		Audio::PlaySample3D(SND_VSAV2, Caller->GetPosition());
 	}
 };
@@ -1155,8 +1155,8 @@ object Renfort_PSR : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSR, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 2, 1);
+		int personnelVehicule[6] = {5,6,7,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSR, VT_AMBULANCE_RTW, sNULL, personnelVehicule, 3, 1);
 		Audio::PlaySample3D(SND_PSR, Caller->GetPosition());		
 	}
 };
