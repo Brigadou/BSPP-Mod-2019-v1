@@ -1,5 +1,5 @@
-const char OBJ_RES01[]					= "mod:Prototypes/Vehicles/Fire Department/VPCM.e4p";
-const char OBJ_RES02[]					= "mod:Prototypes/Vehicles/Fire Department/VPCM_2.e4p";
+const char OBJ_RES01[]					= "mod:Prototypes/Vehicles/Fire Department/CMO.e4p";
+const char OBJ_RES02[]					= "mod:Prototypes/Vehicles/Fire Department/CMO_2.e4p";
 
 const char UNNAMED[]					= "Unnamed";
 const char InstallSound[]         			= "mod:Audio/FX/misc/Ladderinstall.wav";

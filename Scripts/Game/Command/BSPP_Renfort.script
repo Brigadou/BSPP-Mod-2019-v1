@@ -93,7 +93,7 @@ const char PROTO_PSR[] 					= "mod:Prototypes/Vehicles/Ambulance/PSR.e4p";
 const char PROTO_ARIveco[] 				= "mod:Prototypes/Vehicles/Ambulance/ARiveco.e4p";
 const char PROTO_ARMaster[] 			= "mod:Prototypes/Vehicles/Ambulance/ARmaster.e4p";
 const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC.e4p";
-const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
+const char PROTO_CMO[] 					= "mod:Prototypes/Vehicles/Ambulance/CMO.e4p";
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
 const char PROTO_VES[] 					= "mod:Prototypes/Vehicles/Ambulance/VES.e4p";
 
@@ -118,7 +118,7 @@ const char PROTO_PSE5[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE5.e4p"
 const char PROTO_PST[] 					= "mod:Prototypes/Vehicles/Fire Department/PST.e4p";
 const char PROTO_SIS[] 					= "mod:Prototypes/Vehicles/Fire Department/SIS.e4p";
 const char PROTO_SPTT[] 				= "mod:Prototypes/Vehicles/Fire Department/SPTT.e4p";
-const char PROTO_SPVL2clio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVL2clio.e4p";
+const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
 const char PROTO_SPVLclio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio.e4p";
 const char PROTO_SPVLkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLkangoo.e4p";
 const char PROTO_VAG[] 					= "mod:Prototypes/Vehicles/Fire Department/VAG.e4p";
@@ -604,8 +604,8 @@ object Renfort_AR50 : CommandScript
 {
 	Renfort_AR50()
 	{
-		SetIcon("ARIveco");
-		SetCursor("ARIveco");
+		SetIcon("ariveco");
+		SetCursor("ariveco");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -624,8 +624,8 @@ object Renfort_AR63 : CommandScript
 {
 	Renfort_AR63()
 	{
-		SetIcon("ARmaster");
-		SetCursor("ARmaster");
+		SetIcon("armaster");
+		SetCursor("armaster");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -663,8 +663,8 @@ object Renfort_CMO1 : CommandScript
 {
 	Renfort_CMO1()
 	{
-		SetIcon("VPCM");
-		SetCursor("VPCM");
+		SetIcon("cmo");
+		SetCursor("cmo");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -740,8 +740,8 @@ object Renfort_EPAN8 : CommandScript
 {
 	Renfort_EPAN8()
 	{
-		SetIcon("EPAAtego");
-		SetCursor("EPAAtego");
+		SetIcon("epan");
+		SetCursor("epan");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -759,8 +759,8 @@ object Renfort_EPAN3 : CommandScript
 {
 	Renfort_EPAN3()
 	{
-		SetIcon("EPAIveco");
-		SetCursor("EPAIveco");
+		SetIcon("epan");
+		SetCursor("epan");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -930,8 +930,8 @@ object Renfort_SPVL920 : CommandScript
 {
 	Renfort_SPVL920()
 	{
-		SetIcon("SPVLkangoo");
-		SetCursor("SPVLkangoo");
+		SetIcon("SPVL308");
+		SetCursor("SPVL308");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -949,8 +949,8 @@ object Renfort_SPVL212 : CommandScript
 {
 	Renfort_SPVL212()
 	{
-		SetIcon("SPVLkangoo");
-		SetCursor("SPVLkangoo");
+		SetIcon("SPVLup");
+		SetCursor("SPVLup");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -987,8 +987,8 @@ object Renfort_VID220 : CommandScript
 {
 	Renfort_VID220()
 	{
-		SetIcon("VIDkangoo");
-		SetCursor("VIDkangoo");
+		SetIcon("VID1");
+		SetCursor("VID1");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1006,8 +1006,8 @@ object Renfort_VID183 : CommandScript
 {
 	Renfort_VID183()
 	{
-		SetIcon("VIDkangoo");
-		SetCursor("VIDkangoo");
+		SetIcon("VID2");
+		SetCursor("VID2");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1025,8 +1025,8 @@ object Renfort_VID180 : CommandScript
 {
 	Renfort_VID180()
 	{
-		SetIcon("VIDkangoo");
-		SetCursor("VIDkangoo");
+		SetIcon("VID2");
+		SetCursor("VID2");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1145,8 +1145,8 @@ object Renfort_PSR : CommandScript
 {
 	Renfort_PSR()
 	{
-		SetIcon("VSAV2");
-		SetCursor("VSAV2");
+		SetIcon("psr");
+		SetCursor("psr");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1185,7 +1185,7 @@ object Renfort_ARIveco : CommandScript
 {
 	Renfort_ARIveco()
 	{
-		SetIcon("ARIveco");
+		SetIcon("ARiveco");
 		SetCursor("ARiveco");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
@@ -1220,12 +1220,12 @@ object Renfort_MasterPC : CommandScript
 	}
 };
 
-object Renfort_VPCM : CommandScript
+object Renfort_CMO : CommandScript
 {
-	Renfort_VPCM()
+	Renfort_CMO()
 	{
-		SetIcon("VPCM");
-		SetCursor("VPCM");
+		SetIcon("cmo");
+		SetCursor("cmo");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1362,8 +1362,8 @@ object Renfort_CIC_CRR : CommandScript
 {
 	Renfort_CIC_CRR()
 	{
-		SetIcon("ciccrr");
-		SetCursor("ciccrr");
+		SetIcon("ciccib");
+		SetCursor("ciccib");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1438,8 +1438,8 @@ object Renfort_EPAAtego : CommandScript
 {
 	Renfort_EPAAtego()
 	{
-		SetIcon("EPAAtego");
-		SetCursor("EPAAtego");
+		SetIcon("epan");
+		SetCursor("epan");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1457,8 +1457,8 @@ object Renfort_EPAIveco : CommandScript
 {
 	Renfort_EPAIveco()
 	{
-		SetIcon("EPAIveco");
-		SetCursor("EPAIveco");
+		SetIcon("epan");
+		SetCursor("epan");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1662,12 +1662,12 @@ object Renfort_SPTT : CommandScript
 	}
 };
 
-object Renfort_SPVLclio : CommandScript
+object Renfort_SPVLclio3 : CommandScript
 {
-	Renfort_SPVLclio()
+	Renfort_SPVLclio3()
 	{
-		SetIcon("SPVLclio");
-		SetCursor("SPVLclio");
+		SetIcon("SPVLclio3");
+		SetCursor("SPVLclio3");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1681,12 +1681,12 @@ object Renfort_SPVLclio : CommandScript
 	}
 };
 
-object Renfort_SPVL2clio : CommandScript
+object Renfort_SPVL308 : CommandScript
 {
-	Renfort_SPVL2clio()
+	Renfort_SPVL308()
 	{
-		SetIcon("SPVL2clio");
-		SetCursor("SPVL2clio");
+		SetIcon("SPVL308");
+		SetCursor("SPVL308");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1695,8 +1695,8 @@ object Renfort_SPVL2clio : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {11,10,18,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL2clio, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 3, 0);
+		int personnelVehicule[6] = {17,18,0,0,0,0};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL2clio, VT_FIREFIGHTERS_RW, sNULL, personnelVehicule, 2, 0);
 	}
 };
 
@@ -2126,8 +2126,8 @@ object Renfort_MASTERPN2 : CommandScript
 {
 	Renfort_MASTERPN2()
 	{
-		SetIcon("masterpn");
-		SetCursor("masterpn");
+		SetIcon("masterpn2");
+		SetCursor("masterpn2");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2145,8 +2145,8 @@ object Renfort_MASTERPN3 : CommandScript
 {
 	Renfort_MASTERPN3()
 	{
-		SetIcon("masterpn");
-		SetCursor("masterpn");
+		SetIcon("masterpn3");
+		SetCursor("masterpn3");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2164,8 +2164,8 @@ object Renfort_MASTERPN4 : CommandScript
 {
 	Renfort_MASTERPN4()
 	{
-		SetIcon("masterpn");
-		SetCursor("masterpn");
+		SetIcon("masterpn4");
+		SetCursor("masterpn4");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2203,7 +2203,7 @@ object Renfort_TRANSITCRS : CommandScript
 	Renfort_TRANSITCRS()
 	{
 		SetIcon("crstransit");
-		SetCursor("crstransit");
+		SetCursor("callassistance");
 		//SetKeepAsCurrentCommand(true);
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
