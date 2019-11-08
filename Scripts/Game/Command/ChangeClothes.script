@@ -25,8 +25,8 @@ object Feu_2cl : CommandScript
 {
 	Feu_2cl()
 	{
-		SetCursor("f1");
-		SetIcon("f1");
+		SetCursor("tenuef1");
+		SetIcon("tenuef1");
 		SetGroupID(CGROUP_GETEQUIPMENT);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
@@ -139,8 +139,8 @@ object Feu_cpt : CommandScript
 {
 	Feu_cpt()
 	{
-		SetCursor("f1");
-		SetIcon("f1");
+		SetCursor("tenuef1");
+		SetIcon("tenuef1");
 		SetGroupID(CGROUP_GETEQUIPMENT);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
@@ -215,8 +215,8 @@ object Tenue_F1 : CommandScript
 {
 	Tenue_F1()
 	{
-		SetCursor("f1");
-		SetIcon("f1");
+		SetCursor("tenuef1");
+		SetIcon("tenuef1");
 		SetGroupID(CGROUP_GETEQUIPMENT);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
@@ -253,8 +253,8 @@ object ChangeToNBC : CommandScript
 {
 	ChangeToNBC()
 	{
-		SetCursor("rch");
-		SetIcon("rch");
+		SetCursor("tenuenrbc");
+		SetIcon("tenuenrbc");
 		SetGroupID(CGROUP_GETEQUIPMENT);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
@@ -291,8 +291,8 @@ object ChangeToPlonge : CommandScript
 {
 	ChangeToPlonge()
 	{
-		SetCursor("f1");
-		SetIcon("f1");
+		SetCursor("tenueplg");
+		SetIcon("tenueplg");
 		SetGroupID(CGROUP_GETEQUIPMENT);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
@@ -329,8 +329,8 @@ object ChangeToGREP : CommandScript
 {
 	ChangeToGREP()
 	{
-		SetCursor("f1");
-		SetIcon("f1");
+		SetCursor("tenuegrep");
+		SetIcon("tenuegrep");
 		SetGroupID(CGROUP_GETEQUIPMENT);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
@@ -367,8 +367,8 @@ object Tenue_F1_grep : CommandScript
 {
 	Tenue_F1_grep()
 	{
-		SetCursor("f1");
-		SetIcon("f1");
+		SetCursor("tenuegrep");
+		SetIcon("tenuegrep");
 		SetGroupID(CGROUP_GETEQUIPMENT);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
