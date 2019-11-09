@@ -135,7 +135,7 @@ const char PROTO_VSAV15[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV15.e4p";
 const char PROTO_AR50[] 				= "mod:Prototypes/Vehicles/Ambulance/AR50.e4p";
 const char PROTO_AR63[] 				= "mod:Prototypes/Vehicles/Ambulance/AR63.e4p";
 const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
-const char PROTO_CMO[] 					= "mod:Prototypes/Vehicles/Ambulance/CMO1.e4p";
+const char PROTO_CMO1[] 				= "mod:Prototypes/Vehicles/Ambulance/CMO1.e4p";
 int DummyGroup = 20;
 
 // 01.0 - Déclaration de la commande Deux_Tons
