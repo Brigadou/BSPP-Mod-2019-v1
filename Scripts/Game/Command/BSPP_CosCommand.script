@@ -1,3 +1,34 @@
+const char CMD_VSAV12[]			= "Renfort_VSAV12";
+const char CMD_VSAV39[]			= "Renfort_VSAV39";
+const char CMD_VSAV109[]		= "Renfort_VSAV109";
+const char CMD_VSAV15[]			= "Renfort_VSAV15";
+const char CMD_CA25[]			= "Renfort_CA25";
+const char CMD_AR50[]			= "Renfort_AR50";
+const char CMD_AR63[]			= "Renfort_AR63";
+const char CMD_ADPC4[]			= "Renfort_ADPC4";
+const char CMD_CMO1[]			= "Renfort_CMO1";
+const char CMD_CD8[]			= "Renfort_CD8";
+const char CMD_CESD2[]			= "Renfort_CESD2";
+const char CMD_EPAN3[]			= "Renfort_EPAN3";
+const char CMD_EPAN8[]			= "Renfort_EPAN8";
+const char CMD_FPT21[]			= "Renfort_FPT21";
+const char CMD_VIMP7[]			= "Renfort_VIMP7";
+const char CMD_PEV5[]			= "Renfort_PEV5";
+const char CMD_PSE202[]			= "Renfort_PSE202";
+const char CMD_PSE132[]			= "Renfort_PSE132";
+const char CMD_PSE189[]			= "Renfort_PSE189";
+const char CMD_PSE191[]			= "Renfort_PSE191";
+const char CMD_SPVL212[]		= "Renfort_SPVL212";
+const char CMD_SPVL370[]		= "Renfort_SPVL370";
+const char CMD_SPVL920[]		= "Renfort_SPVL920";
+const char CMD_VAG2[]			= "Renfort_VAG2";
+const char CMD_VID180[]			= "Renfort_VID180";
+const char CMD_VID183[]			= "Renfort_VID183";
+const char CMD_VID220[]			= "Renfort_VID220";
+const char CMD_VIGI10[]			= "Renfort_VIGI10";
+const char CMD_VPS6[]			= "Renfort_VPS6";
+const char CMD_VPC1[]			= "Renfort_VPC1";
+
 const char CMD_VSAV1[]			= "Renfort_VSAV";
 const char CMD_VSAV2[]			= "Renfort_VSAV2";
 const char CMD_PSR[]			= "Renfort_PSR";
@@ -11,7 +42,7 @@ const char CMD_VES[]			= "Renfort_VES";
 const char CMD_CCR[]			= "Renfort_CCR";
 const char CMD_CD[]				= "Renfort_CD";
 const char CMD_CESD[]			= "Renfort_CESD";
-const char CMD_CIC_CRR[]		= "Renfort_CIC_CRR";
+const char CMD_CIC_CIB[]		= "Renfort_CIC_CIB";
 const char CMD_CRAC[]			= "Renfort_CRAC";
 const char CMD_CSP[]			= "Renfort_CSP";
 const char CMD_EPAAtego[]		= "Renfort_EPAAtego";
@@ -26,14 +57,16 @@ const char CMD_PSE4[]			= "Renfort_PSE4";
 const char CMD_PSE5[]			= "Renfort_PSE5";
 const char CMD_SIS[]			= "Renfort_SIS";
 const char CMD_SPTT[]			= "Renfort_SPTT";
-const char CMD_SPVL2clio[]		= "Renfort_SPVL2clio";
-const char CMD_SPVLclio[]		= "Renfort_SPVLclio";
+const char CMD_SPVLclio3[]		= "Renfort_SPVLclio3";
+const char CMD_SPVLclio4[]		= "Renfort_SPVLclio4";
 const char CMD_SPVLkangoo[]		= "Renfort_SPVLkangoo";
+const char CMD_SPVLgolf[]		= "Renfort_SPVLgolf";
+const char CMD_SPVLup[]			= "Renfort_SPVLup";
 const char CMD_VAG[]			= "Renfort_VAG";
 const char CMD_VID[]			= "Renfort_VID";
 const char CMD_VIGI[]			= "Renfort_VIGI";
-const char CMD_VPS[]			= "Renfort_SVPS";
-const char CMD_VSC[]			= "Renfort_SVSC";
+const char CMD_VPS[]			= "Renfort_VPS";
+const char CMD_VSC[]			= "Renfort_VSC";
 const char CMD_VPB[]			= "Renfort_VPB";
 
 const char CMD_FL[]				= "FeuLeger";
@@ -69,55 +102,6 @@ const char OBJ_COS[]			= "mod:Prototypes/Persons/Fire Department/COSsp.e4p";
 
 int DummyGroup = 20;
 
-object COSDepart : CommandScript
-{
- 	COSDepart()
- 	{
-		SetRestrictions(RESTRICT_SELFEXECUTE);
-		SetIcon("depart_type");
- 	}
- 
- 	bool CheckPossible(GameObject *Caller)
- 	{
-		return true;
- 	}
- 
- 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
- 	{
-		return true;
- 	}
- 
-	void PushActions(GameObject *Caller, Actor *Target, int childID)
-	{
-		Caller->DisableAllCommands();
-		Caller->AssignCommand(CMD_FL);
-		Caller->EnableCommand(CMD_FL, true);
-		Caller->AssignCommand(CMD_NOR);
-		Caller->EnableCommand(CMD_NOR, true);
-		Caller->AssignCommand(CMD_RI);
-		Caller->EnableCommand(CMD_RI, true);
-		Caller->AssignCommand(CMD_RH);
-		Caller->EnableCommand(CMD_RH, true);
-		Caller->AssignCommand(CMD_RA);
-		Caller->EnableCommand(CMD_RA, true);
-		Caller->AssignCommand(CMD_RC);
-		Caller->EnableCommand(CMD_RC, true);
-		Caller->AssignCommand(CMD_SRM);
-		Caller->EnableCommand(CMD_SRM, true);
-		Caller->AssignCommand(CMD_SRL);
-		Caller->EnableCommand(CMD_SRL, true);
-		Caller->AssignCommand(CMD_UM);
-		Caller->EnableCommand(CMD_UM, true);
-		Caller->AssignCommand(CMD_SM);
-		Caller->EnableCommand(CMD_SM, true);
-		Caller->AssignCommand(CMD_TS);
-		Caller->EnableCommand(CMD_TS, true);
-		Caller->AssignCommand(CMD_GIFF);
-		Caller->EnableCommand(CMD_GIFF, true);
-		Caller->AssignCommand("COSMenu");
-		Caller->EnableCommand("COSMenu", true);
-	}
-};
 
 object COSDepartCS : CommandScript
 {
@@ -242,6 +226,8 @@ object COSINC : CommandScript
 		Caller->EnableCommand(CMD_EPAAtego, true);
 		Caller->AssignCommand(CMD_EPAIveco);
 		Caller->EnableCommand(CMD_EPAIveco, true);
+		Caller->AssignCommand(CMD_PSE2);
+		Caller->EnableCommand(CMD_PSE2, true);
 		Caller->AssignCommand(CMD_PSE3);
 		Caller->EnableCommand(CMD_PSE3, true);
 		Caller->AssignCommand(CMD_PSE4);
@@ -354,8 +340,8 @@ object COSSPE : CommandScript
 		Caller->EnableCommand(CMD_VSC, true);
 		Caller->AssignCommand(CMD_CRAC);
 		Caller->EnableCommand(CMD_CRAC, true);
-		Caller->AssignCommand(CMD_CIC_CRR);
-		Caller->EnableCommand(CMD_CIC_CRR, true);
+		Caller->AssignCommand(CMD_CIC_CIB);
+		Caller->EnableCommand(CMD_CIC_CIB, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -382,12 +368,16 @@ object COSGOC : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand(CMD_SPVL2clio);
-		Caller->EnableCommand(CMD_SPVL2clio, true);
-		Caller->AssignCommand(CMD_SPVLclio);
-		Caller->EnableCommand(CMD_SPVLclio, true);
+		Caller->AssignCommand(CMD_SPVLclio3);
+		Caller->EnableCommand(CMD_SPVLclio3, true);
+		Caller->AssignCommand(CMD_SPVLclio4);
+		Caller->EnableCommand(CMD_SPVLclio4, true);
 		Caller->AssignCommand(CMD_SPVLkangoo);
 		Caller->EnableCommand(CMD_SPVLkangoo, true);
+		Caller->AssignCommand(CMD_SPVLup);
+		Caller->EnableCommand(CMD_SPVLup, true);
+		Caller->AssignCommand(CMD_SPVLgolf);
+		Caller->EnableCommand(CMD_SPVLgolf, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -414,14 +404,13 @@ object COSMenu : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->EnableCommand("COSDepart", true);
 		Caller->EnableCommand("COSDepartCS", true);
 		Caller->EnableCommand("COSSAP", true);
 		Caller->EnableCommand("COSINC", true);
 		Caller->EnableCommand("COSDIV", true);
-		Caller->EnableCommand("COSFDF", true);
 		Caller->EnableCommand("COSSPE", true);
 		Caller->EnableCommand("COSGOC", true);
+		Caller->EnableCommand("COSFDF", true);
 
 		if (StrCompare(Caller->GetPrototypeFileName(), OBJ_COS) == 0)
 		{
