@@ -401,6 +401,120 @@ object Tenue_F1_grep : CommandScript
 	}
 };
 
+object Feu_ca : CommandScript
+{
+	Feu_ca()
+	{
+		SetCursor("tenuef1");
+		SetIcon("tenuef1");
+		SetGroupID(CGROUP_GETEQUIPMENT);
+		SetPossibleCallers(ACTOR_PERSON);
+		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+
+		if(!Caller->IsValid() || !Target->IsValid() || Caller->GetType() != ACTOR_PERSON)
+			return false;
+
+		Person p(Caller);
+		if(p.IsValid() && (p.IsCarryingPerson() || p.IsInDLKBasket() || p.IsLinkedWithPerson() || p.GetFirehoseID()!=0 || p.IsPulling() || p.GetEnteredCarID() != -1))
+			return false;
+
+		Vehicle v(Target);
+
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Caller->PushActionMove(ACTION_NEWLIST, Target, TARGET_PASSENGERDOOR);
+		Caller->PushActionTurnTo(ACTION_APPEND, Target);
+            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 1, false);
+	}
+};
+
+object ARI_ca : CommandScript
+{
+	ARI_ca()
+	{
+		SetCursor("ari");
+		SetIcon("ari");
+		SetGroupID(CGROUP_GETEQUIPMENT);
+		SetPossibleCallers(ACTOR_PERSON);
+		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+
+		if(!Caller->IsValid() || !Target->IsValid() || Caller->GetType() != ACTOR_PERSON)
+			return false;
+
+		Person p(Caller);
+		if(p.IsValid() && (p.IsCarryingPerson() || p.IsInDLKBasket() || p.IsLinkedWithPerson() || p.GetFirehoseID()!=0 || p.IsPulling() || p.GetEnteredCarID() != -1))
+			return false;
+
+		Vehicle v(Target);
+
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Caller->PushActionMove(ACTION_NEWLIST, Target, TARGET_PASSENGERDOOR);
+		Caller->PushActionTurnTo(ACTION_APPEND, Target);
+            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 2, false);
+	}
+};
+
+object Gilet_ca : CommandScript
+{
+	Gilet_ca()
+	{
+		SetCursor("chasuble");
+		SetIcon("chasuble");
+		SetGroupID(CGROUP_GETEQUIPMENT);
+		SetPossibleCallers(ACTOR_PERSON);
+		SetValidTargets(ACTOR_VEHICLE | ACTOR_OBJECT);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+
+		if(!Caller->IsValid() || !Target->IsValid() || Caller->GetType() != ACTOR_PERSON)
+			return false;
+
+		Person p(Caller);
+		if(p.IsValid() && (p.IsCarryingPerson() || p.IsInDLKBasket() || p.IsLinkedWithPerson() || p.GetFirehoseID()!=0 || p.IsPulling() || p.GetEnteredCarID() != -1))
+			return false;
+
+		Vehicle v(Target);
+
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Caller->PushActionMove(ACTION_NEWLIST, Target, TARGET_PASSENGERDOOR);
+		Caller->PushActionTurnTo(ACTION_APPEND, Target);
+            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 3, false);
+	}
+};
+
 object DummyChange : CommandScript
 {
 	DummyChange()
@@ -464,6 +578,18 @@ object DummyChange : CommandScript
             if(childID == 10)
             {
             	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/tenue_F1_grep.e4p", Target->GetName());
+            }
+            if(childID == 11)
+            {
+            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/feu_ca.e4p", Target->GetName());
+            }
+            if(childID == 12)
+            {
+            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/ari_ca.e4p", Target->GetName());
+            }
+            if(childID == 13)
+            {
+            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/gilet_ca.e4p", Target->GetName());
             }
 		p.SetPlayerMP(PlayerID);
             p.SetPosition(Pos);
