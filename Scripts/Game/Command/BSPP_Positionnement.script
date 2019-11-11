@@ -1,4 +1,4 @@
-const bool affich = true;
+const bool affich = false;
 
 object Positionnement : CommandScript
 {
@@ -57,16 +57,16 @@ object Positionnement : CommandScript
 		if(allMaker.GetNumVehicles() == 0)
 		{
 			GameObject obj;
-			if (!(Game::IsFreeplay())) {
-				char proto[] = "mod:Prototypes/Objects/pos_maker/pos_maker.e4p";	
+			if (!(Game::IsMultiplayer())) {
+				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker.e4p";	
 			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 0 ) {
-				char proto[] = "mod:Prototypes/Objects/pos_maker/pos_maker.e4p";	
+				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker.e4p";	
 			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 1) {
-				char proto[] = "mod:Prototypes/Objects/pos_maker/pos_maker_green.e4p";	
+				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker_green.e4p";	
 			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 2) {
-				char proto[] = "mod:Prototypes/Objects/pos_maker/pos_maker_red.e4p";	
+				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker_red.e4p";	
 			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 3) {
-				char proto[] = "mod:Prototypes/Objects/pos_maker/pos_maker_yellow.e4p";
+				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker_yellow.e4p";
 			} else {
 				System::Log("[POS] Joueur introuvable");
 				char proto[] = "error"

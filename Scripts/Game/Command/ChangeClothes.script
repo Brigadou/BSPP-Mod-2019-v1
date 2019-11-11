@@ -427,15 +427,15 @@ object DummyChange : CommandScript
 		Caller->PushActionDeleteOwner(ACTION_APPEND);
 			if(childID == 1)
             {
-            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/feu_2eme_cl.e4p", Target->GetName());
+            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/feu.e4p", Target->GetName());
             }
             if(childID == 2)
             {
-            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/ari_2eme_cl.e4p", Target->GetName());
+            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/ari.e4p", Target->GetName());
             }
             if(childID == 3)
             {
-            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/gilet_2cl.e4p", Target->GetName());
+            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/gilet.e4p", Target->GetName());
             }
 			if(childID == 4)
             {
