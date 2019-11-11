@@ -57,15 +57,15 @@ object Positionnement : CommandScript
 		if(allMaker.GetNumVehicles() == 0)
 		{
 			GameObject obj;
-			if (!(Game::IsMultiplayer())) {
+			if (!(Game::IsFreeplay() && Game::IsMultiplayer())) {
 				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker.e4p";	
-			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 0 ) {
+			} else if (Game::IsFreeplay() && Game::IsMultiplayer() && v.GetPlayerMP() == 0 ) {
 				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker.e4p";	
-			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 1) {
+			} else if (Game::IsFreeplay() && Game::IsMultiplayer() && v.GetPlayerMP() == 1) {
 				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker_green.e4p";	
-			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 2) {
+			} else if (Game::IsFreeplay() && Game::IsMultiplayer() && v.GetPlayerMP() == 2) {
 				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker_red.e4p";	
-			} else if (Game::IsMultiplayer() && v.GetPlayerMP() == 3) {
+			} else if (Game::IsFreeplay() && Game::IsMultiplayer() && v.GetPlayerMP() == 3) {
 				char proto[] = "mod:Prototypes/Vehicles/Fire Department/pos_maker_yellow.e4p";
 			} else {
 				System::Log("[POS] Joueur introuvable");
