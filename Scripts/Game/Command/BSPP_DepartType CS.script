@@ -159,13 +159,13 @@ object DepartNormalCS : CommandScript
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 
 		Game::ExecuteCommand("Renfort_FPT21", Caller);
-		GameObjectList l1;
-		GameObjectList l2;
- 		Game::CollectObstaclesOnVirtualObject(VO_EPAN8, l1, ACTOR_VEHICLE);
- 		Game::CollectObstaclesOnVirtualObject(VO_EPAN3, l2, ACTOR_VEHICLE);
-		if(l1.GetNumObjects() > 0)
+		GameObjectList l5;
+		GameObjectList l6;
+ 		Game::CollectObstaclesOnVirtualObject(VO_EPAN8, l5, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_EPAN3, l6, ACTOR_VEHICLE);
+		if(l5.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_EPAN8", Caller);
-		else if(l2.GetNumObjects() > 0)
+		else if(l6.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_EPAN3", Caller);
 		GameObjectList l1;
 		GameObjectList l2;
@@ -523,13 +523,13 @@ object UrgenceMedicaleCS: CommandScript
 		Mission::PlayHint(HINT_UM);
 		Audio::PlaySample3D(SND_URGENCEMEDICALE, Caller->GetPosition());
 		
-		GameObjectList l1;
-		GameObjectList l2;
- 		Game::CollectObstaclesOnVirtualObject(VO_AR50, l1, ACTOR_VEHICLE);
- 		Game::CollectObstaclesOnVirtualObject(VO_AR63, l2, ACTOR_VEHICLE);
-		if(l1.GetNumObjects() > 0)
+		GameObjectList l7;
+		GameObjectList l8;
+ 		Game::CollectObstaclesOnVirtualObject(VO_AR50, l7, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_AR63, l8, ACTOR_VEHICLE);
+		if(l7.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_AR50", Caller);
-		else if(l2.GetNumObjects() > 0)
+		else if(l8.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_AR63", Caller);
 	}
 };
@@ -564,21 +564,21 @@ object SecoursMedicalCS: CommandScript
 		Mission::PlayHint(HINT_SM);
 		Audio::PlaySample3D(SND_SECOURSMEDICALE, Caller->GetPosition());
 		
-		GameObjectList l1;
-		GameObjectList l2;
-		GameObjectList l3;
-		GameObjectList l4;
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV1, l1, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV2, l2, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV3, l3, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV4, l4, ACTOR_VEHICLE);
-		if(l1.GetNumObjects() > 0)
+		GameObjectList l9;
+		GameObjectList l10;
+		GameObjectList l11;
+		GameObjectList l12;
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV1, l9, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV2, l10, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV3, l11, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAV4, l12, ACTOR_VEHICLE);
+		if(l9.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_VSAV12", Caller);
-		else if(l2.GetNumObjects() > 0)
+		else if(l10.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_VSAV39", Caller);
-		else if(l3.GetNumObjects() > 0)
+		else if(l11.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_VSAV109", Caller);
-		else if(l4.GetNumObjects() > 0)
+		else if(l12.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_VSAV15", Caller);
 	}
 };
