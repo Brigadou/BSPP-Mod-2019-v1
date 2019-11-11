@@ -104,7 +104,10 @@ object FeuLegerCS : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{	
 		Mission::PlayHint(HINT_FEULEGER);
-		Audio::PlaySample3D(SND_FEUXLEGER, Caller->GetPosition());
+			Vector AlarmSnd = obj->GetPosition();
+			int soundID = Audio::PlaySample3D(SND_FEUXLEGER, AlarmSnd, true);
+			obj->SetUserData(soundID);
+			obj->AttachSound(soundID);
 
 		GameObjectList l1;
 		GameObjectList l2;
