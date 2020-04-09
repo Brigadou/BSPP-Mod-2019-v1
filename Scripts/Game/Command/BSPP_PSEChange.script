@@ -1,0 +1,25 @@
+
+object BSPP_PSEChange : CommandScript
+{
+ 	BSPP_PSEChange()
+ 	{
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+ 	}
+ 
+ 	bool CheckPossible(GameObject *Caller)
+ 	{
+		return true;
+ 	}
+ 
+ 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+ 	{
+		return true;
+ 	}
+ 
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Vehicle v(Caller);
+		v.SetMaxTransports(1, true);
+		v.SetVehicleRole(VT_AMBULANCE_RTW);
+	}
+};

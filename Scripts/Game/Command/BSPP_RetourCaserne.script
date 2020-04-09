@@ -13,14 +13,13 @@ const char DUMMY_FIRESTATION[]			= "DummyAtFireStation";
 const char DUMMY_CHECKPARKED[] 			= "DummyCheckParked";
 	
 //VO
-
 const char VO_SPAWN_EM[]				= "VO_SPAWN_EM";
 const char VO_SPAWN_BITCHE[]			= "VO_SPAWN_BITCHE";
 const char VO_SPAWN_GRENELLE[]			= "VO_SPAWN_GRENELLE";
 
 const char VO_SPAWN_SAMU[]				= "vo_spawn_samu"; //TODO modifier les noms des VO
 const char VO_SPAWN_TEC[]				= "vo_spawn_tec";
-	
+
 
 const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
 const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
@@ -30,10 +29,42 @@ const char VO_SQUAD_SAMU[]				= "vo_samu";
 const char VO_SQUAD_TEC[]				= "vo_TEC";
 
 
-const char OBJ_VSAVB[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
-const char OBJ_VSAVR[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
-const char OBJ_PSE4[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE4.e4p";
-const char OBJ_CD[] 				= "mod:Prototypes/Vehicles/Fire Department/CD.e4p";
+//MEDICAL
+const char PROTO_VSAVB[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
+const char PROTO_VSAVR[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
+const char PROTO_PSR[] 					= "mod:Prototypes/Vehicles/Ambulance/PSR.e4p";
+const char PROTO_ARIveco[] 				= "mod:Prototypes/Vehicles/Ambulance/ARiveco.e4p";
+const char PROTO_ARMaster[] 			= "mod:Prototypes/Vehicles/Ambulance/ARmaster.e4p";
+const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC.e4p";
+const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
+const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
+const char PROTO_VES[] 					= "mod:Prototypes/Vehicles/Ambulance/VES.e4p";
+
+const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
+
+//POMPIER
+const char PROTO_CA[] 					= "mod:Prototypes/Vehicles/Fire Department/CA.e4p";
+const char PROTO_CCR[]					= "mod:Prototypes/Vehicles/Fire Department/CCR.e4p";
+const char PROTO_CD[]					= "mod:Prototypes/Vehicles/Fire Department/CD.e4p";
+const char PROTO_CESD[]					= "mod:Prototypes/Vehicles/Fire Department/CESD.e4p";
+const char PROTO_EPAAtego[] 			= "mod:Prototypes/Vehicles/Fire Department/EPA_atego.e4p";
+const char PROTO_EPAIveco[]				= "mod:Prototypes/Vehicles/Fire Department/EPA_iveco.e4p";
+const char PROTO_FPTAtego[]				= "mod:Prototypes/Vehicles/Fire Department/FPTatego.e4p";
+const char PROTO_FPTMidlum[]			= "mod:Prototypes/Vehicles/Fire Department/FPTmidlum.e4p";
+const char PROTO_VIMP[]					= "mod:Prototypes/Vehicles/Fire Department/VIMP.e4p";
+const char PROTO_PEV[]					= "mod:Prototypes/Vehicles/Fire Department/PEV.e4p";
+const char PROTO_PSE3[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE3.e4p";
+const char PROTO_PSE4[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE4.e4p";
+const char PROTO_PSE5[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE5.e4p";
+const char PROTO_SPVLclio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio.e4p";
+const char PROTO_SPVLkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLkangoo.e4p";
+const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
+const char PROTO_SPVLUP[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
+const char PROTO_VAG[] 					= "mod:Prototypes/Vehicles/Fire Department/VAG.e4p";
+const char PROTO_VID[] 					= "mod:Prototypes/Vehicles/Fire Department/VID.e4p";
+const char PROTO_VID2[] 				= "mod:Prototypes/Vehicles/Fire Department/VID2.e4p";
+const char PROTO_VIGI[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI.e4p";
+const char PROTO_VPS[] 					= "mod:Prototypes/Vehicles/Fire Department/VPS.e4p";
 
 //TEC
 const char OBJ_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
@@ -100,7 +131,7 @@ object VcmdToFireStation : CommandScript
 		if (!Caller->IsValid())
 			return false;
 
- 		Vehicle v(Caller);		
+ 		Vehicle v(Caller);
 		if (!v.HasCommand("MoveTo"))
 			return false;
 		if(v.IsInstalled())
@@ -200,76 +231,125 @@ object VcmdToFireStation : CommandScript
 		
 	}
 	
-void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		Vehicle v(Caller);
 		//VSAV B 1 CS EM
 		//VSAV B 2 CS EM
 		//VSAV B 3 CS GRENELLE
 		//Les deux premiers VSAV étant sur le meme squad, on appelle la fonction FirstReturnParking avec la place au lieu du squad
-		if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAVB) == 0)
+		if(StrCompare(v.GetPrototypeFileName(), PROTO_VSAVB) == 0)
 		{
 			GameObjectList l1;
+			bool exitLoop = false;
+			int vsavEM = 0;
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_B_1", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				FirstReturnParking(Caller, "VSAV_B_1", "VO_VSAV_B_1", OBJ_VSAVB, "VO_VSAV_B_1_R", ""); 
-				System::Log("[RETOURCASERNE] VSAV_B_1");
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0) {
+					vsavEM++;
+				}
+				
+			}
+
+			//Si les deux places sont libres
+			if (vsavEM == 0) {
+				FirstReturnParking(Caller, "VSAV_B_1", "", PROTO_VSAVB, "VO_VSAV_B_1_R", "");
 				return;
 			}
-			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_B_2", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				FirstReturnParking(Caller, "VSAV_B_2", "VO_VSAV_B_2", OBJ_VSAVB, "VO_VSAV_B_2_R", ""); 
-				System::Log("[RETOURCASERNE] VSAV_B_2");
+			//Si VSAV2 est libre et VSAV1 occupé
+			else if (vsavEM == 1) {
+				FirstReturnParking(Caller, "VSAV_B_2", "", PROTO_VSAVB, "VO_VSAV_B_2_R", "");
 				return;
+			} 
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
 			}
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_B_3", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				FirstReturnParking(Caller, "VSAV_B_3", VO_SQUAD_GRENELLE, OBJ_VSAVB, "VO_VSAV_B_3_R", ""); 
-				System::Log("[RETOURCASERNE] VSAV_B_3");
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "VSAV_B_3", VO_SQUAD_GRENELLE, PROTO_VSAVB, "VO_VSAV_B_3_R", ""); 
 				return;
 			}
+			 
 			
 			Mission::PlayHint(HINT_NOSPACE);
 			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
 		}
 		//VSAV R 1 CS EM
 		//VSAV R 2 CS BITCHE
 		//VSAV R 3 CS GRENELLE
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAVR) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VSAVR) == 0)
 		{
 			GameObjectList l1;
+			bool exitLoop = false;
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_R_1", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) {
-				FirstReturnParking(Caller, "VSAV_R_1", VO_SQUAD_EM, OBJ_VSAVR, "VO_VSAV_R_1_R", ""); 
-				System::Log("[RETOURCASERNE] VSAV_R_1");
-				return;
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
 			}
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_R_2", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) {
-				FirstReturnParking(Caller, "VSAV_R_2", VO_SQUAD_BITCHE, OBJ_VSAVR, "VO_VSAV_R_2_R", ""); 
-				System::Log("[RETOURCASERNE] VSAV_R_2");
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "VSAV_R_1", VO_SQUAD_EM, PROTO_VSAVR, "VO_VSAV_R_1_R", "");
 				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
 			}
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_R_3", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) {
-				FirstReturnParking(Caller, "VSAV_R_3", VO_SQUAD_GRENELLE, OBJ_VSAVR, "VO_VSAV_R_3_R", ""); 
-				System::Log("[RETOURCASERNE] VSAV_R_3");
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "VSAV_R_2", VO_SQUAD_BITCHE, PROTO_VSAVR, "VO_VSAV_R_2_R", ""); 
 				return;
 			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "VSAV_R_3", VO_SQUAD_GRENELLE, PROTO_VSAVR, "VO_VSAV_R_3_R", ""); 
+				return;
+			}
+			 
 			
 			Mission::PlayHint(HINT_NOSPACE);
 			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
 		}
+		//VID			EM
+		//VID_2			BITCHE
+		//VID_3			GRENELLE
+		
+		//PS5			EM
+		//PS5_2			BITCHE
+		
+		//PS4			BITCHE
+		//PS4_2			GRENELLE
+		
+		//EPAN_ATEGO	BITCHE
+		//EPAN_ATEGO_2	GRENELLE
 
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CD) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD) == 0)
 		{
-			FirstReturnParking(Caller, "CD", VO_SQUAD_EM, OBJ_CD, "VO_CD_R", "");
+			FirstReturnParking(Caller, "CD", VO_SQUAD_EM, PROTO_CD, "VO_CD_R", "");
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN8) == 0)
 		{
@@ -283,9 +363,9 @@ void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 		{
 			FirstReturnParking(Caller, "FPT 21", VO_CASERNELAND, OBJ_FPT21, "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CD8) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD8) == 0)
 		{
-			FirstReturnParking(Caller, "CD 8", VO_CASERNELAND, OBJ_CD8, "");
+			FirstReturnParking(Caller, "CD 8", VO_CASERNELAND, PROTO_CD8, "");
 		}		
 		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID183) == 0)
 		{
@@ -392,7 +472,7 @@ object DummyCheckParked : CommandScript
 	{
 	}
 
-	void EndReturnParking(GameObject *Caller, char NAME[])
+	void EndReturnParking(GameObject *Caller, char NAME[], char VO[])
 	{
 		Vehicle v(Caller);
 		
@@ -411,7 +491,18 @@ object DummyCheckParked : CommandScript
 			return;
 		}
 		
-		
+		/*//Si un véhicule s'est garé entre temps sur la place, on relance le script
+		GameObjectList l1;
+		Game::CollectObstaclesOnVirtualObject(VO, l1, ACTOR_VEHICLE);
+		for (int i = 0; i < l1.GetNumObjects(); i++)
+		{
+			GameObject *aCar = l1.GetObject(i);
+			if(StrCompare(aCar->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0) {
+				v.PushActionExecuteCommand(ACTION_NEWLIST, "VcmdToFireStation", Caller, 0, false);
+				return;
+			}
+		}*/
+		//Sinon on se gare
 		v.PushActionMove(ACTION_APPEND, veh.GetPosition());
 		v.PushActionWait(ACTION_APPEND, 0.5f);	
 		v.SetPosition(veh.GetPosition());
@@ -420,8 +511,6 @@ object DummyCheckParked : CommandScript
 		v.SetRotation(rot[0], rot[1], rot[2], rot[3], rot[4], rot[5], rot[6], rot[7], rot[8]);
 		v.UpdatePlacement();
 
-
-		
 		PersonList passengers = v.GetPassengers();
 		if (passengers.GetNumPersons() > 0)
 			v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_FIRESTATION, Caller, 0, false);
@@ -434,72 +523,115 @@ object DummyCheckParked : CommandScript
 			v.AssignCommand(CMD_WARNINGLIGHTS);
 		} else
 			v.EnableBlinker(BLT_NONE);
+		
 		v.EnableHeadLights(false);
 		v.EnableBlueLights(false);
 
 		if (v.HasCommand("DummyVehicleCalled"))
 			v.RemoveCommand("DummyVehicleCalled");
-		
 	}
 	
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{	
 		Vehicle v(Caller);
-		if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAVB) == 0)
+		if(StrCompare(v.GetPrototypeFileName(), PROTO_VSAVB) == 0)
 		{
 			GameObjectList l1;
-			//Si on détecte plus deux véhicules sur la place, il y a superposition
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_B_1", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) {
-				EndReturnParking(Caller, "VSAV_B_1"); 
-				System::Log("[RETOURCASERNE] VSAV_B_1 End");
-				return;
-			}
+			bool vsav3Grenelle = false;
+			int vsavEM = 0;
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_B_2", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				EndReturnParking(Caller, "VSAV_B_2"); 
-				System::Log("[RETOURCASERNE] VSAV_B_2 End");
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0) {
+					vsavEM++;
+				}
+				
+			}
+			//Si les deux places sont libres
+			if (vsavEM == 0) {
+				EndReturnParking(Caller, "VSAV_B_1", VO_SQUAD_EM);
 				return;
 			}
+			//Si VSAV2 est libre et VSAV1 occupé
+			else if (vsavEM == 1) {
+				EndReturnParking(Caller, "VSAV_B_2", VO_SQUAD_EM);
+				return;
+			} 
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_B_3", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				EndReturnParking(Caller, "VSAV_B_3");
-				System::Log("[RETOURCASERNE] VSAV_B_3 End");
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					vsav3Grenelle=true;
+			}
+			if (!vsav3Grenelle) {
+				EndReturnParking(Caller, "VSAV_B_3", VO_SQUAD_GRENELLE);
 				return;
 			}
+			 
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+			
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VSAVR) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VSAVR) == 0)
 		{
 			GameObjectList l1;
+			bool exitLoop = false;
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_R_1", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				EndReturnParking(Caller, "VSAV_R_1");
-				System::Log("[RETOURCASERNE] VSAV_R_1 End");
-				return;
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
 			}
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_R_2", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				EndReturnParking(Caller, "VSAV_R_2"); 
-				System::Log("[RETOURCASERNE] VSAV_R_2 End");
+			if (!exitLoop) {
+				EndReturnParking(Caller, "VSAV_R_1", VO_SQUAD_EM);
 				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
 			}
 			
-			Game::CollectObstaclesOnVirtualObject("VO_VSAV_R_3", l1, ACTOR_VEHICLE);
-			if (l1.GetNumObjects() == 0) { 
-				EndReturnParking(Caller, "VSAV_R_3");
-				System::Log("[RETOURCASERNE] VSAV_R_3 End");
+			if (!exitLoop) {
+				EndReturnParking(Caller, "VSAV_R_2",VO_SQUAD_BITCHE); 
 				return;
 			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0) 
+					exitLoop=true;
+			}
+			if (!exitLoop) {
+				EndReturnParking(Caller, "VSAV_R_3", VO_SQUAD_GRENELLE);
+				return;
+			}
+			 
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+
 		}
 		
 		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CD) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD) == 0)
 		{
-			EndReturnParking(Caller, "CD");
+			EndReturnParking(Caller, "CD", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN8) == 0)
 		{
@@ -537,7 +669,7 @@ object DummyCheckParked : CommandScript
 		{
 			EndReturnParking(Caller, "PSE 191");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CD8) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD8) == 0)
 		{
 			EndReturnParking(Caller, "CD 8");
 		}
