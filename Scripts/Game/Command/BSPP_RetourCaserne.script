@@ -334,124 +334,272 @@ object VcmdToFireStation : CommandScript
 			v.PushActionReturnToBase(ACTION_NEWLIST);
 			return;
 		}
-		//VID			EM
-		//VID_2			BITCHE
-		//VID_3			GRENELLE
+		//VID		CS EM
+		//VID_2		CS BITCHE
+		//VID_3		CS GRENELLE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VID) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "VID", VO_SQUAD_EM, PROTO_VID, "VO_VID_R", "");
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "VID_2", VO_SQUAD_BITCHE, PROTO_VID, "VO_VID_2_R", ""); 
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "VID_3", VO_SQUAD_GRENELLE, PROTO_VID, "VO_VID_3_R", ""); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+
 		
 		//PS5			EM
 		//PS5_2			BITCHE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE5) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "PS5", VO_SQUAD_EM, PROTO_PSE5, "VO_PS5_R", "");
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "PS5_2", VO_SQUAD_BITCHE, PROTO_PSE5, "VO_PS5_2_R", ""); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
 		
 		//PS4			BITCHE
 		//PS4_2			GRENELLE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE4) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "PS4", VO_SQUAD_BITCHE, PROTO_PSE4, "VO_PS4_R", "");
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "PS4_2", VO_SQUAD_GRENELLE, PROTO_PSE4, "VO_PS4_2_R", ""); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
 		
 		//EPAN_ATEGO	BITCHE
 		//EPAN_ATEGO_2	GRENELLE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_EPAAtego) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "EPAN_Atego", VO_SQUAD_BITCHE, PROTO_EPAAtego, "VO_EPAN_Atego_R", "");
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				FirstReturnParking(Caller, "EPAN_Atego_2", VO_SQUAD_GRENELLE, PROTO_EPAAtego, "VO_EPAN_Atego_2_R", ""); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
 
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC4) == 0)
+		{
+			FirstReturnParking(Caller, "ADPC_4", VO_SQUAD_EM, PROTO_ADPC4, "VO_ADPC_4_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARIveco) == 0)
+		{
+			FirstReturnParking(Caller, "AR_Iveco", VO_SQUAD_EM, PROTO_ARIveco, "VO_AR_Iveco_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARMaster) == 0)
+		{
+			FirstReturnParking(Caller, "AR_Master", VO_SQUAD_EM, PROTO_ARMaster, "VO_AR_Master_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTMidlum) == 0)
+		{
+			FirstReturnParking(Caller, "FPT_Midlum", VO_SQUAD_EM, PROTO_FPTMidlum, "VO_FPT_Midlum_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CA) == 0)
+		{
+			FirstReturnParking(Caller, "CA", VO_SQUAD_EM, PROTO_CA, "VO_CA_R", "");
+		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD) == 0)
 		{
 			FirstReturnParking(Caller, "CD", VO_SQUAD_EM, PROTO_CD, "VO_CD_R", "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN8) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CESD) == 0)
 		{
-			FirstReturnParking(Caller, "EPAN 8", VO_CASERNELAND, OBJ_EPAN8, "");
-		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS132) == 0)
-		{
-			FirstReturnParking(Caller, "PS 132", VO_CASERNELAND, OBJ_PS132, "");
-		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_FPT21) == 0)
-		{
-			FirstReturnParking(Caller, "FPT 21", VO_CASERNELAND, OBJ_FPT21, "");
+			FirstReturnParking(Caller, "CESD", VO_SQUAD_EM, PROTO_CESD, "VO_CESD_R", "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD8) == 0)
+		/*else if(StrCompare(v.GetPrototypeFileName(), PROTO_CMO) == 0)
 		{
-			FirstReturnParking(Caller, "CD 8", VO_CASERNELAND, PROTO_CD8, "");
+			FirstReturnParking(Caller, "CMO", VO_SQUAD_EM, PROTO_CMO, "", "");
+		}*/
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_EPAIveco) == 0)
+		{
+			FirstReturnParking(Caller, "EPAN_Iveco", VO_SQUAD_EM, PROTO_EPAIveco, "VO_EPAN_Iveco_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID183) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PEV) == 0)
 		{
-			FirstReturnParking(Caller, "VID 183", VO_CASERNELAND, OBJ_VID183, "");
+			FirstReturnParking(Caller, "PEV", VO_SQUAD_EM, PROTO_PEV, "VO_PEV_R", "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID220) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE3) == 0)
 		{
-			FirstReturnParking(Caller, "VID 220", VO_CASERNELAND, OBJ_VID220, "");
+			FirstReturnParking(Caller, "PS3", VO_SQUAD_EM, PROTO_PSE3, "VO_PS3_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPC1) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVL308) == 0)
 		{
-			FirstReturnParking(Caller, "VPC 1", VO_CASERNELAND, OBJ_VPC1, "");
+			FirstReturnParking(Caller, "SPVL_308", VO_SQUAD_EM, PROTO_SPVL308, "VO_SPVL_308_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL370) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLkangoo) == 0)
 		{
-			FirstReturnParking(Caller, "SPVL 370", VO_CASERNELAND, OBJ_SPVL370, "");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL920) == 0)
-		{
-			FirstReturnParking(Caller, "SPVL 920", VO_CASERNELAND, OBJ_SPVL920, "");
+			FirstReturnParking(Caller, "SPVL_Kangoo", VO_SQUAD_EM, PROTO_SPVLkangoo, "VO_SPVL_Kangoo_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPS6) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VIGI) == 0)
 		{
-			FirstReturnParking(Caller, "VPS 6", VO_CASERNELAND, OBJ_VPS6, "");
+			FirstReturnParking(Caller, "VIGI", VO_SQUAD_EM, PROTO_VIGI, "VO_VIGI_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIGI10) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPS) == 0)
 		{
-			FirstReturnParking(Caller, "VIGI 10", VO_CASERNELAND, OBJ_VIGI10, "");
+			FirstReturnParking(Caller, "VPS", VO_SQUAD_EM, PROTO_VPS, "VO_VPS_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CESD2) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VIMP) == 0)
 		{
-			FirstReturnParking(Caller, "CESD 2", VO_CASERNELAND, OBJ_CESD2, "");
+			FirstReturnParking(Caller, "VIMP", VO_SQUAD_EM, PROTO_VIMP, "VO_VIMP_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIMP7) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VAG) == 0)
 		{
-			FirstReturnParking(Caller, "VIMP 7", VO_CASERNELAND, OBJ_VIMP7, "");
+			FirstReturnParking(Caller, "VAG", VO_SQUAD_EM, PROTO_VAG, "VO_VAG_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PEV5) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VID2) == 0)
 		{
-			FirstReturnParking(Caller, "PEV 5", VO_CASERNELAND, OBJ_PEV5, "");
-		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VAG2) == 0)
-		{
-			FirstReturnParking(Caller, "VAG 2", VO_CASERNELAND, OBJ_VAG2, "");
-		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CA25) == 0)
-		{
-			FirstReturnParking(Caller, "CA 25", VO_CASERNELAND, OBJ_CA25, "");
+			FirstReturnParking(Caller, "VID2", VO_SQUAD_EM, PROTO_VID2, "VO_VID2_R", "");
 		}
 		//TODO
-		/*else if(StrCompare(v.GetPrototypeFileName(), OBJ_CMO1) == 0)
+		//else if(StrCompare(v.GetPrototypeFileName(), OBJ_CMO1) == 0)
+		//{
+		//	FirstReturnParking(Caller, "CMO 1", VO_SQUAD_EM, OBJ_CMO1, "", "");
+		//}
+		
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE4) == 0)
 		{
-			FirstReturnParking(Caller, "CMO 1", VO_CASERNELAND, OBJ_CMO1, "");
-		}*/
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR50) == 0)
-		{
-			FirstReturnParking(Caller, "AR 50", VO_CASERNELAND, OBJ_AR50, "");
+			FirstReturnParking(Caller, "PS4", VO_SQUAD_BITCHE, PROTO_PSE4, "VO_PS4_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR63) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio) == 0)
 		{
-			FirstReturnParking(Caller, "AR 63", VO_CASERNELAND, OBJ_AR63, "");
+			FirstReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE, PROTO_SPVLclio, "VO_SPVL_Clio_R", "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_ADPC4) == 0)
+		
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTAtego) == 0)
 		{
-			FirstReturnParking(Caller, "ADPC 4", VO_CASERNELAND, OBJ_ADPC4,"");
+			FirstReturnParking(Caller, "FPT_Atego", VO_SQUAD_GRENELLE, PROTO_FPTAtego, "VO_FPT_Atego_R", "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN3) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CCR) == 0)
 		{
-			FirstReturnParking(Caller, "EPAN 3", VO_CASERNEBITCHE, OBJ_EPAN3, "");
+			FirstReturnParking(Caller, "CCR", VO_SQUAD_GRENELLE, PROTO_CCR, "VO_CCR_R", "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL212) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLUP) == 0)
 		{
-			FirstReturnParking(Caller, "SPVL 212", VO_CASERNEBITCHE, OBJ_SPVL212, "");
+			FirstReturnParking(Caller, "SPVL_UP", VO_SQUAD_GRENELLE, PROTO_SPVLUP, "VO_SPVL_UP_R", "");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID180) == 0)
-		{
-			FirstReturnParking(Caller, "VID 180", VO_CASERNEBITCHE, OBJ_VID180, "");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS189) == 0)
-		{
-			FirstReturnParking(Caller, "PS 189", VO_CASERNEBITCHE, OBJ_PS189, "");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS191) == 0)
-		{
-			FirstReturnParking(Caller, "PS 191", VO_CASERNEBITCHE, OBJ_PS191, "");
-		}
+
 		else
 		{
 			Mission::PlayHint(HINT_NOTVALID);
@@ -628,118 +776,274 @@ object DummyCheckParked : CommandScript
 
 		}
 		
+		//VID		CS EM
+		//VID_2		CS BITCHE
+		//VID_3		CS GRENELLE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VID) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "VID", VO_SQUAD_EM);
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "VID_2", VO_SQUAD_BITCHE); 
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			if (!exitLoop) {
+				EndReturnParking(Caller, "VID_3", VO_SQUAD_GRENELLE); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+
 		
+		//PS5			EM
+		//PS5_2			BITCHE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE5) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_EM, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "PS5", VO_SQUAD_EM);
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "PS5_2", VO_SQUAD_BITCHE); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+		
+		//PS4			BITCHE
+		//PS4_2			GRENELLE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE4) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "PS4", VO_SQUAD_BITCHE);
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "PS4_2", VO_SQUAD_GRENELLE); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+		
+		//EPAN_ATEGO	BITCHE
+		//EPAN_ATEGO_2	GRENELLE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_EPAAtego) == 0)
+		{
+			GameObjectList l1;
+			bool exitLoop = false;
+			
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_BITCHE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "EPAN_Atego", VO_SQUAD_BITCHE);
+				return;
+			}
+			exitLoop = false; //Reset de la boucle
+			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_GRENELLE, l1, ACTOR_VEHICLE);
+			for (int i = 0; i < l1.GetNumObjects(); i++)
+			{
+				GameObject *veh = l1.GetObject(i);
+				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
+					exitLoop=true;
+			}
+			
+			if (!exitLoop) {
+				EndReturnParking(Caller, "EPAN_Atego_2", VO_SQUAD_GRENELLE); 
+				return;
+			}
+			
+			Mission::PlayHint(HINT_NOSPACE);
+			v.PushActionReturnToBase(ACTION_NEWLIST);
+			return;
+		}
+
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC4) == 0)
+		{
+			EndReturnParking(Caller, "ADPC_4", VO_SQUAD_EM);
+		}
+		
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARIveco) == 0)
+		{
+			EndReturnParking(Caller, "AR_Iveco", VO_SQUAD_EM);
+		}
+		
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARMaster) == 0)
+		{
+			EndReturnParking(Caller, "AR_Master");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTMidlum) == 0)
+		{
+			EndReturnParking(Caller, "FPT_Midlum");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CA) == 0)
+		{
+			EndReturnParking(Caller, "CA");
+		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD) == 0)
 		{
-			EndReturnParking(Caller, "CD", VO_SQUAD_EM);
+			EndReturnParking(Caller, "CD");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN8) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CESD) == 0)
 		{
-			EndReturnParking(Caller, "EPAN 8");
+			EndReturnParking(Caller, "CESD");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_EPAN3) == 0)
+		/*else if(StrCompare(v.GetPrototypeFileName(), PROTO_CMO) == 0)
 		{
-			EndReturnParking(Caller, "EPAN 3");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL370) == 0)
+			EndReturnParking(Caller, "CMO");
+		}*/
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_EPAIveco) == 0)
 		{
-			EndReturnParking(Caller, "SPVL 370");
+			EndReturnParking(Caller, "EPAN_Iveco");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL920) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PEV) == 0)
 		{
-			EndReturnParking(Caller, "SPVL 920");
+			EndReturnParking(Caller, "PEV");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CA25) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE3) == 0)
 		{
-			EndReturnParking(Caller, "CA 25");
+			EndReturnParking(Caller, "PS3");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS202) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVL308) == 0)
 		{
-			EndReturnParking(Caller, "PSE 202");
+			EndReturnParking(Caller, "SPVL_308");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS132) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLkangoo) == 0)
 		{
-			EndReturnParking(Caller, "PSE 132");
+			EndReturnParking(Caller, "SPVL_Kangoo");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS189) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VIGI) == 0)
 		{
-			EndReturnParking(Caller, "PSE 189");
+			EndReturnParking(Caller, "VIGI");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PS191) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPS) == 0)
 		{
-			EndReturnParking(Caller, "PSE 191");
+			EndReturnParking(Caller, "VPS");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD8) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VIMP) == 0)
 		{
-			EndReturnParking(Caller, "CD 8");
+			EndReturnParking(Caller, "VIMP");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIGI10) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VAG) == 0)
 		{
-			EndReturnParking(Caller, "VIGI 10");
+			EndReturnParking(Caller, "VAG");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPS6) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VID2) == 0)
 		{
-			EndReturnParking(Caller, "VPS 6");
+			EndReturnParking(Caller, "VID2");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR50) == 0)
-		{
-			EndReturnParking(Caller, "AR 50");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_AR63) == 0)
-		{
-			EndReturnParking(Caller, "AR 63");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_ADPC4) == 0)
-		{
-			EndReturnParking(Caller, "ADPC 4");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VIMP7) == 0)
-		{
-			EndReturnParking(Caller, "VIMP 7");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VAG2) == 0)
-		{
-			EndReturnParking(Caller, "VAG 2");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_CESD2) == 0)
-		{
-			EndReturnParking(Caller, "CESD 2");
-		}
-		//else if(StrCompare(v.GetPrototypeFileName(), OBJ_CMO1) == 0)
+		//else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPC) == 0)
 		//{
 			//EndReturnParking(Caller, "CMO 1");
 		//}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_PEV5) == 0)
+		
+		
+		//CSBITCHE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE4) == 0)
 		{
-			EndReturnParking(Caller, "PEV 5");
+			EndReturnParking(Caller, "PS4");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VPC1) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio) == 0)
 		{
-			EndReturnParking(Caller, "VPC 1");
+			EndReturnParking(Caller, "SPVL_Clio");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID183) == 0)
+		
+		//CSGRENELLE
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTAtego) == 0)
 		{
-			EndReturnParking(Caller, "VID 183");
+			EndReturnParking(Caller, "FPT_Atego");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID220) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CCR) == 0)
 		{
-			EndReturnParking(Caller, "VID 220");
+			EndReturnParking(Caller, "CCR");
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_VID180) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLUP) == 0)
 		{
-			EndReturnParking(Caller, "VID 180");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL212) == 0)
-		{
-			EndReturnParking(Caller, "SPVL 212");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL370) == 0)
-		{
-			EndReturnParking(Caller, "SPVL 370");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), OBJ_SPVL920) == 0)
-		{
-			EndReturnParking(Caller, "SPVL 920");
+			EndReturnParking(Caller, "SPVL_UP");
 		}
 	}
 };
