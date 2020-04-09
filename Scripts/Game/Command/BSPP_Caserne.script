@@ -52,15 +52,17 @@ const char OBJ_COSPN[]					= "mod:Prototypes/Persons/Police/COSpn.e4p";
 const char OBJ_COSGN[]					= "mod:Prototypes/Persons/Police/COSgn.e4p";
 const char OBJ_COSGIGN[]				= "mod:Prototypes/Persons/Police/COSgign.e4p";
 
-const char DUMMY_CALLCREW[]			= "DummyCallCrew";
+const char DUMMY_CALLCREW[]				= "DummyCallCrew";
 
-const char VO_SPAWNLAND[]			= "vo_spawn_land";
-const char VO_SPAWNBITCHE[]			= "vo_spawn_bitche";
+const char VO_SPAWN_EM[]				= "VO_SPAWN_EM";
+const char VO_SPAWN_BITCHE[]			= "VO_SPAWN_BITCHE";
+const char VO_SPAWN_GRENELLE[]			= "VO_SPAWN_GRENELLE";
 
-const char VO_CASERNELAND[]			= "vo_caserne_land";
-const char VO_CASERNEBITCHE[]		= "vo_caserne_bitche";
+const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
+const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
+const char VO_SQUAD_GRENELLE[] 			= "VO_SQUAD_GRENELLE";
 
-const char UNNAMED[]				= "Unnamed";
+const char UNNAMED[]					= "Unnamed";
 
 int DummyGroup = 20;
 
@@ -87,10 +89,12 @@ object DummyCallCrew : CommandScript
 		Vehicle v(Caller);
 		ActorList l1;
 		
-		if(v.IsCollidingWithVirtualObject(VO_CASERNELAND))
-			l1 = Game::GetActors(VO_SPAWNLAND);
-		else if(v.IsCollidingWithVirtualObject(VO_CASERNEBITCHE))
-			ActorList l1 = Game::GetActors(VO_SPAWNBITCHE);
+		if(v.IsCollidingWithVirtualObject(VO_SQUAD_EM))
+			l1 = Game::GetActors(VO_SPAWN_EM);
+		else if(v.IsCollidingWithVirtualObject(VO_SQUAD_BITCHE))
+			l1 = Game::GetActors(VO_SPAWN_BITCHE);
+		else if(v.IsCollidingWithVirtualObject(VO_SQUAD_GRENELLE))
+			l1 = Game::GetActors(VO_SPAWN_GRENELLE);
 		
 		if(l1.GetNumActors() > 0)
 			Vector Spawn = l1.GetActor(0)->GetPosition();

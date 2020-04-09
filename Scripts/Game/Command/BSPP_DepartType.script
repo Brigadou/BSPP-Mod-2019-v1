@@ -10,8 +10,12 @@ const char DUMMY_HASSIREN[] 			= "DummyHasSiren";
 const char DUMMY_PATROL[] 				= "DummyPatrol";
 
 
-const char VO_CASERNELAND[] 			= "vo_caserne_land";
-const char VO_CASERNEBITCHE[] 			= "vo_caserne_bitche";
+/*const char VO_CASERNELAND[] 			= "vo_caserne_land";
+const char VO_CASERNEBITCHE[] 			= "vo_caserne_bitche";*/
+//TODO
+const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
+const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
+const char VO_SQUAD_GRENELLE[] 			= "VO_SQUAD_GRENELLE";
 
 const char VO_VSAV1[] 			= "VSAV 12";
 const char VO_VSAV2[] 			= "VSAV 39";

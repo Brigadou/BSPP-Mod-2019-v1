@@ -18,10 +18,10 @@ void start()
 		System::Log("WATER, Can not find object with name: water_supply_main");	
 	Game::ExecuteCommand("Init_CSBITCHE", &Obj);
 	Game::ExecuteCommand("Init_CSLAND", &Obj);
+	Game::ExecuteCommand("Init_CSGRENELLE", &Obj);
 	
 	bool ecartevehicule(GameObject *me)
 	{
-		
 		Vector devantmoi(1.f, 0.f, 0.f);
 		float matlui[9];
 		float mat1[9];

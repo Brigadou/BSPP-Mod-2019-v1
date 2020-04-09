@@ -6,9 +6,11 @@
 //
 //******************************************************************************************
 
+const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPC.e4p";
+
 //MEDICAL
-const char PROTO_VSAV[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
-const char PROTO_VSAV2[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
+const char PROTO_VSAVB[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
+const char PROTO_VSAVR[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
 const char PROTO_PSR[] 					= "mod:Prototypes/Vehicles/Ambulance/PSR.e4p";
 const char PROTO_ARIveco[] 				= "mod:Prototypes/Vehicles/Ambulance/ARiveco.e4p";
 const char PROTO_ARMaster[] 			= "mod:Prototypes/Vehicles/Ambulance/ARmaster.e4p";
@@ -17,34 +19,31 @@ const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
 const char PROTO_VES[] 					= "mod:Prototypes/Vehicles/Ambulance/VES.e4p";
 
+const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
+
 //POMPIER
 const char PROTO_CA[] 					= "mod:Prototypes/Vehicles/Fire Department/CA.e4p";
 const char PROTO_CCR[]					= "mod:Prototypes/Vehicles/Fire Department/CCR.e4p";
 const char PROTO_CD[]					= "mod:Prototypes/Vehicles/Fire Department/CD.e4p";
 const char PROTO_CESD[]					= "mod:Prototypes/Vehicles/Fire Department/CESD.e4p";
-const char PROTO_CIC_CRR[]				= "mod:Prototypes/Vehicles/Fire Department/CICCRR.e4p";
-const char PROTO_CRAC[] 				= "mod:Prototypes/Vehicles/Fire Department/CRAC.e4p";
-const char PROTO_CSP[] 					= "mod:Prototypes/Vehicles/Fire Department/CSP.e4p";
 const char PROTO_EPAAtego[] 			= "mod:Prototypes/Vehicles/Fire Department/EPA_atego.e4p";
 const char PROTO_EPAIveco[]				= "mod:Prototypes/Vehicles/Fire Department/EPA_iveco.e4p";
 const char PROTO_FPTAtego[]				= "mod:Prototypes/Vehicles/Fire Department/FPTatego.e4p";
 const char PROTO_FPTMidlum[]			= "mod:Prototypes/Vehicles/Fire Department/FPTmidlum.e4p";
 const char PROTO_VIMP[]					= "mod:Prototypes/Vehicles/Fire Department/VIMP.e4p";
 const char PROTO_PEV[]					= "mod:Prototypes/Vehicles/Fire Department/PEV.e4p";
+const char PROTO_PSE3[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE3.e4p";
 const char PROTO_PSE4[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE4.e4p";
 const char PROTO_PSE5[] 				= "mod:Prototypes/Vehicles/Fire Department/PSE5.e4p";
-const char PROTO_PST[] 					= "mod:Prototypes/Vehicles/Fire Department/PST.e4p";
-const char PROTO_SIS[] 					= "mod:Prototypes/Vehicles/Fire Department/SIS.e4p";
-const char PROTO_SPTT[] 				= "mod:Prototypes/Vehicles/Fire Department/SPTT.e4p";
-const char PROTO_SPVL2clio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVL2clio.e4p";
 const char PROTO_SPVLclio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio.e4p";
 const char PROTO_SPVLkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLkangoo.e4p";
+const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
+const char PROTO_SPVLUP[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
 const char PROTO_VAG[] 					= "mod:Prototypes/Vehicles/Fire Department/VAG.e4p";
-const char PROTO_VIDkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/VIDkangoo.e4p";
+const char PROTO_VID[] 					= "mod:Prototypes/Vehicles/Fire Department/VID.e4p";
+const char PROTO_VID2[] 				= "mod:Prototypes/Vehicles/Fire Department/VID2.e4p";
 const char PROTO_VIGI[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI.e4p";
 const char PROTO_VPS[] 					= "mod:Prototypes/Vehicles/Fire Department/VPS.e4p";
-const char PROTO_VSC[] 					= "mod:Prototypes/Vehicles/Fire Department/VSC.e4p";
-const char PROTO_VPB[] 					= "mod:Prototypes/Vehicles/Fire Department/VPB.e4p";
 
 //TEC
 const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
@@ -78,47 +77,6 @@ const char PROTO_GETAWAY[]				= "mod:Prototypes/Vehicles/Police/getawaycar.e4p";
 const char PROTO_MOTOGN[]				= "mod:Prototypes/Vehicles/Police/BMW1200RT.e4p";
 const char PROTO_MOTOPN[]				= "mod:Prototypes/Vehicles/Police/BMW1200RTPN.e4p";
 
-//MEDICAL 2
-
-//CS ETAT-MAJOR
-const char PROTO_VSAV12[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV12.e4p";
-const char PROTO_VSAV39[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV39.e4p";
-const char PROTO_VSAV109[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV109.e4p";
-const char PROTO_PS202[] 				= "mod:Prototypes/Vehicles/Fire Department/PS202.e4p";
-const char PROTO_EPAN8[] 				= "mod:Prototypes/Vehicles/Fire Department/EPAN8.e4p";
-const char PROTO_PS132[] 				= "mod:Prototypes/Vehicles/Fire Department/PS132.e4p";
-const char PROTO_FPT21[]				= "mod:Prototypes/Vehicles/Fire Department/FPT21.e4p";
-const char PROTO_CD8[]					= "mod:Prototypes/Vehicles/Fire Department/CD8.e4p";
-const char PROTO_VID183[] 				= "mod:Prototypes/Vehicles/Fire Department/VID183.e4p";
-const char PROTO_VID220[] 				= "mod:Prototypes/Vehicles/Fire Department/VID220.e4p";
-const char PROTO_VPC1[] 				= "mod:Prototypes/Vehicles/Fire Department/VPC1.e4p";
-const char PROTO_SPVL370[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL370.e4p";
-const char PROTO_SPVL920[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL920.e4p";
-const char PROTO_VPS6[] 				= "mod:Prototypes/Vehicles/Fire Department/VPS6.e4p";
-const char PROTO_VIGI10[] 				= "mod:Prototypes/Vehicles/Fire Department/VIGI10.e4p";
-const char PROTO_CESD2[]				= "mod:Prototypes/Vehicles/Fire Department/CESD2.e4p";
-const char PROTO_VIMP7[]				= "mod:Prototypes/Vehicles/Fire Department/VIMP7.e4p";
-const char PROTO_PEV5[]					= "mod:Prototypes/Vehicles/Fire Department/PEV5.e4p";
-const char PROTO_VAG2[] 				= "mod:Prototypes/Vehicles/Fire Department/VAG2.e4p";
-const char PROTO_CA25[] 				= "mod:Prototypes/Vehicles/Fire Department/CA25.e4p";
-//const char PROTO_CMO1[] 				= "mod:Prototypes/Vehicles/Fire Department/CMO1.e4p";
-const char PROTO_AR50[] 				= "mod:Prototypes/Vehicles/Ambulance/AR50.e4p";
-const char PROTO_AR63[] 				= "mod:Prototypes/Vehicles/Ambulance/AR63.e4p";
-const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
-
-const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPC.e4p";
-
-
-//CS BITCHE
-const char PROTO_VSAV15[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAV15.e4p";
-const char PROTO_PS189[] 				= "mod:Prototypes/Vehicles/Fire Department/PS189.e4p";
-const char PROTO_PS191[] 				= "mod:Prototypes/Vehicles/Fire Department/PS191.e4p";
-const char PROTO_EPAN3[]				= "mod:Prototypes/Vehicles/Fire Department/EPAN3.e4p";
-const char PROTO_SPVL212[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL212.e4p";
-const char PROTO_VID180[] 				= "mod:Prototypes/Vehicles/Fire Department/VID180.e4p";
-
-
-
 const char UNNAMED[] 					= "Unnamed";
 
 
@@ -126,7 +84,7 @@ const char UNNAMED[] 					= "Unnamed";
 class ClassSpawn: CommandScript
 {
 
-	void Create(GameObject *Caller, char PROTO[], char NAME[],  int NbMaxPassager, int NbMaxTransport)
+	void Create(GameObject *Caller, char PROTO[], char NAME[], int NbMaxPassager, int NbMaxTransport)
 	{
 		GameObjectList vehList(NAME);
 		GameObject veh;
@@ -157,6 +115,7 @@ class ClassSpawn: CommandScript
 	}
 };
 
+//TODO init CMO + VPC
 object Init_CSLAND : CommandScript
 {
 	Init_CSLAND()
@@ -174,31 +133,31 @@ object Init_CSLAND : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_SPVL370,  "SPVL 370", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_SPVL920,  "SPVL 920", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_VSAV12,  "VSAV 12", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_VSAV39,  "VSAV 39", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_VSAV109,  "VSAV 109", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_PS202,  "PS 202", 6, 0);
-		ClassSpawn::Create(Caller, PROTO_PS132,  "PS 132", 6, 0);
-		ClassSpawn::Create(Caller, PROTO_EPAN8,  "EPAN 8", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_FPT21,  "FPT 21", 6, 0);
-		ClassSpawn::Create(Caller, PROTO_CD8,  "CD 8", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_VIGI10,  "VIGI 10", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_VPS6,  "VPS 6", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_AR50,  "AR 50", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_AR63,  "AR 63", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_ADPC4,  "ADPC 4", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_VIMP7,  "VIMP 7", 5, 0);
-		ClassSpawn::Create(Caller, PROTO_VAG2,  "VAG 2", 5, 0);
-		ClassSpawn::Create(Caller, PROTO_CESD2,  "CESD 2", 4, 0);
-		ClassSpawn::Create(Caller, PROTO_CA25,  "CA 25", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_PEV5,  "PEV 5", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_VID183,  "VID 183", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_VID220,  "VID 220", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_VPC1,  "VPC 1", 2, 0);
-		//ClassSpawn::Create(Caller, PROTO_CMO1,  "CMO 1", 4, 0);
-		
+		ClassSpawn::Create(Caller, PROTO_ADPC4,  "ADPC_4", 3, 1); //PROTEC
+		ClassSpawn::Create(Caller, PROTO_ARIveco, "AR_Iveco", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_ARMaster, "AR_Master", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_FPTMidlum, "FPT_Midlum", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_CA, "CA", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_CD, "CD", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_CESD, "CESD", 4, 0);
+		//ClassSpawn::Create(Caller, PROTO_CMO,  "CMO", 4, 0);
+		ClassSpawn::Create(Caller, PROTO_EPAIveco, "EPAN_Iveco", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_PEV,  "PEV", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_PSE3,  "PS3", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_PSE5,  "PS5", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVL308,  "SPVL_308", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVLkangoo,  "SPVL_Kangoo", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VSAVB,  "VSAV_B_1", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VSAVB,  "VSAV_B_2", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VSAVR,  "VSAV_R_1", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VIGI,  "VIGI", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_VPS,  "VPS", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VIMP,  "VIMP", 5, 0);
+		ClassSpawn::Create(Caller, PROTO_VAG,  "VAG", 5, 0);
+		ClassSpawn::Create(Caller, PROTO_VID,  "VID", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VID2,  "VID2", 2, 0);
+		//ClassSpawn::Create(Caller, PROTO_VPC,  "VPC", 2, 0);
+
 		if (Game::IsFreeplay())
 		{
 			GameObjectList vehList("VPCM");
@@ -271,11 +230,40 @@ object Init_CSBITCHE : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_VSAV15,  "VSAV 15", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_PS189,  "PS 189", 6, 0);
-		ClassSpawn::Create(Caller, PROTO_PS191,  "PS 191", 6, 0);
-		ClassSpawn::Create(Caller, PROTO_EPAN3,  "EPAN 3", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_SPVL212,  "SPVL 212", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_VID180,  "VID 180", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VSAVR,  "VSAV_R_2", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_PSE5,  "PS5_2", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_PSE4,  "PS4", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_EPAAtego,  "EPAN_Atego", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVLclio,  "SPVL_Clio", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_VID,  "VID_2", 2, 0);
+	}
+};
+
+
+object Init_CSGRENELLE : CommandScript
+{
+	Init_CSGRENELLE()
+	{
+		SetIcon("CSGRENELLE");
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+	bool CheckPossible(GameObject *Caller) { 
+		if (Game::IsCampaign() || Game::IsMission() || Game::IsFreeplay())
+			return false; 
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		ClassSpawn::Create(Caller, PROTO_VSAVB,  "VSAV_B_3", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VSAVR,  "VSAV_R_3", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_PSE4,  "PS4_2", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_CCR,  "CCR", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_FPTAtego,  "FPT_Atego", 6, 0);
+		ClassSpawn::Create(Caller, PROTO_EPAAtego,  "EPAN_Atego_2", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVLUP,  "SPVL_UP", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_VID,  "VID_3", 2, 0);
 	}
 };
