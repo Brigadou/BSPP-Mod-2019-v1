@@ -28,7 +28,7 @@ const char VO_SPAWN_ALL4[] 				= "VO_SPAWN_ALL4";
 const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
 const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
 const char VO_SQUAD_GRENELLE[] 			= "VO_SQUAD_GRENELLE";
-const char VO_SQUAD_POL[] 				= "vo_commissariat";
+const char VO_SQUAD_POL[] 				= "VO_SQUAD_POL";
 
 const char sNULL[]						= "";
 
@@ -473,7 +473,7 @@ object Renfort_VSAVR : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {5,6,7,0,0,0};
-		char * listSquadVO[] 			= {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
+		char * listSquadVO[] 			= {VO_SQUAD_EM, VO_SQUAD_BITCHE, VO_SQUAD_GRENELLE};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAV2, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
 		
