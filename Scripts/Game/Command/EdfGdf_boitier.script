@@ -1,0 +1,112 @@
+//******************************************************************************************
+//
+// Usage of this script in other mods is NOT allowed without permission of dark poulpo
+//
+// l'utilisation de se script ou des algorithmes est interdit sans permission de dark poulpo
+//
+//******************************************************************************************
+
+
+
+object Boitier_StopAlarme: CommandScript
+{
+	Boitier_StopAlarme()
+	{
+		SetIcon("Boitier_StopAlarme");
+		SetCursor("null");
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+		SetPriority(4000);
+	}
+
+	bool CheckPossible(GameObject *Caller)
+	{
+		if (!Caller->IsValid())	return false;
+		if (Caller->GetUserData() ==0) 	return false;
+		return true;
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+
+		if (!Target->IsValid() || Target->GetID() != Caller->GetID()) return false;
+		if (Caller->GetType() != ACTOR_VEHICLE)  return false;
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		int sound = Caller->GetUserData();
+		if (sound) {
+			Audio::StopSample(sound);
+			Caller->SetUserData(0);
+		}
+	}
+};
+
+object Boitier_StopLights: CommandScript
+{
+	Boitier_StopLights()
+	{
+		SetIcon("Boitier_StopLights");
+		SetCursor("null");
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+		SetPriority(4000);
+	}
+
+	bool CheckPossible(GameObject *Caller)
+	{
+		if (!Caller->IsValid())	return false;
+		return false;
+		GameObjectList list = Game::GetGameObjectsWithPrefix("mission ");
+		if (list.GetNumObjects()>0) return true;
+		
+		return false;
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+
+		if (!Target->IsValid() || Target->GetID() != Caller->GetID()) return false;
+		if (Caller->GetType() != ACTOR_VEHICLE)  return false;
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+
+	}
+};
+
+object Boitier_StopGaz: CommandScript
+{
+
+	Boitier_StopGaz()
+	{
+		SetIcon("Boitier_StopGaz");
+		SetCursor("null");
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+		SetPriority(4000);
+	}
+
+	bool CheckPossible(GameObject *Caller)
+	{
+		if (!Caller->IsValid())	return false;
+		return false;
+		GameObjectList list = Game::GetGameObjectsWithPrefix("mission ");
+		if (list.GetNumObjects()>0) return true;
+		return false;
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+
+		if (!Target->IsValid() || Target->GetID() != Caller->GetID()) return false;
+		if (Caller->GetType() != ACTOR_VEHICLE)  return false;
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+
+	}
+};
