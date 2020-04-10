@@ -951,26 +951,25 @@ object DummyCheckParked : CommandScript
 		{
 			EndReturnParking(Caller, "AR_Iveco", VO_SQUAD_EM);
 		}
-		
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARMaster) == 0)
 		{
-			EndReturnParking(Caller, "AR_Master");
+			EndReturnParking(Caller, "AR_Master", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTMidlum) == 0)
 		{
-			EndReturnParking(Caller, "FPT_Midlum");
+			EndReturnParking(Caller, "FPT_Midlum", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CA) == 0)
 		{
-			EndReturnParking(Caller, "CA");
+			EndReturnParking(Caller, "CA", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CD) == 0)
 		{
-			EndReturnParking(Caller, "CD");
+			EndReturnParking(Caller, "CD", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CESD) == 0)
 		{
-			EndReturnParking(Caller, "CESD");
+			EndReturnParking(Caller, "CESD", VO_SQUAD_EM);
 		}
 		/*else if(StrCompare(v.GetPrototypeFileName(), PROTO_CMO) == 0)
 		{
@@ -978,72 +977,72 @@ object DummyCheckParked : CommandScript
 		}*/
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_EPAIveco) == 0)
 		{
-			EndReturnParking(Caller, "EPAN_Iveco");
+			EndReturnParking(Caller, "EPAN_Iveco", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PEV) == 0)
 		{
-			EndReturnParking(Caller, "PEV");
+			EndReturnParking(Caller, "PEV", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE3) == 0)
 		{
-			EndReturnParking(Caller, "PS3");
+			EndReturnParking(Caller, "PS3", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVL308) == 0)
 		{
-			EndReturnParking(Caller, "SPVL_308");
+			EndReturnParking(Caller, "SPVL_308", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLkangoo) == 0)
 		{
-			EndReturnParking(Caller, "SPVL_Kangoo");
+			EndReturnParking(Caller, "SPVL_Kangoo", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VIGI) == 0)
 		{
-			EndReturnParking(Caller, "VIGI");
+			EndReturnParking(Caller, "VIGI", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPS) == 0)
 		{
-			EndReturnParking(Caller, "VPS");
+			EndReturnParking(Caller, "VPS", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VIMP) == 0)
 		{
-			EndReturnParking(Caller, "VIMP");
+			EndReturnParking(Caller, "VIMP", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VAG) == 0)
 		{
-			EndReturnParking(Caller, "VAG");
+			EndReturnParking(Caller, "VAG", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VID2) == 0)
 		{
-			EndReturnParking(Caller, "VID2");
+			EndReturnParking(Caller, "VID2", VO_SQUAD_EM);
 		}
 		//else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPC) == 0)
 		//{
-			//EndReturnParking(Caller, "CMO 1");
+			//EndReturnParking(Caller, "CMO 1", VO_SQUAD_EM);
 		//}
 		
 		
 		//CSBITCHE
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE4) == 0)
 		{
-			EndReturnParking(Caller, "PS4");
+			EndReturnParking(Caller, "PS4", VO_SQUAD_BITCHE);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio) == 0)
 		{
-			EndReturnParking(Caller, "SPVL_Clio");
+			EndReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE);
 		}
 		
 		//CSGRENELLE
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTAtego) == 0)
 		{
-			EndReturnParking(Caller, "FPT_Atego");
+			EndReturnParking(Caller, "FPT_Atego", VO_SQUAD_GRENELLE);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_CCR) == 0)
 		{
-			EndReturnParking(Caller, "CCR");
+			EndReturnParking(Caller, "CCR", VO_SQUAD_GRENELLE);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLUP) == 0)
 		{
-			EndReturnParking(Caller, "SPVL_UP");
+			EndReturnParking(Caller, "SPVL_UP", VO_SQUAD_GRENELLE);
 		}
 	}
 };
