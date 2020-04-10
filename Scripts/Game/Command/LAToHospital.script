@@ -126,7 +126,7 @@ object VcmdToHospital : CommandScript
 			if (transports.GetNumPersons() > 0) 
 			{
 				if (!v.HasCommand(DUMMY_HASSIREN) && v.HasCommand(CMD_AUTOSIREN_OFF))
-					Game::ExecuteCommand(CMD_SIREN, &v, &v);
+					Game::ExecuteCommand(Deux_Tons, &v, &v);
 			}
 			if (transports.GetNumPersons() > 0)
 			{
@@ -237,7 +237,7 @@ object DummyGoHome : CommandScript
 		if(ChildID == 1)
 		{
 			Vehicle v(Target);
-			Game::ExecuteCommand(CMD_GOHOME, &v, &v);
+			Game::ExecuteCommand(VcmdToFireStation, &v, &v);
 		}
 	}
 };

@@ -116,19 +116,15 @@ object FeuLegerCS : CommandScript
 		GameObjectList l1;
 		GameObjectList l2;
 		GameObjectList l3;
-		GameObjectList l4;
-		Game::CollectObstaclesOnVirtualObject(VO_PSE1, l1, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_PSE2, l2, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_PSE3, l3, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_PSE4, l4, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE2, l1, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE3, l2, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE4, l3, ACTOR_VEHICLE);
 		if(l1.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS202", Caller);
+			Game::ExecuteCommand("Renfort_PSE3", Caller);
 		else if(l2.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS132", Caller);
+			Game::ExecuteCommand("Renfort_PSE4", Caller);
 		else if(l3.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS189", Caller);
-		else if(l4.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS191", Caller);
+			Game::ExecuteCommand("Renfort_PSE5", Caller);
 	}
 };
 
@@ -162,31 +158,34 @@ object DepartNormalCS : CommandScript
 		Mission::PlayHint(HINT_NORMAL);
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 
-		Game::ExecuteCommand("Renfort_FPT21", Caller);
+		GameObjectList l11;
+		GameObjectList l12;
+ 		Game::CollectObstaclesOnVirtualObject(VO_ARMaster, l11, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_ARIveco, l12, ACTOR_VEHICLE);
+		if(l11.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
+		else if(l12.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
+		GameObjectList l4;
 		GameObjectList l5;
-		GameObjectList l6;
- 		Game::CollectObstaclesOnVirtualObject(VO_EPAN8, l5, ACTOR_VEHICLE);
- 		Game::CollectObstaclesOnVirtualObject(VO_EPAN3, l6, ACTOR_VEHICLE);
-		if(l5.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_EPAN8", Caller);
-		else if(l6.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_EPAN3", Caller);
+ 		Game::CollectObstaclesOnVirtualObject(VO_EPAN8, l4, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_EPAN3, l5, ACTOR_VEHICLE);
+		if(l4.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_EPAAtego", Caller);
+		else if(l5.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_EPAIveco", Caller);
 		GameObjectList l1;
 		GameObjectList l2;
 		GameObjectList l3;
-		GameObjectList l4;
-		Game::CollectObstaclesOnVirtualObject(VO_PSE1, l1, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_PSE2, l2, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_PSE3, l3, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_PSE4, l4, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE2, l1, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE3, l2, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSE4, l3, ACTOR_VEHICLE);
 		if(l1.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS202", Caller);
+			Game::ExecuteCommand("Renfort_PSE3", Caller);
 		else if(l2.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS132", Caller);
+			Game::ExecuteCommand("Renfort_PSE4", Caller);
 		else if(l3.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS189", Caller);
-		else if(l4.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_PS191", Caller);
+			Game::ExecuteCommand("Renfort_PSE5", Caller);
 		//Game::ExecuteCommand("Renfort_VLRCGI", Caller);
 
 	}
@@ -222,9 +221,16 @@ object RenfortIncendieCS : CommandScript
 		Mission::PlayHint(HINT_RENFORTINCENDIE);	
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 		
-		Game::ExecuteCommand("Renfort_FPT21", Caller);
-		Game::ExecuteCommand("Renfort_EPAN8", Caller);
-		Game::ExecuteCommand("Renfort_EPAN3", Caller);
+		GameObjectList l11;
+		GameObjectList l12;
+ 		Game::CollectObstaclesOnVirtualObject(VO_ARMaster, l11, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_ARIveco, l12, ACTOR_VEHICLE);
+		if(l11.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
+		else if(l12.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
+		Game::ExecuteCommand("Renfort_EPAIveco", Caller);
+		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
 		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
 		GameObjectList l1;
 		GameObjectList l2;
@@ -242,14 +248,25 @@ object RenfortIncendieCS : CommandScript
 			Game::ExecuteCommand("Renfort_PS189", Caller);
 		else if(l4.GetNumObjects() > 0)
 			Game::ExecuteCommand("Renfort_PS191", Caller);
-		Game::ExecuteCommand("Renfort_CA25", Caller);
-		Game::ExecuteCommand("Renfort_CESD2", Caller);
-		Game::ExecuteCommand("Renfort_VSAV12", Caller);
-		Game::ExecuteCommand("Renfort_AR50", Caller);
-		Game::ExecuteCommand("Renfort_CD2", Caller);
-		Game::ExecuteCommand("Renfort_PEV5", Caller);
+		Game::ExecuteCommand("Renfort_CA", Caller);
+		Game::ExecuteCommand("Renfort_CESD", Caller);
+		Game::ExecuteCommand("Renfort_CD", Caller);
+		Game::ExecuteCommand("Renfort_PEV", Caller);
 		Game::ExecuteCommand("Renfort_CRAC", Caller);
-		Game::ExecuteCommand("Renfort_AR63", Caller);
+		GameObjectList l8;
+		GameObjectList l9;
+		GameObjectList l10;
+		Game::CollectObstaclesOnVirtualObject(VO_VSAVB, l8, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAVR, l9, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSR, l10, ACTOR_VEHICLE);
+		if(l8.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_VSAVB", Caller);
+		else if(l9.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_VSAVR", Caller);
+		else if(l10.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_PSR", Caller);
+		Game::ExecuteCommand("Renfort_ARIveco", Caller);
+		Game::ExecuteCommand("Renfort_ARMaster", Caller);
 	}
 };
 object RenfortHabitationCS : CommandScript
@@ -283,23 +300,23 @@ object RenfortHabitationCS : CommandScript
 		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
 		
 			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
-			Game::ExecuteCommand("Renfort_FPT21", Caller);
-			Game::ExecuteCommand("Renfort_PS202", Caller);
-			Game::ExecuteCommand("Renfort_PS132", Caller);
-			Game::ExecuteCommand("Renfort_PSE3", Caller);
-			Game::ExecuteCommand("Renfort_EPAN8", Caller);
-			Game::ExecuteCommand("Renfort_EPAN3", Caller);
-			Game::ExecuteCommand("Renfort_VSAV39", Caller);
-			Game::ExecuteCommand("Renfort_VSAV109", Caller);
-			Game::ExecuteCommand("Renfort_AR50", Caller);
-			Game::ExecuteCommand("Renfort_AR63", Caller);
-			Game::ExecuteCommand("Renfort_PEV5", Caller);
-			Game::ExecuteCommand("Renfort_CD8", Caller);
+			Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
+			Game::ExecuteCommand("Renfort_PSE5", Caller);
+			Game::ExecuteCommand("Renfort_PSE4", Caller);
+			Game::ExecuteCommand("Renfort_PSE5", Caller);
+			Game::ExecuteCommand("Renfort_EPAIveco", Caller);
+			Game::ExecuteCommand("Renfort_EPAAtego", Caller);
+			Game::ExecuteCommand("Renfort_VSAVB", Caller);
+			Game::ExecuteCommand("Renfort_VSAVR", Caller);
+			Game::ExecuteCommand("Renfort_ARIveco", Caller);
+			Game::ExecuteCommand("Renfort_ARMaster", Caller);
+			Game::ExecuteCommand("Renfort_PEV", Caller);
+			Game::ExecuteCommand("Renfort_CD", Caller);
 			Game::ExecuteCommand("Renfort_CRAC", Caller);
 			//Game::ExecuteCommand("Renfort_VLRDSM", Caller);
 			//Game::ExecuteCommand("Renfort_VLROGC", Caller);
 			//Game::ExecuteCommand("Renfort_VLRCDG", Caller);
-			Game::ExecuteCommand("Renfort_VPC1", Caller);
+			Game::ExecuteCommand("Renfort_VPC", Caller);
 	}
 };
 object RenfortAnticipationCS : CommandScript
@@ -334,9 +351,9 @@ object RenfortAnticipationCS : CommandScript
 		
 
 			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
-			Game::ExecuteCommand("Renfort_EPAN3", Caller);
-			Game::ExecuteCommand("Renfort_VSAV15", Caller);
-			Game::ExecuteCommand("Renfort_AR63", Caller);
+			Game::ExecuteCommand("Renfort_EPAAtego", Caller);
+			Game::ExecuteCommand("Renfort_VSAVB", Caller);
+			Game::ExecuteCommand("Renfort_ARMaster", Caller);
 			Game::ExecuteCommand("Renfort_CRAC", Caller);
 		//Game::ExecuteCommand("Renfort_EDF", Caller);
 	}
@@ -373,8 +390,8 @@ object RenfortCommandementCS : CommandScript
 		
 		//Game::ExecuteCommand("Renfort_VPC", Caller);
 		//Game::ExecuteCommand("Renfort_CMO1", Caller);
-		Game::ExecuteCommand("Renfort_SPVL370", Caller);
-		Game::ExecuteCommand("Renfort_SPVL920", Caller);
+		Game::ExecuteCommand("Renfort_SPVL308", Caller);
+		Game::ExecuteCommand("Renfort_SPVLkangoo", Caller);
 	}
 };
 object SecoursRoutierMoyenCS : CommandScript
@@ -411,10 +428,10 @@ object SecoursRoutierMoyenCS : CommandScript
 		Mission::PlayHint(HINT_SRM);	
 		Audio::PlaySample3D(SND_SECOURROUTIERMOYEN, Caller->GetPosition());
 		
-			Game::ExecuteCommand("Renfort_CD8", Caller);
-			Game::ExecuteCommand("Renfort_VSAV39", Caller);
-			Game::ExecuteCommand("Renfort_PS132", Caller);
-			Game::ExecuteCommand("Renfort_VPS6", Caller);
+			Game::ExecuteCommand("Renfort_CD", Caller);
+			Game::ExecuteCommand("Renfort_VSAVR", Caller);
+			Game::ExecuteCommand("Renfort_PSE4", Caller);
+			Game::ExecuteCommand("Renfort_VPS", Caller);
 	}
 };
 
@@ -449,11 +466,11 @@ object SecoursRoutierLourdCS : CommandScript
 		Mission::PlayHint(HINT_SRLO);
 		Audio::PlaySample3D(SND_SECOUROUTIERLOURD, Caller->GetPosition());
 		
-			Game::ExecuteCommand("Renfort_CD8", Caller);
-			Game::ExecuteCommand("Renfort_VSAV109", Caller);
-			Game::ExecuteCommand("Renfort_PS202", Caller);
-			Game::ExecuteCommand("Renfort_VPS6", Caller);
-			Game::ExecuteCommand("Renfort_AR50", Caller);
+			Game::ExecuteCommand("Renfort_CD", Caller);
+			Game::ExecuteCommand("Renfort_VSAVB", Caller);
+			Game::ExecuteCommand("Renfort_PSE5", Caller);
+			Game::ExecuteCommand("Renfort_VPS", Caller);
+			Game::ExecuteCommand("Renfort_ARIveco", Caller);
 	}
 };
 
@@ -488,12 +505,12 @@ object SecoursRoutierAquatiqueCS: CommandScript
 		Audio::PlaySample3D(SND_SECOUROUTIERAQUATIQUE, Caller->GetPosition());
 		
 	
-			Game::ExecuteCommand("Renfort_CD8", Caller);
-			Game::ExecuteCommand("Renfort_VSAV15", Caller);
+			Game::ExecuteCommand("Renfort_CD", Caller);
+			Game::ExecuteCommand("Renfort_VSAVB", Caller);
 			Game::ExecuteCommand("Renfort_CSP", Caller);
 			Game::ExecuteCommand("Renfort_SIS", Caller);
-			Game::ExecuteCommand("Renfort_VPS6", Caller);
-			Game::ExecuteCommand("Renfort_AR63", Caller);
+			Game::ExecuteCommand("Renfort_VPS", Caller);
+			Game::ExecuteCommand("Renfort_ARIveco", Caller);
 	}
 };
 
@@ -527,14 +544,14 @@ object UrgenceMedicaleCS: CommandScript
 		Mission::PlayHint(HINT_UM);
 		Audio::PlaySample3D(SND_URGENCEMEDICALE, Caller->GetPosition());
 		
+		GameObjectList l6;
 		GameObjectList l7;
-		GameObjectList l8;
- 		Game::CollectObstaclesOnVirtualObject(VO_AR50, l7, ACTOR_VEHICLE);
- 		Game::CollectObstaclesOnVirtualObject(VO_AR63, l8, ACTOR_VEHICLE);
-		if(l7.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_AR50", Caller);
-		else if(l8.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_AR63", Caller);
+ 		Game::CollectObstaclesOnVirtualObject(VO_ARMaster, l6, ACTOR_VEHICLE);
+ 		Game::CollectObstaclesOnVirtualObject(VO_ARIveco, l7, ACTOR_VEHICLE);
+		if(l6.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_ARMaster", Caller);
+		else if(l7.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_ARIveco", Caller);
 	}
 };
 
@@ -568,22 +585,18 @@ object SecoursMedicalCS: CommandScript
 		Mission::PlayHint(HINT_SM);
 		Audio::PlaySample3D(SND_SECOURSMEDICALE, Caller->GetPosition());
 		
+		GameObjectList l8;
 		GameObjectList l9;
 		GameObjectList l10;
-		GameObjectList l11;
-		GameObjectList l12;
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV1, l9, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV2, l10, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV3, l11, ACTOR_VEHICLE);
-		Game::CollectObstaclesOnVirtualObject(VO_VSAV4, l12, ACTOR_VEHICLE);
-		if(l9.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_VSAV12", Caller);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAVB, l8, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_VSAVR, l9, ACTOR_VEHICLE);
+		Game::CollectObstaclesOnVirtualObject(VO_PSR, l10, ACTOR_VEHICLE);
+		if(l8.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_VSAVB", Caller);
+		else if(l9.GetNumObjects() > 0)
+			Game::ExecuteCommand("Renfort_VSAVR", Caller);
 		else if(l10.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_VSAV39", Caller);
-		else if(l11.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_VSAV109", Caller);
-		else if(l12.GetNumObjects() > 0)
-			Game::ExecuteCommand("Renfort_VSAV15", Caller);
+			Game::ExecuteCommand("Renfort_PSR", Caller);
 	}
 };
 
@@ -618,11 +631,11 @@ object TentativeSuicideCS: CommandScript
 		Audio::PlaySample3D(SND_TENTATIVEDESUICIDE, Caller->GetPosition());	
 		
 
-		Game::ExecuteCommand("Renfort_PS202", Caller);
-		Game::ExecuteCommand("Renfort_EPAN8", Caller);
-		Game::ExecuteCommand("Renfort_VSAV12", Caller);
-		Game::ExecuteCommand("Renfort_VIMP7", Caller);
-		Game::ExecuteCommand("Renfort_VAG2", Caller);
+		Game::ExecuteCommand("Renfort_PSE4", Caller);
+		Game::ExecuteCommand("Renfort_EPAAtego", Caller);
+		Game::ExecuteCommand("Renfort_VSAVR", Caller);
+		Game::ExecuteCommand("Renfort_VIMP", Caller);
+		Game::ExecuteCommand("Renfort_VAG", Caller);
 		Game::ExecuteCommand("Renfort_KangooPN", Caller);
 	}
 };

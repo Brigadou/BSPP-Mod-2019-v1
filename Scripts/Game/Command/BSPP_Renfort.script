@@ -27,7 +27,7 @@ const char VO_SPAWN_ALL4[] 				= "VO_SPAWN_ALL4";
 
 const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
 const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
-const char VO_SQUAD_GRENELLE[] 			= "VO_SQUAD_GRENELLE";
+const char VO_SQUAD_GRENELLE[] 		= "VO_SQUAD_GRENELLE";
 const char VO_SQUAD_POL[] 				= "VO_SQUAD_POL";
 
 const char sNULL[]						= "";
@@ -579,7 +579,7 @@ object Renfort_MasterPC : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {5,6,0,0,0,0};
-		char * listSquadVO[] = {sNULL, sNULL, sNULL};
+		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
 	}
@@ -685,7 +685,7 @@ object Renfort_CCR : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {21,21,21,21,18,10};
-		char * listSquadVO[] = {sNULL, VO_SQUAD_GRENELLE, sNULL};
+		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL,  sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CCR, VT_FIREFIGHTERS_TLF, listSquadVO, personnelVehicule, 6, 0);	
 	}
@@ -825,7 +825,7 @@ object Renfort_EPAAtego : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {10,17,18,0,0,0};
-		char * listSquadVO[] = {sNULL, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
+		char * listSquadVO[] = {VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAAtego, VT_FIREFIGHTERS_DLK, listSquadVO, personnelVehicule, 3, 0);
 	}
@@ -865,7 +865,7 @@ object Renfort_FPTAtego : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {21,21,21,21,21,18};
-		char * listSquadVO[] = {sNULL, VO_SQUAD_GRENELLE, sNULL};
+		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_FPTAtego, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
 	}
@@ -985,7 +985,7 @@ object Renfort_PSE4 : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {21,21,21,21,21,18};
-		char * listSquadVO[] = {sNULL, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
+		char * listSquadVO[] = {VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE4, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
 	}
@@ -1005,7 +1005,7 @@ object Renfort_PSE5 : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {21,21,21,21,21,18};
-		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, VO_SQUAD_BITCHE};
+		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_BITCHE, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE5, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
 	}
@@ -1045,7 +1045,7 @@ object Renfort_SPVLclio3 : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {11,10,0,0,0,0};
-		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
+		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLclio,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}
@@ -1086,6 +1086,46 @@ object Renfort_SPVLkangoo : CommandScript
 	{
 		int personnelVehicule[6] = {17,18,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLkangoo,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_SPVLup : CommandScript
+{
+	Renfort_SPVLup()
+	{
+		SetIcon("SPVLup");
+		SetCursor("SPVLup");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,18,0,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLkangoo,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_SPVLgolf : CommandScript
+{
+	Renfort_SPVLgolf()
+	{
+		SetIcon("SPVLgolf");
+		SetCursor("SPVLgolf");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {17,18,0,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_BITCHE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLkangoo,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}
