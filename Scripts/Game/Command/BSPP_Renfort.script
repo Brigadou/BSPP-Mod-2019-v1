@@ -905,7 +905,7 @@ object Renfort_VIMP : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {13,13,13,13,13,0};
-		char * listSquadVO[] = {sNULL, sNULL, sNULL};
+		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VIMP, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 5, 0);
 	}
