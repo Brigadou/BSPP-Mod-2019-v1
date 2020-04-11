@@ -126,7 +126,7 @@ object VcmdToHospital : CommandScript
 			if (transports.GetNumPersons() > 0) 
 			{
 				if (!v.HasCommand(DUMMY_HASSIREN) && v.HasCommand(CMD_AUTOSIREN_OFF))
-					Game::ExecuteCommand(Deux_Tons, &v, &v);
+					Game::ExecuteCommand(CMD_SIREN, &v, &v);
 			}
 			if (transports.GetNumPersons() > 0)
 			{

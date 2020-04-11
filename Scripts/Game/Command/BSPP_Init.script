@@ -19,7 +19,6 @@ const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
 const char PROTO_VES[] 					= "mod:Prototypes/Vehicles/Ambulance/VES.e4p";
 
-const char PROTO_ADPC4[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC4.e4p";
 
 //POMPIER
 const char PROTO_CA[] 					= "mod:Prototypes/Vehicles/Fire Department/CA.e4p";
@@ -133,7 +132,7 @@ object Init_CSLAND : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_ADPC4,  "ADPC_4", 3, 1); //PROTEC
+		ClassSpawn::Create(Caller, PROTO_MasterPC,  "MasterPC", 3, 1); //PROTEC
 		ClassSpawn::Create(Caller, PROTO_ARIveco, "AR_Iveco", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_ARMaster, "AR_Master", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_FPTMidlum, "FPT_Midlum", 6, 0);
