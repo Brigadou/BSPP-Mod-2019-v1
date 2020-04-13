@@ -11,6 +11,13 @@ object BSPP_PSEChange : CommandScript
  
  	bool CheckPossible(GameObject *Caller)
  	{
+		Vehicle v(Caller);
+		if (v.GetVehicleType() == VT_AMBULANCE_RTW) 
+			SetIcon("PSEinc");
+		
+		else if (v.GetVehicleType() == VT_FIREFIGHTERS_GTF) 
+			SetIcon("PSEsan");
+		
 		return true;
  	}
  
