@@ -13,31 +13,32 @@
 //
 //******************************************************************************************
 
-const char CMD_SIREN[]				= "Deux_Tons";
+const char CMD_SIREN[]					= "Deux_Tons";
 const char CMD_AUTOSIREN_OFF[]			= "VcmdAutoSirenOff";
 const char CMD_WARNINGLIGHTS_OFF[] 		= "VcmdWarningLightsOff";
 const char CMD_WARNINGLIGHTS_ON[] 		= "VcmdWarningLightsOn";
 const char CMD_FLOODLIGHTS_OFF[] 		= "VcmdFloodLightsOff";
 const char CMD_FLOODLIGHTS_ON[] 		= "VcmdFloodLightsOn";
 const char CMD_TOFIRESTATION[] 			= "VcmdToFireStation";
-const char CMD_GOHOME[] 			= "VcmdToFireStation";
-const char CMD_STANDBY_ON[]			= "VcmdStandbyOn";
+const char CMD_STANDBY_ON[]				= "VcmdStandbyOn";
 const char CMD_STANDBY_OFF[]			= "VcmdStandbyOff";
-const char DUMMY_DISABLE[] 			= "DummyDisableSiren";
+const char DUMMY_DISABLE[] 				= "DummyDisableSiren";
 const char DUMMY_HASSIREN[] 			= "DummyHasSiren";
 const char DUMMY_HOSPITAL[] 			= "DummyAtHospital";
-const char DUMMY_PATROL[] 			= "DummyPatrol";
-const char DUMMY_GOHOME[] 			= "DummyGoHome";
-const char OBJ_HELIPAD[] 			= "hospital_helipad";
-const char VO_ENTRANCE[] 			= "hospital_entrance";
-const char VO_ENTRY[] 				= "hospital_entry";
+const char DUMMY_PATROL[] 				= "DummyPatrol";
+const char DUMMY_GOHOME[] 				= "DummyGoHome";
+
+const char OBJ_HELIPAD[] 				= "hospital_helipad";
+const char VO_ENTRANCE[] 				= "hospital_entrance";
+const char VO_ENTRY[] 					= "hospital_entry";
 const char VO_ENTRY_HELIPAD[] 			= "hospital_entry2";
-const char VO_HELI[] 				= "hospital_heli";
-const char VO_SQUAD01[]				= "fs_squad01";
-const char VO_SQUAD02[]				= "fs_squad02";
+const char VO_HELI[] 					= "hospital_heli";
+const char VO_SQUAD01[]					= "fs_squad01";
+const char VO_SQUAD02[]					= "fs_squad02";
+
 const char HINT_NOTRANSPORTS[] 			= "Pas de victime dans le VSAV!";
-const char SND_TOSTATION[]			= "mod:Audio/FX/radio/1019.wav";
-const char HINT_HELICOPTER[] 			= "Un autre helicoptere est déjà sur l'heliport!";
+const char SND_TOSTATION[]				= "mod:Audio/FX/radio/1019.wav";
+const char HINT_HELICOPTER[] 			= "Un autre helicoptere est deja sur l'heliport!";
 
 int DummyGroup = 33;
 
@@ -237,7 +238,7 @@ object DummyGoHome : CommandScript
 		if(ChildID == 1)
 		{
 			Vehicle v(Target);
-			Game::ExecuteCommand(VcmdToFireStation, &v, &v);
+			Game::ExecuteCommand(CMD_TOFIRESTATION, &v, &v);
 		}
 	}
 };

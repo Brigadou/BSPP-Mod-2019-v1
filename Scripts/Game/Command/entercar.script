@@ -4,7 +4,7 @@ object EnterCar : CommandScript
 {
 	Vector TargetPos;
 	bool NotInLandingStage;
-	
+
 	EnterCar()
 	{
 		SetValidTargets(ACTOR_VEHICLE);
@@ -17,33 +17,34 @@ object EnterCar : CommandScript
 	bool CheckPossible(GameObject *Caller)
 	{
 		if (!Caller->IsValid() || Caller->GetType() != ACTOR_PERSON)
-			return false;	
+			return false;
 
-		return true;		
-		//return Commands::IsEnterCarPossible(Caller);
+		return true;
 	}
-	
+
 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
 	{
 		if(!Caller->IsValid() || !Target || !Target->IsValid() || Target->GetType()!=ACTOR_VEHICLE)
 			return false;
-		
+
 		SetPriority(200);
 		if (Input::PriorityKeyPressed())
 			SetPriority(2000);
-					
+
 		Vehicle v(Target);
 		if (v.HasName(NAME_BASKET) && !v.IsCurrentAnimation("basketdown"))
-			return false;		
+			return false;
+
 		if (v.GetEnergy() < = 0.1f * v.GetMaxEnergy())
 			return false;
-		if(Caller->GetObjectType()==TYPE_PERSON/* && v.IsFlagSet(OF_ACCESSIBLE)*/)
+
+		if(Caller->GetObjectType()==TYPE_PERSON)
 		{
 			Person p(Caller);
 
 			if (p.GetEnteredCarID() != -1)
 				return false;
-			
+
 			if (v.GetVehicleType() == VT_FIREFIGHTERS_DEKONP)
 			{
 				if (!p.IsLinkedWithPerson() && !p.IsCarryingPerson() && v.GetFreePassengers()==0 && !p.IsContaminated())
@@ -53,21 +54,21 @@ object EnterCar : CommandScript
 				else if ((p.IsLinkedWithPerson() || p.IsCarryingPerson()) && v.GetFreeTransports() < 2)
 					return false;
 			}
-			else 
+			else
 			if(v.GetFreePassengers()==0 && !(p.IsLinkedWithPerson() || p.IsCarryingPerson()))
 				return false;
-				
+
 			if (p.IsCarryingPerson() && v.GetFreeTransports() == 0)
 				return false;
 			else if (p.IsLinkedWithPerson() && v.GetFreeTransports() == 0)
 				return false;
-			
+
 			if(v.HasCommand("FlyTo") && !v.IsOnGround())
-				return false;					
-			
+				return false;
+
 			if(p.IsPulling() || (p.GetEquipment() == EQUIP_FIREHOSE && p.GetFirehoseID() > 0))
 				return false;
-				
+
 			switch(v.GetVehicleType())
 			{
 				case VT_NOSQUAD :
@@ -76,7 +77,7 @@ object EnterCar : CommandScript
 				case VT_DRIVERCAR :
 					return false;
 					break;
-				
+
 				case VT_THW_FGRR_BKF :
 				case VT_THW_FGRB_BLF :
 					return false;
@@ -86,7 +87,7 @@ object EnterCar : CommandScript
 					if(!p.HasCommand("Repair"))
 						return false;
 					break;
-					
+
 				case VT_FIREFIGHTERS_ASF :
 				case VT_FIREFIGHTERS_DLK :
 				case VT_FIREFIGHTERS_RW :
@@ -98,12 +99,12 @@ object EnterCar : CommandScript
 					if(!p.HasCommand("Extinguish") && !p.HasCommand("GetShears") && !p.HasCommand("Dive") && !p.HasCommand("PcmdCallAmbulance"))
 						return false;
 					break;
-					
-				case VT_FIREFIGHTERS_TFMB :	
+
+				case VT_FIREFIGHTERS_TFMB :
 					if(!p.HasCommand("Extinguish") && !p.HasCommand("GetShears") && !p.HasCommand("Dive") && !p.HasCommand("Arrest") && !p.HasCommand("PcmdArrest2"))
 						return false;
-					break;					
-					
+					break;
+
 				case VT_FIREFIGHTERS_DEKONP :
 					if (!p.HasCommand("DriveAwayPerson") && !p.IsContaminated())
 						return false;
@@ -128,9 +129,9 @@ object EnterCar : CommandScript
 					// Taucher kann immer rein
 					if (!p.HasCommand("Dive"))
 						return false;
-					
+
 					break;
-				}			
+				}
 
 				case VT_POLICE_PHC :
 				case VT_POLICE_STW :
@@ -139,18 +140,19 @@ object EnterCar : CommandScript
 				case VT_POLICE_WAW :
 				case VT_POLICE_GTW :
 					if(p.IsLinkedWithPerson() || p.IsCarryingPerson() || p.IsParamedicTeam() || p.IsContaminated() || p.HasCommand("SendDog") || p.HasCommand("Dive"))
-					   	return false;
-					//if((!p.HasCommand("Arrest") || !p.HasCommand("PcmdArrest2")) && (p.HasCommand("Extinguish") || p.HasCommand("UnloadPerson")))
-					//return false;
+						return false;
+
 					break;
-				
-				case VT_POLICE_GETAWAY : return false; break;
+
+				case VT_POLICE_GETAWAY : 
+					return false; 
+					break;
 
 				case VT_AMBULANCE_RHF :
 					if(!p.HasCommand("SendDog") && !p.HasCommand("CallDog"))
 						return false;
 					break;
-					
+
 				case VT_AMBULANCE_ITW :
 					if(p.IsCarryingPerson())
 						return false;
@@ -159,20 +161,18 @@ object EnterCar : CommandScript
 					if(p.HasCommand("Extinguish") || p.HasCommand("GetRoadBlock"))
 						return false;
 					break;
-				
+
 				case VT_AMBULANCE_NEF :
 					if(!p.HasCommand("Heal") && !p.HasCommand("PcmdCallAmbulance"))
 						return false;
 					break;
-						
+
 				case VT_AMBULANCE_RHC :
 				case VT_AMBULANCE_RTW :
 					if (v.GetFreePassengers() == 0)
 						return false;
-					if(!p.HasCommand("Heal") && !p.IsParamedicTeam())
-						return false;
 					break;
-				
+
 				default : return false;
 			}
 
@@ -184,13 +184,13 @@ object EnterCar : CommandScript
 					return false;
 			}
 
-			
+
 			return true;
 		}
 
 		return false;
 	}
-	
+
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Person p(Caller);
@@ -208,7 +208,7 @@ object EnterCar : CommandScript
 				return;
 			}
 		}
-		
+
 		TargetPoint targetPoint;
 		if (v.GetVehicleType() == VT_AMBULANCE_ITW)
 			targetPoint = TARGET_PASSENGERDOOR;
@@ -227,10 +227,10 @@ object EnterCar : CommandScript
 			}
 		}
 		// diese Abfrage auf jeden Fall erst nach ITW und FMB
-		else if (p.IsParamedicTeam() || 
+		else if (p.IsParamedicTeam() ||
 				(p.HasCommand("Heal") && (v.GetNumTransported()>0  || Game::IsParamedicWithInjuredInSelection(Caller))))
 			targetPoint = TARGET_REARDOOR;
-		else 
+		else
 			targetPoint = TARGET_PASSENGERDOOR;
 
 		if((p.HasCommand("extinguish") && (p.IsCarryingPerson() || p.IsLinkedWithPerson())) || p.IsContaminated())
@@ -254,14 +254,14 @@ object EnterCar : CommandScript
 		{
 			if (v.HasName(NAME_BASKET))
 			{
-				Caller->PushActionExecuteCommand(ACTION_NEWLIST, "VcmdBasketUp", Target, 4, false);			
+				Caller->PushActionExecuteCommand(ACTION_NEWLIST, "VcmdBasketUp", Target, 4, false);
 				Caller->PushActionMove(ACTION_APPEND, Target, targetPoint);
 			} else
 				Caller->PushActionMove(ACTION_NEWLIST, Target, targetPoint);
 			Caller->PushActionTurnTo(ACTION_APPEND, Target);
 			Caller->PushActionEnterCar(ACTION_APPEND, Target);
 			if(StrCompare(v.GetPrototypeFileName(), "mod:Prototypes/Vehicles/Fire Department/fmb.e4p") == 0 || StrCompare(v.GetPrototypeFileName(), "mod:Prototypes/Vehicles/02 Fire Department/Rescue1_boat.e4p") == 0)
-				Caller->PushActionExecuteCommand(ACTION_APPEND, "DummyMotorboat", &v, 3, false);	
+				Caller->PushActionExecuteCommand(ACTION_APPEND, "DummyMotorboat", &v, 3, false);
 			else if (v.HasName(NAME_BASKET))
 				Caller->PushActionExecuteCommand(ACTION_APPEND, "VcmdBasketUp", Target, 2, false);
 		}
