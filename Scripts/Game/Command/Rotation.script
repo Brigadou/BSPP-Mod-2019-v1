@@ -6,7 +6,7 @@ object Rotation_Droite : CommandScript
 		SetCursor("rotate_cw");
  		SetGroupLeader(true);
 		SetRestrictions(RESTRICT_SELFEXECUTE);
-		SetPriority(120);
+		SetPriority(20);
 	}
 
  	bool CheckPossible(GameObject *Caller)
@@ -57,7 +57,7 @@ object Rotation_Gauche : CommandScript
 		SetIcon("rotate_ccw");
 		SetCursor("rotate_ccw");
 		SetRestrictions(RESTRICT_SELFEXECUTE);
-		SetPriority(120);
+		SetPriority(20);
 	}
 
  	bool CheckPossible(GameObject *Caller)
