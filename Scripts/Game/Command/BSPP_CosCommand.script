@@ -386,7 +386,8 @@ object COSMenu : CommandScript
 			Caller->EnableCommand("MoveTo", true);
 			Caller->EnableCommand("EnterCar", true);
 			Caller->EnableCommand("Init_CSLAND", true);
-			Caller->EnableCommand("Init_CSbitche", true);
+			Caller->EnableCommand("Init_CSBITCHE", true);
+			Caller->EnableCommand("Init_CSGRENELLE", true);
 		}
 	}
 };

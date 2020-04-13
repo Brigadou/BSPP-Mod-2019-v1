@@ -79,8 +79,8 @@ object FeuLegerCS : CommandScript
 {
 	FeuLegerCS()
 	{
-		SetIcon("FL");
-		SetCursor("FL");
+		SetIcon("missionFL");
+		SetCursor("missionFL");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -113,8 +113,8 @@ object DepartNormalCS : CommandScript
 {
 	DepartNormalCS()
 	{
-		SetIcon("DN");
-		SetCursor("DN");
+		SetIcon("missionDN");
+		SetCursor("missionDN");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -151,8 +151,8 @@ object RenfortIncendieCS : CommandScript
 {
 	RenfortIncendieCS()
 	{
-		SetIcon("RI");
-		SetCursor("RI");
+		SetIcon("missionRI");
+		SetCursor("missionRI");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -196,8 +196,8 @@ object RenfortHabitationCS : CommandScript
 {
 	RenfortHabitationCS()
 	{
-		SetIcon("RH");
-		SetCursor("RH");
+		SetIcon("missionRH");
+		SetCursor("missionRH");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -246,8 +246,8 @@ object RenfortAnticipationCS : CommandScript
 {
 	RenfortAnticipationCS()
 	{
-		SetIcon("RA");
-		SetCursor("RA");
+		SetIcon("missionRA");
+		SetCursor("missionRA");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -286,8 +286,8 @@ object RenfortCommandementCS : CommandScript
 {
 	RenfortCommandementCS()
 	{
-		SetIcon("RC");
-		SetCursor("RC");
+		SetIcon("missionRC");
+		SetCursor("missionRC");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -322,8 +322,8 @@ object SecoursRoutierMoyenCS : CommandScript
 {
 	SecoursRoutierMoyenCS()
 	{
-		SetIcon("SRM");
-		SetCursor("SRM");
+		SetIcon("missionSRM");
+		SetCursor("missionSRM");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 		SetDeselectCaller(false);
 		SetSelfClickActivation(true);
@@ -363,8 +363,8 @@ object SecoursRoutierLourdCS : CommandScript
 {
 	SecoursRoutierLourdCS()
 	{
-		SetIcon("SRLo");
-		SetCursor("SRLo");
+		SetIcon("missionSRLo");
+		SetCursor("missionSRLo");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -402,8 +402,8 @@ object SecoursRoutierAquatiqueCS: CommandScript
 {
 	SecoursRoutierAquatiqueCS()
 	{
-		SetIcon("SRA");
-		SetCursor("SRA");
+		SetIcon("missionSRA");
+		SetCursor("missionSRA");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -442,8 +442,8 @@ object UrgenceMedicaleCS: CommandScript
 {
 	UrgenceMedicaleCS()
 	{
-		SetIcon("UM");
-		SetCursor("UM");
+		SetIcon("missionUM");
+		SetCursor("missionUM");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -477,8 +477,8 @@ object SecoursMedicalCS: CommandScript
 {
 	SecoursMedicalCS()
 	{
-		SetIcon("SM");
-		SetCursor("SM");
+		SetIcon("missionSM");
+		SetCursor("missionSM");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -512,8 +512,8 @@ object TentativeSuicideCS: CommandScript
 {
 	TentativeSuicideCS()
 	{
-		SetIcon("TS");
-		SetCursor("TS");
+		SetIcon("missionTS");
+		SetCursor("missionTS");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -553,8 +553,8 @@ object GroupeInterventionFeuForetCS : CommandScript
 {
 	GroupeInterventionFeuForetCS()
 	{
-		SetIcon("GIFF");
-		SetCursor("GIFF");
+		SetIcon("missionGIFF");
+		SetCursor("missionGIFF");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
