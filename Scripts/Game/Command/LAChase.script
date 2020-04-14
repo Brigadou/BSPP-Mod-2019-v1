@@ -356,7 +356,7 @@ object DummyFollow : CommandScript
 			if (cop1)
 			{
 				p1 = l1.GetPerson(0);
-				float dx = -12.f, dy = -65.f, dz = 0.f;
+				float dx = -20.f, dy = -80.f, dz = 0.f;
 				v.RemovePassenger(&p1);
 				Math::RotateVector(dx, dy, dz, r);
 				Math::EulerToMatrix(0.0f, 0.f, 0.f, childr);
@@ -380,7 +380,7 @@ object DummyFollow : CommandScript
 			if (cop2)
 			{
 				p2 = l1.GetPerson(1);
-				float dx2 = -12.f, dy2 = 65.f, dz2 = 0.f;	
+				float dx2 = -20.f, dy2 = 80.f, dz2 = 0.f;	
 				v.RemovePassenger(&p2);
 				Math::RotateVector(dx2, dy2, dz2, r);
 				Math::EulerToMatrix(0.0f, 0.f, 0.f, childr);
