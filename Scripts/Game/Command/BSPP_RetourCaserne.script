@@ -1,3 +1,11 @@
+//******************************************************************************************
+//
+//		Script Retour Caserne BSPP
+//		Edité par Superjajaman75 pour MOD BSPP
+//		Reproduction autorisé avec conservation crédit
+//
+//******************************************************************************************
+
 const char CMD_AUTOSIREN_OFF[]			= "VcmdAutoSirenOff";
 const char CMD_WARNINGLIGHTS[] 			= "VcmdWarningLightsOn";
 const char DUMMY_WARNINGLIGHTS[]		= "DummyHasWarningLights";

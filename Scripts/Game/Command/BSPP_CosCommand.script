@@ -1,3 +1,11 @@
+//******************************************************************************************
+//
+//		Script CosCommand BSPP
+//		Edité par Superjajaman75 pour MOD BSPP
+//		Reproduction autorisé avec conservation crédit
+//
+//******************************************************************************************
+
 const char CMD_VSAVR[]			= "Renfort_VSAVR";
 const char CMD_VSAVB[]			= "Renfort_VSAVB";
 const char CMD_PSR[]			= "Renfort_PSR";

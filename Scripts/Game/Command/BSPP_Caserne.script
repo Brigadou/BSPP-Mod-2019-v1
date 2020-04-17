@@ -1,3 +1,11 @@
+//******************************************************************************************
+//
+//		Script Caserne BSPP
+//		Edité par Superjajaman75 pour MOD BSPP
+//		Reproduction autorisé avec conservation crédit
+//
+//******************************************************************************************
+
 const char OBJ_SAMUBRA[]				= "mod:Prototypes/Persons/Ambulance/SAMU_brancard.e4p";
 const char OBJ_SAMUMED[]				= "mod:Prototypes/Persons/Ambulance/SAMU_medecin.e4p";
 const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/SAMU_infirmier.e4p";
@@ -59,12 +67,14 @@ const char VO_SPAWN_BITCHE[]			= "VO_SPAWN_BITCHE";
 const char VO_SPAWN_GRENELLE[]			= "VO_SPAWN_GRENELLE";
 const char VO_SPAWN_POL[]				= "VO_SPAWN_POL_COUR";
 const char VO_SPAWN_TEC[]				= "VO_SPAWN_TEC";
+const char VO_SPAWN_SAMU[]				= "VO_SPAWN_TEC";
 
 const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
 const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
 const char VO_SQUAD_GRENELLE[] 			= "VO_SQUAD_GRENELLE";
 const char VO_SQUAD_POL[] 				= "VO_SQUAD_POL";
 const char VO_SQUAD_TEC[] 				= "VO_SQUAD_TEC";
+const char VO_SQUAD_SAMU[] 				= "VO_SQUAD_SAMU";
 
 const char UNNAMED[]					= "Unnamed";
 
@@ -103,6 +113,8 @@ object DummyCallCrew : CommandScript
 			l1 = Game::GetActors(VO_SPAWN_POL);
 		else if(v.IsCollidingWithVirtualObject(VO_SQUAD_TEC))
 			l1 = Game::GetActors(VO_SPAWN_TEC);
+		else if(v.IsCollidingWithVirtualObject(VO_SQUAD_SAMU))
+			l1 = Game::GetActors(VO_SPAWN_SAMU);
 		
 		if(l1.GetNumActors() > 0)
 			Vector Spawn = l1.GetActor(0)->GetPosition();

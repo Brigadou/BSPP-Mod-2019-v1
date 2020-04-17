@@ -1,3 +1,11 @@
+//******************************************************************************************
+//
+//		Script des départs types BSPP
+//		Edité par Superjajaman75 pour MOD BSPP
+//		Reproduction autorisé avec conservation crédit
+//
+//******************************************************************************************
+
 const char CMD_SIREN[]					= "Deux_Tons";
 const char CMD_AUTOSIREN_OFF[]			= "VcmdAutoSirenOff";
 const char CMD_WARNINGLIGHTS_OFF[] 		= "VcmdWarningLightsOff";
@@ -10,68 +18,36 @@ const char DUMMY_HASSIREN[] 			= "DummyHasSiren";
 const char DUMMY_PATROL[] 				= "DummyPatrol";
 
 
-/*const char VO_CASERNELAND[] 			= "vo_caserne_land";
-const char VO_CASERNEBITCHE[] 			= "vo_caserne_bitche";*/
-//TODO
-const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
-const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
-const char VO_SQUAD_GRENELLE[] 			= "VO_SQUAD_GRENELLE";
-
-
-const char VO_FPTMidlum[] 			= "FPT_Midlum";
-const char VO_FPTAtego[] 			= "FPT_Atego";
-
-const char VO_PSE3[] 			= "PS3";
-const char VO_PSE4[] 			= "PS4";
-const char VO_PSE5[] 			= "PS5";
-
-const char VO_EPANIveco[] 			= "EPAN_Iveco";
-const char VO_EPANAtego[] 			= "EPAN_Atego";
-
-const char VO_ARIveco[] 			= "AR_Iveco";
-const char VO_ARMaster[] 		= "AR_Master";
-
-const char VO_VID1[] 			= "VID";
-const char VO_VID2[] 			= "VID2";
-
-
-const char VO_SPVL308[] 			= "SPVL_308";
-const char VO_SPVLKangoo[] 		= "SPVL_Kangoo";
-const char VO_SPVLGolf[] 			= "SPVL_Golf";
-const char VO_SPVLUp[] 				= "SPVL_Up";
-const char VO_SPVLClio[] 			= "SPVL_Clio";
-const char VO_SPVLMegane[] 		= "SPVL_Megane";
-
-
-const char HINT_FEULEGER[] 				= "DEPART FEU LEGER ! PSE au depart";
-const char HINT_NORMAL[] 				= "DEPART NORMAL ! FPT - PS - EPA - VLRCGI au depart";
-const char HINT_RENFORTINCENDIE[] 		= "RENFORT INCENDIE ! FPT - PS - EPA - EPA - EPA - CA - CESD - VSAV - AR - CD - PEV - 1 GRCP (VSAV - CRAC) au depart";
-const char HINT_RENFORTHABITATION[] 	= "RENFORT HABITATION ! FPT - FPT - PS - PS - PS - EPA - EPA - VSAV - VSAV - AR - AR - PEV - CESD - CD - 1 GRCP (VSAV - CRAC) au depart";
-const char HINT_RENFORTANTICIPATION[] 	= "RENFORT ANTICIPATION ! FPT - EPA - VSAV - AR - CRAC - EDF au depart";
-const char HINT_RENFORTCOMMANDEMENT[] 	= "RENFORT COMMANDEMENT ! PC - VPCM - SPVLKangoo - SPVLClio au depart";
-const char HINT_SRM[] 					= "DEPART SECOURS ROUTIER MOYEN ! CD - VSAV - PS - VPS au depart";
-const char HINT_SRLO[] 					= "DEPART SECOURS ROUTIER LOURD ! CD - VSAV - PS - AR - VPS au depart";
-const char HINT_SRA[] 					= "DEPART SECOURS ROUTIER AQUATIQUE ! CD - VSAV - SIS - CSP - VPS - AR au depart";
-const char HINT_UM[] 					= "DEPART URGENCE MEDICAL ! AR au depart";
-const char HINT_SM[] 					= "DEPART SECOURS MEDICAL ! VSAV au depart";
-const char HINT_SUICIDE[] 				= "DEPART TENTATIVE SUICIDE ! EPA - PSE5 - VSAV - KangooPN - VIMP - VAG  au depart";
-const char HINT_GIFF[]					= "GROUPE INTERVENTION FEU FORET ! CCR - CCR - SPVLKangoo - CCR - CCR au depart";
-const char HINT_NRBC[]					= "DEPART NRBC ! CIC CIB - CIC CRR - VANRBC - VDIP - FPT - PS - AR - AR - VSAV - VSAV - VSAV - PSR - PSR au depart";
+const char HINT_FEULEGER[] 								= "DEPART FEU LEGER ! PSE au depart";
+const char HINT_NORMAL[] 								= "DEPART NORMAL ! FPT - PS - EPA - VLRCGI au depart";
+const char HINT_RENFORTINCENDIE[] 				= "RENFORT INCENDIE ! FPT - PS - EPA - EPA - EPA - CA - CESD - VSAV - AR - CD - PEV - 1 GRCP (VSAV - CRAC) au depart";
+const char HINT_RENFORTHABITATION[] 			= "RENFORT HABITATION ! FPT - FPT - PS - PS - PS - EPA - EPA - VSAV - VSAV - AR - AR - PEV - CESD - CD - 1 GRCP (VSAV - CRAC) au depart";
+const char HINT_RENFORTANTICIPATION[] 		= "RENFORT ANTICIPATION ! FPT - EPA - VSAV - AR - CRAC - EDF au depart";
+const char HINT_RENFORTCOMMANDEMENT[] 		= "RENFORT COMMANDEMENT ! PC - VPCM - SPVLKangoo - SPVLClio au depart";
+const char HINT_SRM[] 										= "DEPART SECOURS ROUTIER MOYEN ! CD - VSAV - PS - VPS au depart";
+const char HINT_SRLO[] 									= "DEPART SECOURS ROUTIER LOURD ! CD - VSAV - PS - AR - VPS au depart";
+const char HINT_SRA[] 										= "DEPART SECOURS ROUTIER AQUATIQUE ! CD - VSAV - SIS - CSP - VPS - AR au depart";
+const char HINT_UM[] 										= "DEPART URGENCE MEDICAL ! AR au depart";
+const char HINT_SM[] 										= "DEPART SECOURS MEDICAL ! VSAV au depart";
+const char HINT_SUICIDE[] 								= "DEPART TENTATIVE SUICIDE ! EPA - PSE5 - VSAV - KangooPN - VIMP - VAG  au depart";
+const char HINT_GIFF[]										= "GROUPE INTERVENTION FEU FORET ! CCR - CCR - SPVLKangoo - CCR - CCR au depart";
+const char HINT_NRBC[]									= "DEPART NRBC ! CIC CIB - CIC CRR - VANRBC - VDIP - FPT - PS - AR - AR - VSAV - VSAV - VSAV - PSR - PSR au depart";
 
 	
-const char SND_FEULEGER[]						= "mod:Audio/FX/depart/PSE.wav";
-const char SND_NORMAL[]							= "mod:Audio/FX/depart/DN.wav";
-const char SND_RENFORTINCENDIE[]				= "mod:Audio/FX/depart/DN2.wav";
+const char SND_FEULEGER[]								= "mod:Audio/FX/depart/PSE.wav";
+const char SND_NORMAL[]									= "mod:Audio/FX/depart/DN.wav";
+const char SND_RENFORTINCENDIE[]					= "mod:Audio/FX/depart/DN2.wav";
 const char SND_RENFORTHABITATION[]				= "mod:Audio/FX/depart/DG.wav";
 const char SND_RENFORTANTICIPATION[]			= "mod:Audio/FX/depart/depart_E.wav";
-const char SND_RENFORTCOMMANDEMENT[]			= "mod:Audio/FX/depart/depart_VLR.wav";
-const char SND_SECOURROUTIERMOYEN[]				= "mod:Audio/FX/depart/VID.wav";
+const char SND_RENFORTCOMMANDEMENT[]		= "mod:Audio/FX/depart/depart_VLR.wav";
+const char SND_SECOURROUTIERMOYEN[]			= "mod:Audio/FX/depart/VID.wav";
 const char SND_SECOUROUTIERLOURD[]				= "mod:Audio/FX/depart/VID.wav";
-const char SND_SECOUROUTIERAQUATIQUE[]			= "mod:Audio/FX/depart/VID.wav";
+const char SND_SECOUROUTIERAQUATIQUE[]		= "mod:Audio/FX/depart/VID.wav";
 const char SND_URGENCEMEDICALE[]				= "mod:Audio/FX/depart/AR1.wav";
 const char SND_SECOURSMEDICALE[]				= "mod:Audio/FX/depart/VSAV1.wav";
 const char SND_TENTATIVEDESUICIDE[]				= "mod:Audio/FX/depart/VSAVrenfort.wav";	
-const char SND_GIFF[]							= "mod:Audio/FX/depart/RonfleurLong.wav";
+const char SND_GIFF[]										= "mod:Audio/FX/depart/RonfleurLong.wav";
+const char SND_NRBC[]										= "mod:Audio/FX/depart/RonfleurLong.wav";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,7 +56,7 @@ object FeuLegerCS : CommandScript
 	FeuLegerCS()
 	{
 		SetIcon("missionFL");
-		SetCursor("missionFL");
+		SetCursor("FL");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -114,7 +90,7 @@ object DepartNormalCS : CommandScript
 	DepartNormalCS()
 	{
 		SetIcon("missionDN");
-		SetCursor("missionDN");
+		SetCursor("DN");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -152,7 +128,7 @@ object RenfortIncendieCS : CommandScript
 	RenfortIncendieCS()
 	{
 		SetIcon("missionRI");
-		SetCursor("missionRI");
+		SetCursor("RI");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -197,7 +173,7 @@ object RenfortHabitationCS : CommandScript
 	RenfortHabitationCS()
 	{
 		SetIcon("missionRH");
-		SetCursor("missionRH");
+		SetCursor("RH");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -247,7 +223,7 @@ object RenfortAnticipationCS : CommandScript
 	RenfortAnticipationCS()
 	{
 		SetIcon("missionRA");
-		SetCursor("missionRA");
+		SetCursor("RA");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -287,7 +263,7 @@ object RenfortCommandementCS : CommandScript
 	RenfortCommandementCS()
 	{
 		SetIcon("missionRC");
-		SetCursor("missionRC");
+		SetCursor("RC");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -323,7 +299,7 @@ object SecoursRoutierMoyenCS : CommandScript
 	SecoursRoutierMoyenCS()
 	{
 		SetIcon("missionSRM");
-		SetCursor("missionSRM");
+		SetCursor("SRM");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 		SetDeselectCaller(false);
 		SetSelfClickActivation(true);
@@ -364,7 +340,7 @@ object SecoursRoutierLourdCS : CommandScript
 	SecoursRoutierLourdCS()
 	{
 		SetIcon("missionSRLo");
-		SetCursor("missionSRLo");
+		SetCursor("SRLo");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -403,7 +379,7 @@ object SecoursRoutierAquatiqueCS: CommandScript
 	SecoursRoutierAquatiqueCS()
 	{
 		SetIcon("missionSRA");
-		SetCursor("missionSRA");
+		SetCursor("SRA");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -443,7 +419,7 @@ object UrgenceMedicaleCS: CommandScript
 	UrgenceMedicaleCS()
 	{
 		SetIcon("missionUM");
-		SetCursor("missionUM");
+		SetCursor("UM");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -478,7 +454,7 @@ object SecoursMedicalCS: CommandScript
 	SecoursMedicalCS()
 	{
 		SetIcon("missionSM");
-		SetCursor("missionSM");
+		SetCursor("SM");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -513,7 +489,7 @@ object TentativeSuicideCS: CommandScript
 	TentativeSuicideCS()
 	{
 		SetIcon("missionTS");
-		SetCursor("missionTS");
+		SetCursor("TS");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -554,7 +530,7 @@ object GroupeInterventionFeuForetCS : CommandScript
 	GroupeInterventionFeuForetCS()
 	{
 		SetIcon("missionGIFF");
-		SetCursor("missionGIFF");
+		SetCursor("GIFF");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -583,6 +559,45 @@ object GroupeInterventionFeuForetCS : CommandScript
 		Game::ExecuteCommand("Renfort_CCR", Caller);
 		Game::ExecuteCommand("Renfort_CCR", Caller);
 		Game::ExecuteCommand("Renfort_CCR", Caller);
+		Game::ExecuteCommand("Renfort_SPVLKangoo", Caller);
+	}
+};
+
+object NRBCCS : CommandScript
+{
+	NRBCCS()
+	{
+		SetIcon("missionNRBC");
+		SetCursor("NRBC");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckPossible(GameObject *Caller)
+	{
+		if (!Caller->IsValid() || Caller->GetType() != ACTOR_PERSON)
+			return false;
+
+		return true;
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+		if(!Caller->IsValid() || Caller->GetID() == Target->GetID())
+			return false;
+
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Mission::PlayHint(HINT_NRBC);	
+		Audio::PlaySample3D(SND_NRBC, Caller->GetPosition());
+		
+		Game::ExecuteCommand("Renfort_CICCIB", Caller);
+		Game::ExecuteCommand("Renfort_CICCIB", Caller);
+		//Game::ExecuteCommand("Renfort_VDIP", Caller);
+		//Game::ExecuteCommand("Renfort_VANRBC", Caller);
+		//Game::ExecuteCommand("Renfort_BUMD", Caller);
 		Game::ExecuteCommand("Renfort_SPVLKangoo", Caller);
 	}
 };
