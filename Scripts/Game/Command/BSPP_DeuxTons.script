@@ -599,25 +599,25 @@ object Deux_Tons : CommandScript
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_UMHSPRINTER) == 0)
  				{
 
- 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/vsav.wav", CarPos, true);
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu.wav", CarPos, true);
  				}
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_VLMKANGOO) == 0)
  				{
 
- 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/vsav.wav", CarPos, true);
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu.wav", CarPos, true);
  				}
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_VLMSPRINTER) == 0)
  				{
 
- 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/vsav.wav", CarPos, true);
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu2.wav", CarPos, true);
  				}
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_BUSSAMU) == 0)
  				{
 
- 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/vsav.wav", CarPos, true);
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu.wav", CarPos, true);
  				}
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_CMO) == 0)
@@ -1021,7 +1021,7 @@ object Deux_Tons : CommandScript
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/gendarmerie.wav", CarPos, true);
  				}
 
-				if (StrCompare(v.GetPrototypeFileName(), PROTO_GNBIPPER == 0)
+				if (StrCompare(v.GetPrototypeFileName(), PROTO_GNBIPPER) == 0)
  				{
 
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/gendarmerie.wav", CarPos, true);
@@ -1068,7 +1068,7 @@ object Deux_Tons : CommandScript
 				v.AssignCommand(DUMMY_HASSIREN);
 
 			return;
-	}
+		}
 
 		if (v.HasCommand(DUMMY_HASSIREN))
 		{
