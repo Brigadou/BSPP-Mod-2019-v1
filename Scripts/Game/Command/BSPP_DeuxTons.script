@@ -1051,7 +1051,7 @@ object Deux_Tons : CommandScript
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/gendarmerie.wav", CarPos, true);
  				}
 
-				if (StrCompare(v.GetPrototypeFileName(), PROTO_VBRG) == 0)
+				if (StrCompare(v.GetPrototypeFileName(), PROTO_GNVBRG) == 0)
  				{
 
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/gendarmerie.wav", CarPos, true);
