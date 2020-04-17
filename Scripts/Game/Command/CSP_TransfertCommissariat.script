@@ -119,12 +119,12 @@ object TransfertCommissariat : CommandScript
 				v.RemoveCommand(CMD_WARNINGLIGHTS_OFF);
 				v.AssignCommand(CMD_WARNINGLIGHTS_ON);
 			} 
-			if (v.HasCommand(CMD_FLOODLIGHTS_OFF))
+			/*if (v.HasCommand(CMD_FLOODLIGHTS_OFF))
 			{
 				v.EnableSpecialLights(false);
 				v.RemoveCommand(CMD_FLOODLIGHTS_OFF);
 				v.AssignCommand(CMD_FLOODLIGHTS_ON);
-			}
+			}*/
 			if (v.HasObjectPath(NULL))
 				Game::ExecuteCommand(DUMMY_PATROL, &v, &v);
 			if (v.HasCommand(DUMMY_HASSIREN) && v.HasCommand(CMD_AUTOSIREN_OFF))
@@ -165,16 +165,24 @@ object TransfertCommissariat : CommandScript
 					passager.GetPerson(j)->PushActionDeleteOwner(ACTION_APPEND);
 				}
 			}
-
-			/*PersonList passager2 = v.GetPassengers();
-			for(int k = 0; k < passager2.GetNumPersons(); k++)
-			{
-				passager2.GetPerson(k)->PushActionLeaveCar(ACTION_NEWLIST, Caller);
-				passager2.GetPerson(k)->PushActionMove(ACTION_APPEND, TargetPos, true);
-				passager2.GetPerson(k)->PushActionWait(ACTION_APPEND, 0.5f);
-				passager2.GetPerson(k)->PushActionDeleteOwner(ACTION_APPEND);
-			}*/
+			v.PushActionWait(ACTION_NEWLIST, 2.f);
 			v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_POLICESTATION, Caller, 1, false);
+		}
+		
+		if(ChildID == 2)
+		{
+			ActorList l1 = Game::GetActors(VO_SPAWN_POL_COUR);
+			if (l1.GetNumActors() > 0)
+				Vector Despawn = l1.GetActor(0)->GetPosition();
+			
+			PersonList passager = v.GetPassengers();
+			for(int k = 0; k < passager.GetNumPersons(); k++)
+			{
+				passager.GetPerson(k)->PushActionLeaveCar(ACTION_NEWLIST, Caller);
+				passager.GetPerson(k)->PushActionMove(ACTION_APPEND, Despawn, true);
+				passager.GetPerson(k)->PushActionWait(ACTION_APPEND, 0.5f);
+				passager.GetPerson(k)->PushActionDeleteOwner(ACTION_APPEND);
+			}
 		}
 	}
 };
@@ -193,7 +201,15 @@ object DummyAtPoliceStation : CommandScript
 	{
 		if(ChildID == 0) {
 			Vehicle v(Caller);
-
+			GameObjectList mark1(OBJ_POL1_1);
+			
+			Vector comissariat = (mark1.GetObject(0)->GetPosition() + Vector(500.f, 0.f, 0.f));
+			
+			v.PushActionWait(ACTION_APPEND, 0.5f);
+			v.PushActionMove(ACTION_APPEND, comissariat);
+			v.PushActionWait(ACTION_APPEND, 1.f);
+			
+			
 			bool ParkinglotFound = false;
 			GameObject marker;
 			GameObjectList l2;
@@ -236,17 +252,23 @@ object DummyAtPoliceStation : CommandScript
 			}				
 			else
 			{
-				Vector vehPos = marker.GetPosition();
-				float r[9];
+				Vector place = marker.GetPosition();
+				
+				v.PushActionMove(ACTION_APPEND, place);
+				
+				/*float r[9];
 				marker.GetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
 				v.SetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
-				v.SetPosition(vehPos);
-				v.UpdatePlacement();
+				v.SetPosition(place);
+				v.UpdatePlacement();*/
+				
 				if (v.IsBlueLightEnabled())
 					v.EnableBlueLights(false);
 					v.EnableHeadLights(false);
 				if (v.HasCommand(DUMMY_VCALLED))
 					v.RemoveCommand(DUMMY_VCALLED);
+				
+				v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_POLICESTATION, &marker, 2, false);
 				v.PushActionExecuteCommand(ACTION_APPEND, CMD_TOPOLICESTATION, Caller, 1, false);
 			}
 			
@@ -254,6 +276,7 @@ object DummyAtPoliceStation : CommandScript
 
 		} else if(ChildID == 1) {
 			Vehicle v(Caller);
+			
 			
 			if (v.GetVehicleType() != VT_POLICE_STW && v.GetNumTransported() == 0) {
 				v.PushActionReturnToBase(ACTION_NEWLIST);
@@ -264,6 +287,14 @@ object DummyAtPoliceStation : CommandScript
 			if (v.GetVehicleType() != VT_POLICE_STW && v.GetNumTransported() != 0) {
 				return;
 			}
+			
+			GameObjectList mark1(OBJ_POL2_1);
+			
+			Vector comissariat = (mark1.GetObject(0)->GetPosition() + Vector(200.f, 0.f, 0.f));
+			
+			v.PushActionWait(ACTION_APPEND, 0.5f);
+			v.PushActionMove(ACTION_APPEND, comissariat);
+			v.PushActionWait(ACTION_APPEND, 1.f);
 
 			bool ParkinglotFound = false;
 			GameObject marker;
@@ -271,6 +302,7 @@ object DummyAtPoliceStation : CommandScript
 			if (!ParkinglotFound)
 			{
 				Game::CollectObstaclesOnVirtualObject(VO_POL2_1, l2, ACTOR_VEHICLE);
+				System::Log("[COMICO] l2 VO POL2 1 %i", l2.GetNumObjects());
 				if(l2.GetNumObjects() == 0)
 				{
 					GameObjectList mark1(OBJ_POL2_1);
@@ -352,30 +384,30 @@ object DummyAtPoliceStation : CommandScript
 				Vector vehPos = marker.GetPosition();
 				v.PushActionMove(ACTION_APPEND, vehPos);
 				
-				float r[9];
+				/*float r[9];
 				marker.GetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
 				v.SetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
 				v.SetPosition(vehPos);
-				v.UpdatePlacement();
+				v.UpdatePlacement();*/
 				if (v.IsBlueLightEnabled())
 					v.EnableBlueLights(false);
 					v.EnableHeadLights(false);
 				if (v.HasCommand(DUMMY_VCALLED))
 					v.RemoveCommand(DUMMY_VCALLED);
 				
-				ActorList l1 = Game::GetActors(VO_SPAWN_POL_COUR);
-				if (l1.GetNumActors() > 0)
-					Vector Despawn = l1.GetActor(0)->GetPosition();
-				
-				PersonList passager2 = v.GetPassengers();
-				for(int k = 0; k < passager2.GetNumPersons(); k++)
-				{
-					passager2.GetPerson(k)->PushActionLeaveCar(ACTION_NEWLIST, Caller);
-					passager2.GetPerson(k)->PushActionMove(ACTION_APPEND, Despawn, true);
-					passager2.GetPerson(k)->PushActionWait(ACTION_APPEND, 0.5f);
-					passager2.GetPerson(k)->PushActionDeleteOwner(ACTION_APPEND);
-				}
+				v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_POLICESTATION, &marker, 2, false);
+				v.PushActionExecuteCommand(ACTION_APPEND, CMD_TOPOLICESTATION, Caller, 2, false);
 			}
+		} else if(ChildID == 2) {
+			GameObject marker(Target);
+			Vehicle v(Caller);
+			Vector vehPos = marker.GetPosition();
+			
+			float r[9];
+			marker.GetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+			v.SetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+			v.SetPosition(vehPos);
+			v.UpdatePlacement();
 		}
 	}
 };
