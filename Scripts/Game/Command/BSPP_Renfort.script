@@ -1397,7 +1397,7 @@ object Renfort_308PN : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {39,40,40,0,0,0};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_308PN, VT_POLICE_STW, VO_SQUAD_POL, personnelVehicule, 3, 1);	
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_308PN, VT_POLICE_STW, listSquadVO, personnelVehicule, 4, 0);
 	}
 };
 
