@@ -281,32 +281,22 @@ object Init_CSLAND : CommandScript
 				Person p2;
 				Person p3;
 				Person p4;
-				Person p5;
-				Person p6;
 				p1 = Game::CreatePerson("mod:Prototypes/Persons/Ambulance/COSsamu.e4p", UNNAMED);
 				p2 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COSsp.e4p", UNNAMED);
 				p3 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COScta.e4p", UNNAMED);
 				p4 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSpn.e4p", UNNAMED);
-				p5 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSgn.e4p", UNNAMED);
-				p6 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSgign.e4p", UNNAMED);
 				p1.SetPlayerMP(Caller->GetPlayerMP());
 				p2.SetPlayerMP(Caller->GetPlayerMP());
 				p3.SetPlayerMP(Caller->GetPlayerMP());
 				p4.SetPlayerMP(Caller->GetPlayerMP());
-				p5.SetPlayerMP(Caller->GetPlayerMP());
-				p6.SetPlayerMP(Caller->GetPlayerMP());
 				m.AddPassenger(&p1);
 				m.AddPassenger(&p2);
 				m.AddPassenger(&p3);
 				m.AddPassenger(&p4);
-				m.AddPassenger(&p5);
-				m.AddPassenger(&p6);
 				Game::AddToGroup(&p1, 0);
 				Game::AddToGroup(&p2, 1);
 				Game::AddToGroup(&p3, 2);
 				Game::AddToGroup(&p4, 3);
-				Game::AddToGroup(&p5, 4);
-				Game::AddToGroup(&p6, 5);
 			}
 		}
 	}

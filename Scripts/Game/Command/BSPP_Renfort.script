@@ -40,7 +40,6 @@ const char OBJ_SAMUBRA[]				= "mod:Prototypes/Persons/Ambulance/SAMU_brancard.e4
 const char OBJ_SAMUMED[]				= "mod:Prototypes/Persons/Ambulance/SAMU_medecin.e4p";
 const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/SAMU_infirmier.e4p";
 const char OBJ_MRG[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
-const char OBJ_COSSAMU[]				= "mod:Prototypes/Persons/Ambulance/COSsamu.e4p";
 
 const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/brancardier_sp.e4p";
 const char OBJ_SECSP[]					= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
@@ -59,12 +58,9 @@ const char OBJ_FEUCPT[]					= "mod:Prototypes/Persons/Fire Department/feu_cpt.e4
 const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
 const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
-const char OBJ_COSCTA[]					= "mod:Prototypes/Persons/Fire Department/COScta.e4p";
-const char OBJ_COSSP[]					= "mod:Prototypes/Persons/Fire Department/COSsp.e4p";
 
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
 const char OBJ_DDE[]					= "mod:Prototypes/Persons/TEC/bspp_dde1.e4p";
-const char OBJ_COSTEC[]					= "mod:Prototypes/Persons/TEC/cost.e4p";
 
 const char OBJ_308GIGN[]				= "mod:Prototypes/Persons/Police/308GIGN.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
@@ -86,9 +82,6 @@ const char OBJ_POL3[]					= "mod:Prototypes/Persons/Police/tenue_pn3.e4p";
 const char OBJ_MOTOGN[]					= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
 const char OBJ_MOTOPN[]					= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
 const char OBJ_DOUANE[]					= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
-const char OBJ_COSPN[]					= "mod:Prototypes/Persons/Police/COSpn.e4p";
-const char OBJ_COSGN[]					= "mod:Prototypes/Persons/Police/COSgn.e4p";
-const char OBJ_COSGIGN[]				= "mod:Prototypes/Persons/Police/COSgign.e4p";
 
 // Déclarations de véhicules de Pompiers
 const char PROTO_VLROGC[] 				= "mod:Prototypes/Vehicles/Fire Department/VLROGC.e4p";
@@ -329,13 +322,6 @@ class ClassRenfort: CommandScript
 			case 42 : return OBJ_MOTOGN;break;
 			case 43 : return OBJ_MOTOPN;break;
 			case 44 : return OBJ_DOUANE;break;
-			case 45 : return OBJ_COSSAMU;break;
-			case 46 : return OBJ_COSSP;break;
-			case 47 : return OBJ_COSCTA;break;
-			case 48 : return OBJ_COSPN;break;
-			case 49 : return OBJ_COSGN;break;
-			case 50 : return OBJ_COSGN;break;
-			case 51 : return OBJ_COSTEC;break;
 			default :
 				System::Log("[RENFORT] un child Id n'a pas été trouvé");
 				return;

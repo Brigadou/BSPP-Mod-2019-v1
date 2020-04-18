@@ -10,7 +10,6 @@ const char OBJ_SAMUBRA[]				= "mod:Prototypes/Persons/Ambulance/SAMU_brancard.e4
 const char OBJ_SAMUMED[]				= "mod:Prototypes/Persons/Ambulance/SAMU_medecin.e4p";
 const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/SAMU_infirmier.e4p";
 const char OBJ_MRG[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
-const char OBJ_COSSAMU[]					= "mod:Prototypes/Persons/Ambulance/COSsamu.e4p";
 
 const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/brancardier_sp.e4p";
 const char OBJ_SECSP[]					= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
@@ -29,12 +28,9 @@ const char OBJ_FEUCPT[]					= "mod:Prototypes/Persons/Fire Department/feu_cpt.e4
 const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
 const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
-const char OBJ_COSCTA[]					= "mod:Prototypes/Persons/Fire Department/COScta.e4p";
-const char OBJ_COSSP[]					= "mod:Prototypes/Persons/Fire Department/COSsp.e4p";
 
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
 const char OBJ_DDE[]					= "mod:Prototypes/Persons/TEC/bspp_dde1.e4p";
-const char OBJ_COSTEC[]					= "mod:Prototypes/Persons/TEC/cost.e4p";
 
 const char OBJ_BAC[]					= "mod:Prototypes/Persons/Police/bac.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
@@ -56,9 +52,6 @@ const char OBJ_POL3[]					= "mod:Prototypes/Persons/Police/tenue_pn3.e4p";
 const char OBJ_MOTOGN[]					= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
 const char OBJ_MOTOPN[]					= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
 const char OBJ_DOUANE[]					= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
-const char OBJ_COSPN[]					= "mod:Prototypes/Persons/Police/COSpn.e4p";
-const char OBJ_COSGN[]					= "mod:Prototypes/Persons/Police/COSgn.e4p";
-const char OBJ_COSGIGN[]				= "mod:Prototypes/Persons/Police/COSgign.e4p";
 
 const char DUMMY_CALLCREW[]				= "DummyCallCrew";
 
@@ -237,20 +230,6 @@ object DummyCallCrew : CommandScript
 			Person p = Game::CreatePerson(OBJ_MOTOPN, UNNAMED);
 		else if (ChildID == 44)
 			Person p = Game::CreatePerson(OBJ_DOUANE, UNNAMED);
-		else if (ChildID == 45)
-			Person p = Game::CreatePerson(OBJ_COSSAMU, UNNAMED);
-		else if (ChildID == 46)
-			Person p = Game::CreatePerson(OBJ_COSSP, UNNAMED);
-		else if (ChildID == 47)
-			Person p = Game::CreatePerson(OBJ_COSCTA, UNNAMED);
-		else if (ChildID == 48)
-			Person p = Game::CreatePerson(OBJ_COSPN, UNNAMED);
-		else if (ChildID == 49)
-			Person p = Game::CreatePerson(OBJ_COSGN, UNNAMED);
-		else if (ChildID == 50)
-			Person p = Game::CreatePerson(OBJ_COSGIGN, UNNAMED);
-		else if (ChildID == 51)
-			Person p = Game::CreatePerson(OBJ_COSTEC, UNNAMED);
 		else
 			return;
 
