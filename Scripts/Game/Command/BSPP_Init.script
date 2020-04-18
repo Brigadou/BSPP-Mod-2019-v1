@@ -87,8 +87,8 @@ const char PROTO_CMO[] 					= "mod:Prototypes/Vehicles/Ambulance/CMO.e4p";
 const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
 const char PROTO_VLRDSM[] 				= "mod:Prototypes/Vehicles/Ambulance/VLRDSM.e4p";
 
-const char PROTO_VSAV[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
-const char PROTO_VSAV2[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
+const char PROTO_VSAVB[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVb.e4p";
+const char PROTO_VSAVR[] 				= "mod:Prototypes/Vehicles/Ambulance/VSAVr.e4p";
 const char PROTO_PSR[] 					= "mod:Prototypes/Vehicles/Ambulance/PSR.e4p";
 const char PROTO_ARIveco[] 				= "mod:Prototypes/Vehicles/Ambulance/ARiveco.e4p";
 const char PROTO_ARMaster[] 			= "mod:Prototypes/Vehicles/Ambulance/ARmaster.e4p";
@@ -362,7 +362,7 @@ object Init_CSGRENELLE : CommandScript
 		ClassSpawn::Create(Caller, PROTO_CCR,  "CCR", 6, 0);
 		ClassSpawn::Create(Caller, PROTO_FPTAtego,  "FPT_Atego", 6, 0);
 		ClassSpawn::Create(Caller, PROTO_EPAAtego,  "EPAN_Atego_2", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_SPVLUP,  "SPVL_UP", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVLup,  "SPVL_UP", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_VID,  "VID_3", 2, 0);
 	}
 };

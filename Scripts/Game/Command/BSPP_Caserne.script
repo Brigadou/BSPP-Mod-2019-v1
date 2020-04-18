@@ -67,7 +67,7 @@ const char VO_SPAWN_BITCHE[]			= "VO_SPAWN_BITCHE";
 const char VO_SPAWN_GRENELLE[]			= "VO_SPAWN_GRENELLE";
 const char VO_SPAWN_POL[]				= "VO_SPAWN_POL_COUR";
 const char VO_SPAWN_TEC[]				= "VO_SPAWN_TEC";
-const char VO_SPAWN_SAMU[]				= "VO_SPAWN_TEC";
+const char VO_SPAWN_SAMU[]				= "VO_SPAWN_SAMU";
 
 const char VO_SQUAD_EM[] 				= "VO_SQUAD_EM";
 const char VO_SQUAD_BITCHE[] 			= "VO_SQUAD_BITCHE";
