@@ -469,7 +469,7 @@ object COSBAC : CommandScript
 
 object COSPN : CommandScript
 {
- 	COSBPN()
+ 	COSPN()
  	{
 		SetRestrictions(RESTRICT_SELFEXECUTE);
 		SetIcon("cospn");
