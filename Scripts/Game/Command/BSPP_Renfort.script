@@ -1372,9 +1372,9 @@ object Renfort_VPB : CommandScript
 //{
 //PN
 
-object Renfort_MASTERPN : CommandScript	
+object Renfort_PNMASTER : CommandScript	
 {
-	Renfort_MASTERPN()
+	Renfort_PNMASTER()
 	{
 		SetIcon("masterpn");
 		SetCursor("masterpn");
@@ -1391,9 +1391,9 @@ object Renfort_MASTERPN : CommandScript
 	}
 };
 
-object Renfort_MASTERPN2 : CommandScript
+object Renfort_PNMASTER2 : CommandScript
 {
-	Renfort_MASTERPN2()
+	Renfort_PNMASTER2()
 	{
 		SetIcon("masterpn2");
 		SetCursor("masterpn2");
@@ -1410,9 +1410,9 @@ object Renfort_MASTERPN2 : CommandScript
 	}
 };
 
-object Renfort_MASTERPN3 : CommandScript
+object Renfort_PNMASTER3 : CommandScript
 {
-	Renfort_MASTERPN3()
+	Renfort_PNMASTER3()
 	{
 		SetIcon("masterpn3");
 		SetCursor("masterpn3");
@@ -1428,9 +1428,9 @@ object Renfort_MASTERPN3 : CommandScript
 	}
 };
 
-object Renfort_MASTERPN4 : CommandScript
+object Renfort_PNMASTER4 : CommandScript
 {
-	Renfort_MASTERPN4()
+	Renfort_PNMASTER4()
 	{
 		SetIcon("masterpn4");
 		SetCursor("masterpn4");
@@ -1447,9 +1447,9 @@ object Renfort_MASTERPN4 : CommandScript
 	}
 };
 
-object Renfort_SCENICPN : CommandScript
+object Renfort_PNSCENIC : CommandScript
 {
-	Renfort_SCENICPN()
+	Renfort_PNSCENIC()
 	{
 		SetIcon("scenicpn");
 		SetCursor("scenicpn");
@@ -1466,9 +1466,9 @@ object Renfort_SCENICPN : CommandScript
 	}
 };
 
-object Renfort_308PN : CommandScript
+object Renfort_PN308 : CommandScript
 {
-	Renfort_308PN()
+	Renfort_PN308()
 	{
 		SetIcon("308pn");
 		SetCursor("308pn");
@@ -1485,9 +1485,9 @@ object Renfort_308PN : CommandScript
 	}
 };
 
-object Renfort_BerlingoPN : CommandScript
+object Renfort_PNBerlingo : CommandScript
 {
-	Renfort_BerlingoPN()
+	Renfort_PNBerlingo()
 	{
 		SetIcon("berlingopn");
 		SetCursor("berlingopn");
@@ -1504,9 +1504,9 @@ object Renfort_BerlingoPN : CommandScript
 	}
 };
 
-object Renfort_BerlingoPNPMV : CommandScript
+object Renfort_PNBerlingoPMV : CommandScript
 {
-	Renfort_BerlingoPNPMV()
+	Renfort_PNBerlingoPMV()
 	{
 		SetIcon("berlingopnpmv");
 		SetCursor("berlingopnpmv");
@@ -1523,9 +1523,9 @@ object Renfort_BerlingoPNPMV : CommandScript
 	}
 };
 
-object Renfort_MASTERVTD : CommandScript
+object Renfort_PNMASTERVTD : CommandScript
 {
-	Renfort_MASTERVTD()
+	Renfort_PNMASTERVTD()
 	{
 		SetIcon("vtd");
 		SetCursor("vtd");
@@ -1542,9 +1542,9 @@ object Renfort_MASTERVTD : CommandScript
 	}
 };
 
-object Renfort_DEMINAGE : CommandScript
+object Renfort_PNDEMINAGE : CommandScript
 {
-	Renfort_DEMINAGE()
+	Renfort_PNDEMINAGE()
 	{
 		SetIcon("Deminage");
 		SetCursor("Deminage");
@@ -1561,9 +1561,9 @@ object Renfort_DEMINAGE : CommandScript
 	}
 };
 
-object Renfort_MOTOPN : CommandScript
+object Renfort_PNMOTO : CommandScript
 {
-	Renfort_MOTOPN()
+	Renfort_PNMOTO()
 	{
 		SetIcon("motopn");
 		SetCursor("motopn");
@@ -1580,9 +1580,9 @@ object Renfort_MOTOPN : CommandScript
 	}
 };
 
-object Renfort_EstatePN : CommandScript
+object Renfort_PNEstate : CommandScript
 {
-	Renfort_EstatePN()
+	Renfort_PNEstate()
 	{
 		SetIcon("estatepn");
 		SetCursor("estatepn");
@@ -1599,9 +1599,9 @@ object Renfort_EstatePN : CommandScript
 	}
 };
 
-object Renfort_C8PN : CommandScript
+object Renfort_PNC8 : CommandScript
 {
-	Renfort_C8PN()
+	Renfort_PNC8()
 	{
 		SetIcon("c8pn");
 		SetCursor("c8pn");
@@ -1618,9 +1618,9 @@ object Renfort_C8PN : CommandScript
 	}
 };
 
-object Renfort_TRAFICPN : CommandScript
+object Renfort_PNTRAFIC : CommandScript
 {
-	Renfort_TRAFICPN()
+	Renfort_PNTRAFIC()
 	{
 		SetIcon("traficpn");
 		SetCursor("traficpn");
@@ -1637,9 +1637,9 @@ object Renfort_TRAFICPN : CommandScript
 	}
 };
 
-object Renfort_TRAFICPN2 : CommandScript
+object Renfort_PNTRAFIC2 : CommandScript
 {
-	Renfort_TRAFICPN2()
+	Renfort_PNTRAFIC2()
 	{
 		SetIcon("traficpn2");
 		SetCursor("traficpn2");
@@ -1656,9 +1656,9 @@ object Renfort_TRAFICPN2 : CommandScript
 	}
 };
 
-object Renfort_TRAFICPNPMV : CommandScript
+object Renfort_PNTRAFICPMV : CommandScript
 {
-	Renfort_TRAFICPNPMV()
+	Renfort_PNTRAFICPMV()
 	{
 		SetIcon("traficpnpmv");
 		SetCursor("traficpnpmv");
@@ -1734,7 +1734,7 @@ object Renfort_BAC75N2 : CommandScript
 	}
 };
 
-object Renfort_MONDEO75N : CommandScript
+object Renfort_BACMONDEO75N : CommandScript
 {
 	Renfort_MONDEO75N()
 	{
@@ -1902,7 +1902,7 @@ object Renfort_EXPERTGIGN : CommandScript
 	{
 		int personnelVehicule[6] = {37,37,37,37,37,37};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EXPERTGIGN, VT_POLICE_STW, listSquadVO, personnelVehicule, 6, 0);	
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EXPERTGIGN, VT_POLICE_MTW, listSquadVO, personnelVehicule, 6, 0);	
 	}
 };
 
@@ -1976,9 +1976,9 @@ object Renfort_MASTERGIGN : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {37,37,37,0,0,0};
+		int personnelVehicule[6] = {37,37,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERGIGN, VT_POLICE_MTW, listSquadVO, personnelVehicule, 3, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERGIGN, VT_POLICE_MTW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
@@ -2344,6 +2344,7 @@ object Renfort_GNIVECO : CommandScript
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GNIVECO, VT_POLICE_MTW, listSquadVO, personnelVehicule, 6, 3);
 	}
 };
+
 object Renfort_GNIVECO2 : CommandScript
 {
 	Renfort_GNIVECO2()
@@ -2362,6 +2363,7 @@ object Renfort_GNIVECO2 : CommandScript
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GNIVECO2, VT_POLICE_MTW, listSquadVO, personnelVehicule, 6, 3);
 	}
 };
+
 object Renfort_GNIVECO3 : CommandScript
 {
 	Renfort_GNIVECO3()
@@ -2399,7 +2401,6 @@ object Renfort_GNVRBG : CommandScript
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GNVBRG, VT_POLICE_SW, listSquadVO, personnelVehicule, 4, 0);
 	}
 };
-
 
 object Renfort_Fuite : CommandScript
 {
