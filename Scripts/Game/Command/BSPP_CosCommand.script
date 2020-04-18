@@ -518,8 +518,8 @@ object COSPN : CommandScript
 		Caller->EnableCommand("Renfort_PNTRAFIC2", true);
 		Caller->AssignCommand("Renfort_PNTRAFICPMV");
 		Caller->EnableCommand("Renfort_PNTRAFICPMV", true);
-		Caller->AssignCommand("COSMenu");
-		Caller->EnableCommand("COSMenu", true);
+		Caller->AssignCommand("COSMenuPol");
+		Caller->EnableCommand("COSMenuPol", true);
 	}
 };
 
@@ -560,8 +560,8 @@ object COSBRI : CommandScript
 		Caller->EnableCommand("Renfort_MASTERGIGN", true);
 		Caller->AssignCommand("Renfort_TITUSGIGN");
 		Caller->EnableCommand("Renfort_TITUSGIGN", true);
-		Caller->AssignCommand("COSMenu");
-		Caller->EnableCommand("COSMenu", true);
+		Caller->AssignCommand("COSMenuPol");
+		Caller->EnableCommand("COSMenuPol", true);
 	}
 };
 
@@ -594,8 +594,8 @@ object COSCRS : CommandScript
 		Caller->EnableCommand("Renfort_BUSCRS", true);
 		Caller->AssignCommand("Renfort_CANONCRS");
 		Caller->EnableCommand("Renfort_CANONCRS", true);
-		Caller->AssignCommand("COSMenu");
-		Caller->EnableCommand("COSMenu", true);
+		Caller->AssignCommand("COSMenuPol");
+		Caller->EnableCommand("COSMenuPol", true);
 	}
 };
 
@@ -644,8 +644,8 @@ object COSGN : CommandScript
 		Caller->EnableCommand("Renfort_GNBIPPER", true);
 		Caller->AssignCommand("Renfort_GNDUSTER");
 		Caller->EnableCommand("Renfort_GNDUSTER", true);
-		Caller->AssignCommand("COSMenu");
-		Caller->EnableCommand("COSMenu", true);
+		Caller->AssignCommand("COSMenuPol");
+		Caller->EnableCommand("COSMenuPol", true);
 	}
 };
 
@@ -680,7 +680,7 @@ object COSGM : CommandScript
 		Caller->EnableCommand("Renfort_GNIVECO3", true);
 		Caller->AssignCommand("Renfort_GNVRBG");
 		Caller->EnableCommand("Renfort_GNVRBG", true);
-		Caller->AssignCommand("COSMenu");
-		Caller->EnableCommand("COSMenu", true);
+		Caller->AssignCommand("COSMenuPol");
+		Caller->EnableCommand("COSMenuPol", true);
 	}
 };
