@@ -462,8 +462,8 @@ object COSBAC : CommandScript
 		Caller->EnableCommand("Renfort_BACFocus", true);
 		Caller->AssignCommand("Renfort_BACSkoda");
 		Caller->EnableCommand("Renfort_BACSkoda", true);
-		Caller->AssignCommand("COSMenu");
-		Caller->EnableCommand("COSMenu", true);
+		Caller->AssignCommand("COSMenuPol");
+		Caller->EnableCommand("COSMenuPol", true);
 	}
 };
 
