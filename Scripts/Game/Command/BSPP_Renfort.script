@@ -259,7 +259,7 @@ const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
 
 
 const char SND_VSAV[]					= "mod:Audio/FX/depart/VSAV1.wav";
-const char SND_VSAV2[]					= "mod:Audio/FX/depart/VSAV2.wav";
+const char SND_VSAV2[]				= "mod:Audio/FX/depart/VSAV2.wav";
 const char SND_PSR[]					= "mod:Audio/FX/depart/VSAV3.wav";
 const char SND_AR[]						= "mod:Audio/FX/depart/AR1.wav";
 const char SND_AR2[]					= "mod:Audio/FX/depart/AR2.wav";
