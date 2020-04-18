@@ -69,7 +69,7 @@ void start()
 		GameObjectList list = me->GetObjectsInRange(800.f, ACTOR_OBJECT);
 		for(int i = 0; i < list.GetNumObjects(); i++) {
 			if (list.GetObject(i)->IsValid() && list.GetObject(i)->IsInsideMap()) {
-				if (StrFind(list.GetObject(i)->GetPrototypeFileName(),"trafficlight")) {
+				if (StrFind(list.GetObject(i)->GetPrototypeFileName(),"traffic")) {
 					Game::ExecuteCommand("Modsirene",me);
 					ret = true;
 				}

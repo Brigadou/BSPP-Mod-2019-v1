@@ -79,7 +79,7 @@ object FeuLegerCS : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{	
 		Mission::PlayHint(HINT_FEULEGER);
-		Audio::PlaySample3D(SND_FEULEGER, Caller->GetPosition());
+		soundID = Audio::PlaySample3D("mod:Audio/FX/depart/PSE.wav", Caller->GetPosition());
 
 			Game::ExecuteCommand("Renfort_PSE4", Caller);
 	}
@@ -113,7 +113,7 @@ object DepartNormalCS : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		Mission::PlayHint(HINT_NORMAL);
-		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
+		soundID = Audio::PlaySample3D("mod:Audio/FX/depart/DN.wav", Caller->GetPosition());
 
 			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
 			Game::ExecuteCommand("Renfort_EPAIveco", Caller);
