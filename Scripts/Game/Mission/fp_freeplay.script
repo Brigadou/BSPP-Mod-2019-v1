@@ -19,6 +19,8 @@ void start()
 	Game::ExecuteCommand("Init_CSBITCHE", &Obj);
 	Game::ExecuteCommand("Init_CSLAND", &Obj);
 	Game::ExecuteCommand("Init_CSGRENELLE", &Obj);
+	Game::ExecuteCommand("Init_TEC", &Obj);
+	Game::ExecuteCommand("Init_SAMU", &Obj);
 	
 	bool ecartevehicule(GameObject *me)
 	{
