@@ -744,6 +744,45 @@ object Renfort_VLMKANGOO : CommandScript
 	}
 };
 
+object Renfort_VLMSPRINTER : CommandScript
+{
+	Renfort_VLMSPRINTER()
+	{
+		SetIcon("VLMSPRINTER");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {2,3,0,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_SAMU, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLMSPRINTER, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_BUSSAMU : CommandScript
+{
+	Renfort_BUSSAMU()
+	{
+		SetIcon("BUSSAMU");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {2,3,1,1,1,1};
+		char * listSquadVO[] = {VO_SQUAD_SAMU, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BUSSAMU, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 6, 9);
+	}
+};
 //TODO A mettre en place
 object Renfort_CMO : CommandScript
 {

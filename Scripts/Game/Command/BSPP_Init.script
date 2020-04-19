@@ -80,7 +80,7 @@ const char PROTO_PCMSAMU[] 				= "mod:Prototypes/Vehicles/Ambulance/PCM_samu.e4p
 const char PROTO_UMHMASTER[] 			= "mod:Prototypes/Vehicles/Ambulance/UMHmaster.e4p";
 const char PROTO_UMHSPRINTER[] 			= "mod:Prototypes/Vehicles/Ambulance/UMHsprinter.e4p";
 const char PROTO_VLMKANGOO[] 			= "mod:Prototypes/Vehicles/Ambulance/VLM_kangoo.e4p";
-//const char PROTO_VLMSPRINTER[] 			= "mod:Prototypes/Vehicles/Ambulance/VLMsprinter.e4p";
+const char PROTO_VLMSPRINTER[] 			= "mod:Prototypes/Vehicles/Ambulance/VLMsprinter.e4p";
 
 const char PROTO_CMO[] 					= "mod:Prototypes/Vehicles/Ambulance/CMO.e4p";
 const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
@@ -308,7 +308,7 @@ object Init_SAMU : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_PCMSAMU, "SAMU1_1", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_VLMSPRINTER, "SAMU1_1", 1, 0);
 		ClassSpawn::Create(Caller, PROTO_UMHMASTER, "SAMU1_2", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_UMHSPRINTER, "SAMU1_3", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_VLMKANGOO, "SAMU1_4", 2, 0);
