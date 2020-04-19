@@ -412,7 +412,7 @@ object COSMenuPol : CommandScript
 		Caller->EnableCommand("COSBRI", true);
 		Caller->EnableCommand("COSCRS", true);
 		Caller->EnableCommand("COSGN", true);
-		Caller->EnableCommand("COSGM", true);
+		/*Caller->EnableCommand("COSGM", true);*/
 		
 		Caller->EnableCommand("MoveTo", true);
 		Caller->EnableCommand("EnterCar", true);
@@ -448,11 +448,11 @@ object COSBAC : CommandScript
 		Caller->EnableCommand("Renfort_BAC207SW", true);
 		Caller->AssignCommand("Renfort_BACC4");
 		Caller->EnableCommand("Renfort_BACC4", true);
-		Caller->AssignCommand("Renfort_BAC75N2");
-		Caller->EnableCommand("Renfort_BAC75N2", true);
+		/*Caller->AssignCommand("Renfort_BAC75N2");
+		Caller->EnableCommand("Renfort_BAC75N2", true);*/
 		Caller->AssignCommand("Renfort_BACMONDEO75N");
 		Caller->EnableCommand("Renfort_BACMONDEO75N", true);
-		Caller->AssignCommand("Renfort_BAC208");
+		/*Caller->AssignCommand("Renfort_BAC208");
 		Caller->EnableCommand("Renfort_BAC208", true);
 		Caller->AssignCommand("Renfort_BACC3");
 		Caller->EnableCommand("Renfort_BACC3", true);
@@ -461,7 +461,7 @@ object COSBAC : CommandScript
 		Caller->AssignCommand("Renfort_BACFocus");
 		Caller->EnableCommand("Renfort_BACFocus", true);
 		Caller->AssignCommand("Renfort_BACSkoda");
-		Caller->EnableCommand("Renfort_BACSkoda", true);
+		Caller->EnableCommand("Renfort_BACSkoda", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
@@ -502,13 +502,13 @@ object COSPN : CommandScript
 		Caller->EnableCommand("Renfort_PN308", true);
 		Caller->AssignCommand("Renfort_PNBerlingo");
 		Caller->EnableCommand("Renfort_PNBerlingo", true);
-		Caller->AssignCommand("Renfort_PNBerlingoPMV");
+		/*Caller->AssignCommand("Renfort_PNBerlingoPMV");
 		Caller->EnableCommand("Renfort_PNBerlingoPMV", true);
 		Caller->AssignCommand("Renfort_PNMASTERVTD");
-		Caller->EnableCommand("Renfort_PNMASTERVTD", true);
+		Caller->EnableCommand("Renfort_PNMASTERVTD", true);*/
 		Caller->AssignCommand("Renfort_PNMOTO");
 		Caller->EnableCommand("Renfort_PNMOTO", true);
-		Caller->AssignCommand("Renfort_PNEstate");
+		/*Caller->AssignCommand("Renfort_PNEstate");
 		Caller->EnableCommand("Renfort_PNEstate", true);
 		Caller->AssignCommand("Renfort_PNC8");
 		Caller->EnableCommand("Renfort_PNC8", true);
@@ -517,7 +517,7 @@ object COSPN : CommandScript
 		Caller->AssignCommand("Renfort_PNTRAFIC2");
 		Caller->EnableCommand("Renfort_PNTRAFIC2", true);
 		Caller->AssignCommand("Renfort_PNTRAFICPMV");
-		Caller->EnableCommand("Renfort_PNTRAFICPMV", true);
+		Caller->EnableCommand("Renfort_PNTRAFICPMV", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
@@ -558,8 +558,8 @@ object COSBRI : CommandScript
 		Caller->EnableCommand("Renfort_GIGN2", true);
 		Caller->AssignCommand("Renfort_MASTERGIGN");
 		Caller->EnableCommand("Renfort_MASTERGIGN", true);
-		Caller->AssignCommand("Renfort_TITUSGIGN");
-		Caller->EnableCommand("Renfort_TITUSGIGN", true);
+		/*Caller->AssignCommand("Renfort_TITUSGIGN");
+		Caller->EnableCommand("Renfort_TITUSGIGN", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
@@ -622,13 +622,13 @@ object COSGN : CommandScript
 		Caller->DisableAllCommands();
 		Caller->AssignCommand("Renfort_GNC4");
 		Caller->EnableCommand("Renfort_GNC4", true);
-		Caller->AssignCommand("Renfort_GNC4_2");
+		/*Caller->AssignCommand("Renfort_GNC4_2");
 		Caller->EnableCommand("Renfort_GNC4_2", true);
 		Caller->AssignCommand("Renfort_GNESTATE");
-		Caller->EnableCommand("Renfort_GNESTATE", true);
+		Caller->EnableCommand("Renfort_GNESTATE", true);*/
 		Caller->AssignCommand("Renfort_GNMOTO");
 		Caller->EnableCommand("Renfort_GNMOTO", true);
-		Caller->AssignCommand("Renfort_GNKANGOO");
+		/*Caller->AssignCommand("Renfort_GNKANGOO");
 		Caller->EnableCommand("Renfort_GNKANGOO", true);
 		Caller->AssignCommand("Renfort_GNKANGOO2");
 		Caller->EnableCommand("Renfort_GNKANGOO2", true);
@@ -643,7 +643,7 @@ object COSGN : CommandScript
 		Caller->AssignCommand("Renfort_GNBIPPER");
 		Caller->EnableCommand("Renfort_GNBIPPER", true);
 		Caller->AssignCommand("Renfort_GNDUSTER");
-		Caller->EnableCommand("Renfort_GNDUSTER", true);
+		Caller->EnableCommand("Renfort_GNDUSTER", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
@@ -670,7 +670,7 @@ object COSGM : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_GNBUS");
+		/*Caller->AssignCommand("Renfort_GNBUS");
 		Caller->EnableCommand("Renfort_GNBUS", true);
 		Caller->AssignCommand("Renfort_GNIVECO");
 		Caller->EnableCommand("Renfort_GNIVECO", true);
@@ -679,7 +679,7 @@ object COSGM : CommandScript
 		Caller->AssignCommand("Renfort_GNIVECO3");
 		Caller->EnableCommand("Renfort_GNIVECO3", true);
 		Caller->AssignCommand("Renfort_GNVRBG");
-		Caller->EnableCommand("Renfort_GNVRBG", true);
+		Caller->EnableCommand("Renfort_GNVRBG", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
