@@ -1529,6 +1529,7 @@ object Renfort_PNMASTER3 : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {41,41,41,40,0,0};
+		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MASTERPN3, VT_POLICE_MTW, listSquadVO, personnelVehicule, 4, 3);	
 	}
 };
