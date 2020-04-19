@@ -2586,6 +2586,8 @@ object Renfort_GRUE : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {24,0,0,0,0,0};
+
+		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GRUE, VT_THW_FGRR_BKF, listSquadVO, personnelVehicule, 1, 0);
 	}
 };
@@ -2604,6 +2606,8 @@ object Renfort_DEPAN : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {24,0,0,0,0,0};
+		
+		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_DEP, VT_FIREFIGHTERS_ASF, listSquadVO, personnelVehicule, 1, 0);
 	}
 };
