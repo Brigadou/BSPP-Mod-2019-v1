@@ -79,7 +79,7 @@ const char PROTO_PCMSAMU[] 				= "mod:Prototypes/Vehicles/Ambulance/PCM_samu.e4p
 
 const char PROTO_UMHMASTER[] 			= "mod:Prototypes/Vehicles/Ambulance/UMHmaster.e4p";
 const char PROTO_UMHSPRINTER[] 			= "mod:Prototypes/Vehicles/Ambulance/UMHsprinter.e4p";
-const char PROTO_VLMKANGOO[] 			= "mod:Prototypes/Vehicles/Ambulance/VLM_kangoo.e4p";
+const char PROTO_VLMKANGOO[] 			= "mod:Prototypes/Vehicles/Ambulance/VLMkangoo.e4p";
 const char PROTO_VLMSPRINTER[] 			= "mod:Prototypes/Vehicles/Ambulance/VLMsprinter.e4p";
 
 const char PROTO_CMO[] 					= "mod:Prototypes/Vehicles/Ambulance/CMO.e4p";
