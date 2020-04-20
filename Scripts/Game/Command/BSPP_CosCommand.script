@@ -147,14 +147,20 @@ object COSSAP : CommandScript
 		Caller->EnableCommand(CMD_ARIveco, true);
 		Caller->AssignCommand(CMD_ARMaster);
 		Caller->EnableCommand(CMD_ARMaster, true);
-		Caller->AssignCommand(CMD_MasterPC);
-		Caller->EnableCommand(CMD_MasterPC, true);
 		Caller->AssignCommand(CMD_VPCM);
 		Caller->EnableCommand(CMD_VPCM, true);
 		Caller->AssignCommand(CMD_PFG);
 		Caller->EnableCommand(CMD_PFG, true);
 		Caller->AssignCommand(CMD_VES);
 		Caller->EnableCommand(CMD_VES, true);
+		Caller->AssignCommand(CMD_MasterPC);
+		Caller->EnableCommand(CMD_MasterPC, true);
+		Caller->AssignCommand(CMD_MasterPC2);
+		Caller->EnableCommand(CMD_MasterPC2, true);
+		Caller->AssignCommand(CMD_MasterPC3);
+		Caller->EnableCommand(CMD_MasterPC3, true);
+		Caller->AssignCommand(CMD_308PC);
+		Caller->EnableCommand(CMD_308PC, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -462,6 +468,10 @@ object COSBAC : CommandScript
 		Caller->EnableCommand("Renfort_BACFocus", true);
 		Caller->AssignCommand("Renfort_BACSkoda");
 		Caller->EnableCommand("Renfort_BACSkoda", true);
+		/*Caller->AssignCommand("Renfort_BACFluence");
+		Caller->EnableCommand("Renfort_BACFluence", true);
+		Caller->AssignCommand("Renfort_BACCaptur");
+		Caller->EnableCommand("Renfort_BACCaptur", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
@@ -503,16 +513,16 @@ object COSPN : CommandScript
 		Caller->AssignCommand("Renfort_PNBerlingo");
 		Caller->EnableCommand("Renfort_PNBerlingo", true);
 		/*Caller->AssignCommand("Renfort_PNBerlingoPMV");
-		Caller->EnableCommand("Renfort_PNBerlingoPMV", true);
+		Caller->EnableCommand("Renfort_PNBerlingoPMV", true);*/
 		Caller->AssignCommand("Renfort_PNMASTERVTD");
-		Caller->EnableCommand("Renfort_PNMASTERVTD", true);*/
+		Caller->EnableCommand("Renfort_PNMASTERVTD", true);
 		Caller->AssignCommand("Renfort_PNMOTO");
 		Caller->EnableCommand("Renfort_PNMOTO", true);
 		/*Caller->AssignCommand("Renfort_PNEstate");
-		Caller->EnableCommand("Renfort_PNEstate", true);
+		Caller->EnableCommand("Renfort_PNEstate", true);*/
 		Caller->AssignCommand("Renfort_PNC8");
 		Caller->EnableCommand("Renfort_PNC8", true);
-		Caller->AssignCommand("Renfort_PNTRAFIC");
+		/*Caller->AssignCommand("Renfort_PNTRAFIC");
 		Caller->EnableCommand("Renfort_PNTRAFIC", true);
 		Caller->AssignCommand("Renfort_PNTRAFIC2");
 		Caller->EnableCommand("Renfort_PNTRAFIC2", true);

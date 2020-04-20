@@ -178,6 +178,7 @@ const char PROTO_VRSD[] 				= "mod:Prototypes/Vehicles/Ambulance/VRSD.e4p";
 
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
 
+const char PROTO_308PC[] 				= "mod:Prototypes/Vehicles/Ambulance/308PC.e4p";
 const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC.e4p";
 const char PROTO_MasterPC2[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC2.e4p";
 const char PROTO_MasterPC3[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC3.e4p";
@@ -212,6 +213,8 @@ const char PROTO_BACC3[]				= "mod:Prototypes/Vehicles/Police/bac_c3.e4p";
 const char PROTO_BACFIESTA[]			= "mod:Prototypes/Vehicles/Police/bac_fiesta.e4p";
 const char PROTO_BACFOCUS[]				= "mod:Prototypes/Vehicles/Police/bac_focus.e4p";
 const char PROTO_BACSKODA[]				= "mod:Prototypes/Vehicles/Police/bac_skoda.e4p";
+const char PROTO_BACFLUENCE[]				= "mod:Prototypes/Vehicles/Police/bac_fluence.e4p";
+const char PROTO_BACCAPTUR[]				= "mod:Prototypes/Vehicles/Police/bac_captur.e4p";
 
 //GIGN
 const char PROTO_308GIGN[]				= "mod:Prototypes/Vehicles/Police/gign_308.e4p";
@@ -661,6 +664,66 @@ object Renfort_MasterPC : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
+	}
+};
+
+object Renfort_MasterPC2 : CommandScript
+{
+	Renfort_MasterPC2()
+	{
+		SetIcon("MasterPC2");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC2, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
+	}
+};
+
+object Renfort_MasterPC3 : CommandScript
+{
+	Renfort_MasterPC3()
+	{
+		SetIcon("MasterPC3");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC3, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
+	}
+};
+
+object Renfort_308PC : CommandScript
+{
+	Renfort_308PC()
+	{
+		SetIcon("308PC");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {5,6,0,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_308PC, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
 	}
 };
 
@@ -1951,6 +2014,44 @@ object Renfort_BACSkoda : CommandScript
 		int personnelVehicule[6] = {25,25,25,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACSKODA, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
+	}
+};
+
+object Renfort_BACFluence : CommandScript
+{
+	Renfort_BACFluence()
+	{
+		SetIcon("bacfluence");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {25,25,25,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACFLUENCE, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
+	}
+};
+
+object Renfort_BACCaptur : CommandScript
+{
+	Renfort_BACCaptur()
+	{
+		SetIcon("baccaptur");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {25,25,25,0,0,0};
+		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACCAPTUR, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
 };
 
