@@ -448,11 +448,11 @@ object COSBAC : CommandScript
 		Caller->EnableCommand("Renfort_BAC207SW", true);
 		Caller->AssignCommand("Renfort_BACC4");
 		Caller->EnableCommand("Renfort_BACC4", true);
-		/*Caller->AssignCommand("Renfort_BAC75N2");
-		Caller->EnableCommand("Renfort_BAC75N2", true);*/
+		Caller->AssignCommand("Renfort_BAC75N2");
+		Caller->EnableCommand("Renfort_BAC75N2", true);
 		Caller->AssignCommand("Renfort_BACMONDEO75N");
 		Caller->EnableCommand("Renfort_BACMONDEO75N", true);
-		/*Caller->AssignCommand("Renfort_BAC208");
+		Caller->AssignCommand("Renfort_BAC208");
 		Caller->EnableCommand("Renfort_BAC208", true);
 		Caller->AssignCommand("Renfort_BACC3");
 		Caller->EnableCommand("Renfort_BACC3", true);
@@ -461,7 +461,7 @@ object COSBAC : CommandScript
 		Caller->AssignCommand("Renfort_BACFocus");
 		Caller->EnableCommand("Renfort_BACFocus", true);
 		Caller->AssignCommand("Renfort_BACSkoda");
-		Caller->EnableCommand("Renfort_BACSkoda", true);*/
+		Caller->EnableCommand("Renfort_BACSkoda", true);
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
