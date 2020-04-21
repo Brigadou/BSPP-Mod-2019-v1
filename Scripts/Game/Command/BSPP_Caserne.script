@@ -6,16 +6,20 @@
 //
 //******************************************************************************************
 
-const char OBJ_SAMUBRA[]				= "mod:Prototypes/Persons/Ambulance/SAMU_brancard.e4p";
-const char OBJ_SAMUMED[]				= "mod:Prototypes/Persons/Ambulance/SAMU_medecin.e4p";
-const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/SAMU_infirmier.e4p";
+const char OBJ_SAMUBRA[]			= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
+const char OBJ_SAMUMED[]			= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
+const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
 const char OBJ_MRG[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
 
-const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/brancardier_sp.e4p";
+const char OBJ_BRAPC[]					= "mod:Prototypes/Persons/Ambulance/bran_pc.e4p";
+const char OBJ_SECPC[]					= "mod:Prototypes/Persons/Ambulance/secouriste_pc.e4p";
+
+const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/bran_sp.e4p";
 const char OBJ_SECSP[]					= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
 const char OBJ_SECCA[]					= "mod:Prototypes/Persons/Ambulance/secouriste_ca.e4p";
 const char OBJ_INFSP[]					= "mod:Prototypes/Persons/Ambulance/infirmier_sp.e4p";
 const char OBJ_MEDSP[]					= "mod:Prototypes/Persons/Ambulance/medecin_sp.e4p";
+
 const char OBJ_GILET[]					= "mod:Prototypes/Persons/Fire Department/gilet.e4p";
 const char OBJ_GILETCPT[]				= "mod:Prototypes/Persons/Fire Department/gilet_cpt.e4p";
 const char OBJ_CYNO[]					= "mod:Prototypes/Persons/Fire Department/tenue_cyno.e4p";
@@ -30,7 +34,9 @@ const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
 
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
+const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/bspp_grdf.e4p";
 const char OBJ_DDE[]					= "mod:Prototypes/Persons/TEC/bspp_dde1.e4p";
+const char OBJ_DDE2[]					= "mod:Prototypes/Persons/TEC/bspp_dde2.e4p";
 
 const char OBJ_BAC[]					= "mod:Prototypes/Persons/Police/bac.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
@@ -230,6 +236,22 @@ object DummyCallCrew : CommandScript
 			Person p = Game::CreatePerson(OBJ_MOTOPN, UNNAMED);
 		else if (ChildID == 44)
 			Person p = Game::CreatePerson(OBJ_DOUANE, UNNAMED);
+		else
+		else if (ChildID == 45)
+		{
+			Person p = Game::CreatePerson(OBJ_GRDF, UNNAMED);
+			p.SetEquipment(EQUIP_THW_CASE);
+		}
+		else if (ChildID == 46)
+			Person p = Game::CreatePerson(OBJ_DDE2, UNNAMED);
+		else
+		else if (ChildID == 47)
+		{	
+			Person p = Game::CreatePerson(OBJ_BRAPC, UNNAMED);
+			p.SetEquipment(EQUIP_EMERGENCY_CASE);
+		}
+		else if (ChildID == 48)
+			Person p = Game::CreatePerson(OBJ_SECPC, UNNAMED);
 		else
 			return;
 
