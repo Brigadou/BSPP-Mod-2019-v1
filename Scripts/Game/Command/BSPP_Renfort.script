@@ -660,7 +660,7 @@ object Renfort_MasterPC : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
+		int personnelVehicule[6] = {47,48,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
@@ -680,7 +680,7 @@ object Renfort_MasterPC2 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
+		int personnelVehicule[6] = {47,48,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC2, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
@@ -700,7 +700,7 @@ object Renfort_MasterPC3 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {5,6,0,0,0,0};
+		int personnelVehicule[6] = {47,48,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MasterPC3, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 1);
@@ -2667,10 +2667,70 @@ object Renfort_GDF : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {23,0,0,0,0,0};
+		int personnelVehicule[6] = {45,0,0,0,0,0};
 		
 		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GRDFtrafic, VT_THW_FGRI_EKW, listSquadVO, personnelVehicule, 1, 0);
+	}
+};
+
+object Renfort_DIRkangoo : CommandScript
+{
+	Renfort_DIRkangoo()
+	{
+		SetIcon("DIRkangoo");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {46,24,0,0,0,0};
+		
+		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_DIRkangoo, VT_THW_FGRI_EKW, listSquadVO, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_DIRmaster : CommandScript
+{
+	Renfort_DIRmaster()
+	{
+		SetIcon("DIRmaster");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {46,24,0,0,0,0};
+		
+		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_DIRmaster, VT_THW_FGRI_EKW, listSquadVO, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_DIRtrafic : CommandScript
+{
+	Renfort_DIRtrafic()
+	{
+		SetIcon("DIRtrafic");
+		SetCursor("callassistance");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {46,24,0,0,0,0};
+		
+		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_DIRtrafic, VT_THW_FGRI_EKW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
