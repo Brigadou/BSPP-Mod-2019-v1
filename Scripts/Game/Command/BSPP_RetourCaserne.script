@@ -165,6 +165,8 @@ const char PROTO_BACC3[]				= "mod:Prototypes/Vehicles/Police/bac_c3.e4p";
 const char PROTO_BACFIESTA[]			= "mod:Prototypes/Vehicles/Police/bac_fiesta.e4p";
 const char PROTO_BACFOCUS[]				= "mod:Prototypes/Vehicles/Police/bac_focus.e4p";
 const char PROTO_BACSKODA[]				= "mod:Prototypes/Vehicles/Police/bac_skoda.e4p";
+const char PROTO_BACFLUENCE[]				= "mod:Prototypes/Vehicles/Police/bac_fluence.e4p";
+const char PROTO_BACCAPTUR[]				= "mod:Prototypes/Vehicles/Police/bac_captur.e4p";
 
 const char PROTO_308GIGN[]				= "mod:Prototypes/Vehicles/Police/gign_308.e4p";
 const char PROTO_ESPACEGIGN[]			= "mod:Prototypes/Vehicles/Police/gign_espace.e4p";

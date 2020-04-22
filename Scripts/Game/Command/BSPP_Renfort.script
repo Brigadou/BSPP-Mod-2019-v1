@@ -1735,9 +1735,9 @@ object Renfort_PN308 : CommandScript
 	}
 };
 
-object Renfort_PNBerlingo : CommandScript
+object Renfort_PNBERLINGO : CommandScript
 {
-	Renfort_PNBerlingo()
+	Renfort_PNBERLINGO()
 	{
 		SetIcon("berlingopn");
 		SetCursor("berlingopn");
@@ -1754,9 +1754,9 @@ object Renfort_PNBerlingo : CommandScript
 	}
 };
 
-object Renfort_PNBerlingoPMV : CommandScript
+object Renfort_PNBERLINGOPMV : CommandScript
 {
-	Renfort_PNBerlingoPMV()
+	Renfort_PNBERLINGOPMV()
 	{
 		SetIcon("callassistance");
 		SetCursor("callassistance");
@@ -2041,9 +2041,9 @@ object Renfort_BACC3 : CommandScript
 	}
 };
 
-object Renfort_BACFiesta : CommandScript
+object Renfort_BACFIESTA : CommandScript
 {
-	Renfort_BACFiesta()
+	Renfort_BACFIESTA()
 	{
 		SetIcon("bacfiesta");
 		SetCursor("callassistance");
@@ -2060,9 +2060,9 @@ object Renfort_BACFiesta : CommandScript
 	}
 };
 
-object Renfort_BACFocus : CommandScript
+object Renfort_BACFOCUS : CommandScript
 {
-	Renfort_BACFocus()
+	Renfort_BACFOCUS()
 	{
 		SetIcon("bacfocus");
 		SetCursor("callassistance");
@@ -2079,9 +2079,9 @@ object Renfort_BACFocus : CommandScript
 	}
 };
 
-object Renfort_BACSkoda : CommandScript
+object Renfort_BACSKODA : CommandScript
 {
-	Renfort_BACSkoda()
+	Renfort_BACSKODA()
 	{
 		SetIcon("bacskoda");
 		SetCursor("callassistance");
@@ -2098,9 +2098,9 @@ object Renfort_BACSkoda : CommandScript
 	}
 };
 
-object Renfort_BACFluence : CommandScript
+object Renfort_BACFLUENCE : CommandScript
 {
-	Renfort_BACFluence()
+	Renfort_BACFLUENCE()
 	{
 		SetIcon("bacfluence");
 		SetCursor("callassistance");
@@ -2117,9 +2117,9 @@ object Renfort_BACFluence : CommandScript
 	}
 };
 
-object Renfort_BACCaptur : CommandScript
+object Renfort_BACCAPTUR : CommandScript
 {
-	Renfort_BACCaptur()
+	Renfort_BACCAPTUR()
 	{
 		SetIcon("baccaptur");
 		SetCursor("callassistance");
@@ -2715,9 +2715,9 @@ object Renfort_Fuite : CommandScript
 *********************************************************************/
 
 
-object Renfort_EDF : CommandScript
+object Renfort_ERDF : CommandScript
 {
-	Renfort_EDF()
+	Renfort_ERDF()
 	{
 		SetIcon("ERDF");
 		SetCursor("callassistance");
@@ -2735,9 +2735,9 @@ object Renfort_EDF : CommandScript
 	}
 };
 
-object Renfort_GDF : CommandScript
+object Renfort_GRDF : CommandScript
 {
-	Renfort_GDF()
+	Renfort_GRDF()
 	{
 		SetIcon("GRDF");
 		SetCursor("callassistance");

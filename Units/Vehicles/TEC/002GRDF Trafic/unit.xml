@@ -11,7 +11,8 @@
 					<defaultcount value="1" />
 				</unit>
 			</personnel>
-			<equipment />
+			<equipment>
+			</equipment>
 		</missions>
 	</campaign>
 	
@@ -27,7 +28,8 @@
 					<defaultcount value="1" />
 				</unit>
 			</personnel>
-			<equipment />
+			<equipment>
+			</equipment>
 		</missions>
 	</freeplay>		
 </unit>
