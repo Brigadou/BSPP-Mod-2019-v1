@@ -306,7 +306,7 @@ class ClassRenfort: CommandScript
 			case 10 : return OBJ_GILET;break;
 			case 11 : return OBJ_GILETCPT;break;
 			case 12 : return OBJ_CYNO;break;
-			case 13 : return OBJ_VIMP;break;
+			case 13 : return OBJ_GREP;break;
 			case 15 : return OBJ_PLO;break;
 			case 16 : return OBJ_NBC;break;
 			case 17 : return OBJ_FEU;break;
@@ -316,7 +316,7 @@ class ClassRenfort: CommandScript
 			case 21 : return OBJ_ARI;break;
 			case 22 : return OBJ_ARICA;break;
 			case 23 : return OBJ_ERDF;break;
-			case 24 : return OBJ_DDE;break;
+			case 24 : return OBJ_DIR;break;
 			case 25 : return OBJ_BAC;break;
 			case 26 : return OBJ_BRI;break;
 			case 27 : return OBJ_CRS;break;
@@ -2828,7 +2828,7 @@ object Renfort_GRUE : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,0,0,0,0,0};
+		int personnelVehicule[6] = {49,0,0,0,0,0};
 
 		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GRUE, VT_THW_FGRR_BKF, listSquadVO, personnelVehicule, 1, 0);
@@ -2848,7 +2848,7 @@ object Renfort_DEPAN : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,0,0,0,0,0};
+		int personnelVehicule[6] = {49,0,0,0,0,0};
 		
 		char * listSquadVO[] = {VO_SQUAD_TEC, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_DEP, VT_FIREFIGHTERS_ASF, listSquadVO, personnelVehicule, 1, 0);
