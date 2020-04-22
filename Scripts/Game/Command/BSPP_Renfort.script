@@ -1051,9 +1051,9 @@ object Renfort_CESD : CommandScript
 	}
 };
 
-object Renfort_CIC_CRR : CommandScript
+object Renfort_CICCIB : CommandScript
 {
-	Renfort_CIC_CRR()
+	Renfort_CICCIB()
 	{
 		SetIcon("ciccib");
 		SetCursor("ciccib");
@@ -1067,7 +1067,7 @@ object Renfort_CIC_CRR : CommandScript
 		int personnelVehicule[6] = {16,16,16,16,10,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CIC_CRR, VT_FIREFIGHTERS_DEKONP, listSquadVO, personnelVehicule, 5, 2);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CICCIB, VT_FIREFIGHTERS_DEKONP, listSquadVO, personnelVehicule, 5, 2);
 	}
 };
 
@@ -1610,6 +1610,8 @@ object Renfort_VPB : CommandScript
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPB,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
+
+
 
 //}
 
