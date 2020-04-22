@@ -87,8 +87,7 @@ const char PROTO_VID3[] 				= "mod:Prototypes/Vehicles/Fire Department/VID3.e4p"
 const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
 const char PROTO_SPVLUP[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
 const char PROTO_SPVLgolf[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLgolf.e4p";
-const char PROTO_SPVLclio3[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio3.e4p";
-const char PROTO_SPVLclio4[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio4.e4p";
+const char PROTO_SPVLclio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio.e4p";
 const char PROTO_SPVLkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLkangoo.e4p";
 const char PROTO_SPVLmegane[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLmegane.e4p";
 
@@ -708,9 +707,9 @@ object VcmdToFireStation : CommandScript
 		{
 			FirstReturnParking(Caller, "PS4", VO_SQUAD_BITCHE, PROTO_PSE4, "VO_PS4_R", "");
 		}		
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio3) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio) == 0)
 		{
-			FirstReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE, PROTO_SPVLclio3, "VO_SPVL_Clio_R", "");
+			FirstReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE, PROTO_SPVLclio, "VO_SPVL_Clio_R", "");
 		}
 		
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTAtego) == 0)
@@ -1152,7 +1151,7 @@ object DummyCheckParked : CommandScript
 		{
 			EndReturnParking(Caller, "PS4", VO_SQUAD_BITCHE);
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio3) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio) == 0)
 		{
 			EndReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE);
 		}

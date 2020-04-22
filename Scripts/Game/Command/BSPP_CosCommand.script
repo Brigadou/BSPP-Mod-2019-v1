@@ -6,6 +6,46 @@
 //
 //******************************************************************************************
 
+const char CMD_VSAVR[]			= "Renfort_VSAVR";
+const char CMD_VSAVB[]			= "Renfort_VSAVB";
+const char CMD_PSR[]			= "Renfort_PSR";
+const char CMD_CA[]				= "Renfort_CA";
+const char CMD_ARIveco[]		= "Renfort_ARIveco";
+const char CMD_ARMaster[]		= "Renfort_ARMaster";
+const char CMD_MasterPC[]		= "Renfort_MasterPC";
+const char CMD_VPCM[]			= "Renfort_VPCM";
+const char CMD_PFG[]			= "Renfort_PFG";
+const char CMD_VES[]			= "Renfort_VES";
+const char CMD_CCR[]			= "Renfort_CCR";
+const char CMD_CD[]				= "Renfort_CD";
+const char CMD_CESD[]			= "Renfort_CESD";
+const char CMD_CIC_CIB[]		= "Renfort_CIC_CIB";
+const char CMD_CRAC[]			= "Renfort_CRAC";
+const char CMD_CSP[]			= "Renfort_CSP";
+const char CMD_EPAAtego[]		= "Renfort_EPAAtego";
+const char CMD_EPAIveco[]		= "Renfort_EPAIveco";
+const char CMD_FPTAtego[]		= "Renfort_FPTAtego";
+const char CMD_FPTMidlum[]		= "Renfort_FPTMidlum";
+const char CMD_VIMP[]			= "Renfort_VIMP";
+const char CMD_PEV[]			= "Renfort_PEV";
+const char CMD_PSE2[]			= "Renfort_PSE2";
+const char CMD_PSE3[]			= "Renfort_PSE3";
+const char CMD_PSE4[]			= "Renfort_PSE4";
+const char CMD_PSE5[]			= "Renfort_PSE5";
+const char CMD_SIS[]			= "Renfort_SIS";
+const char CMD_SPTT[]			= "Renfort_SPTT";
+const char CMD_SPVLclio3[]		= "Renfort_SPVLclio3";
+const char CMD_SPVLclio4[]		= "Renfort_SPVLclio4";
+const char CMD_SPVLkangoo[]		= "Renfort_SPVLkangoo";
+const char CMD_SPVLgolf[]		= "Renfort_SPVLgolf";
+const char CMD_SPVLup[]			= "Renfort_SPVLup";
+const char CMD_VAG[]			= "Renfort_VAG";
+const char CMD_VID[]			= "Renfort_VID";
+const char CMD_VIGI[]			= "Renfort_VIGI";
+const char CMD_VPS[]			= "Renfort_VPS";
+const char CMD_VSC[]			= "Renfort_VSC";
+const char CMD_VPB[]			= "Renfort_VPB";
+
 const char CMD_CSFL[]			= "FeuLegerCS";
 const char CMD_CSNOR[]			= "DepartNormalCS";
 const char CMD_CSRI[]			= "RenfortIncendieCS";
@@ -97,30 +137,30 @@ object COSSAP : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_VSAVR");
-		Caller->EnableCommand("Renfort_VSAVR", true);
-		Caller->AssignCommand("Renfort_VSAVB");
-		Caller->EnableCommand("Renfort_VSAVB", true);
-		Caller->AssignCommand("Renfort_PSR");
-		Caller->EnableCommand("Renfort_PSR", true);
-		Caller->AssignCommand("Renfort_ARIveco");
-		Caller->EnableCommand("Renfort_ARIveco", true);
-		Caller->AssignCommand("Renfort_ARMaster");
-		Caller->EnableCommand("Renfort_ARMaster", true);
-		Caller->AssignCommand("Renfort_VPCM");
-		Caller->EnableCommand("Renfort_VPCM", true);
-		Caller->AssignCommand("Renfort_PFG");
-		Caller->EnableCommand("Renfort_PFG", true);
-		Caller->AssignCommand("Renfort_VES");
-		Caller->EnableCommand("Renfort_VES", true);
-		Caller->AssignCommand("Renfort_MasterPC");
-		Caller->EnableCommand("Renfort_MasterPC", true);
-		Caller->AssignCommand("Renfort_MasterPC2");
-		Caller->EnableCommand("Renfort_MasterPC2", true);
-		Caller->AssignCommand("Renfort_MasterPC3");
-		Caller->EnableCommand("Renfort_MasterPC3", true);
-		Caller->AssignCommand("Renfort_308PC");
-		Caller->EnableCommand("Renfort_308PC", true);
+		Caller->AssignCommand(CMD_VSAVR);
+		Caller->EnableCommand(CMD_VSAVR, true);
+		Caller->AssignCommand(CMD_VSAVB);
+		Caller->EnableCommand(CMD_VSAVB, true);
+		Caller->AssignCommand(CMD_PSR);
+		Caller->EnableCommand(CMD_PSR, true);
+		Caller->AssignCommand(CMD_ARIveco);
+		Caller->EnableCommand(CMD_ARIveco, true);
+		Caller->AssignCommand(CMD_ARMaster);
+		Caller->EnableCommand(CMD_ARMaster, true);
+		Caller->AssignCommand(CMD_VPCM);
+		Caller->EnableCommand(CMD_VPCM, true);
+		Caller->AssignCommand(CMD_PFG);
+		Caller->EnableCommand(CMD_PFG, true);
+		Caller->AssignCommand(CMD_VES);
+		Caller->EnableCommand(CMD_VES, true);
+		Caller->AssignCommand(CMD_MasterPC);
+		Caller->EnableCommand(CMD_MasterPC, true);
+		Caller->AssignCommand(CMD_MasterPC2);
+		Caller->EnableCommand(CMD_MasterPC2, true);
+		Caller->AssignCommand(CMD_MasterPC3);
+		Caller->EnableCommand(CMD_MasterPC3, true);
+		Caller->AssignCommand(CMD_308PC);
+		Caller->EnableCommand(CMD_308PC, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -147,27 +187,25 @@ object COSINC : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_FPTAtego");
-		Caller->EnableCommand("Renfort_FPTAtego", true);
-		Caller->AssignCommand("Renfort_FPTMidlum");
-		Caller->EnableCommand("Renfort_FPTMidlum", true);
-		Caller->AssignCommand("Renfort_PST");
-		Caller->EnableCommand("Renfort_PST", true);
-		Caller->AssignCommand("Renfort_EPAAtego");
-		Caller->EnableCommand("Renfort_EPAAtego", true);
-		Caller->AssignCommand("Renfort_EPAIveco");
-		Caller->EnableCommand("Renfort_EPAIveco", true);
-		Caller->AssignCommand("Renfort_PSE2");
-		Caller->EnableCommand("Renfort_PSE2", true);
-		Caller->AssignCommand("Renfort_PSE3");
-		Caller->EnableCommand("Renfort_PSE3", true);
-		Caller->AssignCommand("Renfort_PSE4");
-		Caller->EnableCommand("Renfort_PSE4", true);
-		Caller->AssignCommand("Renfort_PSE5");
-		Caller->EnableCommand("Renfort_PSE5", true);		
+		Caller->AssignCommand(CMD_FPTAtego);
+		Caller->EnableCommand(CMD_FPTAtego, true);
+		Caller->AssignCommand(CMD_FPTMidlum);
+		Caller->EnableCommand(CMD_FPTMidlum, true);
+		Caller->AssignCommand(CMD_EPAAtego);
+		Caller->EnableCommand(CMD_EPAAtego, true);
+		Caller->AssignCommand(CMD_EPAIveco);
+		Caller->EnableCommand(CMD_EPAIveco, true);
+		Caller->AssignCommand(CMD_PSE2);
+		Caller->EnableCommand(CMD_PSE2, true);
+		Caller->AssignCommand(CMD_PSE3);
+		Caller->EnableCommand(CMD_PSE3, true);
+		Caller->AssignCommand(CMD_PSE4);
+		Caller->EnableCommand(CMD_PSE4, true);
+		Caller->AssignCommand(CMD_PSE5);
+		Caller->EnableCommand(CMD_PSE5, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
-		}
+	}
 };
 
 object COSDIV : CommandScript
@@ -191,16 +229,16 @@ object COSDIV : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_VID");
-		Caller->EnableCommand("Renfort_VID", true);
-		Caller->AssignCommand("Renfort_VIGI");
-		Caller->EnableCommand("Renfort_VIGI", true);
-		Caller->AssignCommand("Renfort_CA");
-		Caller->EnableCommand("Renfort_CA", true);
-		Caller->AssignCommand("Renfort_CD");
-		Caller->EnableCommand("Renfort_CD", true);
-		Caller->AssignCommand("Renfort_SPTT");
-		Caller->EnableCommand("Renfort_SPTT", true);
+		Caller->AssignCommand(CMD_VID);
+		Caller->EnableCommand(CMD_VID, true);
+		Caller->AssignCommand(CMD_VIGI);
+		Caller->EnableCommand(CMD_VIGI, true);
+		Caller->AssignCommand(CMD_CA);
+		Caller->EnableCommand(CMD_CA, true);
+		Caller->AssignCommand(CMD_CD);
+		Caller->EnableCommand(CMD_CD, true);
+		Caller->AssignCommand(CMD_SPTT);
+		Caller->EnableCommand(CMD_SPTT, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -227,10 +265,8 @@ object COSFDF : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_CCR");
-		Caller->EnableCommand("Renfort_CCR", true);
-		/*Caller->AssignCommand("Renfort_VIVP");
-		Caller->EnableCommand("Renfort_VIVP", true);*/
+		Caller->AssignCommand(CMD_CCR);
+		Caller->EnableCommand(CMD_CCR, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -257,24 +293,24 @@ object COSSPE : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_SIS");
-		Caller->EnableCommand("Renfort_SIS", true);
-		Caller->AssignCommand("Renfort_CSP");
-		Caller->EnableCommand("Renfort_CSP", true);
-		Caller->AssignCommand("Renfort_VIMP");
-		Caller->EnableCommand("Renfort_VIMP", true);
-		Caller->AssignCommand("Renfort_VAG");
-		Caller->EnableCommand("Renfort_VAG", true);
-		Caller->AssignCommand("Renfort_PEV");
-		Caller->EnableCommand("Renfort_PEV", true);
-		Caller->AssignCommand("Renfort_CESD");
-		Caller->EnableCommand("Renfort_CESD", true);
-		Caller->AssignCommand("Renfort_VSC");
-		Caller->EnableCommand("Renfort_VSC", true);
-		Caller->AssignCommand("Renfort_CRAC");
-		Caller->EnableCommand("Renfort_CRAC", true);
-		Caller->AssignCommand("Renfort_CICCIB");
-		Caller->EnableCommand("Renfort_CICCIB", true);
+		Caller->AssignCommand(CMD_SIS);
+		Caller->EnableCommand(CMD_SIS, true);
+		Caller->AssignCommand(CMD_CSP);
+		Caller->EnableCommand(CMD_CSP, true);
+		Caller->AssignCommand(CMD_VIMP);
+		Caller->EnableCommand(CMD_VIMP, true);
+		Caller->AssignCommand(CMD_VAG);
+		Caller->EnableCommand(CMD_VAG, true);
+		Caller->AssignCommand(CMD_PEV);
+		Caller->EnableCommand(CMD_PEV, true);
+		Caller->AssignCommand(CMD_CESD);
+		Caller->EnableCommand(CMD_CESD, true);
+		Caller->AssignCommand(CMD_VSC);
+		Caller->EnableCommand(CMD_VSC, true);
+		Caller->AssignCommand(CMD_CRAC);
+		Caller->EnableCommand(CMD_CRAC, true);
+		Caller->AssignCommand(CMD_CIC_CIB);
+		Caller->EnableCommand(CMD_CIC_CIB, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -301,18 +337,16 @@ object COSGOC : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_SPVLclio3");
-		Caller->EnableCommand("Renfort_SPVLclio3", true);
-		Caller->AssignCommand("Renfort_SPVLclio4");
-		Caller->EnableCommand("Renfort_SPVLclio4", true);
-		Caller->AssignCommand("Renfort_SPVLkangoo");
-		Caller->EnableCommand("Renfort_SPVLkangoo", true);
-		Caller->AssignCommand("Renfort_SPVLmegane");
-		Caller->EnableCommand("Renfort_SPVLmegane", true);
-		Caller->AssignCommand("Renfort_SPVLup");
-		Caller->EnableCommand("Renfort_SPVLup", true);
-		Caller->AssignCommand("Renfort_SPVLgolf");
-		Caller->EnableCommand("Renfort_SPVLgolf", true);
+		Caller->AssignCommand(CMD_SPVLclio3);
+		Caller->EnableCommand(CMD_SPVLclio3, true);
+		Caller->AssignCommand(CMD_SPVLclio4);
+		Caller->EnableCommand(CMD_SPVLclio4, true);
+		Caller->AssignCommand(CMD_SPVLkangoo);
+		Caller->EnableCommand(CMD_SPVLkangoo, true);
+		Caller->AssignCommand(CMD_SPVLup);
+		Caller->EnableCommand(CMD_SPVLup, true);
+		Caller->AssignCommand(CMD_SPVLgolf);
+		Caller->EnableCommand(CMD_SPVLgolf, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
@@ -434,10 +468,10 @@ object COSBAC : CommandScript
 		Caller->EnableCommand("Renfort_BACFocus", true);
 		Caller->AssignCommand("Renfort_BACSkoda");
 		Caller->EnableCommand("Renfort_BACSkoda", true);
-		Caller->AssignCommand("Renfort_BACFluence");
+		/*Caller->AssignCommand("Renfort_BACFluence");
 		Caller->EnableCommand("Renfort_BACFluence", true);
 		Caller->AssignCommand("Renfort_BACCaptur");
-		Caller->EnableCommand("Renfort_BACCaptur", true);
+		Caller->EnableCommand("Renfort_BACCaptur", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
