@@ -330,7 +330,7 @@ object SecoursRoutierMoyenCS : CommandScript
 		
 			Game::ExecuteCommand("Renfort_CD", Caller);
 			Game::ExecuteCommand("Renfort_VSAVB", Caller);
-			Game::ExecuteCommand("Renfort_PSE3", Caller);
+			Game::ExecuteCommand("Renfort_PSE4", Caller);
 			Game::ExecuteCommand("Renfort_VPS", Caller);
 	}
 };
