@@ -6,6 +6,7 @@
 //
 //******************************************************************************************
 
+<<<<<<< HEAD
 // Déclarations de véhicules de Pompiers
 const char CMD_VLROGC[] 				= "Renfort_VLROGC";
 const char CMD_VLRCGI[] 				= "Renfort_VLRCGI";
@@ -189,6 +190,50 @@ const char CMD_DIRmaster[]			= "Renfort_DIRmaster";
 const char CMD_DIRtrafic[]			= "Renfort_DIRtrafic";
 const char CMD_GRUE[]			= "Renfort_GRUE";
 const char CMD_DEPAN[]			= "Renfort_DEPAN";
+=======
+const char CMD_VSAVR[]			= "Renfort_VSAVR";
+const char CMD_VSAVB[]			= "Renfort_VSAVB";
+const char CMD_PSR[]			= "Renfort_PSR";
+const char CMD_CA[]				= "Renfort_CA";
+const char CMD_ARIveco[]		= "Renfort_ARIveco";
+const char CMD_ARMaster[]		= "Renfort_ARMaster";
+const char CMD_MasterPC[]		= "Renfort_MasterPC";
+const char CMD_MasterPC[]		= "Renfort_MasterPC2";
+const char CMD_MasterPC[]		= "Renfort_MasterPC3";
+const char CMD_VPCM[]			= "Renfort_VPCM";
+const char CMD_PFG[]			= "Renfort_PFG";
+const char CMD_VES[]			= "Renfort_VES";
+const char CMD_CCR[]			= "Renfort_CCR";
+const char CMD_CD[]				= "Renfort_CD";
+const char CMD_CESD[]			= "Renfort_CESD";
+const char CMD_CIC_CIB[]		= "Renfort_CIC_CIB";
+const char CMD_CRAC[]			= "Renfort_CRAC";
+const char CMD_CSP[]			= "Renfort_CSP";
+const char CMD_EPAAtego[]		= "Renfort_EPAAtego";
+const char CMD_EPAIveco[]		= "Renfort_EPAIveco";
+const char CMD_FPTAtego[]		= "Renfort_FPTAtego";
+const char CMD_FPTMidlum[]		= "Renfort_FPTMidlum";
+const char CMD_VIMP[]			= "Renfort_VIMP";
+const char CMD_PEV[]			= "Renfort_PEV";
+const char CMD_PSE2[]			= "Renfort_PSE2";
+const char CMD_PSE3[]			= "Renfort_PSE3";
+const char CMD_PSE4[]			= "Renfort_PSE4";
+const char CMD_PSE5[]			= "Renfort_PSE5";
+const char CMD_SIS[]			= "Renfort_SIS";
+const char CMD_SPTT[]			= "Renfort_SPTT";
+const char CMD_SPVLclio3[]		= "Renfort_SPVLclio3";
+const char CMD_SPVLclio4[]		= "Renfort_SPVLclio4";
+const char CMD_SPVLkangoo[]		= "Renfort_SPVLkangoo";
+const char CMD_SPVLmegane[]		= "Renfort_SPVLmegane";
+const char CMD_SPVLgolf[]		= "Renfort_SPVLgolf";
+const char CMD_SPVLup[]			= "Renfort_SPVLup";
+const char CMD_VAG[]			= "Renfort_VAG";
+const char CMD_VID[]			= "Renfort_VID";
+const char CMD_VIGI[]			= "Renfort_VIGI";
+const char CMD_VPS[]			= "Renfort_VPS";
+const char CMD_VSC[]			= "Renfort_VSC";
+const char CMD_VPB[]			= "Renfort_VPB";
+>>>>>>> parent of f1f1c07... MaJ Unit Fire Department
 
 const char CMD_CSFL[]			= "FeuLegerCS";
 const char CMD_CSNOR[]			= "DepartNormalCS";
@@ -459,8 +504,8 @@ object COSSPE : CommandScript
 		Caller->EnableCommand(CMD_VEC, true);
 		Caller->AssignCommand(CMD_CRAC);
 		Caller->EnableCommand(CMD_CRAC, true);
-		Caller->AssignCommand(CMD_CICCIB);
-		Caller->EnableCommand(CMD_CICCIB, true);
+		Caller->AssignCommand(CMD_CIC_CIB);
+		Caller->EnableCommand(CMD_CIC_CIB, true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
