@@ -138,7 +138,8 @@ const char PROTO_VID3[] 				= "mod:Prototypes/Vehicles/Fire Department/VID3.e4p"
 const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
 const char PROTO_SPVLup[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
 const char PROTO_SPVLgolf[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLgolf.e4p";
-const char PROTO_SPVLclio[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio.e4p";
+const char PROTO_SPVLclio3[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio3.e4p";
+const char PROTO_SPVLclio4[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio4.e4p";
 const char PROTO_SPVLkangoo[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLkangoo.e4p";
 const char PROTO_SPVLmegane[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLmegane.e4p";
 
@@ -1366,7 +1367,27 @@ object Renfort_SPVLclio3 : CommandScript
 		int personnelVehicule[6] = {11,10,0,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLclio,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLclio3,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+	}
+};
+
+object Renfort_SPVLclio4 : CommandScript
+{
+	Renfort_SPVLclio4()
+	{
+		SetIcon("SPVLclio4");
+		SetCursor("SPVLclio4");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {11,10,0,0,0,0};
+		char * listSquadVO[] = {sNULL, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLclio4,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
