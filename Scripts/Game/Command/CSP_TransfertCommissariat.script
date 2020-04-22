@@ -1,0 +1,377 @@
+//COMMANDE
+const char CMD_WARNINGLIGHTS_OFF[] 	= "VcmdWarningLightsOff";
+const char CMD_WARNINGLIGHTS_ON[] 	= "VcmdWarningLightsOn";
+const char CMD_TOPOLICESTATION[] 	= "TransfertCommissariat";
+const char CMD_AUTOSIREN_OFF[]		= "VcmdAutoSirenOff";
+const char CMD_WARNINGLIGHTS[] 		= "VcmdWarningLightsOn";
+const char CMD_FLOODLIGHTS_OFF[] 	= "VcmdFloodLightsOff";
+const char CMD_FLOODLIGHTS_ON[] 	= "VcmdFloodLightsOn";
+const char CMD_PATROL[] 			= "VcmdPatrol";
+const char CMD_STANDBY_ON[]			= "VcmdStandbyOn";
+const char CMD_STANDBY_OFF[]		= "VcmdStandbyOff";
+const char DUMMY_DISABLE[] 			= "DummyDisableSiren";
+const char DUMMY_HASSIREN[] 		= "DummyHasSiren";
+const char DUMMY_PATROL[] 			= "DummyPatrol";
+const char DUMMY_POLICESTATION[]	= "DummyAtPoliceStation";
+const char DUMMY_VCALLED[]			= "DummyVehicleCalled";
+
+//SONS
+const char SND_TOSTATION1[]			= "mod:Audio/FX/radio/POL1.wav";
+const char SND_TOSTATION2[]			= "mod:Audio/FX/radio/POL2.wav";
+const char SND_TOSTATION3[]			= "mod:Audio/FX/radio/POL3.wav";
+const char SND_TOSTATION4[]			= "mod:Audio/FX/radio/POL_SUSP.wav";
+
+//VO_POL
+//RUE
+const char VO_POL1_1[]				= "VO_POL_1_1";
+const char VO_POL1_2[]				= "VO_POL_1_2";
+const char VO_POL1_3[]				= "VO_POL_1_3";
+
+//COUR
+const char VO_POL2_1[]				= "VO_POL_2_1";
+const char VO_POL2_2[]				= "VO_POL_2_2";
+const char VO_POL2_3[]				= "VO_POL_2_3";
+const char VO_POL2_4[]				= "VO_POL_2_4";
+const char VO_POL2_5[]				= "VO_POL_2_5";
+const char VO_POL2_6[]				= "VO_POL_2_6";
+
+//VO_SPAWN
+const char VO_SPAWN_POL_COUR[]		= "VO_SPAWN_POL_COUR";
+const char VO_SPAWN_POL_RUE[]		= "VO_SPAWN_POL_RUE";
+
+//OBJ_POL
+//RUE
+const char OBJ_POL1_1[]				= "POL1_1";
+const char OBJ_POL1_2[]				= "POL1_2";
+const char OBJ_POL1_3[]				= "POL1_3";
+
+//COUR
+const char OBJ_POL2_1[]				= "POL2_1";
+const char OBJ_POL2_2[]				= "POL2_2";
+const char OBJ_POL2_3[]				= "POL2_3";
+const char OBJ_POL2_4[]				= "POL2_4";
+const char OBJ_POL2_5[]				= "POL2_5";
+const char OBJ_POL2_6[]				= "POL2_6";
+
+
+//MESSAGE
+const char HINT_NOTVALID[] 			= "Ce vehicule ne fait pas partie de la caserne, il rentre a la base!";
+const char HINT_NOSPACE[] 			= "Pas de place a la caserne, le vehicule retourne a la base!";
+const char HINT_ERREUR[] 			= "Erreur";
+const char HINT_PATROL[] 			= "Pas de place pour déposer le suspect, le véhicule part en patrouille!";
+
+
+int DummyGroup = 32;
+
+object TransfertCommissariat : CommandScript
+{
+	TransfertCommissariat()
+	{
+		SetCursor("topolicestation");
+		SetIcon("topolicestation");
+		SetGroupID(DummyGroup);
+ 		SetGroupLeader(true);
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+	}
+
+	bool CheckPossible(GameObject *Caller)
+	{
+		if (!Caller->IsValid())
+			return false;
+
+		if (Game::IsCampaign()  || Game::IsMission())
+			return false;
+
+		return true;
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+		if (!Caller->IsValid() || !Target->IsValid() || (Caller->GetID() != Target->GetID()))
+			return false;
+
+ 		Vehicle v(Caller);
+		SetPriority(0);
+		if (v.GetNumTransported() > 0)
+			SetPriority(110);
+
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		Vehicle v(Caller);
+
+		if(ChildID == 0)
+		{
+			if (v.HasCommand("DummyFollow"))
+				v.RemoveCommand("DummyFollow");
+			if (v.HasCommand(CMD_STANDBY_OFF))
+			{
+				v.RemoveCommand(CMD_STANDBY_OFF);
+				v.AssignCommand(CMD_STANDBY_ON);
+			}
+			if (v.HasCommand(CMD_WARNINGLIGHTS_OFF))
+			{
+				v.EnableBlinker(BLT_NONE);
+				v.RemoveCommand(CMD_WARNINGLIGHTS_OFF);
+				v.AssignCommand(CMD_WARNINGLIGHTS_ON);
+			}
+			/*if (v.HasCommand(CMD_FLOODLIGHTS_OFF))
+			{
+				v.EnableSpecialLights(false);
+				v.RemoveCommand(CMD_FLOODLIGHTS_OFF);
+				v.AssignCommand(CMD_FLOODLIGHTS_ON);
+			}*/
+			if (v.HasObjectPath(NULL))
+				Game::ExecuteCommand(DUMMY_PATROL, &v, &v);
+			if (v.HasCommand(DUMMY_HASSIREN) && v.HasCommand(CMD_AUTOSIREN_OFF))
+				Game::ExecuteCommand(DUMMY_DISABLE, &v, &v);
+
+
+			if (v.GetTransports().GetNumPersons() > 0)
+				v.PushActionExecuteCommand(ACTION_NEWLIST, DUMMY_POLICESTATION, Caller, 0, false);
+			else
+				v.PushActionExecuteCommand(ACTION_NEWLIST, DUMMY_POLICESTATION, Caller, 1, false);
+		}
+
+		if(ChildID == 1)
+		{
+			ActorList l1 = Game::GetActors(VO_SPAWN_POL_RUE);
+			if (l1.GetNumActors() > 0)
+				Vector TargetPos = l1.GetActor(0)->GetPosition();
+
+			PersonList transports = v.GetTransports();
+			PersonList passager = v.GetPassengers();
+			if(passager.GetNumPersons() >= transports.GetNumPersons())
+			{
+				for(int j = 0; j < transports.GetNumPersons(); j++)
+				{
+					transports.GetPerson(j)->PushActionLeaveCar(ACTION_NEWLIST, Caller);
+					if(transports.GetPerson(j)->GetRole() == ROLE_GANGSTER)
+					{
+						transports.GetPerson(j)->SetRole(ROLE_CIVILIAN);
+						transports.GetPerson(j)->SetBehaviour(BEHAVIOUR_CIVILIAN_NORMAL);
+					}
+					passager.GetPerson(j)->PushActionLeaveCar(ACTION_NEWLIST, Caller);
+					passager.GetPerson(j)->PushActionEquipWeapon(ACTION_APPEND, false);
+					passager.GetPerson(j)->PushActionArrest(ACTION_APPEND, transports.GetPerson(j));
+					passager.GetPerson(j)->PushActionWait(ACTION_APPEND, 0.5f);
+					passager.GetPerson(j)->PushActionMove(ACTION_APPEND, TargetPos, true);
+					passager.GetPerson(j)->PushActionWait(ACTION_APPEND, 0.5f);
+					passager.GetPerson(j)->PushActionPutInBase(ACTION_APPEND);
+					passager.GetPerson(j)->PushActionDeleteOwner(ACTION_APPEND);
+				}
+			}
+			v.PushActionWait(ACTION_NEWLIST, 2.f);
+			v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_POLICESTATION, Caller, 1, false);
+		}
+
+		if(ChildID == 2)
+		{
+			ActorList l1 = Game::GetActors(VO_SPAWN_POL_COUR);
+			if (l1.GetNumActors() > 0)
+				Vector Despawn = l1.GetActor(0)->GetPosition();
+
+			PersonList passager = v.GetPassengers();
+			for(int k = 0; k < passager.GetNumPersons(); k++)
+			{
+				passager.GetPerson(k)->PushActionLeaveCar(ACTION_NEWLIST, Caller);
+				passager.GetPerson(k)->PushActionMove(ACTION_APPEND, Despawn, true);
+				passager.GetPerson(k)->PushActionWait(ACTION_APPEND, 0.5f);
+				passager.GetPerson(k)->PushActionDeleteOwner(ACTION_APPEND);
+			}
+		}
+	}
+};
+object DummyAtPoliceStation : CommandScript
+{
+	DummyAtPoliceStation()
+	{
+		SetGroupID(DummyGroup);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int ChildID)
+	{
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		if(ChildID == 0) {
+			Vehicle v(Caller);
+			GameObjectList mark1(OBJ_POL1_1);
+
+			Vector comissariat = (mark1.GetObject(0)->GetPosition() + Vector(-200.f, 0.f, 0.f));
+
+			v.PushActionWait(ACTION_APPEND, 0.5f);
+			v.PushActionMove(ACTION_APPEND, comissariat);
+			v.PushActionWait(ACTION_APPEND, 1.f);
+
+
+			bool ParkinglotFound = false;
+			GameObjectList l2;
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL1_1, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL1_1);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL1_2, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL1_2);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL1_3, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL1_3);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+
+			if (!ParkinglotFound)
+			{
+				v.PushActionExecuteCommand(ACTION_NEWLIST, CMD_PATROL, Caller, 0, false);
+				Mission::PlayHint(HINT_PATROL);
+				return;
+			}
+			else
+			{
+				Vector place = marker.GetPosition();
+
+				v.PushActionMove(ACTION_APPEND, place);
+
+				if (v.IsBlueLightEnabled())
+					v.EnableBlueLights(false);
+					v.EnableHeadLights(false);
+				if (v.HasCommand(DUMMY_VCALLED))
+					v.RemoveCommand(DUMMY_VCALLED);
+
+				v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_POLICESTATION, &marker, 2, false);
+				v.PushActionExecuteCommand(ACTION_APPEND, CMD_TOPOLICESTATION, Caller, 1, false);
+			}
+
+
+
+		} else if(ChildID == 1) {
+			Vehicle v(Caller);
+
+
+			if (v.GetVehicleType() != VT_POLICE_STW && v.GetNumTransported() == 0) {
+				v.PushActionReturnToBase(ACTION_NEWLIST);
+				Mission::PlayHint(HINT_NOTVALID);
+				return;
+			}
+
+			//if (v.GetVehicleType() != VT_POLICE_STW && v.GetNumTransported() != 0)
+			//	return;
+
+			GameObjectList mark1(OBJ_POL2_1);
+
+			Vector comissariat = (mark1.GetObject(0)->GetPosition() + Vector(-500.f, 500.f, 0.f));
+
+			v.PushActionWait(ACTION_APPEND, 0.5f);
+			v.PushActionMove(ACTION_APPEND, comissariat);
+			v.PushActionWait(ACTION_APPEND, 1.f);
+
+			bool ParkinglotFound = false;
+			GameObjectList l2;
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL2_1, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL2_1);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL2_2, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL2_2);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL2_3, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL2_3);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL2_4, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL2_4);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+			if (!ParkinglotFound)
+			{
+				Game::CollectObstaclesOnVirtualObject(VO_POL2_5, l2, ACTOR_VEHICLE);
+				if(l2.GetNumObjects() == 0)
+				{
+					GameObjectList mark1(OBJ_POL2_5);
+					GameObject marker = mark1.GetObject(0);
+					ParkinglotFound = true;
+				}
+			}
+
+
+
+			if (!ParkinglotFound)
+			{
+				v.PushActionReturnToBase(ACTION_NEWLIST);
+				Mission::PlayHint(HINT_NOSPACE);
+				return;
+			}
+			else
+			{
+				Vector vehPos = marker.GetPosition();
+				v.PushActionMove(ACTION_APPEND, vehPos);
+
+				if (v.IsBlueLightEnabled())
+					v.EnableBlueLights(false);
+					v.EnableHeadLights(false);
+				if (v.HasCommand(DUMMY_VCALLED))
+					v.RemoveCommand(DUMMY_VCALLED);
+
+				v.PushActionExecuteCommand(ACTION_APPEND, DUMMY_POLICESTATION, &marker, 2, false);
+				v.PushActionExecuteCommand(ACTION_APPEND, CMD_TOPOLICESTATION, Caller, 2, false);
+			}
+		} else if(ChildID == 2) {
+			GameObject marker(Target);
+			Vehicle v(Caller);
+			Vector vehPos = marker.GetPosition();
+
+			float r[9];
+			marker.GetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+			v.SetRotation(r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+			v.SetPosition(vehPos);
+			v.UpdatePlacement();
+		}
+	}
+};

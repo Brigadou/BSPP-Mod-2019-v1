@@ -1,0 +1,88 @@
+[VNUM=1.43]
+// <OPTIONS>
+// Exporter: vMax
+// Version: 4, 0, 0, 0
+// AdvancedMenu: 1
+// DisplayWindow: 0
+// DisplayModelViewer: 0
+// SaveInFile: 1
+// TextureBehaviour: 0
+// TextureSubdir: 
+// TextureUseProjDir: 1
+// DisplayMemory: 0
+// ResizeMesh: 0
+// MeshFactor: 1.000000
+// CenterMethod: 0
+// ExportHidden: 0
+// ExportPatches: 0
+// ExportSmoothing: 1
+// LodBias: 0
+// OptimizeMesh: 1
+// EpsVert: 0.000000
+// EpsUV: 0.000000
+// MeshCheckMethod: 1113
+// ExportBones: 0
+// ExportBlended: 1
+// BlendThreshold: 0.000000
+// MaxNumBones: 4
+// RemoveBones: 1
+// BoneCheckMethod: 1110
+// ExportDoubleSided: 1
+// ExportOpacity: 1
+// ExportSpecularity: 1
+// ExportEnvironment: 1
+// ExportBump: 1
+// ExportReflectivity: 0
+// ResizeTextures: 1017
+// ExportStrips: 1
+// StripPerformance: 0
+// StripObject: 0
+// StripRestriction: 0
+// MaxStripSize: 0.000000
+// SetMaxStripLength: 0
+// MaxStripLength: 0
+// SetMinStripLength: 0
+// MinStripLength: 0
+// SetMinSegLength: 0
+// MinSegLength: 0
+// ProjectPath:  - No project -
+// Granularity: 0
+// NumAnimations: 0
+// </OPTIONS>
+
+
+[NUMSURFACES=1]
+[NUMVERTICES=15]
+[NUMBLENDVERTS=0]
+[NUMPOLYGONS=8]
+[NUMBONES=0]
+[NUMMUSCLEANIMS=0]
+[NUMMUSCLEFRAMES=0]
+
+SRF, Bank01_windows, 0, 0, 0, bankmain01_windows.dds, 517, 2, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0
+D, -57121, 16316, -53882, 256, 0, 0, 0, 1024, 0, 0, 0, 0
+D, -57121, 47116, -53882, -256, 0, 0, 1024, 1024, 0, 0, 0, 0
+D, -57121, 16316, -42247, 256, 0, 0, 0, 0, 0, 0, 0, 0
+D, -57121, 47116, -42247, 256, 0, 0, 1024, 0, 0, 0, 0, 0
+D, -57121, -47116, -53882, 256, 0, 0, 0, 1024, 0, 0, 0, 0
+D, -57121, -16317, -53882, 256, 0, 0, 1024, 1024, 0, 0, 0, 0
+D, -57121, -47116, -42247, 256, 0, 0, 0, 0, 0, 0, 0, 0
+D, -57121, -16317, -42247, 256, 0, 0, 1024, 0, 0, 0, 0, 0
+D, -57121, 16317, -53882, -256, 0, 0, 0, 1024, 0, 0, 0, 0
+D, -57121, 47116, -42247, -256, 0, 0, 1024, 0, 0, 0, 0, 0
+D, -57121, 16316, -42247, -256, 0, 0, 0, 0, 0, 0, 0, 0
+D, -57121, -47116, -53882, -256, 0, 0, 0, 1024, 0, 0, 0, 0
+D, -57121, -16317, -53882, -256, 0, 0, 1024, 1024, 0, 0, 0, 0
+D, -57121, -16317, -42247, -256, 0, 0, 1024, 0, 0, 0, 0, 0
+D, -57121, -47116, -42247, -256, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 4, 3, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 5, 6, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 8, 7, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 2, 9, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 11, 10, 9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 13, 12, 14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 15, 14, 12, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 1, 2, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+BOX, -572, -472, -539, -571, 472, -422
+N, 0, 0, 0, 916
+CBOX, -571.211, -471.168, -538.827, -571.211, 471.168, -422.472

@@ -1,0 +1,115 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+//																							//
+//			SCRIPT		DU		SPECIAL LIGHT												//
+//																							//
+//																							//	
+//							Merci à la TEAM EMERGENCY-GENDMOD pour ce script				//
+//																							//
+//                                      (c) BSPP mod pour emergency 4						//
+//																							//
+//																							//
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+const char CMD_SPL_ON[]		= "SPL_On";
+const char CMD_SPL_OFF[]		= "SPL_Off";
+
+int DummyGroup = 27;
+ 
+
+
+object SPL_Off : CommandScript
+{
+ 	SPL_Off()
+ 	{
+ 		SetIcon("directionaloff"); // mettre le nom de l'icone ici
+ 		SetCursor("directionaloff"); // mettre le nom de l'icone ici
+ 		SetGroupID(DummyGroup);
+ 		SetGroupLeader(true);
+ 		SetRestrictions(RESTRICT_SELFEXECUTE);
+ 	}
+ 
+ 	bool CheckPossible(GameObject *Caller)
+ 	{
+ 		if (!Caller->IsValid())
+ 			return false;
+ 
+ 		if (Caller->GetType() == ACTOR_VEHICLE)
+ 		{
+ 			return true;
+ 		}
+ 
+ 		return false;
+ 	}
+ 
+ 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+ 	{
+ 		if (!Caller->IsValid() || !Target->IsValid() || Target->GetID() != Caller->GetID())
+ 			return false;
+ 
+ 		if (Caller->GetType() == ACTOR_VEHICLE)
+ 		{
+ 			return true;
+ 		}
+ 
+ 		return true;
+ 	}
+ 
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+ 	{
+ 		Vehicle v(Caller);
+ 
+ 		v.EnableSpecialLights(false);
+		v.AssignCommand(CMD_SPL_ON); 
+		v.RemoveCommand(CMD_SPL_OFF);
+ 	}	
+};
+
+
+object SPL_On : CommandScript
+{
+	SPL_On()
+ 	{
+ 		SetIcon("directionalon"); // mettre le nom de l'icone ici
+ 		SetCursor("directionalon"); // mettre le nom de l'icone ici
+ 		SetGroupID(DummyGroup);
+ 		SetGroupLeader(true);
+ 		SetRestrictions(RESTRICT_SELFEXECUTE);
+ 	}
+ 
+ 	bool CheckPossible(GameObject *Caller)
+ 	{
+ 		if (!Caller->IsValid())
+ 			return false;
+ 
+ 		if (Caller->GetType() == ACTOR_VEHICLE)
+ 		{
+ 			return true;
+ 		}
+ 
+ 		return false;
+ 	}
+ 
+ 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+ 	{
+ 		if (!Caller->IsValid() || !Target->IsValid() || Target->GetID() != Caller->GetID())
+ 			return false;
+ 
+ 		if (Caller->GetType() == ACTOR_VEHICLE)
+ 		{
+ 			return true;
+ 		}
+ 
+ 		return true;
+ 	}
+ 
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+ 	{
+ 		Vehicle v(Caller);
+ 
+ 		v.EnableSpecialLights(true);
+		v.AssignCommand(CMD_SPL_OFF); 
+		v.RemoveCommand(CMD_SPL_ON);
+		Caller->PushActionRedirect(ACTION_NEWLIST);
+
+ 	}	
+};

@@ -1,0 +1,95 @@
+[VNUM=1.43]
+// <OPTIONS>
+// Exporter: vMax
+// Version: 4, 0, 0, 0
+// AdvancedMenu: 1
+// DisplayWindow: 0
+// DisplayModelViewer: 0
+// SaveInFile: 1
+// TextureBehaviour: 0
+// TextureSubdir: 
+// TextureUseProjDir: 1
+// DisplayMemory: 0
+// ResizeMesh: 0
+// MeshFactor: 1.000000
+// CenterMethod: 0
+// ExportHidden: 0
+// ExportPatches: 0
+// ExportSmoothing: 1
+// LodBias: 0
+// OptimizeMesh: 1
+// EpsVert: 0.000000
+// EpsUV: 0.000000
+// MeshCheckMethod: 1113
+// ExportBones: 0
+// ExportBlended: 1
+// BlendThreshold: 0.000000
+// MaxNumBones: 4
+// RemoveBones: 1
+// BoneCheckMethod: 1110
+// ExportDoubleSided: 1
+// ExportOpacity: 1
+// ExportSpecularity: 1
+// ExportEnvironment: 1
+// ExportBump: 1
+// ExportReflectivity: 0
+// ResizeTextures: 1017
+// ExportStrips: 1
+// StripPerformance: 0
+// StripObject: 0
+// StripRestriction: 0
+// MaxStripSize: 0.000000
+// SetMaxStripLength: 0
+// MaxStripLength: 0
+// SetMinStripLength: 0
+// MinStripLength: 0
+// SetMinSegLength: 0
+// MinSegLength: 0
+// ProjectPath:  - No project -
+// Granularity: 0
+// NumAnimations: 0
+// </OPTIONS>
+
+
+[NUMSURFACES=1]
+[NUMVERTICES=20]
+[NUMBLENDVERTS=0]
+[NUMPOLYGONS=10]
+[NUMBONES=0]
+[NUMMUSCLEANIMS=0]
+[NUMMUSCLEFRAMES=0]
+
+SRF, skyscraper01_logo, 0, 0, 0, hospital01_logo.dds, 517, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0
+D, -534, -7882, 0, 0, -256, 0, 395, 1000, 0, 0, 0, 0
+D, 534, -7882, 0, 0, -256, 0, 395, 1023, 0, 0, 0, 0
+D, -534, 7882, 0, 0, 256, 0, 116, 1000, 0, 0, 0, 0
+D, 534, 7882, 0, 256, 0, 0, 1023, 1023, 0, 0, 0, 0
+D, -534, -7882, 6866, 0, 0, 256, 628, 1000, 0, 0, 0, 0
+D, 534, -7882, 6866, 0, 0, 256, 628, 1023, 0, 0, 0, 0
+D, -534, 7882, 6866, 0, 0, 256, 907, 1000, 0, 0, 0, 0
+D, 534, 7882, 6866, 0, 0, 256, 907, 1023, 0, 0, 0, 0
+D, 534, -7882, 0, 256, 0, 0, 0, 1023, 0, 0, 0, 2
+D, 534, 7882, 6866, 256, 0, 0, 1023, 0, 0, 0, 0, 8
+D, 534, -7882, 6866, 256, 0, 0, 0, 0, 0, 0, 0, 6
+D, 534, 7882, 0, 0, 256, 0, 116, 1023, 0, 0, 0, 4
+D, -534, 7882, 6866, 0, 256, 0, -116, 1000, 0, 0, 0, 7
+D, 534, 7882, 6866, 0, 256, 0, -116, 1023, 0, 0, 0, 8
+D, -534, 7882, 0, -256, 0, 0, 0, 1023, 0, 0, 0, 3
+D, -534, -7882, 0, -256, 0, 0, 1023, 1023, 0, 0, 0, 1
+D, -534, -7882, 6866, -256, 0, 0, 1023, 0, 0, 0, 0, 5
+D, -534, 7882, 6866, -256, 0, 0, 0, 0, 0, 0, 0, 7
+D, 534, -7882, 6866, 0, -256, 0, 628, 1023, 0, 0, 0, 6
+D, -534, -7882, 6866, 0, -256, 0, 628, 1000, 0, 0, 0, 5
+P, 3, 5, 6, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 8, 7, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 1, 2, 19, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 19, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 9, 4, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 10, 11, 9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 12, 3, 13, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 13, 14, 12, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 15, 16, 17, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+P, 3, 17, 18, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+BOX, -6, -79, 0, 6, 79, 69
+N, 0, 0, 0, 105
+CBOX, -5.350, -78.821,  0.000,  5.350, 78.821, 68.665

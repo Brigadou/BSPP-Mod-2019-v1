@@ -1,0 +1,35 @@
+object Deinstall: CommandScript
+{
+	Deinstall()
+	{
+		SetValidTargets(ACTOR_VEHICLE);
+		SetGroupID(CGROUP_INSTALL);
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+	}
+
+	bool CheckGroupVisibility(GameObject *Caller)
+	{
+		if(!Caller->IsValid() || Caller->GetType() != ACTOR_VEHICLE)
+			return false;
+		Vehicle v(Caller);
+		return v.IsInstalled();
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+		if(!Caller->IsValid() || !Target->IsValid() || Caller->GetID() != Target->GetID() || Caller->GetType() != ACTOR_VEHICLE)
+			return false;
+
+		Vehicle v(Caller);
+		if (!v.IsInstalled() || v.IsUplifted() || v.IsUplifting() || !v.IsBasketEmpty())
+			return false;
+		
+
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Caller->PushActionDeinstall(ACTION_NEWLIST);
+	}
+};
