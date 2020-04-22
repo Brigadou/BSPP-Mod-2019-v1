@@ -9,42 +9,71 @@
 const char CMD_VSAVR[]			= "Renfort_VSAVR";
 const char CMD_VSAVB[]			= "Renfort_VSAVB";
 const char CMD_PSR[]			= "Renfort_PSR";
-const char CMD_CA[]				= "Renfort_CA";
 const char CMD_ARIveco[]		= "Renfort_ARIveco";
 const char CMD_ARMaster[]		= "Renfort_ARMaster";
-const char CMD_MasterPC[]		= "Renfort_MasterPC";
-const char CMD_VPCM[]			= "Renfort_VPCM";
-const char CMD_PFG[]			= "Renfort_PFG";
 const char CMD_VES[]			= "Renfort_VES";
+const char CMD_VAS[]		= "Renfort_VAS";
+const char CMD_CMO[]			= "Renfort_CMO";
+const char CMD_VPCM[]			= "Renfort_VPCM";
+
+const char CMD_MasterPC[]		= "Renfort_MasterPC";
+const char CMD_MasterPC2[]		= "Renfort_MasterPC2";
+const char CMD_MasterPC3[]		= "Renfort_MasterPC3";
+const char CMD_308PC[]			= "Renfort_308PC";
+
+const char CMD_UMHmaster[]			= "Renfort_UMHMASTER";
+const char CMD_UMHmsprinter[]			= "Renfort_UMHSPRINTER";
+const char CMD_PCMsamu[]			= "Renfort_PCMSAMU";
+const char CMD_VLMkangoo[]		= "Renfort_VLMkangoo";
+const char CMD_VLMsprinter[]			= "Renfort_VLMsprinter";
+const char CMD_BUSSAMU[]		= "Renfort_BUSSAMU";
+
+
+const char CMD_VSC[]			= "Renfort_VSC";
+const char CMD_VEC[]			= "Renfort_VEC";
+const char CMD_VLRVETO[]	= "Renfort_VLRVETO";
+const char CMD_PFG[]		= "Renfort_PFG";
+
+
+
+
+const char CMD_CA[]				= "Renfort_CA";
 const char CMD_CCR[]			= "Renfort_CCR";
 const char CMD_CD[]				= "Renfort_CD";
 const char CMD_CESD[]			= "Renfort_CESD";
 const char CMD_CIC_CIB[]		= "Renfort_CIC_CIB";
 const char CMD_CRAC[]			= "Renfort_CRAC";
 const char CMD_CSP[]			= "Renfort_CSP";
+const char CMD_SIS[]			= "Renfort_SIS";
+const char CMD_SIS2[]			= "Renfort_SIS2";
 const char CMD_EPAAtego[]		= "Renfort_EPAAtego";
 const char CMD_EPAIveco[]		= "Renfort_EPAIveco";
 const char CMD_FPTAtego[]		= "Renfort_FPTAtego";
 const char CMD_FPTMidlum[]		= "Renfort_FPTMidlum";
+const char CMD_PST[]			= "Renfort_PST";
 const char CMD_VIMP[]			= "Renfort_VIMP";
 const char CMD_PEV[]			= "Renfort_PEV";
 const char CMD_PSE2[]			= "Renfort_PSE2";
 const char CMD_PSE3[]			= "Renfort_PSE3";
 const char CMD_PSE4[]			= "Renfort_PSE4";
 const char CMD_PSE5[]			= "Renfort_PSE5";
-const char CMD_SIS[]			= "Renfort_SIS";
 const char CMD_SPTT[]			= "Renfort_SPTT";
 const char CMD_SPVLclio3[]		= "Renfort_SPVLclio3";
-const char CMD_SPVLclio4[]		= "Renfort_SPVLclio4";
+const char CMD_SPVLclioIV[]		= "Renfort_SPVLclioIV";
+const char CMD_SPVLmegane[]		= "Renfort_SPVLmegane";
+const char CMD_SPVL308[]			= "Renfort_SPVL308";
 const char CMD_SPVLkangoo[]		= "Renfort_SPVLkangoo";
-const char CMD_SPVLgolf[]		= "Renfort_SPVLgolf";
-const char CMD_SPVLup[]			= "Renfort_SPVLup";
+const char CMD_SPVLup[]		= "Renfort_SPVLup";
+const char CMD_SPVLgolf[]		= "Renfort_SPVLkgolf";
 const char CMD_VAG[]			= "Renfort_VAG";
+const char CMD_VELD[]			= "Renfort_VELD";
 const char CMD_VID[]			= "Renfort_VID";
+const char CMD_VID2[]			= "Renfort_VID2";
 const char CMD_VIGI[]			= "Renfort_VIGI";
 const char CMD_VPS[]			= "Renfort_VPS";
-const char CMD_VSC[]			= "Renfort_VSC";
 const char CMD_VPB[]			= "Renfort_VPB";
+const char CMD_VPC[]			= "Renfort_VPC";
+
 
 const char CMD_CSFL[]			= "FeuLegerCS";
 const char CMD_CSNOR[]			= "DepartNormalCS";
@@ -191,6 +220,8 @@ object COSINC : CommandScript
 		Caller->EnableCommand(CMD_FPTAtego, true);
 		Caller->AssignCommand(CMD_FPTMidlum);
 		Caller->EnableCommand(CMD_FPTMidlum, true);
+		Caller->AssignCommand(CMD_PST);
+		Caller->EnableCommand(CMD_PST, true);
 		Caller->AssignCommand(CMD_EPAAtego);
 		Caller->EnableCommand(CMD_EPAAtego, true);
 		Caller->AssignCommand(CMD_EPAIveco);
@@ -231,6 +262,8 @@ object COSDIV : CommandScript
 		Caller->DisableAllCommands();
 		Caller->AssignCommand(CMD_VID);
 		Caller->EnableCommand(CMD_VID, true);
+		Caller->AssignCommand(CMD_VID2);
+		Caller->EnableCommand(CMD_VID2, true);
 		Caller->AssignCommand(CMD_VIGI);
 		Caller->EnableCommand(CMD_VIGI, true);
 		Caller->AssignCommand(CMD_CA);
@@ -295,6 +328,8 @@ object COSSPE : CommandScript
 		Caller->DisableAllCommands();
 		Caller->AssignCommand(CMD_SIS);
 		Caller->EnableCommand(CMD_SIS, true);
+		Caller->AssignCommand(CMD_SIS2);
+		Caller->EnableCommand(CMD_SIS2, true);
 		Caller->AssignCommand(CMD_CSP);
 		Caller->EnableCommand(CMD_CSP, true);
 		Caller->AssignCommand(CMD_VIMP);
@@ -339,10 +374,14 @@ object COSGOC : CommandScript
 		Caller->DisableAllCommands();
 		Caller->AssignCommand(CMD_SPVLclio3);
 		Caller->EnableCommand(CMD_SPVLclio3, true);
-		Caller->AssignCommand(CMD_SPVLclio4);
-		Caller->EnableCommand(CMD_SPVLclio4, true);
+		Caller->AssignCommand(CMD_SPVLclioIV);
+		Caller->EnableCommand(CMD_SPVLclioIV, true);
 		Caller->AssignCommand(CMD_SPVLkangoo);
 		Caller->EnableCommand(CMD_SPVLkangoo, true);
+		Caller->AssignCommand(CMD_SPVL308);
+		Caller->EnableCommand(CMD_SPVL308, true);
+		Caller->AssignCommand(CMD_SPVLmegane);
+		Caller->EnableCommand(CMD_SPVLmegane, true);
 		Caller->AssignCommand(CMD_SPVLup);
 		Caller->EnableCommand(CMD_SPVLup, true);
 		Caller->AssignCommand(CMD_SPVLgolf);
@@ -468,10 +507,10 @@ object COSBAC : CommandScript
 		Caller->EnableCommand("Renfort_BACFocus", true);
 		Caller->AssignCommand("Renfort_BACSkoda");
 		Caller->EnableCommand("Renfort_BACSkoda", true);
-		/*Caller->AssignCommand("Renfort_BACFluence");
+		Caller->AssignCommand("Renfort_BACFluence");
 		Caller->EnableCommand("Renfort_BACFluence", true);
 		Caller->AssignCommand("Renfort_BACCaptur");
-		Caller->EnableCommand("Renfort_BACCaptur", true);*/
+		Caller->EnableCommand("Renfort_BACCaptur", true);
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
 	}
