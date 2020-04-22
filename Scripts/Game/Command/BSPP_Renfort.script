@@ -67,7 +67,7 @@ const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/ERDF.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/GRDF.e4p";
 const char OBJ_DIR[]					= "mod:Prototypes/Persons/TEC/DIR.e4p";
 const char OBJ_DIR2[]					= "mod:Prototypes/Persons/TEC/DIR2.e4p";
-const char OBJ_DEPANNEUR[]					= "mod:Prototypes/Persons/TEC/DEPANNEUR.e4p";
+const char OBJ_DEPANNEUR[]					= "mod:Prototypes/Persons/TEC/depanneur.e4p";
 
 const char OBJ_BAC[]					= "mod:Prototypes/Persons/Police/bac.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
@@ -89,6 +89,7 @@ const char OBJ_POL3[]					= "mod:Prototypes/Persons/Police/tenue_pn3.e4p";
 const char OBJ_MOTOGN[]					= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
 const char OBJ_MOTOPN[]					= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
 const char OBJ_DOUANE[]					= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
+const char OBJ_POLICIERE[]					= "mod:Prototypes/Persons/Police/policiere.e4p";
 
 
 // Déclarations de véhicules de Pompiers
@@ -116,9 +117,6 @@ const char PROTO_EPAAtego[] 			= "mod:Prototypes/Vehicles/Fire Department/EPA_at
 const char PROTO_EPAIveco[]				= "mod:Prototypes/Vehicles/Fire Department/EPA_iveco.e4p";
 
 const char PROTO_VPS[] 					= "mod:Prototypes/Vehicles/Fire Department/VPS.e4p";
-const char PROTO_VLRVETO[] 				= "mod:Prototypes/Vehicles/Fire Department/VLRVETO.e4p";
-const char PROTO_VSC[] 					= "mod:Prototypes/Vehicles/Fire Department/VSC.e4p";
-const char PROTO_VEC[] 					= "mod:Prototypes/Vehicles/Fire Department/VEC.e4p";
 const char PROTO_VSTI[] 				= "mod:Prototypes/Vehicles/Fire Department/VSTI.e4p";
 const char PROTO_VPB[] 					= "mod:Prototypes/Vehicles/Fire Department/VPB.e4p";
 const char PROTO_VE2I[] 				= "mod:Prototypes/Vehicles/Fire Department/VE2I.e4p";
@@ -186,6 +184,9 @@ const char PROTO_MasterPC2[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC2.e
 const char PROTO_MasterPC3[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC3.e4p";
 const char PROTO_308PC[] 				= "mod:Prototypes/Vehicles/Ambulance/308PC.e4p";
 
+const char PROTO_VLRVETO[] 				= "mod:Prototypes/Vehicles/Ambulance/VLRVETO.e4p";
+const char PROTO_VSC[] 					= "mod:Prototypes/Vehicles/Ambulance/VSC.e4p";
+const char PROTO_VEC[] 					= "mod:Prototypes/Vehicles/Ambulance/VEC.e4p";
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
 
 
@@ -335,6 +336,7 @@ class ClassRenfort: CommandScript
 			case 47 : return OBJ_BRAPC;break;
 			case 48 : return OBJ_SECPC;break;
 			case 49 : return OBJ_DEPANNEUR;break;
+			case 49 : return OBJ_POLICIERE;break;
 			default :
 				System::Log("[RENFORT] un child Id n'a pas été trouvé");
 				return;
@@ -954,7 +956,7 @@ object Renfort_VSC : CommandScript
 		int personnelVehicule[6] = {12,12,0,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSC,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 2);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSC,  VT_FIREFIGHTERS_RHF, listSquadVO, personnelVehicule, 2, 2);
 	}
 };
 
@@ -974,7 +976,7 @@ object Renfort_VEC : CommandScript
 		int personnelVehicule[6] = {12,12,0,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VEC,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 2);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VEC,  VT_FIREFIGHTERS_RHF, listSquadVO, personnelVehicule, 2, 2);
 	}
 };
 

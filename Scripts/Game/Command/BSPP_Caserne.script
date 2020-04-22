@@ -37,7 +37,7 @@ const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/ERDF.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/GRDF.e4p";
 const char OBJ_DIR[]					= "mod:Prototypes/Persons/TEC/DIR.e4p";
 const char OBJ_DIR2[]					= "mod:Prototypes/Persons/TEC/DIR2.e4p";
-const char OBJ_DEPANNEUR[]					= "mod:Prototypes/Persons/TEC/DEPANNEUR.e4p";
+const char OBJ_DEPANNEUR[]					= "mod:Prototypes/Persons/TEC/depanneur.e4p";
 
 const char OBJ_BAC[]					= "mod:Prototypes/Persons/Police/bac.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
@@ -59,6 +59,7 @@ const char OBJ_POL3[]					= "mod:Prototypes/Persons/Police/tenue_pn3.e4p";
 const char OBJ_MOTOGN[]					= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
 const char OBJ_MOTOPN[]					= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
 const char OBJ_DOUANE[]					= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
+const char OBJ_POLICIERE[]					= "mod:Prototypes/Persons/Police/policiere.e4p";
 
 const char DUMMY_CALLCREW[]				= "DummyCallCrew";
 
@@ -256,6 +257,9 @@ object DummyCallCrew : CommandScript
 		else
 		else if (ChildID == 49)
 			Person p = Game::CreatePerson(OBJ_DEPANNEUR, UNNAMED);
+		else
+		else if (ChildID == 50)
+			Person p = Game::CreatePerson(OBJ_POLICIERE, UNNAMED);
 		else
 			return;
 

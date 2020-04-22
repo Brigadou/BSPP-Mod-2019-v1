@@ -342,6 +342,8 @@ object COSSPE : CommandScript
 		Caller->EnableCommand(CMD_CESD, true);
 		Caller->AssignCommand(CMD_VSC);
 		Caller->EnableCommand(CMD_VSC, true);
+		Caller->AssignCommand(CMD_VEC);
+		Caller->EnableCommand(CMD_VEC, true);
 		Caller->AssignCommand(CMD_CRAC);
 		Caller->EnableCommand(CMD_CRAC, true);
 		Caller->AssignCommand(CMD_CIC_CIB);
