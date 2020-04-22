@@ -236,7 +236,6 @@ object DummyCallCrew : CommandScript
 			Person p = Game::CreatePerson(OBJ_MOTOPN, UNNAMED);
 		else if (ChildID == 44)
 			Person p = Game::CreatePerson(OBJ_DOUANE, UNNAMED);
-		else
 		else if (ChildID == 45)
 		{
 			Person p = Game::CreatePerson(OBJ_GRDF, UNNAMED);
@@ -244,7 +243,6 @@ object DummyCallCrew : CommandScript
 		}
 		else if (ChildID == 46)
 			Person p = Game::CreatePerson(OBJ_DDE2, UNNAMED);
-		else
 		else if (ChildID == 47)
 		{	
 			Person p = Game::CreatePerson(OBJ_BRAPC, UNNAMED);
