@@ -238,7 +238,6 @@ object DummyCallCrew : CommandScript
 			Person p = Game::CreatePerson(OBJ_MOTOPN, UNNAMED);
 		else if (ChildID == 44)
 			Person p = Game::CreatePerson(OBJ_DOUANE, UNNAMED);
-		else
 		else if (ChildID == 45)
 		{
 			Person p = Game::CreatePerson(OBJ_GRDF, UNNAMED);
@@ -246,18 +245,15 @@ object DummyCallCrew : CommandScript
 		}
 		else if (ChildID == 46)
 			Person p = Game::CreatePerson(OBJ_DIR2, UNNAMED);
-		else
 		else if (ChildID == 47)
-		{	
 			Person p = Game::CreatePerson(OBJ_BRAPC, UNNAMED);
+		else if (ChildID == 48)
+		{	
+			Person p = Game::CreatePerson(OBJ_SECPC, UNNAMED);
 			p.SetEquipment(EQUIP_EMERGENCY_CASE);
 		}
-		else if (ChildID == 48)
-			Person p = Game::CreatePerson(OBJ_SECPC, UNNAMED);
-		else
 		else if (ChildID == 49)
 			Person p = Game::CreatePerson(OBJ_DEPANNEUR, UNNAMED);
-		else
 		else if (ChildID == 50)
 			Person p = Game::CreatePerson(OBJ_POLICIERE, UNNAMED);
 		else

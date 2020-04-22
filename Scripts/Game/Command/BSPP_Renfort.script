@@ -36,20 +36,24 @@ const char VO_SQUAD_SAMU[] 				= "VO_SQUAD_SAMU";
 const char sNULL[]						= "";
 
 
-const char OBJ_SAMUBRA[]				= "mod:Prototypes/Persons/Ambulance/SAMU_brancard.e4p";
-const char OBJ_SAMUMED[]				= "mod:Prototypes/Persons/Ambulance/SAMU_medecin.e4p";
-const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/SAMU_infirmier.e4p";
+const char OBJ_SAMUBRA[]			= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
+const char OBJ_SAMUMED[]			= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
+const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
 const char OBJ_MRG[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
 
-const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/brancardier_sp.e4p";
+const char OBJ_BRAPC[]					= "mod:Prototypes/Persons/Ambulance/bran_pc.e4p";
+const char OBJ_SECPC[]					= "mod:Prototypes/Persons/Ambulance/secouriste_pc.e4p";
+
+const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/bran_sp.e4p";
 const char OBJ_SECSP[]					= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
 const char OBJ_SECCA[]					= "mod:Prototypes/Persons/Ambulance/secouriste_ca.e4p";
 const char OBJ_INFSP[]					= "mod:Prototypes/Persons/Ambulance/infirmier_sp.e4p";
 const char OBJ_MEDSP[]					= "mod:Prototypes/Persons/Ambulance/medecin_sp.e4p";
+
 const char OBJ_GILET[]					= "mod:Prototypes/Persons/Fire Department/gilet.e4p";
 const char OBJ_GILETCPT[]				= "mod:Prototypes/Persons/Fire Department/gilet_cpt.e4p";
 const char OBJ_CYNO[]					= "mod:Prototypes/Persons/Fire Department/tenue_cyno.e4p";
-const char OBJ_VIMP[]					= "mod:Prototypes/Persons/Fire Department/tenue_VIMP.e4p";
+const char OBJ_GREP[]					= "mod:Prototypes/Persons/Fire Department/tenue_grep.e4p";
 const char OBJ_PLO[]					= "mod:Prototypes/Persons/Fire Department/diver.e4p";
 const char OBJ_NBC[]					= "mod:Prototypes/Persons/Fire Department/tenue_nbc.e4p";
 const char OBJ_FEU[]					= "mod:Prototypes/Persons/Fire Department/feu.e4p";
@@ -59,14 +63,13 @@ const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
 const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
 
-
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/ERDF.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/GRDF.e4p";
 const char OBJ_DIR[]					= "mod:Prototypes/Persons/TEC/DIR.e4p";
 const char OBJ_DIR2[]					= "mod:Prototypes/Persons/TEC/DIR2.e4p";
 const char OBJ_DEPANNEUR[]					= "mod:Prototypes/Persons/TEC/depanneur.e4p";
 
-const char OBJ_308GIGN[]				= "mod:Prototypes/Persons/Police/308GIGN.e4p";
+const char OBJ_BAC[]					= "mod:Prototypes/Persons/Police/bac.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
 const char OBJ_CRS[]					= "mod:Prototypes/Persons/Police/crs_mobile.e4p";
 const char OBJ_DEM[]					= "mod:Prototypes/Persons/Police/deminage.e4p";
@@ -313,7 +316,7 @@ class ClassRenfort: CommandScript
 			case 22 : return OBJ_ARICA;break;
 			case 23 : return OBJ_ERDF;break;
 			case 24 : return OBJ_DDE;break;
-			case 25 : return OBJ_308GIGN;break;
+			case 25 : return OBJ_BAC;break;
 			case 26 : return OBJ_BRI;break;
 			case 27 : return OBJ_CRS;break;
 			case 28 : return OBJ_DEM;break;
@@ -338,7 +341,7 @@ class ClassRenfort: CommandScript
 			case 47 : return OBJ_BRAPC;break;
 			case 48 : return OBJ_SECPC;break;
 			case 49 : return OBJ_DEPANNEUR;break;
-			case 49 : return OBJ_POLICIERE;break;
+			case 50 : return OBJ_POLICIERE;break;
 				System::Log("[RENFORT] un child Id n'a pas été trouvé");
 				return;
 		}
@@ -499,7 +502,7 @@ class ClassRenfort: CommandScript
 						p.SetUpgradeLevel(3);
 						n.AddPassenger(&p);
 
-						if ((StrCompare(p.GetPrototypeFileName(), OBJ_SAMUMED) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SAMUINF) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SECSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_INFSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_MEDSP) == 0))
+						if ((StrCompare(p.GetPrototypeFileName(), OBJ_SAMUMED) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SAMUINF) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SECSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_INFSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_MEDSP) == 0))  || (StrCompare(p.GetPrototypeFileName(), OBJ_SECPC) == 0)
 							p.SetEquipment(EQUIP_EMERGENCY_CASE);
 						if (StrCompare(p.GetPrototypeFileName(), OBJ_GIGNECL) == 0)
 							p.SetEquipment(EQUIP_LAPTOP);
@@ -507,7 +510,7 @@ class ClassRenfort: CommandScript
 							p.SetEquipment(EQUIP_MEGAPHONE);
 						if (StrCompare(p.GetPrototypeFileName(), OBJ_GIGNSNIP) == 0)
 							p.SetEquipment(EQUIP_RIFLE);
-						if (StrCompare(p.GetPrototypeFileName(), OBJ_ERDF) == 0)
+						if (StrCompare(p.GetPrototypeFileName(), OBJ_ERDF) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_GRDF) == 0)
 							p.SetEquipment(EQUIP_THW_CASE);
 					}
 					else
