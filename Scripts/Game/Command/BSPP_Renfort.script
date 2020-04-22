@@ -688,7 +688,7 @@ object Renfort_MasterPC2 : CommandScript
 {
 	Renfort_MasterPC2()
 	{
-		SetIcon("MasterPC2");
+		SetIcon("MasterPC");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -708,7 +708,7 @@ object Renfort_MasterPC3 : CommandScript
 {
 	Renfort_MasterPC3()
 	{
-		SetIcon("MasterPC3");
+		SetIcon("MasterPC");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
