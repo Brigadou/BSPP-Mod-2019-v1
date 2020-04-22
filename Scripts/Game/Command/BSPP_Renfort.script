@@ -59,16 +59,12 @@ const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
 const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
 
-<<<<<<< HEAD
+
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/ERDF.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/GRDF.e4p";
 const char OBJ_DIR[]					= "mod:Prototypes/Persons/TEC/DIR.e4p";
 const char OBJ_DIR2[]					= "mod:Prototypes/Persons/TEC/DIR2.e4p";
 const char OBJ_DEPANNEUR[]					= "mod:Prototypes/Persons/TEC/depanneur.e4p";
-=======
-const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
-const char OBJ_DDE[]					= "mod:Prototypes/Persons/TEC/bspp_dde1.e4p";
->>>>>>> parent of 120b5a6... grosse modif unit
 
 const char OBJ_308GIGN[]				= "mod:Prototypes/Persons/Police/308GIGN.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
@@ -188,15 +184,12 @@ const char PROTO_308PC[] 				= "mod:Prototypes/Vehicles/Ambulance/308PC.e4p";
 const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC.e4p";
 const char PROTO_MasterPC2[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC2.e4p";
 const char PROTO_MasterPC3[] 			= "mod:Prototypes/Vehicles/Ambulance/MasterPC3.e4p";
-<<<<<<< HEAD
-const char PROTO_308PC[] 				= "mod:Prototypes/Vehicles/Ambulance/308PC.e4p";
 
 const char PROTO_VLRVETO[] 				= "mod:Prototypes/Vehicles/Ambulance/VLRVETO.e4p";
 const char PROTO_VSC[] 					= "mod:Prototypes/Vehicles/Ambulance/VSC.e4p";
 const char PROTO_VEC[] 					= "mod:Prototypes/Vehicles/Ambulance/VEC.e4p";
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
-=======
->>>>>>> parent of 120b5a6... grosse modif unit
+
 
 
 // Déclarations de véhicules de la police
@@ -340,16 +333,12 @@ class ClassRenfort: CommandScript
 			case 42 : return OBJ_MOTOGN;break;
 			case 43 : return OBJ_MOTOPN;break;
 			case 44 : return OBJ_DOUANE;break;
-<<<<<<< HEAD
 			case 45 : return OBJ_GRDF;break;
 			case 46 : return OBJ_DIR2;break;
 			case 47 : return OBJ_BRAPC;break;
 			case 48 : return OBJ_SECPC;break;
 			case 49 : return OBJ_DEPANNEUR;break;
 			case 49 : return OBJ_POLICIERE;break;
-=======
->>>>>>> parent of 120b5a6... grosse modif unit
-			default :
 				System::Log("[RENFORT] un child Id n'a pas été trouvé");
 				return;
 		}
@@ -853,15 +842,9 @@ object Renfort_VLMSPRINTER : CommandScript
 
 object Renfort_BUSSAMU : CommandScript
 {
-<<<<<<< HEAD
-	Renfort_BUSSAMU	()
-	{
-		SetIcon("BUSsamu");
-=======
 	Renfort_BUSSAMU()
 	{
 		SetIcon("BUSSAMU");
->>>>>>> parent of 120b5a6... grosse modif unit
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -876,7 +859,6 @@ object Renfort_BUSSAMU : CommandScript
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BUSSAMU, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 6, 9);
 	}
 };
-<<<<<<< HEAD
 
 object Renfort_VSC : CommandScript
 {
@@ -899,10 +881,27 @@ object Renfort_VSC : CommandScript
 };
 
 object Renfort_VEC : CommandScript
-=======
+{
+	Renfort_VEC()
+	{
+		SetIcon("VEC");
+		SetCursor("VEC");
+		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID){return true;}
+
+	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
+	{
+		int personnelVehicule[6] = {12,12,0,0,0,0};
+		char * listSquadVO[] = {sNULL, sNULL, sNULL};
+		
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VEC,  VT_FIREFIGHTERS_RHF, listSquadVO, personnelVehicule, 2, 2);
+	}
+};
+
 //TODO A mettre en place
 object Renfort_CMO : CommandScript
->>>>>>> parent of 120b5a6... grosse modif unit
 {
 	Renfort_CMO()
 	{
@@ -917,12 +916,9 @@ object Renfort_CMO : CommandScript
 	{
 		int personnelVehicule[6] = {9,9,8,8,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
-		
-<<<<<<< HEAD
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VEC,  VT_FIREFIGHTERS_RHF, listSquadVO, personnelVehicule, 2, 2);
-=======
+
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CMO, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 4, 0);
->>>>>>> parent of 120b5a6... grosse modif unit
+
 	}
 };
 
