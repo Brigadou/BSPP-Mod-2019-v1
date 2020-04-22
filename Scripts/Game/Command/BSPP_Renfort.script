@@ -920,7 +920,8 @@ object Renfort_VLMsprinter : CommandScript
 
 object Renfort_BUSSAMU : CommandScript
 {
-	Renfort_BUSSAMU	{
+	Renfort_BUSSAMU	()
+	{
 		SetIcon("BUSsamu");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
