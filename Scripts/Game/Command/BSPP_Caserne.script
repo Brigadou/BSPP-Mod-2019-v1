@@ -250,6 +250,10 @@ object DummyCallCrew : CommandScript
 		}
 		else if (ChildID == 48)
 			Person p = Game::CreatePerson(OBJ_SECPC, UNNAMED);
+		else if (ChildID == 49)
+			Person p = Game::CreatePerson(OBJ_POLICIERE, UNNAMED);
+		else if (ChildID == 50)
+			Person p = Game::CreatePerson(OBJ_DEPANNEUR, UNNAMED);
 		else
 			return;
 

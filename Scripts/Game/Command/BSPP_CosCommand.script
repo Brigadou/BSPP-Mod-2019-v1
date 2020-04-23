@@ -155,12 +155,12 @@ object COSSAP : CommandScript
 		Caller->EnableCommand(CMD_VES, true);
 		Caller->AssignCommand(CMD_MasterPC);
 		Caller->EnableCommand(CMD_MasterPC, true);
-		Caller->AssignCommand(CMD_MasterPC2);
+	/*	Caller->AssignCommand(CMD_MasterPC2);
 		Caller->EnableCommand(CMD_MasterPC2, true);
 		Caller->AssignCommand(CMD_MasterPC3);
 		Caller->EnableCommand(CMD_MasterPC3, true);
 		Caller->AssignCommand(CMD_308PC);
-		Caller->EnableCommand(CMD_308PC, true);
+		Caller->EnableCommand(CMD_308PC, true);*/
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}
