@@ -85,7 +85,7 @@ const char PROTO_VID2[] 				= "mod:Prototypes/Vehicles/Fire Department/VID2.e4p"
 const char PROTO_VID3[] 				= "mod:Prototypes/Vehicles/Fire Department/VID3.e4p";
 
 const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
-const char PROTO_SPVLup[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
+const char PROTO_SPVLUP[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
 const char PROTO_SPVLgolf[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLgolf.e4p";
 const char PROTO_SPVLclio3[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio3.e4p";
 const char PROTO_SPVLclio4[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio4.e4p";
@@ -630,9 +630,17 @@ object VcmdToFireStation : CommandScript
 			return;
 		}
 
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_MasterPC) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
 		{
-			FirstReturnParking(Caller, "ADPC_4", VO_SQUAD_EM, PROTO_MasterPC, "VO_ADPC_4_R", "");
+			FirstReturnParking(Caller, "MasterPC_1", VO_SQUAD_EM, PROTO_ADPC_Master, "VO_MasterPC_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master_2) == 0)
+		{
+			FirstReturnParking(Caller, "MasterPC_2", VO_SQUAD_BITCHE, PROTO_ADPC_Master_2, "VO_MasterPC_2_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
+		{
+			FirstReturnParking(Caller, "MasterPC_3", VO_SQUAD_GRENELLE, PROTO_ADPC_Master_3, "VO_MasterPC_3_R", "");
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARIveco) == 0)
 		{
@@ -702,12 +710,10 @@ object VcmdToFireStation : CommandScript
 		{
 			FirstReturnParking(Caller, "VID2", VO_SQUAD_EM, PROTO_VID2, "VO_VID2_R", "");
 		}
-		//TODO
-		//else if(StrCompare(v.GetPrototypeFileName(), OBJ_CMO1) == 0)
-		//{
-		//	FirstReturnParking(Caller, "CMO 1", VO_SQUAD_EM, OBJ_CMO1, "", "");
-		//}
-		
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPC) == 0)
+		{
+		FirstReturnParking(Caller, "VPC", VO_SQUAD_EM, PROTO_VPC, "VO_VPC_R", "");
+		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_PSE4) == 0)
 		{
 			FirstReturnParking(Caller, "PS4", VO_SQUAD_BITCHE, PROTO_PSE4, "VO_PS4_R", "");
@@ -1072,11 +1078,10 @@ object DummyCheckParked : CommandScript
 			return;
 		}
 
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_MasterPC) == 0)
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
 		{
-			EndReturnParking(Caller, "ADPC_4", VO_SQUAD_EM);
+			EndReturnParking(Caller, "Master_PC_1", VO_SQUAD_EM);
 		}
-		
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARIveco) == 0)
 		{
 			EndReturnParking(Caller, "AR_Iveco", VO_SQUAD_EM);
@@ -1145,10 +1150,10 @@ object DummyCheckParked : CommandScript
 		{
 			EndReturnParking(Caller, "VID2", VO_SQUAD_EM);
 		}
-		//else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPC) == 0)
-		//{
-			//EndReturnParking(Caller, "CMO 1", VO_SQUAD_EM);
-		//}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VPC) == 0)
+		{
+			EndReturnParking(Caller, "VPC", VO_SQUAD_EM);
+		}
 		
 		
 		//CSBITCHE
@@ -1159,6 +1164,10 @@ object DummyCheckParked : CommandScript
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio3) == 0)
 		{
 			EndReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE);
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master_2) == 0)
+		{
+			EndReturnParking(Caller, "Master_PC_2", VO_SQUAD_BITCHE);
 		}
 		
 		//CSGRENELLE
@@ -1173,6 +1182,10 @@ object DummyCheckParked : CommandScript
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLUP) == 0)
 		{
 			EndReturnParking(Caller, "SPVL_UP", VO_SQUAD_GRENELLE);
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master_3) == 0)
+		{
+			EndReturnParking(Caller, "Master_PC_3", VO_SQUAD_GRENELLE);
 		}
 	}
 };

@@ -169,7 +169,7 @@ object Init_CSLAND : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_ADPC_Master,  "MasterPC", 3, 1); //PROTEC
+		ClassSpawn::Create(Caller, PROTO_ADPC_Master,  "MasterPC_1", 3, 1); //PROTEC
 		ClassSpawn::Create(Caller, PROTO_ARIveco, "AR_Iveco", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_ARMaster, "AR_Master", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_FPTMidlum, "FPT_Midlum", 6, 0);
@@ -192,7 +192,7 @@ object Init_CSLAND : CommandScript
 		ClassSpawn::Create(Caller, PROTO_VAG,  "VAG", 5, 0);
 		ClassSpawn::Create(Caller, PROTO_VID,  "VID", 2, 0);
 		ClassSpawn::Create(Caller, PROTO_VID2,  "VID2", 2, 0);
-		//ClassSpawn::Create(Caller, PROTO_VPC,  "VPC", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VPC,  "VPC", 2, 0);
 
 		if (Game::IsFreeplay())
 		{
@@ -262,6 +262,7 @@ object Init_CSBITCHE : CommandScript
 		ClassSpawn::Create(Caller, PROTO_EPAAtego,  "EPAN_Atego", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_SPVLclio3,  "SPVL_Clio", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_VID,  "VID_2", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_ADPC_Master_2,  "MasterPC_2", 3, 1); //PROTEC
 	}
 };
 
@@ -290,6 +291,7 @@ object Init_CSGRENELLE : CommandScript
 		ClassSpawn::Create(Caller, PROTO_EPAAtego, "EPAN_Atego_2", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_SPVLup, "SPVL_UP", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_VID, "VID_3", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_ADPC_Master_3,  "MasterPC_3", 3, 1); //PROTEC
 	}
 };
 

@@ -13,6 +13,7 @@ const char OBJ_MRG[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
 
 const char OBJ_BRAPC[]					= "mod:Prototypes/Persons/Ambulance/bran_pc.e4p";
 const char OBJ_SECPC[]					= "mod:Prototypes/Persons/Ambulance/secouriste_pc.e4p";
+const char OBJ_SECPCCA[]					= "mod:Prototypes/Persons/Ambulance/secouriste_pcca.e4p";
 
 const char OBJ_BRASP[]					= "mod:Prototypes/Persons/Ambulance/bran_sp.e4p";
 const char OBJ_SECSP[]					= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
@@ -35,29 +36,33 @@ const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p"
 
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/bspp_grdf.e4p";
+const char OBJ_DIR[]					= "mod:Prototypes/Persons/TEC/DIR.e4p";
 const char OBJ_DDE[]					= "mod:Prototypes/Persons/TEC/bspp_dde1.e4p";
 const char OBJ_DDE2[]					= "mod:Prototypes/Persons/TEC/bspp_dde2.e4p";
+const char OBJ_DEPANNEUR[]		= "mod:Prototypes/Persons/TEC/depanneur.e4p";
 
 const char OBJ_BAC[]					= "mod:Prototypes/Persons/Police/bac.e4p";
+const char OBJ_BACF[]					= "mod:Prototypes/Persons/Police/bac_f.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
-const char OBJ_CRS[]					= "mod:Prototypes/Persons/Police/crs_mobile.e4p";
+const char OBJ_CRS[]					= "mod:Prototypes/Persons/P_BEPO1_0/p1000_0BP_00.e4p";
+const char OBJ_CRSMOB[]			= "mod:Prototypes/Persons/P_BEPO1_0/p1000_0BP_21.e4p";
 const char OBJ_DEM[]					= "mod:Prototypes/Persons/Police/deminage.e4p";
-const char OBJ_GENNEG[]					= "mod:Prototypes/Persons/Police/gend_negociateur.e4p";
+const char OBJ_GENNEG[]				= "mod:Prototypes/Persons/Police/gend_negociateur.e4p";
 const char OBJ_GEN[]					= "mod:Prototypes/Persons/Police/tenue_gn.e4p";
 const char OBJ_GEN2[]					= "mod:Prototypes/Persons/Police/tenue_gn2.e4p";
 const char OBJ_GEN3[]					= "mod:Prototypes/Persons/Police/tenue_gn3.e4p";
-const char OBJ_GENMOB[]					= "mod:Prototypes/Persons/Police/gn_mobile.e4p";
+const char OBJ_GENMOB[]			= "mod:Prototypes/Persons/P_BEPO1_1/P1120_0BP_21.e4p";
 const char OBJ_PSIG[]					= "mod:Prototypes/Persons/Police/tenue_psig.e4p";
-const char OBJ_GIGNNEG[]				= "mod:Prototypes/Persons/Police/gign_negociateur.e4p";
-const char OBJ_GIGNSNIP[]				= "mod:Prototypes/Persons/Police/gign_sniper.e4p";
-const char OBJ_GIGNASS[]				= "mod:Prototypes/Persons/Police/gign_assaut.e4p";
-const char OBJ_GIGNECL[]				= "mod:Prototypes/Persons/Police/gign_eclaireur.e4p";
+const char OBJ_GIGNNEG[]			= "mod:Prototypes/Persons/Police/gign_negociateur.e4p";
+const char OBJ_GIGNSNIP[]			= "mod:Prototypes/Persons/Police/gign_sniper.e4p";
+const char OBJ_GIGNASS[]			= "mod:Prototypes/Persons/Police/gign_assaut.e4p";
+const char OBJ_GIGNECL[]			= "mod:Prototypes/Persons/Police/gign_eclaireur.e4p";
 const char OBJ_POL[]					= "mod:Prototypes/Persons/Police/tenue_pn.e4p";
 const char OBJ_POL2[]					= "mod:Prototypes/Persons/Police/tenue_pn2.e4p";
 const char OBJ_POL3[]					= "mod:Prototypes/Persons/Police/tenue_pn3.e4p";
-const char OBJ_MOTOGN[]					= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
-const char OBJ_MOTOPN[]					= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
-const char OBJ_DOUANE[]					= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
+const char OBJ_MOTOGN[]			= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
+const char OBJ_MOTOPN[]				= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
+const char OBJ_DOUANE[]				= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
 
 const char DUMMY_CALLCREW[]				= "DummyCallCrew";
 
@@ -133,127 +138,155 @@ object DummyCallCrew : CommandScript
 			p.SetEquipment(EQUIP_EMERGENCY_CASE);
 		} 
 		else if (ChildID == 4)
-			Person p = Game::CreatePerson(OBJ_MRG, UNNAMED);
-		else if (ChildID == 5)
 			Person p = Game::CreatePerson(OBJ_BRASP, UNNAMED);
-		else if (ChildID == 6)
+		else if (ChildID == 5)
 		{	
 			Person p = Game::CreatePerson(OBJ_SECSP, UNNAMED);
 			p.SetEquipment(EQUIP_EMERGENCY_CASE);
 		}
-		else if (ChildID == 7)
+		else if (ChildID == 6)
 			Person p = Game::CreatePerson(OBJ_SECCA, UNNAMED);
+		else if (ChildID == 7)
+			Person p = Game::CreatePerson(OBJ_BRASPVP, UNNAMED);
 		else if (ChildID == 8)
+		{	
+			Person p = Game::CreatePerson(OBJ_SECSPVP, UNNAMED);
+			p.SetEquipment(EQUIP_EMERGENCY_CASE);
+		}
+		else if (ChildID == 9)
 		{	
 			Person p = Game::CreatePerson(OBJ_INFSP, UNNAMED);
 			p.SetEquipment(EQUIP_EMERGENCY_CASE);
 		}
-		else if (ChildID == 9)
+		else if (ChildID == 10)
 		{
 			Person p = Game::CreatePerson(OBJ_MEDSP, UNNAMED);
 			p.SetEquipment(EQUIP_EMERGENCY_CASE);
 		} 
-		else if (ChildID == 10)
-			Person p = Game::CreatePerson(OBJ_GILET, UNNAMED);
 		else if (ChildID == 11)
-			Person p = Game::CreatePerson(OBJ_GILETCPT, UNNAMED);
+			Person p = Game::CreatePerson(OBJ_BRAPC, UNNAMED);
 		else if (ChildID == 12)
-			Person p = Game::CreatePerson(OBJ_CYNO, UNNAMED);
-		else if (ChildID == 13)
-			Person p = Game::CreatePerson(OBJ_GREP, UNNAMED);
-		else if (ChildID == 15)
-			Person p = Game::CreatePerson(OBJ_PLO, UNNAMED);
-		else if (ChildID == 16)
-			Person p = Game::CreatePerson(OBJ_NBC, UNNAMED);
-		else if (ChildID == 17)
-			Person p = Game::CreatePerson(OBJ_FEU, UNNAMED);
-		else if (ChildID == 18)
-			Person p = Game::CreatePerson(OBJ_FEUCA, UNNAMED);
-		else if (ChildID == 19)
-			Person p = Game::CreatePerson(OBJ_FEUCPT, UNNAMED);
-		else if (ChildID == 20)
-			Person p = Game::CreatePerson(OBJ_FDF, UNNAMED);
-		else if (ChildID == 21)
-			Person p = Game::CreatePerson(OBJ_ARI, UNNAMED);
-		else if (ChildID == 22)
-			Person p = Game::CreatePerson(OBJ_ARICA, UNNAMED);
-		else if (ChildID == 23)
-		{
-			Person p = Game::CreatePerson(OBJ_ERDF, UNNAMED);
-			p.SetEquipment(EQUIP_THW_CASE);
+		{	
+			Person p = Game::CreatePerson(OBJ_SECPC, UNNAMED);
+			p.SetEquipment(EQUIP_EMERGENCY_CASE);
 		}
+		else if (ChildID == 13)
+			Person p = Game::CreatePerson(OBJ_SECPCCA, UNNAMED);
+		/*else if (ChildID == 14)
+			Person p = Game::CreatePerson(OBJ_BRACR, UNNAMED);
+		else if (ChildID == 15)
+		{	
+			Person p = Game::CreatePerson(OBJ_SECCR, UNNAMED);
+			p.SetEquipment(EQUIP_EMERGENCY_CASE);
+		}
+		else if (ChildID == 16)
+			Person p = Game::CreatePerson(OBJ_SECCRCA, UNNAMED);*/	
+		else if (ChildID == 17)
+			Person p = Game::CreatePerson(OBJ_GILET, UNNAMED);
+		else if (ChildID == 18)
+			Person p = Game::CreatePerson(OBJ_GILETCPT, UNNAMED);
+		else if (ChildID == 19)
+			Person p = Game::CreatePerson(OBJ_CYNO, UNNAMED);
+		else if (ChildID == 20)
+			Person p = Game::CreatePerson(OBJ_GREP, UNNAMED);
+		else if (ChildID == 21)
+			Person p = Game::CreatePerson(OBJ_PLO, UNNAMED);
+		else if (ChildID == 22)
+			Person p = Game::CreatePerson(OBJ_NBC, UNNAMED);
+		else if (ChildID == 23)
+			Person p = Game::CreatePerson(OBJ_FEU, UNNAMED);
 		else if (ChildID == 24)
-			Person p = Game::CreatePerson(OBJ_DDE, UNNAMED);
+			Person p = Game::CreatePerson(OBJ_FEUCA, UNNAMED);
 		else if (ChildID == 25)
-			Person p = Game::CreatePerson(OBJ_BAC, UNNAMED);
+			Person p = Game::CreatePerson(OBJ_FEUCPT, UNNAMED);
 		else if (ChildID == 26)
-			Person p = Game::CreatePerson(OBJ_BRI, UNNAMED);
+			Person p = Game::CreatePerson(OBJ_FDF, UNNAMED);
 		else if (ChildID == 27)
-			Person p = Game::CreatePerson(OBJ_CRS, UNNAMED);
+			Person p = Game::CreatePerson(OBJ_ARI, UNNAMED);
 		else if (ChildID == 28)
+			Person p = Game::CreatePerson(OBJ_ARICA, UNNAMED);
+		/*else if (ChildID == 29)
+			Person p = Game::CreatePerson(OBJ_MOTOSP, UNNAMED);*/
+		else if (ChildID == 30)
+			Person p = Game::CreatePerson(OBJ_POL, UNNAMED);
+		else if (ChildID == 31)
+			Person p = Game::CreatePerson(OBJ_POL2, UNNAMED);
+		else if (ChildID == 32)
+			Person p = Game::CreatePerson(OBJ_POL3, UNNAMED);		
+		else if (ChildID == 33)
+			Person p = Game::CreatePerson(OBJ_BAC, UNNAMED);
+		else if (ChildID == 34)
+			Person p = Game::CreatePerson(OBJ_BACF, UNNAMED);
+		else if (ChildID == 35)
+			Person p = Game::CreatePerson(OBJ_BRI, UNNAMED);
+		else if (ChildID == 36)
+			Person p = Game::CreatePerson(OBJ_CRS, UNNAMED);
+		else if (ChildID == 37)
+			Person p = Game::CreatePerson(OBJ_CRSMOB, UNNAMED);
+		else if (ChildID == 38)
 			Person p = Game::CreatePerson(OBJ_DEM, UNNAMED);
-		else if (ChildID == 29)
+		else if (ChildID == 39)
+			Person p = Game::CreatePerson(OBJ_MOTOPN, UNNAMED);
+		else if (ChildID == 40)
+			Person p = Game::CreatePerson(OBJ_GEN, UNNAMED);
+		else if (ChildID == 41)
+			Person p = Game::CreatePerson(OBJ_GEN2, UNNAMED);
+		else if (ChildID == 42)
+			Person p = Game::CreatePerson(OBJ_GEN3, UNNAMED);
+		else if (ChildID == 43)
+			Person p = Game::CreatePerson(OBJ_GENMOB, UNNAMED);
+		else if (ChildID == 44)
+			Person p = Game::CreatePerson(OBJ_PSIG, UNNAMED);	
+		else if (ChildID == 45)
+			Person p = Game::CreatePerson(OBJ_MOTOGN, UNNAMED);		
+		else if (ChildID == 46)
+			Person p = Game::CreatePerson(OBJ_DOUANE, UNNAMED);
+		/*else if (ChildID == 47)
+			Person p = Game::CreatePerson(OBJ_DOUANE2, UNNAMED);
+		else if (ChildID == 48)
+			Person p = Game::CreatePerson(OBJ_MOTODOUANE, UNNAMED);*/
+		else if (ChildID == 49)
 		{
 			Person p = Game::CreatePerson(OBJ_GENNEG, UNNAMED);
 			p.SetEquipment(EQUIP_MEGAPHONE);
 		}
-		else if (ChildID == 30)
-			Person p = Game::CreatePerson(OBJ_GEN, UNNAMED);
-		else if (ChildID == 31)
-			Person p = Game::CreatePerson(OBJ_GEN2, UNNAMED);
-		else if (ChildID == 32)
-			Person p = Game::CreatePerson(OBJ_GEN3, UNNAMED);
-		else if (ChildID == 33)
-			Person p = Game::CreatePerson(OBJ_GENMOB, UNNAMED);
-		else if (ChildID == 34)
-			Person p = Game::CreatePerson(OBJ_PSIG, UNNAMED);
-		else if (ChildID == 35)
+		else if (ChildID == 50)
 		{
 			Person p = Game::CreatePerson(OBJ_GIGNNEG, UNNAMED);
 			p.SetEquipment(EQUIP_MEGAPHONE);
 		}
-		else if (ChildID == 36)
+		else if (ChildID == 51)
 		{
 			Person p = Game::CreatePerson(OBJ_GIGNSNIP, UNNAMED);
 			p.SetEquipment(EQUIP_RIFLE);
 		}
-		else if (ChildID == 37)
+		else if (ChildID == 52)
 			Person p = Game::CreatePerson(OBJ_GIGNASS, UNNAMED);
-		else if (ChildID == 38)
+		else if (ChildID == 53)
 		{
 			Person p = Game::CreatePerson(OBJ_GIGNECL, UNNAMED);
 			p.SetEquipment(EQUIP_LAPTOP);
 		}
-		else if (ChildID == 39)
-			Person p = Game::CreatePerson(OBJ_POL, UNNAMED);
-		else if (ChildID == 40)
-			Person p = Game::CreatePerson(OBJ_POL2, UNNAMED);
-		else if (ChildID == 41)
-			Person p = Game::CreatePerson(OBJ_POL3, UNNAMED);
-		else if (ChildID == 42)
-			Person p = Game::CreatePerson(OBJ_MOTOGN, UNNAMED);
-		else if (ChildID == 43)
-			Person p = Game::CreatePerson(OBJ_MOTOPN, UNNAMED);
-		else if (ChildID == 44)
-			Person p = Game::CreatePerson(OBJ_DOUANE, UNNAMED);
-		else if (ChildID == 45)
+		else if (ChildID == 54)
+		{
+			Person p = Game::CreatePerson(OBJ_ERDF, UNNAMED);
+			p.SetEquipment(EQUIP_THW_CASE);
+		}
+		else if (ChildID == 55)
 		{
 			Person p = Game::CreatePerson(OBJ_GRDF, UNNAMED);
 			p.SetEquipment(EQUIP_THW_CASE);
 		}
-		else if (ChildID == 46)
+		else if (ChildID == 56)
+			Person p = Game::CreatePerson(OBJ_DIR, UNNAMED);
+		else if (ChildID == 57)
+			Person p = Game::CreatePerson(OBJ_DDE, UNNAMED);
+		else if (ChildID == 58)
 			Person p = Game::CreatePerson(OBJ_DDE2, UNNAMED);
-		else if (ChildID == 47)
-		{	
-			Person p = Game::CreatePerson(OBJ_BRAPC, UNNAMED);
-			p.SetEquipment(EQUIP_EMERGENCY_CASE);
-		}
-		else if (ChildID == 48)
-			Person p = Game::CreatePerson(OBJ_SECPC, UNNAMED);
-		else if (ChildID == 49)
-			Person p = Game::CreatePerson(OBJ_POLICIERE, UNNAMED);
-		else if (ChildID == 50)
+		else if (ChildID == 59)
 			Person p = Game::CreatePerson(OBJ_DEPANNEUR, UNNAMED);
+		else if (ChildID == 60)
+			Person p = Game::CreatePerson(OBJ_POMPE, UNNAMED);
 		else
 			return;
 

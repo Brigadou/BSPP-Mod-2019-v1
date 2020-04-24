@@ -166,6 +166,7 @@ object RenfortIncendieCS : CommandScript
 		Game::ExecuteCommand("Renfort_VSAVR", Caller);
 		Game::ExecuteCommand("Renfort_ARIveco", Caller);
 		Game::ExecuteCommand("Renfort_ARMaster", Caller);
+		Game::ExecuteCommand("Renfort_UMHmaster", Caller);
 	}
 };
 object RenfortHabitationCS : CommandScript
@@ -255,7 +256,7 @@ object RenfortAnticipationCS : CommandScript
 		Game::ExecuteCommand("Renfort_VSAVB", Caller);
 		Game::ExecuteCommand("Renfort_ARMaster", Caller);
 		Game::ExecuteCommand("Renfort_CRAC", Caller);
-		//Game::ExecuteCommand("Renfort_EDF", Caller);
+		Game::ExecuteCommand("Renfort_EDF", Caller);
 	}
 };
 object RenfortCommandementCS : CommandScript
@@ -288,8 +289,8 @@ object RenfortCommandementCS : CommandScript
 		Mission::PlayHint(HINT_RENFORTCOMMANDEMENT);	
 		Audio::PlaySample3D(SND_RENFORTCOMMANDEMENT, Caller->GetPosition());
 		
-		//Game::ExecuteCommand("Renfort_VPC", Caller);
-		//Game::ExecuteCommand("Renfort_CMO1", Caller);
+		Game::ExecuteCommand("Renfort_VPC", Caller);
+		//Game::ExecuteCommand("Renfort_CMO", Caller);
 		Game::ExecuteCommand("Renfort_SPVL308", Caller);
 		Game::ExecuteCommand("Renfort_SPVLkangoo", Caller);
 	}
@@ -332,6 +333,8 @@ object SecoursRoutierMoyenCS : CommandScript
 			Game::ExecuteCommand("Renfort_VSAVB", Caller);
 			Game::ExecuteCommand("Renfort_PSE3", Caller);
 			Game::ExecuteCommand("Renfort_VPS", Caller);
+			Game::ExecuteCommand("Renfort_PNC8", Caller);
+			Game::ExecuteCommand("Renfort_PNMASTER4", Caller);
 	}
 };
 
@@ -371,6 +374,9 @@ object SecoursRoutierLourdCS : CommandScript
 			Game::ExecuteCommand("Renfort_PSE5", Caller);
 			Game::ExecuteCommand("Renfort_VPS", Caller);
 			Game::ExecuteCommand("Renfort_ARIveco", Caller);
+			Game::ExecuteCommand("Renfort_UMHsprinter", Caller);
+			Game::ExecuteCommand("Renfort_PNSCENIC", Caller);
+			Game::ExecuteCommand("Renfort_PNMASTER4", Caller);
 	}
 };
 
@@ -411,6 +417,8 @@ object SecoursRoutierAquatiqueCS: CommandScript
 			Game::ExecuteCommand("Renfort_SIS", Caller);
 			Game::ExecuteCommand("Renfort_VPS", Caller);
 			Game::ExecuteCommand("Renfort_ARMaster", Caller);
+			Game::ExecuteCommand("Renfort_PNBerlingo", Caller);
+			Game::ExecuteCommand("Renfort_PNMASTER4", Caller);
 	}
 };
 
@@ -521,7 +529,7 @@ object TentativeSuicideCS: CommandScript
 		Game::ExecuteCommand("Renfort_PSR", Caller);
 		Game::ExecuteCommand("Renfort_VIMP", Caller);
 		Game::ExecuteCommand("Renfort_VAG", Caller);
-		//Game::ExecuteCommand("Renfort_KangooPN", Caller);
+		Game::ExecuteCommand("Renfort_PN308", Caller);
 	}
 };
 
