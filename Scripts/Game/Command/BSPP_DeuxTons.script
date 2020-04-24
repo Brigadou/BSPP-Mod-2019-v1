@@ -121,7 +121,7 @@ const char PROTO_VRSD[] 					= "mod:Prototypes/Vehicles/Ambulance/VRSD.e4p";
 
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
 
-const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master.e4p";
+const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_cube.e4p";
 const char PROTO_MasterPC2[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_2.e4p";
 const char PROTO_MasterPC3[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_3.e4p";
 
