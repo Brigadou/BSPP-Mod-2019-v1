@@ -4,13 +4,10 @@
 			<prototype name="mod:Prototypes/Vehicles/TEC/grdf_kangoo.e4p" />
 			<price value="0" />
 			<speed value="120" />
-			<space value="2" />
+			<space value="1" />
 			<loadspace value="0" />
 			<personnel>
-				<unit id="DDE">
-					<defaultcount value="1" />
-				</unit>
-				<unit id="DDE2">
+				<unit id="GRDF">
 					<defaultcount value="1" />
 				</unit>
 			</personnel>
@@ -23,13 +20,10 @@
 			<prototype name="mod:Prototypes/Vehicles/TEC/grdf_kangoo.e4p" />
 			<price value="0" />
 			<speed value="120" />
-			<space value="2" />
+			<space value="1" />
 			<loadspace value="0" />
 			<personnel>
-				<unit id="DDE">
-					<defaultcount value="1" />
-				</unit>
-				<unit id="DDE2">
+				<unit id="GRDF">
 					<defaultcount value="1" />
 				</unit>
 			</personnel>

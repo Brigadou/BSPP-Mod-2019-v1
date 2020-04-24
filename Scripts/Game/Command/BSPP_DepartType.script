@@ -34,7 +34,7 @@ const char HINT_GIFF[]										= "GROUPE INTERVENTION FEU FORET ! CCR - CCR - S
 const char HINT_NRBC[]									= "DEPART NRBC ! CIC CIB - CIC CRR - VANRBC - VDIP - FPT - PS - AR - AR - VSAV - VSAV - VSAV - PSR - PSR au depart";
 
 	
-const char SND_FEULEGER[]								= "mod:Audio/FX/depart/PSE.wav";
+const char SND_FEULEGER[]									= "mod:Audio/FX/depart/PSE.wav";
 const char SND_NORMAL[]									= "mod:Audio/FX/depart/DN.wav";
 const char SND_RENFORTINCENDIE[]					= "mod:Audio/FX/depart/DN2.wav";
 const char SND_RENFORTHABITATION[]				= "mod:Audio/FX/depart/DG.wav";
@@ -43,10 +43,10 @@ const char SND_RENFORTCOMMANDEMENT[]		= "mod:Audio/FX/depart/VLR.wav";
 const char SND_SECOURROUTIERMOYEN[]			= "mod:Audio/FX/depart/VID.wav";
 const char SND_SECOUROUTIERLOURD[]				= "mod:Audio/FX/depart/FACA.wav";
 const char SND_SECOUROUTIERAQUATIQUE[]		= "mod:Audio/FX/depart/CA.wav";
-const char SND_URGENCEMEDICALE[]				= "mod:Audio/FX/depart/AR1.wav";
-const char SND_SECOURSMEDICALE[]				= "mod:Audio/FX/depart/VSAV1.wav";
+const char SND_URGENCEMEDICALE[]					= "mod:Audio/FX/depart/AR1.wav";
+const char SND_SECOURSMEDICALE[]					= "mod:Audio/FX/depart/VSAV1.wav";
 const char SND_TENTATIVEDESUICIDE[]				= "mod:Audio/FX/depart/VSAVrenfort.wav";	
-const char SND_GIFF[]										= "mod:Audio/FX/depart/RonfleurLong.wav";
+const char SND_GIFF[]											= "mod:Audio/FX/depart/RonfleurLong.wav";
 const char SND_NRBC[]										= "mod:Audio/FX/depart/RonfleurLong.wav";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,7 +151,7 @@ object RenfortIncendieCS : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		Mission::PlayHint(HINT_RENFORTINCENDIE);	
-		Audio::PlaySample3D(SND_RENFORTHABITATION, Caller->GetPosition());
+		Audio::PlaySample3D(SND_RENFORTINCENDIE, Caller->GetPosition());
 		
 		Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
 		Game::ExecuteCommand("Renfort_EPAIveco", Caller);

@@ -632,15 +632,7 @@ object VcmdToFireStation : CommandScript
 
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
 		{
-			FirstReturnParking(Caller, "MasterPC_1", VO_SQUAD_EM, PROTO_ADPC_Master, "VO_MasterPC_R", "");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master_2) == 0)
-		{
-			FirstReturnParking(Caller, "MasterPC_2", VO_SQUAD_BITCHE, PROTO_ADPC_Master_2, "VO_MasterPC_2_R", "");
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
-		{
-			FirstReturnParking(Caller, "MasterPC_3", VO_SQUAD_GRENELLE, PROTO_ADPC_Master_3, "VO_MasterPC_3_R", "");
+			FirstReturnParking(Caller, "MasterPC_1", VO_SQUAD_EM, PROTO_ADPC_Master, "VO_MasterPC_1_R", "");
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARIveco) == 0)
 		{
@@ -735,6 +727,7 @@ object VcmdToFireStation : CommandScript
 		{
 			FirstReturnParking(Caller, "SPVL_UP", VO_SQUAD_GRENELLE, PROTO_SPVLUP, "VO_SPVL_UP_R", "");
 		}
+		
 
 		else
 		{
@@ -1165,10 +1158,6 @@ object DummyCheckParked : CommandScript
 		{
 			EndReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE);
 		}
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master_2) == 0)
-		{
-			EndReturnParking(Caller, "Master_PC_2", VO_SQUAD_BITCHE);
-		}
 		
 		//CSGRENELLE
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTAtego) == 0)
@@ -1182,10 +1171,6 @@ object DummyCheckParked : CommandScript
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLUP) == 0)
 		{
 			EndReturnParking(Caller, "SPVL_UP", VO_SQUAD_GRENELLE);
-		}
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master_3) == 0)
-		{
-			EndReturnParking(Caller, "Master_PC_3", VO_SQUAD_GRENELLE);
 		}
 	}
 };

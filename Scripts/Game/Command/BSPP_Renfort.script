@@ -39,7 +39,7 @@ const char sNULL[]						= "";
 const char OBJ_SAMUBRA[]			= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
 const char OBJ_SAMUMED[]			= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
 const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
-const char OBJ_MRG[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
+const char OBJ_POMPE[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
 
 const char OBJ_BRAPC[]					= "mod:Prototypes/Persons/Ambulance/bran_pc.e4p";
 const char OBJ_SECPC[]					= "mod:Prototypes/Persons/Ambulance/secouriste_pc.e4p";
@@ -144,7 +144,7 @@ const char PROTO_VID2[] 				= "mod:Prototypes/Vehicles/Fire Department/VID2.e4p"
 const char PROTO_VID3[] 				= "mod:Prototypes/Vehicles/Fire Department/VID3.e4p";
 
 const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
-const char PROTO_SPVLup[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
+const char PROTO_SPVLUP[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
 const char PROTO_SPVLgolf[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLgolf.e4p";
 const char PROTO_SPVLclio3[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio3.e4p";
 const char PROTO_SPVLclio4[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio4.e4p";
@@ -281,8 +281,17 @@ const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
 const char SND_VSAV[]					= "mod:Audio/FX/depart/VSAV1.wav";
 const char SND_VSAV2[]				= "mod:Audio/FX/depart/VSAV2.wav";
 const char SND_PSR[]					= "mod:Audio/FX/depart/VSAV3.wav";
+const char SND_ADPC[]				= "mod:Audio/FX/depart/ANPC-CRF.wav";
 const char SND_AR[]						= "mod:Audio/FX/depart/AR1.wav";
 const char SND_AR2[]					= "mod:Audio/FX/depart/AR2.wav";
+const char SND_ECHELLE[]			= "mod:Audio/FX/depart/EPA.wav";
+const char SND_FEU[]					= "mod:Audio/FX/depart/FE.wav";
+const char SND_FPT[]					= "mod:Audio/FX/depart/AR1.wav";
+const char SND_PSE[]					= "mod:Audio/FX/depart/AR2.wav";
+const char SND_VID[]					= "mod:Audio/FX/depart/AR1.wav";
+const char SND_VLR[]					= "mod:Audio/FX/depart/AR2.wav";
+const char SND_VSAVR[]				= "mod:Audio/FX/depart/VSAVrenfort.wav";
+const char SND_CA[]						= "mod:Audio/FX/depart/CA.wav";
 
 const char UNNAMED[] 					= "Unnamed";
 
@@ -591,7 +600,6 @@ object Renfort_VSAVR : CommandScript
 		char * listSquadVO[] 			= {VO_SQUAD_EM, VO_SQUAD_BITCHE, VO_SQUAD_GRENELLE};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSAVR, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
-		
 		Audio::PlaySample3D(SND_VSAV2, Caller->GetPosition());
 	}
 };
@@ -685,7 +693,7 @@ object Renfort_CMO : CommandScript
 	Renfort_CMO()
 	{
 		SetIcon("cmo");
-		SetCursor("cmo");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -705,7 +713,7 @@ object Renfort_VPCM : CommandScript
 	Renfort_VPCM()
 	{
 		SetIcon("VPCM");
-		SetCursor("VPCM");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -725,7 +733,7 @@ object Renfort_VLRDSM : CommandScript
 	Renfort_VLRDSM()
 	{
 		SetIcon("VLRDSM");
-		SetCursor("VLRDSM");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -737,6 +745,7 @@ object Renfort_VLRDSM : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLRDSM, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VLR, Caller->GetPosition());
 	}
 };
 
@@ -745,7 +754,7 @@ object Renfort_VES : CommandScript
 	Renfort_VES()
 	{
 		SetIcon("VES");
-		SetCursor("VES");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -757,6 +766,7 @@ object Renfort_VES : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VES, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VLR, Caller->GetPosition());
 	}
 };
 
@@ -765,7 +775,7 @@ object Renfort_VAS : CommandScript
 	Renfort_VAS()
 	{
 		SetIcon("VAS");
-		SetCursor("VAS");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -777,6 +787,7 @@ object Renfort_VAS : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VAS, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VLR, Caller->GetPosition());
 	}
 };
 
@@ -789,7 +800,7 @@ object Renfort_VSC : CommandScript
 	Renfort_VSC()
 	{
 		SetIcon("VSC");
-		SetCursor("VSC");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -809,7 +820,7 @@ object Renfort_VEC : CommandScript
 	Renfort_VEC()
 	{
 		SetIcon("VEC");
-		SetCursor("VEC");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -829,7 +840,7 @@ object Renfort_VLRVETO : CommandScript
 	Renfort_VLRVETO()
 	{
 		SetIcon("VLRVETO");
-		SetCursor("VLRVETO");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -865,6 +876,7 @@ object Renfort_MasterPC : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC_Master, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
+		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
 	}
 };
 
@@ -885,6 +897,7 @@ object Renfort_MasterPC2 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_BITCHE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC_Master_2, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
+		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
 	}
 };
 
@@ -905,6 +918,7 @@ object Renfort_MasterPC3 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC_Master_3, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
+		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
 	}
 };
 
@@ -925,6 +939,7 @@ object Renfort_308PC : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC308, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
 	}
 };
 
@@ -1085,7 +1100,7 @@ object Renfort_VPC : CommandScript
 	Renfort_VPC()
 	{
 		SetIcon("VPC");
-		SetCursor("VPC");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1097,6 +1112,7 @@ object Renfort_VPC : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPC, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VLR, Caller->GetPosition());
 	}
 };
 
@@ -1105,7 +1121,7 @@ object Renfort_VLROGC : CommandScript
 	Renfort_VLROGC()
 	{
 		SetIcon("VLROGC");
-		SetCursor("VLROGC");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1117,6 +1133,7 @@ object Renfort_VLROGC : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLROGC,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VLR, Caller->GetPosition());
 	}
 };
 
@@ -1125,7 +1142,7 @@ object Renfort_VLRCGI : CommandScript
 	Renfort_VLRCGI()
 	{
 		SetIcon("VLRCGI");
-		SetCursor("VLRCGI");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1137,6 +1154,7 @@ object Renfort_VLRCGI : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLRCGI,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VLR, Caller->GetPosition());
 	}
 };
 
@@ -1145,7 +1163,7 @@ object Renfort_VLROPC : CommandScript
 	Renfort_VLROPC()
 	{
 		SetIcon("VLROPC");
-		SetCursor("VLROPC");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1157,6 +1175,7 @@ object Renfort_VLROPC : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLROPC,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VLR, Caller->GetPosition());
 	}
 };
 /*********************************************************************
@@ -1180,6 +1199,7 @@ object Renfort_FPTAtego : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_FPTAtego, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_FPT, Caller->GetPosition());
 	}
 };
 
@@ -1200,6 +1220,7 @@ object Renfort_FPTMidlum : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_FPTMidlum, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_FPT, Caller->GetPosition());
 	}
 };
 
@@ -1220,6 +1241,7 @@ object Renfort_PSE2 : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE2, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_PSE, Caller->GetPosition());
 	}
 };
 
@@ -1240,6 +1262,7 @@ object Renfort_PSE3 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE3, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_PSE, Caller->GetPosition());
 	}
 };
 
@@ -1260,6 +1283,7 @@ object Renfort_PSE4 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE4, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_PSE, Caller->GetPosition());
 	}
 };
 
@@ -1280,6 +1304,7 @@ object Renfort_PSE5 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_BITCHE, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PSE5, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_PSE, Caller->GetPosition());
 	}
 };
 
@@ -1288,7 +1313,7 @@ object Renfort_PST : CommandScript
 	Renfort_PST()
 	{
 		SetIcon("PST");
-		SetCursor("PST");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1300,6 +1325,7 @@ object Renfort_PST : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PST, VT_FIREFIGHTERS_GTF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_FEU, Caller->GetPosition());
 	}
 };
 
@@ -1319,7 +1345,8 @@ object Renfort_CCR : CommandScript
 		int personnelVehicule[6] = {26,26,26,26,26,24};
 		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL,  sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CCR, VT_FIREFIGHTERS_TLF, listSquadVO, personnelVehicule, 6, 0);	
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CCR, VT_FIREFIGHTERS_TLF, listSquadVO, personnelVehicule, 6, 0);
+		Audio::PlaySample3D(SND_FEU, Caller->GetPosition());
 	}
 };
 
@@ -1340,7 +1367,7 @@ object Renfort_CA : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CA, VT_FIREFIGHTERS_RW, listSquadVO,  personnelVehicule, 2, 0);
-	
+		Audio::PlaySample3D(SND_CA, Caller->GetPosition());	
 	}
 };
 
@@ -1365,6 +1392,7 @@ object Renfort_EPAAtego : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAAtego, VT_FIREFIGHTERS_DLK, listSquadVO, personnelVehicule, 3, 0);
+		Audio::PlaySample3D(SND_ECHELLE, Caller->GetPosition());
 	}
 };
 
@@ -1385,6 +1413,7 @@ object Renfort_EPAIveco : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAIveco, VT_FIREFIGHTERS_DLK, listSquadVO, personnelVehicule, 3, 0);
+		Audio::PlaySample3D(SND_ECHELLE, Caller->GetPosition());
 	}
 };
 
@@ -1410,7 +1439,8 @@ object Renfort_CD : CommandScript
 		int personnelVehicule[6] = {17,17,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CD, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);	
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CD, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_CA, Caller->GetPosition());
 	}
 };
 
@@ -1430,7 +1460,8 @@ object Renfort_CESD : CommandScript
 		int personnelVehicule[6] = {17,17,17,24,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CESD, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 4, 0);	
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CESD, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 4, 0);
+		Audio::PlaySample3D(SND_CA, Caller->GetPosition());
 	}
 };
 
@@ -1451,6 +1482,7 @@ object Renfort_CRAC : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CRAC, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_CA, Caller->GetPosition());
 	}
 };
 
@@ -1491,6 +1523,7 @@ object Renfort_PEV : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PEV, VT_FIREFIGHTERS_RW, listSquadVO,  personnelVehicule, 3, 0);
+		Audio::PlaySample3D(SND_CA, Caller->GetPosition());
 	}
 };
 
@@ -1531,6 +1564,7 @@ object Renfort_VIGI : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VIGI, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 3, 0);
+		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
 	}
 };
 
@@ -1551,6 +1585,7 @@ object Renfort_VPS : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPS,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 3, 0);
+		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
 	}
 };
 
@@ -1614,7 +1649,7 @@ object Renfort_SPVL308 : CommandScript
 		int personnelVehicule[6] = {24,18,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL2clio, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVL308, VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
@@ -1658,9 +1693,9 @@ object Renfort_SPVLmegane : CommandScript
 	}
 };
 
-object Renfort_SPVLup : CommandScript
+object Renfort_SPVLUP : CommandScript
 {
-	Renfort_SPVLup()
+	Renfort_SPVLUP()
 	{
 		SetIcon("SPVLup");
 		SetCursor("SPVLup");
@@ -1674,7 +1709,7 @@ object Renfort_SPVLup : CommandScript
 		int personnelVehicule[6] = {24,18,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLkangoo,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLUP,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
@@ -1694,7 +1729,7 @@ object Renfort_SPVLgolf : CommandScript
 		int personnelVehicule[6] = {24,18,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_BITCHE, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLkangoo,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLgolf,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
@@ -1715,6 +1750,7 @@ object Renfort_VID : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
 	}
 };
 
@@ -1735,6 +1771,7 @@ object Renfort_VID2 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID2,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
 	}
 };
 
@@ -1755,6 +1792,7 @@ object Renfort_VID3 : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID3,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
+		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
 	}
 };
 
@@ -1901,7 +1939,7 @@ object Renfort_PNMASTER : CommandScript
 	Renfort_PNMASTER()
 	{
 		SetIcon("masterpn");
-		SetCursor("masterpn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1920,7 +1958,7 @@ object Renfort_PNMASTER2 : CommandScript
 	Renfort_PNMASTER2()
 	{
 		SetIcon("masterpn2");
-		SetCursor("masterpn2");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1939,7 +1977,7 @@ object Renfort_PNMASTER3 : CommandScript
 	Renfort_PNMASTER3()
 	{
 		SetIcon("masterpn3");
-		SetCursor("masterpn3");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1958,7 +1996,7 @@ object Renfort_PNMASTER4 : CommandScript
 	Renfort_PNMASTER4()
 	{
 		SetIcon("masterpn");
-		SetCursor("masterpn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1977,7 +2015,7 @@ object Renfort_PNSCENIC : CommandScript
 	Renfort_PNSCENIC()
 	{
 		SetIcon("scenicpn");
-		SetCursor("scenicpn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1996,7 +2034,7 @@ object Renfort_PN308 : CommandScript
 	Renfort_PN308()
 	{
 		SetIcon("308pn");
-		SetCursor("308pn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2015,7 +2053,7 @@ object Renfort_PNBerlingo : CommandScript
 	Renfort_PNBerlingo()
 	{
 		SetIcon("berlingopn");
-		SetCursor("berlingopn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2053,7 +2091,7 @@ object Renfort_PNMASTERVTD : CommandScript
 	Renfort_PNMASTERVTD()
 	{
 		SetIcon("vtd");
-		SetCursor("vtd");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2072,7 +2110,7 @@ object Renfort_PNDEMINAGE : CommandScript
 	Renfort_PNDEMINAGE()
 	{
 		SetIcon("Deminage");
-		SetCursor("Deminage");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2091,7 +2129,7 @@ object Renfort_PNMOTO : CommandScript
 	Renfort_PNMOTO()
 	{
 		SetIcon("motopn");
-		SetCursor("motopn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2110,7 +2148,7 @@ object Renfort_PNEstate : CommandScript
 	Renfort_PNEstate()
 	{
 		SetIcon("estatepn");
-		SetCursor("estatepn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2148,7 +2186,7 @@ object Renfort_PNTRAFIC : CommandScript
 	Renfort_PNTRAFIC()
 	{
 		SetIcon("traficpn");
-		SetCursor("traficpn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2167,7 +2205,7 @@ object Renfort_PNTRAFIC2 : CommandScript
 	Renfort_PNTRAFIC2()
 	{
 		SetIcon("traficpn");
-		SetCursor("traficpn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2186,7 +2224,7 @@ object Renfort_PNTRAFICPMV : CommandScript
 	Renfort_PNTRAFICPMV()
 	{
 		SetIcon("traficpncrs");
-		SetCursor("traficpncrs");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2205,7 +2243,7 @@ object Renfort_PNTRAFICPMV : CommandScript
 *********************************************************************/
 object Renfort_BAC207SW : CommandScript
 {
-	Renfort_207sw()
+	Renfort_BAC207SW()
 	{
 		SetIcon("callassistance");
 		SetCursor("callassistance");
@@ -2218,7 +2256,7 @@ object Renfort_BAC207SW : CommandScript
 	{
 		int personnelVehicule[6] = {25,25,25,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_207sw, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BAC207SW, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
 };
 
@@ -2235,7 +2273,7 @@ object Renfort_BACC4 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACC4, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2254,7 +2292,7 @@ object Renfort_BAC75N2 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BAC75N2, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2273,7 +2311,7 @@ object Renfort_MONDEO75N : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_MONDEO75N, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);	
 	}
@@ -2292,7 +2330,7 @@ object Renfort_BAC208 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BAC208, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2311,7 +2349,7 @@ object Renfort_BACC3 : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACC3, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2330,7 +2368,7 @@ object Renfort_BACFiesta : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACFIESTA, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2349,7 +2387,7 @@ object Renfort_BACFocus : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACFOCUS, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2368,7 +2406,7 @@ object Renfort_BACSkoda : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACSKODA, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2387,7 +2425,7 @@ object Renfort_BACFluence : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACFLUENCE, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2406,7 +2444,7 @@ object Renfort_BACCaptur : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {24,33,33,0,0,0};
+		int personnelVehicule[6] = {34,33,33,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BACCAPTUR, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
@@ -2447,9 +2485,9 @@ object Renfort_ESPACEGIGN : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {52,52,52,52,52,51};
+		int personnelVehicule[6] = {52,52,52,52,51,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ESPACEGIGN, VT_POLICE_STW, listSquadVO, personnelVehicule, 6, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ESPACEGIGN, VT_POLICE_STW, listSquadVO, personnelVehicule, 5, 0);
 	}
 };
 
@@ -2466,9 +2504,9 @@ object Renfort_EXPERTGIGN : CommandScript
 	
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {52,52,52,52,52,52};
+		int personnelVehicule[6] = {52,52,52,52,52,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EXPERTGIGN, VT_POLICE_MTW, listSquadVO, personnelVehicule, 6, 0);	
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EXPERTGIGN, VT_POLICE_MTW, listSquadVO, personnelVehicule, 5, 0);	
 	}
 };
 
@@ -2485,9 +2523,9 @@ object Renfort_C8GIGN : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {52,52,52,52,52,52};
+		int personnelVehicule[6] = {52,52,52,52,52,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_C8GIGN, VT_POLICE_STW, listSquadVO, personnelVehicule, 6, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_C8GIGN, VT_POLICE_STW, listSquadVO, personnelVehicule, 5, 0);
 	}
 };
 
@@ -2496,7 +2534,7 @@ object Renfort_GIGN : CommandScript
 	Renfort_GIGN()
 	{
 		SetIcon("bri");
-		SetCursor("bri");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2561,9 +2599,9 @@ object Renfort_TITUSGIGN : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {37,37,37,0,0,0};
+		int personnelVehicule[9] = {37,37,37,37,37,37,37,37,37};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_TITUSGIGN, VT_POLICE_SW, listSquadVO, personnelVehicule, 3, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_TITUSGIGN, VT_POLICE_SW, listSquadVO, personnelVehicule, 9, 0);
 	}
 };
 
@@ -2692,7 +2730,7 @@ object Renfort_GNESTATE : CommandScript
 	Renfort_GNESTATE()
 	{
 		SetIcon("meganegn");
-		SetCursor("meganegn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 

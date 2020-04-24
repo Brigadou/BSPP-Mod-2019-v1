@@ -313,12 +313,14 @@ object COSGOC : CommandScript
 		Caller->EnableCommand("Renfort_SPVLclio3", true);
 		Caller->AssignCommand("Renfort_SPVLclio4");
 		Caller->EnableCommand("Renfort_SPVLclio4", true);
+		Caller->AssignCommand("Renfort_SPVL308");
+		Caller->EnableCommand("Renfort_SPVL308", true);
 		Caller->AssignCommand("Renfort_SPVLkangoo");
 		Caller->EnableCommand("Renfort_SPVLkangoo", true);
 		Caller->AssignCommand("Renfort_SPVLmegane");
 		Caller->EnableCommand("Renfort_SPVLmegane", true);
-		Caller->AssignCommand("Renfort_SPVLup");
-		Caller->EnableCommand("Renfort_SPVLup", true);
+		Caller->AssignCommand("Renfort_SPVLUP");
+		Caller->EnableCommand("Renfort_SPVLUP", true);
 		Caller->AssignCommand("Renfort_SPVLgolf");
 		Caller->EnableCommand("Renfort_SPVLgolf", true);
 		Caller->AssignCommand("COSMenu");
@@ -430,8 +432,8 @@ object COSBAC : CommandScript
 		Caller->EnableCommand("Renfort_BACC4", true);
 		Caller->AssignCommand("Renfort_BAC75N2");
 		Caller->EnableCommand("Renfort_BAC75N2", true);
-		Caller->AssignCommand("Renfort_BACMONDEO75N");
-		Caller->EnableCommand("Renfort_BACMONDEO75N", true);
+		Caller->AssignCommand("Renfort_MONDEO75N");
+		Caller->EnableCommand("Renfort_MONDEO75N", true);
 		Caller->AssignCommand("Renfort_BAC208");
 		Caller->EnableCommand("Renfort_BAC208", true);
 		Caller->AssignCommand("Renfort_BACC3");
@@ -666,5 +668,71 @@ object COSGM : CommandScript
 		Caller->EnableCommand("Renfort_GNVRBG", true);*/
 		Caller->AssignCommand("COSMenuPol");
 		Caller->EnableCommand("COSMenuPol", true);
+	}
+};
+
+object COSSAMU : CommandScript
+{
+ 	COSSAMU()
+ 	{
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+		SetIcon("cosmenu");
+ 	}
+ 
+ 	bool CheckPossible(GameObject *Caller)
+ 	{
+		return true;
+ 	}
+ 
+ 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+ 	{
+		return true;
+ 	}
+ 
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Caller->DisableAllCommands();
+		Caller->AssignCommand("Renfort_UMHMASTER");
+		Caller->EnableCommand("Renfort_UMHMASTER", true);
+		Caller->AssignCommand("Renfort_UMHSPRINTER");
+		Caller->EnableCommand("Renfort_UMHSPRINTER", true);
+		Caller->AssignCommand("Renfort_VLMKANGOO");
+		Caller->EnableCommand("Renfort_VLMKANGOO", true);
+		Caller->AssignCommand("Renfort_VLMVITO");
+		Caller->EnableCommand("Renfort_VLMVITO", true);
+		Caller->AssignCommand("Renfort_PCMSAMU");
+		Caller->EnableCommand("Renfort_PCMSAMU", true);
+	}
+};
+
+object COSTEC : CommandScript
+{
+ 	COSTEC()
+ 	{
+		SetRestrictions(RESTRICT_SELFEXECUTE);
+		SetIcon("cosmenu");
+ 	}
+ 
+ 	bool CheckPossible(GameObject *Caller)
+ 	{
+		return true;
+ 	}
+ 
+ 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+ 	{
+		return true;
+ 	}
+ 
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		Caller->DisableAllCommands();
+		Caller->AssignCommand("Renfort_GRUE");
+		Caller->EnableCommand("Renfort_GRUE", true);
+		Caller->AssignCommand("Renfort_DEPAN");
+		Caller->EnableCommand("Renfort_DEPAN", true);
+		Caller->AssignCommand("Renfort_EDF");
+		Caller->EnableCommand("Renfort_EDF", true);
+		Caller->AssignCommand("Renfort_GDF");
+		Caller->EnableCommand("Renfort_GDF", true);
 	}
 };

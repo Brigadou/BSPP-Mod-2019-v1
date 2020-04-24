@@ -51,7 +51,7 @@ const char PROTO_VID2[] 				= "mod:Prototypes/Vehicles/Fire Department/VID2.e4p"
 const char PROTO_VID3[] 				= "mod:Prototypes/Vehicles/Fire Department/VID3.e4p";
 
 const char PROTO_SPVL308[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVL308.e4p";
-const char PROTO_SPVLup[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
+const char PROTO_SPVLUP[] 				= "mod:Prototypes/Vehicles/Fire Department/SPVLup.e4p";
 const char PROTO_SPVLgolf[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLgolf.e4p";
 const char PROTO_SPVLclio3[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio3.e4p";
 const char PROTO_SPVLclio4[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVLclio4.e4p";
@@ -151,7 +151,7 @@ class ClassSpawn: CommandScript
 	}
 };
 
-//TODO init CMO + VPC
+//TODO init CMO
 object Init_CSLAND : CommandScript
 {
 	Init_CSLAND()
@@ -218,22 +218,27 @@ object Init_CSLAND : CommandScript
 				Person p2;
 				Person p3;
 				Person p4;
-				p1 = Game::CreatePerson("mod:Prototypes/Persons/Ambulance/COSsamu.e4p", UNNAMED);
-				p2 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COSsp.e4p", UNNAMED);
-				p3 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COScta.e4p", UNNAMED);
+				Person p5;
+				p1 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COSsp.e4p", UNNAMED);
+				p2 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COScta.e4p", UNNAMED);
+				p3 = Game::CreatePerson("mod:Prototypes/Persons/Ambulance/COSsamu.e4p", UNNAMED);
 				p4 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSpn.e4p", UNNAMED);
+				p5 = Game::CreatePerson("mod:Prototypes/Persons/TEC/COStec.e4p", UNNAMED);
 				p1.SetPlayerMP(Caller->GetPlayerMP());
 				p2.SetPlayerMP(Caller->GetPlayerMP());
 				p3.SetPlayerMP(Caller->GetPlayerMP());
 				p4.SetPlayerMP(Caller->GetPlayerMP());
+				p5.SetPlayerMP(Caller->GetPlayerMP());
 				m.AddPassenger(&p1);
 				m.AddPassenger(&p2);
 				m.AddPassenger(&p3);
 				m.AddPassenger(&p4);
-				Game::AddToGroup(&p1, 0);
-				Game::AddToGroup(&p2, 1);
-				Game::AddToGroup(&p3, 2);
-				Game::AddToGroup(&p4, 3);
+				m.AddPassenger(&p5);
+				Game::AddToGroup(&p1, 1);
+				Game::AddToGroup(&p2, 2);
+				Game::AddToGroup(&p3, 3);
+				Game::AddToGroup(&p4, 4);
+				Game::AddToGroup(&p5, 5);
 			}
 		}
 	}
@@ -262,7 +267,6 @@ object Init_CSBITCHE : CommandScript
 		ClassSpawn::Create(Caller, PROTO_EPAAtego,  "EPAN_Atego", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_SPVLclio3,  "SPVL_Clio", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_VID,  "VID_2", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_ADPC_Master_2,  "MasterPC_2", 3, 1); //PROTEC
 	}
 };
 
@@ -289,9 +293,8 @@ object Init_CSGRENELLE : CommandScript
 		ClassSpawn::Create(Caller, PROTO_CCR, "CCR", 6, 0);
 		ClassSpawn::Create(Caller, PROTO_FPTAtego, "FPT_Atego", 6, 0);
 		ClassSpawn::Create(Caller, PROTO_EPAAtego, "EPAN_Atego_2", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_SPVLup, "SPVL_UP", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVLUP, "SPVL_UP", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_VID, "VID_3", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_ADPC_Master_3,  "MasterPC_3", 3, 1); //PROTEC
 	}
 };
 
@@ -313,7 +316,7 @@ object Init_SAMU : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_VLMVITO, "SAMU1_1", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_VLMVITO, "SAMU1_1", 2, 0);
 		ClassSpawn::Create(Caller, PROTO_UMHMASTER, "SAMU1_2", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_UMHSPRINTER, "SAMU1_3", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_VLMKANGOO, "SAMU1_4", 2, 0);
@@ -338,12 +341,12 @@ object Init_TEC : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		ClassSpawn::Create(Caller, PROTO_GRDFtrafic, "TEC1_1", 1, 0);
-		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "TEC1_2", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "TEC1_3", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_GRUE, "TEC1_4", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_5", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_6", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_7", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "TEC1_2", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "TEC1_3", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_GRUE, "TEC1_4", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_5", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_6", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_7", 1, 0);
 	}
 };
 
