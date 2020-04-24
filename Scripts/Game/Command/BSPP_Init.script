@@ -234,11 +234,11 @@ object Init_CSLAND : CommandScript
 				m.AddPassenger(&p3);
 				m.AddPassenger(&p4);
 				m.AddPassenger(&p5);
-				Game::AddToGroup(&p1, 1);
-				Game::AddToGroup(&p2, 2);
-				Game::AddToGroup(&p3, 3);
-				Game::AddToGroup(&p4, 4);
-				Game::AddToGroup(&p5, 5);
+				Game::AddToGroup(&p1, 0);
+				Game::AddToGroup(&p2, 1);
+				Game::AddToGroup(&p3, 2);
+				Game::AddToGroup(&p4, 3);
+				Game::AddToGroup(&p5, 4);
 			}
 		}
 	}
