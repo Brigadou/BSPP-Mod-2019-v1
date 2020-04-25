@@ -876,7 +876,7 @@ object Renfort_MasterPC : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC_Master, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
-		Audio::PlaySample3D(SND_ANPCCRF, Caller->GetPosition());
+		Audio::PlaySample3D(SND_ADPC, Caller->GetPosition());
 	}
 };
 
@@ -1581,10 +1581,10 @@ object Renfort_VPS : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {17,17,17,0,0,0};
+		int personnelVehicule[6] = {17,17,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPS,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 3, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VPS,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
 	}
 };

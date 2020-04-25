@@ -632,7 +632,7 @@ object VcmdToFireStation : CommandScript
 
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
 		{
-			FirstReturnParking(Caller, "MasterPC_1", VO_SQUAD_EM, PROTO_ADPC_Master, "VO_MasterPC_1_R", "");
+			FirstReturnParking(Caller, "MasterPC", VO_SQUAD_EM, PROTO_ADPC_Master, "VO_MasterPC_R", "");
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARIveco) == 0)
 		{
@@ -1073,7 +1073,7 @@ object DummyCheckParked : CommandScript
 
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
 		{
-			EndReturnParking(Caller, "Master_PC_1", VO_SQUAD_EM);
+			EndReturnParking(Caller, "Master_PC", VO_SQUAD_EM);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ARIveco) == 0)
 		{
