@@ -571,7 +571,7 @@ object GroupeInterventionFeuForetCS : CommandScript
 	}
 };
 
-object NRBCCS : CommandScript
+/*object NRBCCS : CommandScript
 {
 	NRBCCS()
 	{
@@ -608,4 +608,4 @@ object NRBCCS : CommandScript
 		//Game::ExecuteCommand("Renfort_BUMD", Caller);
 		Game::ExecuteCommand("Renfort_SPVLKangoo", Caller);
 	}
-};
+};*/
