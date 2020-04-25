@@ -108,7 +108,7 @@ const char PROTO_ADPC_Master_2[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_ma
 const char PROTO_ADPC_Master_3[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_3.e4p";
 
 // Déclarations de véhicules des Services Techniques
-const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
+const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/depanneuse.e4p";
 const char PROTO_ERDFkangoo[] 			= "mod:Prototypes/Vehicles/TEC/erdf_kangoo.e4p";
 const char PROTO_GRDFtrafic[] 			= "mod:Prototypes/Vehicles/TEC/grdf_trafic.e4p";
 const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/TEC/fgr.e4p";
@@ -223,7 +223,7 @@ object Init_CSLAND : CommandScript
 				p2 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COScta.e4p", UNNAMED);
 				p3 = Game::CreatePerson("mod:Prototypes/Persons/Ambulance/COSsamu.e4p", UNNAMED);
 				p4 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSpn.e4p", UNNAMED);
-				p5 = Game::CreatePerson("mod:Prototypes/Persons/TEC/COStec.e4p", UNNAMED);
+				p5 = Game::CreatePerson("mod:Prototypes/Persons/TEC/COSt.e4p", UNNAMED);
 				p1.SetPlayerMP(Caller->GetPlayerMP());
 				p2.SetPlayerMP(Caller->GetPlayerMP());
 				p3.SetPlayerMP(Caller->GetPlayerMP());

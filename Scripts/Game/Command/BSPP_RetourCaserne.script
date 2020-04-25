@@ -207,7 +207,7 @@ const char PROTO_GNVBRG[]				= "mod:Prototypes/Vehicles/Police/gn_vbrg.e4p";
 const char PROTO_GETAWAY[]				= "mod:Prototypes/Vehicles/Police/getawaycar.e4p";
 
 // Déclarations de véhicules des Services Techniques
-const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
+const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/depanneuse.e4p";
 const char PROTO_ERDFkangoo[] 			= "mod:Prototypes/Vehicles/TEC/erdf_kangoo.e4p";
 const char PROTO_GRDFtrafic[] 			= "mod:Prototypes/Vehicles/TEC/grdf_trafic.e4p";
 const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";

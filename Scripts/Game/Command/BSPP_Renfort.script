@@ -272,7 +272,7 @@ const char PROTO_GNVBRG[]				= "mod:Prototypes/Vehicles/Police/gn_vbrg.e4p";
 const char PROTO_GETAWAY[]				= "mod:Prototypes/Vehicles/Police/getawaycar.e4p";
 
 // Déclarations de véhicules des Services Techniques
-const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/asf.e4p";
+const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/depanneuse.e4p";
 const char PROTO_ERDFkangoo[] 			= "mod:Prototypes/Vehicles/TEC/erdf_kangoo.e4p";
 const char PROTO_GRDFtrafic[] 			= "mod:Prototypes/Vehicles/TEC/grdf_trafic.e4p";
 const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
@@ -876,7 +876,7 @@ object Renfort_MasterPC : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC_Master, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
-		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
+		Audio::PlaySample3D(SND_ANPCCRF, Caller->GetPosition());
 	}
 };
 
@@ -897,7 +897,7 @@ object Renfort_MasterPC2 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_BITCHE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC_Master_2, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
-		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
+		Audio::PlaySample3D(SND_ADPC, Caller->GetPosition());
 	}
 };
 
@@ -918,7 +918,7 @@ object Renfort_MasterPC3 : CommandScript
 		char * listSquadVO[] = {VO_SQUAD_GRENELLE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC_Master_3, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 3, 1);
-		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
+		Audio::PlaySample3D(SND_ADPC, Caller->GetPosition());
 	}
 };
 
@@ -939,7 +939,7 @@ object Renfort_308PC : CommandScript
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC308, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
-		Audio::PlaySample3D(SND_ANPC-CRF, Caller->GetPosition());
+		Audio::PlaySample3D(SND_ADPC, Caller->GetPosition());
 	}
 };
 
