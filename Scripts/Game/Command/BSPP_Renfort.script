@@ -2254,7 +2254,7 @@ object Renfort_BAC207SW : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {25,25,25,0,0,0};
+		int personnelVehicule[6] = {34,33,3,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BAC207SW, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}

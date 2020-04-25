@@ -7,16 +7,16 @@
 //******************************************************************************************
 
 
-const char OBJ_BRA_SAMU[]		= "mod:Prototypes/Persons/Ambulance/brancardier_samu.e4p";
-const char OBJ_BRA_SP[]			= "mod:Prototypes/Persons/Ambulance/brancardier_sp.e4p";
-const char OBJ_BRA_SPVP[]		= "mod:Prototypes/Persons/Ambulance/brancardier_spvp.e4p";
+const char OBJ_BRA_SAMU[]		= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
+const char OBJ_BRA_SP[]			= "mod:Prototypes/Persons/Ambulance/bran_sp.e4p";
+const char OBJ_BRA_SPVP[]		= "mod:Prototypes/Persons/Ambulance/bran_spvp.e4p";
 
 const char OBJ_INF_SP[]			= "mod:Prototypes/Persons/Ambulance/infirmier_sp.e4p";
-const char OBJ_INF_SAMU[]		= "mod:Prototypes/Persons/Ambulance/SAMU_infirmier.e4p";
+const char OBJ_INF_SAMU[]		= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
 
 const char OBJ_MED_SPFEU[]		= "mod:Prototypes/Persons/Ambulance/medecin_feu.e4p";
 const char OBJ_MED_SP[]			= "mod:Prototypes/Persons/Ambulance/medecin_sp.e4p";
-const char OBJ_MED_SAMU[]		= "mod:Prototypes/Persons/Ambulance/SAMU_medecin.e4p";
+const char OBJ_MED_SAMU[]		= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
 
 const char OBJ_SEC_CA[]			= "mod:Prototypes/Persons/Ambulance/secouriste_ca.e4p";
 const char OBJ_SEC_SP[]			= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
