@@ -25,11 +25,11 @@ object VcmdRapidDeployment : CommandScript
 		if (Caller->GetType()==ACTOR_VEHICLE)
 		{
 			Vehicle v(Caller);
-			if (v.GetVehicleType() != VT_FIREFIGHTERS_GTF && v.GetVehicleType() != VT_FIREFIGHTERS_DLK)
+			if (v.GetVehicleType() != VT_FIREFIGHTERS_GTF && v.GetVehicleType() != VT_FIREFIGHTERS_DLK && v.GetVehicleType() != VT_FIREFIGHTERS_TLF)
 				return false;				
-			if ((v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK) && v.GetNumPassengers() > 0 && !v.IsInstalled())
+			if ((v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF) && v.GetNumPassengers() > 0 && !v.IsInstalled())
 				return true;
-			else if ((v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK) && v.IsInstalled())
+			else if ((v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF) && v.IsInstalled())
 				return true;
 			else if (StrCompare(v.GetPrototypeFileName(), PROTO_WATER_TANKER) == 0 && (v.IsInstalled() || (v.GetNumPassengers() > 0 && !v.IsInstalled()) ||  (!v.IsInstalled() && v.HasCommand("DummyWaterSupplyOn"))))
 				return true;				
@@ -44,7 +44,7 @@ object VcmdRapidDeployment : CommandScript
 		if (Caller->GetType()==ACTOR_VEHICLE)
 		{
 			Vehicle v(Caller);
-			if (v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK)
+			if (v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF)
 			{
 				if (v.IsInstalled() || (StrCompare(v.GetPrototypeFileName(), PROTO_WATER_TANKER) == 0 && v.HasCommand("DummyWaterSupplyOn")))
 				{
@@ -89,7 +89,7 @@ object VcmdRapidDeployment : CommandScript
 			Vector CmdPos = v.GetPosition();
 			Vehicle *engine = NULL;
 			float bestEngine = 0.;
-			VehicleList l2(VT_FIREFIGHTERS_GTF, VT_FIREFIGHTERS_GTF);
+			VehicleList l2(VT_FIREFIGHTERS_GTF, VT_FIREFIGHTERS_DLK, VT_FIREFIGHTERS_TLF);
 			for(int j = 0; j < l2.GetNumVehicles(); j++)
 			{
 				Vehicle *obj = l2.GetVehicle(j);

@@ -250,8 +250,8 @@ const char PROTO_BUSCRS[]				= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
 const char PROTO_CANONCRS[]				= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
 
 //GN
-const char PROTO_GNC4[]					= "mod:Prototypes/Vehicles/Police/gn_c4.e4p";
-const char PROTO_GNC4_2[]				= "mod:Prototypes/Vehicles/Police/gn_c4_2.e4p";
+const char PROTO_C4GN[]					= "mod:Prototypes/Vehicles/Police/gn_c4.e4p";
+const char PROTO_C4GN_2[]				= "mod:Prototypes/Vehicles/Police/gn_c4_2.e4p";
 const char PROTO_GNESTATE[]				= "mod:Prototypes/Vehicles/Police/gn_estate.e4p";
 const char PROTO_GNMOTO[]				= "mod:Prototypes/Vehicles/Police/gn_moto.e4p";
 const char PROTO_GNKANGOO[]				= "mod:Prototypes/Vehicles/Police/gn_kangoo.e4p";
@@ -2721,7 +2721,7 @@ object Renfort_GNC4_2 : CommandScript
 	{
 		int personnelVehicule[6] = {42,42,41,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_GNC4_2, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_C4GN2, VT_POLICE_STW, listSquadVO, personnelVehicule, 3, 1);
 	}
 };
 
