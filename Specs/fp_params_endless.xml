@@ -1,5 +1,5 @@
 <freeplayparameters>
-  <MinDurationBetweenEvents value="60.0" />
+  <MinDurationBetweenEvents value="25.0" />
   <MaxIdleDuration value="10.0" />
   <Seed value="0" />
   <BuyFactor value="10.0" />
@@ -12,7 +12,7 @@
   <SquadPriceGrowth value="30.0" />
   <MaxParkingSpace value="2000" />
   <InitialEventFrequencyBoost value="100000.0" />
-  <InitialEventWaitDuration value="5.0" />
+  <InitialEventWaitDuration value="2.0" />
   <starttime value="4:30" />
   <Rating>
     <!-- Schwierigkeitsgrad (je höher desto schwerer)-->
@@ -73,7 +73,7 @@
 		<EFPEventFall>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "4.0" />
+			<AverageFrequency value = "0.5" />
 			<Worth value = "2" />
 			<SupervisorStart value = "ID_SUPERV_EVENT17" />
 			<SupervisorFinish value = "" />
@@ -83,7 +83,7 @@
 		<EFPEventShock>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "4.0" />
+			<AverageFrequency value = "0.5" />
 			<Worth value = "2" />
 			<SupervisorStart value = "ID_SUPERV_EVENT18" />
 			<SupervisorFinish value = "" />
@@ -93,7 +93,7 @@
 		<EFPEventCirculatoryCollapse>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "3.0" />
+			<AverageFrequency value = "0.5" />
 			<Worth value = "2" />
 			<SupervisorStart value = "ID_SUPERV_EVENT19" />
 			<SupervisorFinish value = "" />
@@ -103,7 +103,7 @@
 		<EFPEventFoodPoisoning>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "3.0" />
+			<AverageFrequency value = "0.5" />
 			<Worth value = "2" />
 			<SupervisorStart value = "ID_SUPERV_EVENT20" />
 			<SupervisorFinish value = "" />
@@ -113,7 +113,7 @@
 		<EFPEventHeartAttack>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "4.0" />
+			<AverageFrequency value = "0.5" />
 			<Worth value = "2" />
 			<SupervisorStart value = "ID_SUPERV_EVENT21" />
 			<SupervisorFinish value = "" />
@@ -123,7 +123,7 @@
 		<EFPEventStroke>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "4.0" />
+			<AverageFrequency value = "0.5" />
 			<Worth value = "2" />
 			<SupervisorStart value = "ID_SUPERV_EVENT22" />
 			<SupervisorFinish value = "" />
@@ -133,7 +133,7 @@
 		<EFPEventFlashStrike>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes (gets multiplied by timezone parameter "flash/frequenceyfactor") -->
-			<AverageFrequency value = "10.0" />
+			<AverageFrequency value = "1.0" />
 			<!-- DamageRadius: in meter -->
 			<DamageRadius value ="30.0" />
 			<Worth value = "5.0" />
@@ -146,7 +146,7 @@
 		<EFPRandomFire>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "15.0" />
+			<AverageFrequency value = "2.0" />
 			<Worth value = "10.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT33" />
 			<SupervisorFinish value = "" />
@@ -156,7 +156,7 @@
 		<EFPEventCigarette>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "5.0" />
+			<AverageFrequency value = "1.0" />
 			<!-- MaxDropDistance: in meter -->
 			<MaxDropDistance value = "10.0" />
 			<Worth value = "10.0" />
@@ -186,7 +186,7 @@
 		<EFPEventCarTheft>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "10.0" />
+			<AverageFrequency value = "0.5" />
 			<!-- MaxRadius: in meter (max. distance between committer and car) -->
 			<MaxRadius value = "100.0" />
 			<!-- time till person becomes active gangster -->
@@ -200,7 +200,7 @@
 		<EFPEventCarAccident>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "5.0" />
+			<AverageFrequency value = "1.0" />
 			<!-- SafetyRadius: in meters -->
 			<SafetyRadius value ="12.0" />
 			<!-- LifeDrain: in Energy per tick -->
@@ -479,7 +479,7 @@
 		<EFPEarthquake>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
-			<AverageFrequency value = "1.0" />
+			<AverageFrequency value = "3.0" />
 			<!-- AverageNumberOfBurningHouses (50% spreading) -->
 			<AverageNumberOfBurningHouses value = "2" />
 			<!-- AverageNumberOfInjuredPersons (50% spreading) -->
@@ -494,8 +494,8 @@
 		</EFPEarthquake>
 		
 		<EFPEventRailwayCrossingFailure> <!-- Bahnschranke defekt -->
-			<Enabled value = "1" />
-			<AverageFrequency value = "0.0" />
+			<Enabled value = "0" />
+			<AverageFrequency value = "5.0" />
 			<Worth value = "8.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT38" />
 			<SupervisorFinish value = "" />
@@ -669,8 +669,8 @@
       <flash frequencyfactor="0.0" />
       <sound name="" />
       <sound2 name="" />
-      <transition state="cloudy" weight="1.5" />
-      <transition state="misty" weight="0.7" />
+      <transition state="cloudy" weight="0.0" />
+      <transition state="misty" weight="0.0" />
     </weather>
 	
     <weather name="cloudy" changeduration="15.0" minduration="60" maxduration="180">
