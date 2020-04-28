@@ -247,7 +247,7 @@ const char PROTO_TITUSGIGN[]			= "mod:Prototypes/Vehicles/Police/gign_titus.e4p"
 const char PROTO_MASTERCRS[]			= "mod:Prototypes/Vehicles/Police/crs_master.e4p";
 const char PROTO_TRANSITCRS[]			= "mod:Prototypes/Vehicles/Police/crs_transit.e4p";
 const char PROTO_BUSCRS[]				= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
-const char PROTO_CANONCRS[]				= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
+const char PROTO_CANONCRS[]			= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
 
 //GN
 const char PROTO_C4GN[]					= "mod:Prototypes/Vehicles/Police/gn_c4.e4p";
@@ -926,7 +926,7 @@ object Renfort_308PC : CommandScript
 {
 	Renfort_308PC()
 	{
-		SetIcon("308PC");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -971,7 +971,7 @@ object Renfort_UMHSPRINTER : CommandScript
 {
 	Renfort_UMHSPRINTER()
 	{
-		SetIcon("UMHSPRINTER");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -991,7 +991,7 @@ object Renfort_PCMSAMU : CommandScript
 {
 	Renfort_PCMSAMU()
 	{
-		SetIcon("PCMSAMU");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1031,7 +1031,7 @@ object Renfort_VLMVITO : CommandScript
 {
 	Renfort_VLMVITO()
 	{
-		SetIcon("VLMVITO");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1051,7 +1051,7 @@ object Renfort_BUSSAMU : CommandScript
 {
 	Renfort_BUSSAMU()
 	{
-		SetIcon("BUSSAMU");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1075,7 +1075,7 @@ object Renfort_PFG : CommandScript
 {
 	Renfort_PFG()
 	{
-		SetIcon("PFG");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -1889,7 +1889,7 @@ object Renfort_SPTT : CommandScript
 	Renfort_SPTT()
 	{
 		SetIcon("SPTT");
-		SetCursor("SPTT");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -1912,7 +1912,7 @@ object Renfort_VPB : CommandScript
 	Renfort_VPB()
 	{
 		SetIcon("VPB");
-		SetCursor("VPB");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2265,7 +2265,7 @@ object Renfort_BACC4 : CommandScript
 	Renfort_BACC4()
 	{
 		SetIcon("c4ban");
-		SetCursor("c4ban");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2284,7 +2284,7 @@ object Renfort_BAC75N2 : CommandScript
 	Renfort_BAC75N2()
 	{
 		SetIcon("bac75n2");
-		SetCursor("bac75n2");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2303,7 +2303,7 @@ object Renfort_MONDEO75N : CommandScript
 	Renfort_MONDEO75N()
 	{
 		SetIcon("mondeo75n");
-		SetCursor("mondeo75n");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2321,7 +2321,7 @@ object Renfort_BAC208 : CommandScript
 {
 	Renfort_BAC208()
 	{
-		SetIcon("bac208");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2340,7 +2340,7 @@ object Renfort_BACC3 : CommandScript
 {
 	Renfort_BACC3()
 	{
-		SetIcon("bacc3");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2359,7 +2359,7 @@ object Renfort_BACFiesta : CommandScript
 {
 	Renfort_BACFiesta()
 	{
-		SetIcon("bacfiesta");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2378,7 +2378,7 @@ object Renfort_BACFocus : CommandScript
 {
 	Renfort_BACFocus()
 	{
-		SetIcon("bacfocus");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2397,7 +2397,7 @@ object Renfort_BACSkoda : CommandScript
 {
 	Renfort_BACSkoda()
 	{
-		SetIcon("bacskoda");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2416,7 +2416,7 @@ object Renfort_BACFluence : CommandScript
 {
 	Renfort_BACFluence()
 	{
-		SetIcon("bacfluence");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2435,7 +2435,7 @@ object Renfort_BACCaptur : CommandScript
 {
 	Renfort_BACCaptur()
 	{
-		SetIcon("baccaptur");
+		SetIcon("callassistance");
 		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
@@ -2477,7 +2477,7 @@ object Renfort_ESPACEGIGN : CommandScript
 	Renfort_ESPACEGIGN()
 	{
 		SetIcon("espacegign");
-		SetCursor("espacegign");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2496,7 +2496,7 @@ object Renfort_EXPERTGIGN : CommandScript
 	Renfort_EXPERTGIGN()
 	{
 		SetIcon("espacegign");
-		SetCursor("espacegign");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2515,7 +2515,7 @@ object Renfort_C8GIGN : CommandScript
 	Renfort_C8GIGN()
 	{
 		SetIcon("c8gign");
-		SetCursor("c8gign");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2553,7 +2553,7 @@ object Renfort_GIGN2 : CommandScript
 	Renfort_GIGN2()
 	{
 		SetIcon("bri");
-		SetCursor("bri");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2613,7 +2613,7 @@ object Renfort_MASTERCRS : CommandScript
 	Renfort_MASTERCRS()
 	{
 		SetIcon("mastercrs");
-		SetCursor("mastercrs");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2632,7 +2632,7 @@ object Renfort_TRANSITCRS : CommandScript
 	Renfort_TRANSITCRS()
 	{
 		SetIcon("crstransit");
-		SetCursor("crstransit");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2651,7 +2651,7 @@ object Renfort_BUSCRS : CommandScript
 	Renfort_BUSCRS()
 	{
 		SetIcon("buscrs");
-		SetCursor("buscrs");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2670,7 +2670,7 @@ object Renfort_CANONCRS : CommandScript
 	Renfort_CANONCRS()
 	{
 		SetIcon("crslanceeau");
-		SetCursor("crslanceeau");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2692,7 +2692,7 @@ object Renfort_GNC4 : CommandScript
 	Renfort_GNC4()
 	{
 		SetIcon("c4");
-		SetCursor("c4");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2711,7 +2711,7 @@ object Renfort_GNC4_2 : CommandScript
 	Renfort_GNC4_2()
 	{
 		SetIcon("c4gn");
-		SetCursor("c4gn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2749,7 +2749,7 @@ object Renfort_GNMOTO : CommandScript
 	Renfort_GNMOTO()
 	{
 		SetIcon("motogn");
-		SetCursor("motogn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2939,7 +2939,7 @@ object Renfort_GNIVECO : CommandScript
 	Renfort_GNIVECO()
 	{
 		SetIcon("iribusgn");
-		SetCursor("iribusgn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2958,7 +2958,7 @@ object Renfort_GNIVECO2 : CommandScript
 	Renfort_GNIVECO2()
 	{
 		SetIcon("iribusgn");
-		SetCursor("iribusgn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
@@ -2977,7 +2977,7 @@ object Renfort_GNIVECO3 : CommandScript
 	Renfort_GNIVECO3()
 	{
 		SetIcon("iribusgn");
-		SetCursor("iribusgn");
+		SetCursor("callassistance");
 		SetValidTargets(ACTOR_FLOOR | ACTOR_VIRTUAL);
 	}
 
