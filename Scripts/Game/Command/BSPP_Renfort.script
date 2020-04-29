@@ -246,8 +246,8 @@ const char PROTO_TITUSGIGN[]			= "mod:Prototypes/Vehicles/Police/gign_titus.e4p"
 //CRS
 const char PROTO_MASTERCRS[]			= "mod:Prototypes/Vehicles/Police/crs_master.e4p";
 const char PROTO_TRANSITCRS[]			= "mod:Prototypes/Vehicles/Police/crs_transit.e4p";
-const char PROTO_BUSCRS[]				= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
-const char PROTO_CANONCRS[]			= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
+const char PROTO_BUSCRS[]				= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
+const char PROTO_CANONCRS[]			= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
 
 //GN
 const char PROTO_C4GN[]					= "mod:Prototypes/Vehicles/Police/gn_c4.e4p";
@@ -2661,7 +2661,7 @@ object Renfort_BUSCRS : CommandScript
 	{
 		int personnelVehicule[9] = {36,36,36,36,36,36,36,36,36};
 		char * listSquadVO[] = {VO_SQUAD_POL, sNULL, sNULL};
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BUSCRS, VT_POLICE_GTW, listSquadVO, personnelVehicule, 9, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BUSCRS, VT_POLICE_GTW, listSquadVO, personnelVehicule, 9, 9);
 	}
 };
 
