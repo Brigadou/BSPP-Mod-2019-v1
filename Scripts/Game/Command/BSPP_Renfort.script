@@ -1747,7 +1747,7 @@ object Renfort_VID : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {17,23,0,0,0,0};
-		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
+		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_BITCHE, VO_SQUAD_GRENELLE};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
@@ -1768,7 +1768,7 @@ object Renfort_VID2 : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {17,23,0,0,0,0};
-		char * listSquadVO[] = {VO_SQUAD_EM, VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE};
+		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VID2,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 		Audio::PlaySample3D(SND_VID, Caller->GetPosition());
