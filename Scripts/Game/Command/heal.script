@@ -1,328 +1,50 @@
-//******************************************************************************************
-// #Version 1.2#
-//
-// 		Changes: - No heal without bag
-//			     - Blanket command added
-//
-//******************************************************************************************
-
-
-const char OBJ_BRA_SAMU[]		= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
-const char OBJ_BRA_SP[]			= "mod:Prototypes/Persons/Ambulance/bran_sp.e4p";
-const char OBJ_BRA_SPVP[]		= "mod:Prototypes/Persons/Ambulance/bran_spvp.e4p";
-
-const char OBJ_INF_SP[]			= "mod:Prototypes/Persons/Ambulance/infirmier_sp.e4p";
-const char OBJ_INF_SAMU[]		= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
-
-const char OBJ_MED_SPFEU[]		= "mod:Prototypes/Persons/Ambulance/medecin_feu.e4p";
-const char OBJ_MED_SP[]			= "mod:Prototypes/Persons/Ambulance/medecin_sp.e4p";
-const char OBJ_MED_SAMU[]		= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
-
-const char OBJ_SEC_CA[]			= "mod:Prototypes/Persons/Ambulance/secouriste_ca.e4p";
-const char OBJ_SEC_SP[]			= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
-const char OBJ_SEC_SPVP[]		= "mod:Prototypes/Persons/Ambulance/secouriste_sp_vp.e4p";
-
-const char HINT_NOSTABILIZE[]		= "Cette personne est trop gravement blesse et ne peut pas etre stabilise!";
-const char HINT_BAGREV[]			= "Vous avez besoin d'un medecin avec le sac pour defibriller cette personne!";
-const char HINT_BAG[]				= "Vous avez besoin d'une trousse medicale!";
-const char HINT_DEAD[]				= "Cette personne est morte et ne peut plus être traitée!";
-const char HINT_STAB[]				= "Personne stabilise, medecin urgentise necessaire!";
-const char HINT_REAN[]				= "Personne reanimee, medecin urgentise necessaire!";
-const char CMD_DEAD[]				= "PcmdDead";
-const char CMD_HEAL[]				= "PcmdHeal";
-
-object PcmdHeal : CommandScript
+object Heal : CommandScript
 {
-	PcmdHeal()
+	Heal()
 	{
-		SetIcon("heal");
-		SetCursor("heal");
 		SetValidTargets(ACTOR_PERSON);
 		SetRestrictions(RESTRICT_NOTARRESTED);
 		SetPossibleCallers(ACTOR_PERSON);
 		SetPossibleExists(CPE_INJURED_PERSON | CPE_WOUNDED_SQUAD);
+		SetPriority(300);
+		SetSelfClickActivation(true);
 	}
 
 	bool CheckPossible(GameObject *Caller)
 	{
-		Person p(Caller);
-		if (p.IsValid() && (p.IsCarryingPerson() || p.IsCurrentAction("EActionTreatPerson") || p.IsLinkedWithPerson() || p.GetFirehoseID() != 0 || p.IsPulling() || p.GetEnteredCarID() != -1))
+		/*if(!Caller->IsValid() || Caller->GetType() != ACTOR_PERSON)
+			return false;*/
+		Person c(Caller);
+		if(c.IsParamedicTeam() && c.IsCarryingPerson())
 			return false;
-
-		if (p.IsParamedicTeam() && p.IsCarryingPerson())
-			return false;
-
-		if (!Caller->IsValid() || Caller->GetType() != ACTOR_PERSON)
-			return false;
-
+		//return Game::ExistsInjuredPerson() || Game::ExistsWoundedSquad();
 		return true;
 	}
-	
+
 	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
 	{
-		if (!Caller->IsValid() || !Target->IsValid() || Caller->GetID() == Target->GetID())
+		if(!Caller->IsValid() || !Target->IsValid() || Target->GetID() == Caller->GetID())
 			return false;
+		if(Caller->GetType()==ACTOR_PERSON)
+		{
+			Person c(Caller);
+			if(c.IsParamedicTeam() && c.IsCarryingPerson())
+				return false;
+		}
+		if(Target->GetType()==ACTOR_PERSON)
+		{
+			Person p(Target);
+			if(!p.IsDrowning() && !p.IsHealing() && p.GetRole() != ROLE_ANIMAL && !p.IsRescueDog() && (p.IsInjured() || p.IsWoundedSquad()) && p.GetEnteredCarID() == -1 && !p.IsCarried() )
+				return true;
+		}
 
-		Person t(Target);
-		Person p(Caller);
-		if (t.HasCommand("DummyBlanket"))
-			return false;
-		SetPriority(300);
-		if (t.IsDead() && !t.HasCommand("DummyBlanket"))
-			SetPriority(410);
-		else if (p.IsParamedicTeam() && !t.IsClassified())
-			SetPriority(410);
-
-		if (p.IsParamedicTeam() && t.GetRole() == ROLE_SQUAD && !t.IsInjured())
-			return false;
-
-		if (!t.IsDrowning() && t.GetRole() != ROLE_ANIMAL && !t.IsRescueDog() && (t.IsInjured() || t.IsWoundedSquad()) && t.GetEnteredCarID() == -1 && !t.IsCarried())
-			return true;
-	
 		return false;
 	}
 
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
-		Person p(Caller);
-		Person t(Target);
-		if (childID == 0)
-		{
-			if (t.IsClassified() && t.IsComatose()) {				
-				Mission::PlayHint(HINT_BAGREV);
-				return;
-			} else if (t.IsClassified() && t.IsDead()) {
-				Mission::PlayHint(HINT_DEAD);
-				return;
-			} else if (p.GetEquipment() != EQUIP_EMERGENCY_CASE && !p.IsParamedicTeam()) {
-				Mission::PlayHint(HINT_BAG);
-				return;
-			}
-			
-			p.PushActionMove(ACTION_NEWLIST, Target, TARGET_TREATMENT);
-			p.PushActionTurnTo(ACTION_APPEND, Target);
-			if (!p.IsParamedicTeam() && p.GetEquipment() == EQUIP_EMERGENCY_CASE)
-				p.PushActionRemoveEquipment(ACTION_APPEND);
-			
-			if (t.IsDead())	{
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_DEAD, &t, 0, false);
-				return;
-			}
-
-			if (StrCompare(p.GetPrototypeFileName(), OBJ_MED_SPFEU) == 0 || 
-			StrCompare(p.GetPrototypeFileName(), OBJ_MED_SP) == 0 || 
-			StrCompare(p.GetPrototypeFileName(), OBJ_MED_SAMU) == 0)
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 1, false);
-			else if (StrCompare(p.GetPrototypeFileName(), OBJ_BRA_SAMU) == 0 ||
-			StrCompare(p.GetPrototypeFileName(), OBJ_BRA_SP) == 0 ||
-			StrCompare(p.GetPrototypeFileName(), OBJ_BRA_SPVP) == 0)
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 2, false);
-			else if (StrCompare(p.GetPrototypeFileName(), OBJ_SEC_CA) == 0 ||
-			StrCompare(p.GetPrototypeFileName(), OBJ_SEC_SP) == 0 ||
-			StrCompare(p.GetPrototypeFileName(), OBJ_SEC_SPVP) == 0)
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 3, false);
-			else if (StrCompare(p.GetPrototypeFileName(), OBJ_INF_SP) == 0 ||
-			StrCompare(p.GetPrototypeFileName(), OBJ_INF_SAMU) == 0)
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 4, false);
-			else
-			{
-				if (t.IsClassified() && !t.IsDead() && t.GetLife() < 0.5f * t.GetMaxLife())
-				{
-					Mission::PlayHint(HINT_NOSTABILIZE);
-					return;
-				}
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 3, false);
-			}
-		}
-
-		//HEAL DOCTEUR
-		if (childID == 1)
-		{
-			if (!t.IsClassified())
-				t.SetClassified(true);
-			t.SetInjuredLifeDrain(0.0f);
-			if (t.GetRole() == ROLE_SQUAD && !t.IsInjured())
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST,"treatinjured2");
-				p.PushActionWait(ACTION_APPEND, 1.f);
-				t.Heal(2.0f * t.GetMedicalLifeGain());
-				
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 7, false);
-				return;
-			}
-			else if (t.GetRole() != ROLE_SQUAD)
-			{
-				t.Heal(1.5f * t.GetMedicalLifeGain());
-				p.PushActionSwitchAnim(ACTION_NEWLIST,"treatinjured1");
-				p.PushActionWait(ACTION_APPEND, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 5, false);
-			} 
-			else
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST,"idle");
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-			}
-		}
-		
-		//HEAL BRANCARDIER
-		if (childID == 2)
-		{
-			if (!t.IsClassified())
-				t.SetClassified(true);
-			t.SetInjuredLifeDrain(0.0f);
-			p.PushActionSwitchAnim(ACTION_NEWLIST, "paramedictreat_down");
-			p.PushActionWait(ACTION_APPEND, 2.f);
-			p.PushActionSwitchAnim(ACTION_APPEND, "paramedictreat");
-			if (t.GetLife() > 0.6f * t.GetMaxLife())
-			{
-				t.Heal(0.5f * t.GetMedicalLifeGain());
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 6, false);
-			} else if (t.GetLife() < 0.6f * t.GetMaxLife())
-			{
-				Mission::PlayHint(HINT_NOSTABILIZE);
-				return;
-			}
-			else
-				p.PushActionSwitchAnim(ACTION_NEWLIST, "paramedictreat_up");
-		}
-		
-		//STABILIZE
-		if (childID == 3)
-		{
-			if (!t.IsClassified())
-				t.SetClassified(true);
-			if (t.GetLife() > 0.5f * t.GetMaxLife())
-			{
-				t.Heal(0.8f * t.GetMedicalLifeGain());
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 8, false);
-			}
-			else if (t.GetLife() < 0.5f * t.GetMaxLife())
-			{
-				t.SetInjuredLifeDrain(0.0f);
-				p.PushActionWait(ACTION_APPEND, 5.f);
-				Mission::PlayHint(HINT_STAB);
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-				return;
-			}
-			t.SetInjuredLifeDrain(0.0f);
-			p.PushActionSwitchAnim(ACTION_NEWLIST, "treatinjured1");
-			p.PushActionWait(ACTION_APPEND, 5.f);
-			p.PushActionSwitchAnim(ACTION_APPEND, "idle");
-			Mission::PlayHint(HINT_STAB);
-		}
-		
-		//HEAL INFIRMIER
-		if (childID == 4)
-		{
-			if (!t.IsClassified())
-				t.SetClassified(true);
-			t.SetInjuredLifeDrain(0.0f);
-			if (t.GetRole() == ROLE_SQUAD && !t.IsInjured())
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST,"treatinjured2");
-				p.PushActionWait(ACTION_APPEND, 1.f);
-				t.Heal(2.0f * t.GetMedicalLifeGain());
-				
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 9, false);
-				return;
-			}
-			else if (t.GetRole() != ROLE_SQUAD)
-			{
-				t.Heal(1.0f * t.GetMedicalLifeGain());
-				p.PushActionSwitchAnim(ACTION_NEWLIST,"treatinjured1");
-				p.PushActionWait(ACTION_APPEND, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 10, false);
-			} 
-			else
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST,"idle");
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-			}
-		}
-		
-		if (childID == 5)
-		{
-			if (!t.IsCarried())
-			{
-				t.Heal(1.5f * t.GetMedicalLifeGain());
-				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 4, false);
-			}
-			else
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST, "idle");
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-			}
-		}
-		if (childID == 6)
-		{
-			if (!t.IsCarried())
-			{
-				t.Heal(0.5f * t.GetMedicalLifeGain());
-				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 5, false);
-			}
-			else
-				p.PushActionSwitchAnim(ACTION_NEWLIST, "paramedictreat_up");
-		}
-		if (childID == 7)
-		{
-			
-			if (t.IsIdle())
-			{
-				t.Heal(2.0f * t.GetMedicalLifeGain());
-				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 6, false);
-			}
-			else
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST, "idle");
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-			}
-		}
-		if (childID == 8)
-		{
-			
-			if (t.IsIdle())
-			{
-				t.Heal(0.8f * t.GetMedicalLifeGain());
-				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 7, false);
-			}
-			else
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST, "idle");
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-			}
-		}
-		if (childID == 9)
-		{
-			if (!t.IsCarried())
-			{
-				t.Heal(2.0f * t.GetMedicalLifeGain());
-				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 4, false);
-			}
-			else
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST, "idle");
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-			}
-		}
-		if (childID == 10)
-		{
-			
-			if (t.IsIdle())
-			{
-				t.Heal(1.0f * t.GetMedicalLifeGain());
-				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 6, false);
-			}
-			else
-			{
-				p.PushActionSwitchAnim(ACTION_NEWLIST, "idle");
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-			}
-		}
+		Caller->PushActionMove(ACTION_NEWLIST, Target, TARGET_TREATMENT);
+		Caller->PushActionTurnTo(ACTION_APPEND, Target);
+		Caller->PushActionHeal(ACTION_APPEND, Target);
 	}
 };
