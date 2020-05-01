@@ -152,6 +152,12 @@ object MoveTo : CommandScript
 				v.AssignCommand(CMD_WARNINGLIGHTS_ON);
 			}
 		}
+		
+		//Si un médecin qui soigne une victime bouge, on lui remet un EMT Bag
+		if (Caller->GetType() == ACTOR_PERSON && (Caller->IsCurrentAnimation("treatinjured1") || Caller->IsCurrentAnimation("treatinjured2")))
+		{
+			Caller->SetEquipment(EQUIP_EMERGENCY_CASE);
+		}
 
         // Special code for fgrr (Bergefahrzeug). Deinstalls itself automatically
         if (mr.UnInstall) 
