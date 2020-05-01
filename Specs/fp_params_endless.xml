@@ -477,7 +477,7 @@
 		
 		<!-- AE -->
 		<EFPEarthquake>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "3.0" />
 			<!-- AverageNumberOfBurningHouses (50% spreading) -->

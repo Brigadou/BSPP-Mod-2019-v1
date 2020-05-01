@@ -730,15 +730,15 @@ object VcmdToFireStation : CommandScript
 		
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHMASTER) == 0)
 		{
-			FirstReturnParking(Caller, "UMHmaster", VO_SQUAD_SAMU, PROTO_UMHMASTER, "VO_UMHmaster_R", "");
+			FirstReturnParking(Caller, "UMH_master", VO_SQUAD_SAMU, PROTO_UMHMASTER, "VO_UMHmaster_R", "");
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHSPRINTER) == 0)
 		{
-			FirstReturnParking(Caller, "UMHsprinter", VO_SQUAD_SAMU, PROTO_UMHSPRINTER "VO_UMH_sprinter_R", "");
+			FirstReturnParking(Caller, "UMH_sprinter", VO_SQUAD_SAMU, PROTO_UMHSPRINTER, "VO_UMH_merco_R", "");
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VLMKANGOO) == 0)
 		{
-			FirstReturnParking(Caller, "VLMkangoo", VO_SQUAD_SAMU, PROTO_VLMKANGOO, "VO_VLMkangoo_R", "");
+			FirstReturnParking(Caller, "VLM_kangoo", VO_SQUAD_SAMU, PROTO_VLMKANGOO, "VO_VLMkangoo_R", "");
 		}
 		
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
