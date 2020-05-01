@@ -265,7 +265,7 @@ object Init_CSBITCHE : CommandScript
 		ClassSpawn::Create(Caller, PROTO_PSE5,  "PS5_2", 6, 0);
 		ClassSpawn::Create(Caller, PROTO_PSE4,  "PS4", 6, 0);
 		ClassSpawn::Create(Caller, PROTO_EPAAtego,  "EPAN_Atego", 3, 0);
-		ClassSpawn::Create(Caller, PROTO_SPVLclio3,  "SPVL_Clio", 3, 0);
+		ClassSpawn::Create(Caller, PROTO_SPVLclio3,  "SPVL_Clio3", 3, 0);
 		ClassSpawn::Create(Caller, PROTO_VID,  "VID_2", 2, 0);
 	}
 };
@@ -316,10 +316,10 @@ object Init_SAMU : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_VLMVITO, "SAMU1_1", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_UMHMASTER, "SAMU1_2", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_UMHSPRINTER, "SAMU1_3", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_VLMKANGOO, "SAMU1_4", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_VLMVITO, "VLMvito", 2, 0);
+		ClassSpawn::Create(Caller, PROTO_UMHMASTER, "UMHmaster", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_UMHSPRINTER, "UMHsprinter", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VLMKANGOO, "VLMkangoo", 2, 0);
 	}
 };
 
@@ -340,9 +340,9 @@ object Init_TEC : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_GRDFtrafic, "TEC1_1", 1, 0);
-		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "TEC1_2", 1, 0);
-		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "TEC1_3", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_GRDFtrafic, "GRDF", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "ERDF_1", 1, 0);
+		ClassSpawn::Create(Caller, PROTO_ERDFkangoo, "ERDF_2", 1, 0);
 		ClassSpawn::Create(Caller, PROTO_GRUE, "TEC1_4", 1, 0);
 		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_5", 1, 0);
 		ClassSpawn::Create(Caller, PROTO_DEP, "TEC1_6", 1, 0);

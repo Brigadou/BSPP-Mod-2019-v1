@@ -281,8 +281,8 @@ object COSSPE : CommandScript
 		Caller->EnableCommand("Renfort_VIMP", true);
 		Caller->AssignCommand("Renfort_VAG");
 		Caller->EnableCommand("Renfort_VAG", true);
-		/*Caller->AssignCommand("Renfort_CICCIB");
-		Caller->EnableCommand("Renfort_CICCIB", true);*/
+		Caller->AssignCommand("Renfort_CICCIB");
+		Caller->EnableCommand("Renfort_CICCIB", true);
 		Caller->AssignCommand("COSMenu");
 		Caller->EnableCommand("COSMenu", true);
 	}

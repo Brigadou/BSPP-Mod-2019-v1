@@ -182,8 +182,8 @@ const char PROTO_TITUSGIGN[]			= "mod:Prototypes/Vehicles/Police/gign_titus.e4p"
 
 const char PROTO_MASTERCRS[]			= "mod:Prototypes/Vehicles/Police/crs_master.e4p";
 const char PROTO_TRANSITCRS[]			= "mod:Prototypes/Vehicles/Police/crs_transit.e4p";
-const char PROTO_BUSCRS[]				= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
-const char PROTO_CANONCRS[]				= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
+const char PROTO_BUSCRS[]				= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
+const char PROTO_CANONCRS[]				= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
 
 const char PROTO_GNC4[]					= "mod:Prototypes/Vehicles/Police/gn_c4.e4p";
 const char PROTO_GNC4_2[]				= "mod:Prototypes/Vehicles/Police/gn_c4_2.e4p";
@@ -208,8 +208,8 @@ const char PROTO_GETAWAY[]				= "mod:Prototypes/Vehicles/Police/getawaycar.e4p";
 
 // Déclarations de véhicules des Services Techniques
 const char PROTO_DEP[] 					= "mod:Prototypes/Vehicles/TEC/depanneuse.e4p";
-const char PROTO_ERDFkangoo[] 			= "mod:Prototypes/Vehicles/TEC/erdf_kangoo.e4p";
-const char PROTO_GRDFtrafic[] 			= "mod:Prototypes/Vehicles/TEC/grdf_trafic.e4p";
+const char PROTO_ERDF[] 			= "mod:Prototypes/Vehicles/TEC/erdf_kangoo.e4p";
+const char PROTO_GRDF[] 			= "mod:Prototypes/Vehicles/TEC/grdf_trafic.e4p";
 const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
 
 	
@@ -712,7 +712,7 @@ object VcmdToFireStation : CommandScript
 		}		
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio3) == 0)
 		{
-			FirstReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE, PROTO_SPVLclio3, "VO_SPVL_Clio_R", "");
+			FirstReturnParking(Caller, "SPVL_Clio3", VO_SQUAD_BITCHE, PROTO_SPVLclio3, "VO_SPVL_Clio_R", "");
 		}
 		
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_FPTAtego) == 0)
@@ -728,6 +728,31 @@ object VcmdToFireStation : CommandScript
 			FirstReturnParking(Caller, "SPVL_UP", VO_SQUAD_GRENELLE, PROTO_SPVLUP, "VO_SPVL_UP_R", "");
 		}
 		
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHMASTER) == 0)
+		{
+			FirstReturnParking(Caller, "UMHmaster", VO_SQUAD_SAMU, PROTO_UMHMASTER, "VO_UMHmaster_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHSPRINTER) == 0)
+		{
+			FirstReturnParking(Caller, "UMHsprinter", VO_SQUAD_SAMU, PROTO_UMHSPRINTER "VO_UMHsprinter_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VLMKANGOO) == 0)
+		{
+			FirstReturnParking(Caller, "VLMkangoo", VO_SQUAD_SAMU, PROTO_VLMKANGOO, "VO_VLMkangoo_R", "");
+		}
+		
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
+		{
+			FirstReturnParking(Caller, "ERDF_1", VO_SQUAD_SAMU, PROTO_ERDF, "VO_ERDF_1_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
+		{
+			FirstReturnParking(Caller, "ERDF_2", VO_SQUAD_SAMU, PROTO_ERDF, "VO_ERDF_2_R", "");
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_GRDF) == 0)
+		{
+			FirstReturnParking(Caller, "GRDF", VO_SQUAD_SAMU, PROTO_GRDF, "VO_GRDF_R", "");
+		}
 
 		else
 		{
@@ -1156,7 +1181,7 @@ object DummyCheckParked : CommandScript
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLclio3) == 0)
 		{
-			EndReturnParking(Caller, "SPVL_Clio", VO_SQUAD_BITCHE);
+			EndReturnParking(Caller, "SPVL_Clio3", VO_SQUAD_BITCHE);
 		}
 		
 		//CSGRENELLE
@@ -1171,6 +1196,34 @@ object DummyCheckParked : CommandScript
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_SPVLUP) == 0)
 		{
 			EndReturnParking(Caller, "SPVL_UP", VO_SQUAD_GRENELLE);
+		}
+		
+		//HOPITAL
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHMASTER) == 0)
+		{
+			EndReturnParking(Caller, "UMHmaster", VO_SQUAD_SAMU);
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHSPRINTER) == 0)
+		{
+			EndReturnParking(Caller, "UMHsprinter", VO_SQUAD_SAMU);
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VLMKANGOO) == 0)
+		{
+			EndReturnParking(Caller, "VLMkangoo", VO_SQUAD_SAMU);
+		}
+		
+		//TEC
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
+		{
+			EndReturnParking(Caller, "ERDF_1", VO_SQUAD_SAMU);
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
+		{
+			EndReturnParking(Caller, "ERDF_2", VO_SQUAD_SAMU);
+		}
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_GRDF) == 0)
+		{
+			EndReturnParking(Caller, "GRDF", VO_SQUAD_SAMU);
 		}
 	}
 };

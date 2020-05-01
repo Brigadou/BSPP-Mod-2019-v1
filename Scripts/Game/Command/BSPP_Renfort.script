@@ -528,7 +528,7 @@ class ClassRenfort: CommandScript
 						p.SetUpgradeLevel(3);
 						n.AddPassenger(&p);
 
-						if ((StrCompare(p.GetPrototypeFileName(), OBJ_SAMUMED) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SAMUINF) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SECSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_INFSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_MEDSP) == 0))
+						if ((StrCompare(p.GetPrototypeFileName(), OBJ_SAMUMED) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SAMUINF) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SECSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_INFSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_MEDSP) == 0) || (StrCompare(p.GetPrototypeFileName(), OBJ_SECPC) == 0))
 							p.SetEquipment(EQUIP_EMERGENCY_CASE);
 						if (StrCompare(p.GetPrototypeFileName(), OBJ_GIGNECL) == 0)
 							p.SetEquipment(EQUIP_LAPTOP);
@@ -811,7 +811,7 @@ object Renfort_VSC : CommandScript
 		int personnelVehicule[6] = {19,19,0,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSC,  VT_AMUBLANCE_RHF, listSquadVO, personnelVehicule, 2, 2);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VSC,  VT_AMBULANCE_RHF, listSquadVO, personnelVehicule, 2, 2);
 	}
 };
 
@@ -831,7 +831,7 @@ object Renfort_VEC : CommandScript
 		int personnelVehicule[6] = {19,19,0,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VEC,  VT_AMUBLANCE_RHF, listSquadVO, personnelVehicule, 2, 2);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VEC,  VT_AMBULANCE_RHF, listSquadVO, personnelVehicule, 2, 2);
 	}
 };
 
@@ -851,7 +851,7 @@ object Renfort_VLRVETO : CommandScript
 		int personnelVehicule[6] = {19,19,0,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLRVETO,  VT_AMUBLANCE_RHF, listSquadVO, personnelVehicule, 2, 2);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLRVETO,  VT_AMBULANCE_RHF, listSquadVO, personnelVehicule, 2, 2);
 	}
 };
 /*********************************************************************
@@ -1389,7 +1389,7 @@ object Renfort_EPAAtego : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {24,17,27,0,0,0};
-		char * listSquadVO[] = {VO_SQUAD_GRENELLE, VO_SQUAD_BITCHE, sNULL};
+		char * listSquadVO[] = {VO_SQUAD_BITCHE, VO_SQUAD_GRENELLE, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_EPAAtego, VT_FIREFIGHTERS_DLK, listSquadVO, personnelVehicule, 3, 0);
 		Audio::PlaySample3D(SND_ECHELLE, Caller->GetPosition());
