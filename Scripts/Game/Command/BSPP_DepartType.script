@@ -115,7 +115,7 @@ object DepartNormalCS : CommandScript
 		Mission::PlayHint(HINT_NORMAL);	
 		Audio::PlaySample3D(SND_NORMAL, Caller->GetPosition());
 
-			Game::ExecuteCommand("Renfort_FPTAtego", Caller);
+			Game::ExecuteCommand("Renfort_FPTMidlum", Caller);
 			Game::ExecuteCommand("Renfort_EPAIveco", Caller);
 			Game::ExecuteCommand("Renfort_PSE5", Caller);
 		//Game::ExecuteCommand("Renfort_VLRCGI", Caller);
@@ -334,7 +334,7 @@ object SecoursRoutierMoyenCS : CommandScript
 			Game::ExecuteCommand("Renfort_PSE3", Caller);
 			Game::ExecuteCommand("Renfort_VPS", Caller);
 			Game::ExecuteCommand("Renfort_PNC8", Caller);
-			Game::ExecuteCommand("Renfort_PNMASTER4", Caller);
+			Game::ExecuteCommand("Renfort_PSR", Caller);
 	}
 };
 
@@ -376,7 +376,6 @@ object SecoursRoutierLourdCS : CommandScript
 			Game::ExecuteCommand("Renfort_ARIveco", Caller);
 			Game::ExecuteCommand("Renfort_UMHsprinter", Caller);
 			Game::ExecuteCommand("Renfort_PNSCENIC", Caller);
-			Game::ExecuteCommand("Renfort_PNMASTER4", Caller);
 	}
 };
 
@@ -418,7 +417,6 @@ object SecoursRoutierAquatiqueCS: CommandScript
 			Game::ExecuteCommand("Renfort_VPS", Caller);
 			Game::ExecuteCommand("Renfort_ARMaster", Caller);
 			Game::ExecuteCommand("Renfort_PNBerlingo", Caller);
-			Game::ExecuteCommand("Renfort_PNMASTER4", Caller);
 	}
 };
 
