@@ -153,7 +153,7 @@ const char PROTO_SPVLmegane[] 			= "mod:Prototypes/Vehicles/Fire Department/SPVL
 
 const char PROTO_VDIP[] 				= "mod:Prototypes/Vehicles/Fire Department/VDIP.e4p";
 const char PROTO_VANRBC[] 				= "mod:Prototypes/Vehicles/Fire Department/VANRBC.e4p";
-const char PROTO_CICCIB[] 				= "mod:Prototypes/Vehicles/Fire Department/CICCIB.e4p";
+const char PROTO_CICCIB[] 				= "mod:Prototypes/Vehicles/Fire Department/NRBC.e4p";
 const char PROTO_CICCRR[]				= "mod:Prototypes/Vehicles/Fire Department/CICCRR.e4p";
 
 const char PROTO_SIS[] 					= "mod:Prototypes/Vehicles/Fire Department/SIS.e4p";
