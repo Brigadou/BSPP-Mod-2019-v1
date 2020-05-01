@@ -1,13 +1,13 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
-//																							//
-//			SCRIPT		DU		SPECIAL LIGHT												//
-//																							//
-//																							//	
-//							Merci à la TEAM EMERGENCY-GENDMOD pour ce script				//
-//																							//
-//                                      (c) BSPP mod pour emergency 4						//
-//																							//
-//																							//
+//																													  //
+//			SCRIPT		DU		SPECIAL LIGHT														  //
+//																													  //
+//																													  //	
+//							Merci à la TEAM EMERGENCY-GENDMOD pour ce script			  //
+//																													  //
+//                                      (c) BSPP mod pour emergency 4								  //
+//																													  //
+//																													  //
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 const char CMD_SPL_ON[]		= "SPL_On";

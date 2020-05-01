@@ -538,6 +538,8 @@ class ClassRenfort: CommandScript
 							p.SetEquipment(EQUIP_RIFLE);
 						if (StrCompare(p.GetPrototypeFileName(), OBJ_ERDF) == 0)
 							p.SetEquipment(EQUIP_THW_CASE);
+						/*if (StrCompare(p.GetPrototypeFileName(), OBJ_CYNO) == 0)
+							p.SetEquipment(EQUIP_DOG);*/
 					}
 					else
 					{
@@ -704,7 +706,7 @@ object Renfort_CMO : CommandScript
 		int personnelVehicule[6] = {10,10,9,9,0,0};
 		char * listSquadVO[] = {VO_SQUAD_EM, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CMO, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 4, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CMO, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 4, 0);
 	}
 };
 
@@ -1607,7 +1609,7 @@ object Renfort_SPVLclio3 : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
 		int personnelVehicule[6] = {24,18,0,0,0,0};
-		char * listSquadVO[] = {sNULL, sNULL, sNULL};
+		char * listSquadVO[] = {VO_SQUAD_BITCHE, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_SPVLclio3,  VT_FIREFIGHTERS_RW, listSquadVO, personnelVehicule, 2, 0);
 	}

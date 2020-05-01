@@ -169,7 +169,7 @@ object Init_CSLAND : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_ADPC_Master,  "MasterPC_1", 3, 1); //PROTEC
+		ClassSpawn::Create(Caller, PROTO_ADPC_Master,  "MasterPC", 3, 1); //PROTEC
 		ClassSpawn::Create(Caller, PROTO_ARIveco, "AR_Iveco", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_ARMaster, "AR_Master", 3, 1);
 		ClassSpawn::Create(Caller, PROTO_FPTMidlum, "FPT_Midlum", 6, 0);
@@ -219,8 +219,8 @@ object Init_CSLAND : CommandScript
 				Person p3;
 				Person p4;
 				Person p5;
-				p1 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COSsp.e4p", UNNAMED);
-				p2 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COScta.e4p", UNNAMED);
+				p1 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COScta.e4p", UNNAMED);
+				p2 = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/COSsp.e4p", UNNAMED);
 				p3 = Game::CreatePerson("mod:Prototypes/Persons/Ambulance/COSsamu.e4p", UNNAMED);
 				p4 = Game::CreatePerson("mod:Prototypes/Persons/Police/COSpn.e4p", UNNAMED);
 				p5 = Game::CreatePerson("mod:Prototypes/Persons/TEC/COSt.e4p", UNNAMED);
@@ -316,10 +316,10 @@ object Init_SAMU : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		ClassSpawn::Create(Caller, PROTO_VLMVITO, "VLMvito", 2, 0);
-		ClassSpawn::Create(Caller, PROTO_UMHMASTER, "UMHmaster", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_UMHSPRINTER, "UMHsprinter", 3, 1);
-		ClassSpawn::Create(Caller, PROTO_VLMKANGOO, "VLMkangoo", 2, 0);
+		/*ClassSpawn::Create(Caller, PROTO_VLMVITO, "VLM_vito", 2, 0);*/
+		ClassSpawn::Create(Caller, PROTO_UMHMASTER, "UMH_master", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_UMHSPRINTER, "UMH_sprinter", 3, 1);
+		ClassSpawn::Create(Caller, PROTO_VLMKANGOO, "VLM_kangoo", 2, 0);
 	}
 };
 

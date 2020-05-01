@@ -734,7 +734,7 @@ object VcmdToFireStation : CommandScript
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHSPRINTER) == 0)
 		{
-			FirstReturnParking(Caller, "UMHsprinter", VO_SQUAD_SAMU, PROTO_UMHSPRINTER "VO_UMHsprinter_R", "");
+			FirstReturnParking(Caller, "UMHsprinter", VO_SQUAD_SAMU, PROTO_UMHSPRINTER "VO_UMH_sprinter_R", "");
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VLMKANGOO) == 0)
 		{
@@ -1201,15 +1201,15 @@ object DummyCheckParked : CommandScript
 		//HOPITAL
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHMASTER) == 0)
 		{
-			EndReturnParking(Caller, "UMHmaster", VO_SQUAD_SAMU);
+			EndReturnParking(Caller, "UMH_master", VO_SQUAD_SAMU);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_UMHSPRINTER) == 0)
 		{
-			EndReturnParking(Caller, "UMHsprinter", VO_SQUAD_SAMU);
+			EndReturnParking(Caller, "UMH_sprinter", VO_SQUAD_SAMU);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VLMKANGOO) == 0)
 		{
-			EndReturnParking(Caller, "VLMkangoo", VO_SQUAD_SAMU);
+			EndReturnParking(Caller, "VLM_kangoo", VO_SQUAD_SAMU);
 		}
 		
 		//TEC
