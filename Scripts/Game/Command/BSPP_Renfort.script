@@ -514,7 +514,7 @@ class ClassRenfort: CommandScript
 			n.SetMaxPassengers(NbMaxPassager);
 			n.SetMaxTransports(NbMaxTransport);
 
-			for (int i = 0 ; i < 6 ; i++)
+			for (int i = 0 ; i < 9 ; i++)
 			{
 				int currentChildP = ChildP[i];
 
@@ -938,7 +938,7 @@ object Renfort_308PC : CommandScript
 		int personnelVehicule[6] = {12,13,0,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC308, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_ADPC308, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 0);
 		Audio::PlaySample3D(SND_ADPC, Caller->GetPosition());
 	}
 };
@@ -1003,7 +1003,7 @@ object Renfort_PCMSAMU : CommandScript
 		int personnelVehicule[6] = {2,2,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_SAMU, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PCMSAMU, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_PCMSAMU, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
@@ -1023,7 +1023,7 @@ object Renfort_VLMKANGOO : CommandScript
 		int personnelVehicule[6] = {2,3,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_SAMU, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLMKANGOO, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLMKANGOO, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
@@ -1043,7 +1043,7 @@ object Renfort_VLMVITO : CommandScript
 		int personnelVehicule[6] = {2,3,0,0,0,0};
 		char * listSquadVO[] = {VO_SQUAD_SAMU, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLMVITO, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 2, 0);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_VLMVITO, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 2, 0);
 	}
 };
 
@@ -1063,7 +1063,7 @@ object Renfort_BUSSAMU : CommandScript
 		int personnelVehicule[6] = {2,3,1,1,1,1};
 		char * listSquadVO[] = {VO_SQUAD_SAMU, sNULL, sNULL};
 		
-		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BUSSAMU, VT_AMBULANCE_NEF, listSquadVO, personnelVehicule, 6, 9);
+		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_BUSSAMU, VT_AMBULANCE_RTW, listSquadVO, personnelVehicule, 6, 9);
 	}
 };
 
