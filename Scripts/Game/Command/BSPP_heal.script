@@ -88,6 +88,11 @@ object PcmdHeal : CommandScript
 		Person t(Target);
 		if (childID == 0)
 		{
+			if (p.IsCurrentAnimation("treatinjured1") || p.IsCurrentAnimation("treatinjured2"))
+			{
+				p.SetEquipment(EQUIP_EMERGENCY_CASE);
+			}
+			
 			if (t.IsClassified() && t.IsComatose()) {				
 				Mission::PlayHint(HINT_BAGREV);
 				return;
@@ -98,7 +103,7 @@ object PcmdHeal : CommandScript
 				Mission::PlayHint(HINT_BAG);
 				return;
 			}
-			
+
 			p.PushActionMove(ACTION_NEWLIST, Target, TARGET_TREATMENT);
 			p.PushActionTurnTo(ACTION_APPEND, Target);
 			if (!p.IsParamedicTeam() && p.GetEquipment() == EQUIP_EMERGENCY_CASE)
@@ -150,7 +155,7 @@ object PcmdHeal : CommandScript
 				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 7, false);
 				return;
 			}
-			else if (t.GetRole() != ROLE_SQUAD)
+			else if (t.GetRole() != ROLE_SQUAD || (t.GetRole() == ROLE_SQUAD && t.IsInjured()))
 			{
 				t.Heal(1.5f * t.GetMedicalLifeGain());
 				p.PushActionSwitchAnim(ACTION_NEWLIST,"treatinjured1");
@@ -189,26 +194,30 @@ object PcmdHeal : CommandScript
 		//STABILIZE
 		if (childID == 3)
 		{
+			//Un secouriste ne soigne pas les squad
+			if (t.GetRole() == ROLE_SQUAD)
+				return;
 			if (!t.IsClassified())
 				t.SetClassified(true);
-			if (t.GetLife() > 0.5f * t.GetMaxLife())
-			{
-				t.Heal(0.8f * t.GetMedicalLifeGain());
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 8, false);
-			}
-			else if (t.GetLife() < 0.5f * t.GetMaxLife())
-			{
-				t.SetInjuredLifeDrain(0.0f);
-				p.PushActionWait(ACTION_APPEND, 5.f);
-				Mission::PlayHint(HINT_STAB);
-				p.SetEquipment(EQUIP_EMERGENCY_CASE);
-				return;
-			}
 			t.SetInjuredLifeDrain(0.0f);
 			p.PushActionSwitchAnim(ACTION_NEWLIST, "treatinjured1");
 			p.PushActionWait(ACTION_APPEND, 5.f);
-			p.PushActionSwitchAnim(ACTION_APPEND, "idle");
-			Mission::PlayHint(HINT_STAB);
+			if (t.GetLife() > 0.5f * t.GetMaxLife())
+			{
+				t.Heal(0.8f * t.GetMedicalLifeGain());
+
+				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 7, false);
+			}
+			else if (t.GetLife() < 0.5f * t.GetMaxLife())
+			{
+
+				p.PushActionSwitchAnim(ACTION_APPEND, "idle");
+				p.PushActionWait(ACTION_APPEND, 5.f);
+
+				p.SetEquipment(EQUIP_EMERGENCY_CASE);
+				Mission::PlayHint(HINT_STAB);
+				return;
+			}
 		}
 		
 		//HEAL INFIRMIER
