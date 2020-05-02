@@ -112,6 +112,7 @@ object PcmdDead : CommandScript
 		if (childID == 2)
 		{
 			t.ChangeModel(OBJ_BLANKET);
+			t.SetClassified(true);
 			t.AssignCommand("DummyBlanket");
 		}
 	}

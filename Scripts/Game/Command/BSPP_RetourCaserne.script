@@ -11,7 +11,7 @@ const char CMD_WARNINGLIGHTS[] 			= "VcmdWarningLightsOn";
 const char DUMMY_WARNINGLIGHTS[]		= "DummyHasWarningLights";
 const char CMD_FLOODLIGHTS_OFF[] 		= "VcmdFloodLightsOff";
 const char CMD_FLOODLIGHTS_ON[] 		= "VcmdFloodLightsOn";
-const char CMD_FLASHINGLIGHTS[] 		= "VcmdFlashingLights";
+const char CMD_FLASHINGLIGHTS[] 		= "Gyro_Off";
 const char CMD_TOHOSPITAL[] 			= "VcmdToHospital";
 	
 const char DUMMY_DISABLE[] 				= "DummyDisableSiren";

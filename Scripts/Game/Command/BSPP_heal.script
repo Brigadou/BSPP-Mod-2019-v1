@@ -7,20 +7,20 @@
 //******************************************************************************************
 
 
-const char OBJ_BRA_SAMU[]		= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
-const char OBJ_BRA_SP[]			= "mod:Prototypes/Persons/Ambulance/bran_sp.e4p";
-const char OBJ_BRA_SPVP[]		= "mod:Prototypes/Persons/Ambulance/bran_spvp.e4p";
-
-const char OBJ_INF_SP[]			= "mod:Prototypes/Persons/Ambulance/infirmier_sp.e4p";
-const char OBJ_INF_SAMU[]		= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
-
-const char OBJ_MED_SPFEU[]		= "mod:Prototypes/Persons/Ambulance/medecin_feu.e4p";
-const char OBJ_MED_SP[]			= "mod:Prototypes/Persons/Ambulance/medecin_sp.e4p";
-const char OBJ_MED_SAMU[]		= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
-
-const char OBJ_SEC_CA[]			= "mod:Prototypes/Persons/Ambulance/secouriste_ca.e4p";
-const char OBJ_SEC_SP[]			= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
-const char OBJ_SEC_SPVP[]		= "mod:Prototypes/Persons/Ambulance/secouriste_sp_vp.e4p";
+const char OBJ_BRA_SAMU[]			= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
+const char OBJ_BRA_SP[]				= "mod:Prototypes/Persons/Ambulance/bran_sp.e4p";
+const char OBJ_BRA_SPVP[]			= "mod:Prototypes/Persons/Ambulance/bran_spvp.e4p";
+	
+const char OBJ_INF_SP[]				= "mod:Prototypes/Persons/Ambulance/infirmier_sp.e4p";
+const char OBJ_INF_SAMU[]			= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
+	
+const char OBJ_MED_SPFEU[]			= "mod:Prototypes/Persons/Ambulance/medecin_feu.e4p";
+const char OBJ_MED_SP[]				= "mod:Prototypes/Persons/Ambulance/medecin_sp.e4p";
+const char OBJ_MED_SAMU[]			= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
+	
+const char OBJ_SEC_CA[]				= "mod:Prototypes/Persons/Ambulance/secouriste_ca.e4p";
+const char OBJ_SEC_SP[]				= "mod:Prototypes/Persons/Ambulance/secouriste_sp.e4p";
+const char OBJ_SEC_SPVP[]			= "mod:Prototypes/Persons/Ambulance/secouriste_sp_vp.e4p";
 
 const char HINT_NOSTABILIZE[]		= "Cette personne est trop gravement blesse et ne peut pas etre stabilise!";
 const char HINT_BAGREV[]			= "Vous avez besoin d'un medecin avec le sac pour defibriller cette personne!";
@@ -235,7 +235,7 @@ object PcmdHeal : CommandScript
 				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 9, false);
 				return;
 			}
-			else if (t.GetRole() != ROLE_SQUAD)
+			else if (t.GetRole() != ROLE_SQUAD || (t.GetRole() == ROLE_SQUAD && t.IsInjured()))
 			{
 				t.Heal(1.0f * t.GetMedicalLifeGain());
 				p.PushActionSwitchAnim(ACTION_NEWLIST,"treatinjured1");
@@ -255,7 +255,7 @@ object PcmdHeal : CommandScript
 			{
 				t.Heal(1.5f * t.GetMedicalLifeGain());
 				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 4, false);
+				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 5, false);
 			}
 			else
 			{
@@ -269,19 +269,18 @@ object PcmdHeal : CommandScript
 			{
 				t.Heal(0.5f * t.GetMedicalLifeGain());
 				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 5, false);
+				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 6, false);
 			}
 			else
 				p.PushActionSwitchAnim(ACTION_NEWLIST, "paramedictreat_up");
 		}
 		if (childID == 7)
 		{
-			
-			if (t.IsIdle())
+			if (!t.IsCarried())
 			{
 				t.Heal(2.0f * t.GetMedicalLifeGain());
 				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 6, false);
+				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 7, false);
 			}
 			else
 			{
@@ -296,7 +295,7 @@ object PcmdHeal : CommandScript
 			{
 				t.Heal(0.8f * t.GetMedicalLifeGain());
 				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 7, false);
+				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 8, false);
 			}
 			else
 			{
@@ -306,11 +305,11 @@ object PcmdHeal : CommandScript
 		}
 		if (childID == 9)
 		{
-			if (!t.IsCarried())
+			if (t.IsIdle())
 			{
 				t.Heal(2.0f * t.GetMedicalLifeGain());
 				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 4, false);
+				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 9, false);
 			}
 			else
 			{
@@ -320,12 +319,11 @@ object PcmdHeal : CommandScript
 		}
 		if (childID == 10)
 		{
-			
-			if (t.IsIdle())
+			if (!t.IsCarried())
 			{
 				t.Heal(1.0f * t.GetMedicalLifeGain());
 				p.PushActionWait(ACTION_NEWLIST, 1.f);
-				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 6, false);
+				p.PushActionExecuteCommand(ACTION_APPEND, CMD_HEAL, Target, 10, false);
 			}
 			else
 			{
