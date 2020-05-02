@@ -1,0 +1,284 @@
+//Script by ERS and carli96
+//Verwendung für jeden frei. ReadMe-Eintrag Pflicht
+//Veränderung unter gleichen Bedingunen
+
+const char ICON1[] = "droite"; //Démarrer l'icone de redirection
+const char ICON[] = "aim"; //Sélectionnez l'icone du point de déviation
+const char PROTO_REDIRECT_START[] = "mod:Prototypes/Objects/Equipment/redirect2.e4p"; //Premier objet de diversion au sol.
+const char PROTO_REDIRECT[] = "mod:Prototypes/Objects/Equipment/redirect.e4p"; //objets de diversion restants au sol.
+const char PROTO_SCOOP[] = "mod:Prototypes/Objects/Equipment/scoop.e4p"; //Aucun changement n'est obligatoire ici
+
+bool german = true; //true = deutsch | false = english
+//
+const char ger_redirectA[] = "Selectionnez le debut du transfert";
+const char ger_redirectB[] = "Selectionnez l'itineraire de detour, marquez la fin avec Maj + clic";
+const char ger_redirectC[] = "La redirection est activee";
+const char ger_redirectD[] = "Cible trop loin";
+const char eng_redirectA[] = "Choisissez le point de depart";
+const char eng_redirectB[] = "Choisissez des points de cheminement pour la redirection, terminez par Maj + clic de souris";
+const char eng_redirectC[] = "Redirection activee";
+const char eng_redirectD[] = "Cible trop loin";
+
+//ne change rien d'ici
+int cmdMode = 0;
+int markerMode = 2;
+
+object redirectact : CommandScript
+{
+	redirectact()
+	{
+		SetIcon(ICON1);
+		SetCursor(ICON1);
+	}
+
+	bool CheckPossible(GameObject *Caller)
+	{
+		return true;
+	}
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		cmdMode = 0;
+		markerMode = 2;
+		Caller->AssignCommand("umleiten");
+		GameObjectList gol(Caller->GetName());
+		for(int i = 0; i < gol.GetNumObjects(); i++)
+		{
+			if(StrCompare(gol.GetObject(i)->GetPrototypeFileName(), PROTO_REDIRECT) == 0 || StrCompare(gol.GetObject(i)->GetPrototypeFileName(), PROTO_REDIRECT_START) == 0)
+			{
+				gol.GetObject(i)->PushActionWait(ACTION_NEWLIST, 1);
+				gol.GetObject(i)->PushActionDeleteOwner(ACTION_APPEND);
+			}
+		}
+		Vector pos = Game::GetCommandPos();
+		if(german)
+			Game::ShowHelpTextWindow(ger_redirectA);
+		else 
+			Game::ShowHelpTextWindow(eng_redirectA);
+	}
+};
+
+object umleiten : CommandScript
+{
+	umleiten()
+	{
+		SetDeselectCaller(false);
+		SetHighlightingEnabled(false);
+		SetValidTargets(ACTOR_FLOOR | ACTOR_STREET);
+		SetPriority(20);
+		SetCursor(ICON);
+		SetCursor(ICON);
+	}	
+
+	bool CheckTarget(GameObject *Caller, Actor *Target, int childID)
+	{
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		if(childID == 0)
+		{
+			Person p(Caller);
+			Vector tpos = Game::GetCommandPos();
+			if (cmdMode == 0)
+			   	p.PushActionTurnTo(ACTION_NEWLIST, tpos);
+			if(Math::dist(tpos.x, tpos.y, p.GetPosition().x, p.GetPosition().y) < 6000.f)
+			{
+				GameObject marker;
+				GameObject mainMarker;
+				const char *mName = p.GetName();
+				if(cmdMode == 0)
+				{
+					mainMarker = Game::CreateObject(PROTO_REDIRECT_START, mName);
+					mainMarker.SetPosition(tpos + Vector(0.f,0.f,+3.f));
+					mainMarker.SetUserData(15);
+					cmdMode = 1;
+					if(german)
+						Game::ShowHelpTextWindow(ger_redirectB);
+					else 
+						Game::ShowHelpTextWindow(eng_redirectB);
+				}
+				else if(cmdMode == 1)
+				{
+					int markerID;
+					GameObjectList gList(mName);
+					for(int i = 0; i < gList.GetNumObjects(); i++)
+					{
+						if (gList.GetObject(i)->GetUserData() == 15)
+							markerID = gList.GetObject(i)->GetID();
+					}
+
+					marker = Game::CreateObject(PROTO_REDIRECT, mName);
+					markerMode++;
+					marker.SetPosition(tpos + Vector(0.f,0.f,+3.f));
+					marker.AssignCommand("dummyredirect");
+					marker.SetUserData(markerID);
+					if (Input::LShiftPressed() || Input::RShiftPressed())
+					{
+						if(german)
+							Game::ShowHelpTextWindow(ger_redirectC);
+						else 
+							Game::ShowHelpTextWindow(eng_redirectC);
+						p.SetEquipment(EQUIP_REDIRECTSIGN);
+						p.RemoveCommand("umleiten");
+						p.SetAnimation("sendvehicle");
+						p.PushActionExecuteCommand(ACTION_APPEND, "dummyumleiten", &mainMarker, 0, false);
+					}
+				}
+			}
+			else
+			{
+				if(german)
+					Game::ShowHelpTextWindow(ger_redirectD);
+				else 
+					Game::ShowHelpTextWindow(eng_redirectD);
+			}
+		}
+	}
+};
+
+object dummyumleiten : CommandScript
+{
+	dummyumleiten()
+	{
+		
+	}
+	bool CheckPossible(GameObject *Caller)
+	{
+		return true;
+	}
+
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+		if(childID == 0)
+		{
+			System::Log("ChildID 0");
+			GameObjectList gList(Caller->GetName());
+			for(int i = 0; i < gList.GetNumObjects(); i++)
+			{
+				if (gList.GetObject(i)->GetUserData() == 15)
+				{
+					GameObject DUMMY = Game::CreateObject(PROTO_SCOOP, Caller->GetName());
+					DUMMY.Hide();
+					DUMMY.SetUserData(gList.GetObject(i)->GetID());
+					DUMMY.SetPosition(gList.GetObject(i)->GetPosition());
+					DUMMY.PushActionExecuteCommand(ACTION_NEWLIST, "dummyumleiten", Caller, 1, false);
+				}
+			}
+		}
+		else if(childID == 1)
+		{
+			System::Log("ChildID 1");
+			bool predirect = false;
+			Person p(Caller);
+			GameObject main(Caller);
+			if(p.IsCurrentAnimation("sendvehicle"))
+				predirect = true;
+			else if(p.GetEquipment() == EQUIP_REDIRECTSIGN)
+				p.SetEquipment(EQUIP_NONE);
+
+			if(!predirect)
+			{
+				GameObjectList gol(main.GetName());
+				for(int i = 0; i < gol.GetNumObjects(); i++)
+				{
+					if(StrCompare(gol.GetObject(i)->GetPrototypeFileName(), PROTO_REDIRECT) == 0 || StrCompare(gol.GetObject(i)->GetPrototypeFileName(), PROTO_REDIRECT_START) == 0)
+					{
+						gol.GetObject(i)->PushActionWait(ACTION_NEWLIST, 1);
+						gol.GetObject(i)->PushActionDeleteOwner(ACTION_APPEND);
+					}
+				}
+				main.PushActionDeleteOwner(ACTION_NEWLIST);
+			}
+			else 
+			{
+				GameObjectList golRedirectVec = main.GetObjectsInRange(200.f, ACTOR_VEHICLE);
+				if(golRedirectVec.GetNumObjects() != 0)
+					System::Log("Auto dedektiert");
+				for(int i = 0; i < golRedirectVec.GetNumObjects(); i++)
+				{
+					Vehicle v = golRedirectVec.GetObject(i);
+					if(!v.IsCommandable() && !v.IsParking() && v.GetUserData() != 16)
+					{
+						v.SetUserData(16);
+						Path currentPath = v.GetObjectPath();
+						float currentSpeed = v.GetCurrentPathSpeed();
+						v.RemoveObjectPath();
+						v.ClearActions();
+						v.SetSpeed(currentSpeed);
+
+						GameObjectList gListMarker(main.GetName());
+						for(int j = 0; j < gListMarker.GetNumObjects(); j++)
+						{
+							if (!gListMarker.GetObject(j)->IsValid())
+								break;
+							if (gListMarker.GetObject(j)->GetType() == ACTOR_OBJECT)
+							{
+								if (gListMarker.GetObject(j)->HasCommand("dummyredirect"))
+	 							{
+									if (gListMarker.GetObject(j)->GetUserData() == main.GetUserData())
+										v.PushActionMove(ACTION_APPEND, gListMarker.GetObject(j)->GetPosition(), false);
+								}
+							}
+						}
+						v.PushActionExecuteCommand(ACTION_APPEND, "dummyumleiten", &currentPath, 2, false);
+					}
+				}
+				main.PushActionWait(ACTION_NEWLIST, 1);
+				main.PushActionExecuteCommand(ACTION_APPEND, "dummyumleiten", &p, 1, false);
+			}
+		}
+		else if(childID == 2)
+		{
+			if (Caller->GetType() == ACTOR_VEHICLE && Target->GetType() == ACTOR_PATH)
+			{
+				System::Log("ChildID 2");
+				bool UsePath = false;
+				Vehicle v(Caller);
+				Path path(Target);
+				ActorList al(path.GetName());
+				for(int i = 0; i < al.GetNumActors(); i++)
+				{
+					if (al.GetActor(i)->GetType() == ACTOR_PATH)
+					{
+						Path dummyPath(al.GetActor(i));
+						Vector cpos = v.GetPosition();
+						Vector nearestpos = dummyPath.GetNearestPoint(cpos);
+
+						if (Math::dist(cpos.x, cpos.y, nearestpos.x, nearestpos.y) < 1200.f)
+							UsePath = true;
+					}
+				}
+
+				if (UsePath)
+					v.PushActionUsePath(ACTION_NEWLIST, &path, true, path.GetPathSpeed(), false);
+				else
+				{
+					v.PushActionWait(ACTION_APPEND, 1);
+					v.PushActionDeleteOwner(ACTION_APPEND);
+				}
+			}
+		}
+	}
+};
+
+object dummyredirect : CommandScript
+{
+	dummyredirect()
+	{
+		SetGroupID(20);
+	}
+	bool CheckPossible(GameObject *Caller)
+	{
+		return true;
+	}
+	void PushActions(GameObject *Caller, Actor *Target, int childID)
+	{
+	}
+};

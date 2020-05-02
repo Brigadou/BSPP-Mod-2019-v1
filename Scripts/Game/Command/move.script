@@ -159,27 +159,27 @@ object MoveTo : CommandScript
 			Caller->SetEquipment(EQUIP_EMERGENCY_CASE);
 		}
 
-        // Special code for fgrr (Bergefahrzeug). Deinstalls itself automatically
-        if (mr.UnInstall) 
-        {
-            Vehicle v(Caller);
-            if (v.GetVehicleType() == VT_THW_FGRR_BKF)
-            {
-                //System::Print("FGRR: Mode 1 - DeInstall");
-                Caller->PushActionDeinstall(ACTION_INSERT);
-            }
-            else if (v.GetVehicleType() == VT_FIREFIGHTERS_DLK)
-            {
-                if (mr.BasketDown && mr.UnInstall)
-                {
-                    Caller->PushActionDeinstall(ACTION_INSERT);
-                    Caller->PushActionBasketDown(ACTION_INSERT, Vector(0.f, 0.f, 0.f));
-                }
-                else if (mr.BasketDown)
-                         Caller->PushActionBasketDown(ACTION_INSERT, Vector(0.f, 0.f, 0.f));
-                else if (mr.UnInstall)
-                         Caller->PushActionDeinstall(ACTION_INSERT);
-            }
+		// Special code for fgrr (Bergefahrzeug). Deinstalls itself automatically
+		if (mr.UnInstall) 
+		{
+			Vehicle v(Caller);
+			if (v.GetVehicleType() == VT_THW_FGRR_BKF)
+			{
+				//System::Print("FGRR: Mode 1 - DeInstall");
+				Caller->PushActionDeinstall(ACTION_INSERT);
+			}
+			else if (v.GetVehicleType() == VT_FIREFIGHTERS_DLK)
+			{
+				if (mr.BasketDown && mr.UnInstall)
+				{
+					Caller->PushActionDeinstall(ACTION_INSERT);
+					Caller->PushActionBasketDown(ACTION_INSERT, Vector(0.f, 0.f, 0.f));
+				}
+				else if (mr.BasketDown)
+				     	Caller->PushActionBasketDown(ACTION_INSERT, Vector(0.f, 0.f, 0.f));
+				else if (mr.UnInstall)
+				     	Caller->PushActionDeinstall(ACTION_INSERT);
+			}
         }
     }
 };

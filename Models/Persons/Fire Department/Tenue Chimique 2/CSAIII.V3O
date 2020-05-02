@@ -68,7 +68,7 @@
 [NUMMUSCLEFRAMES=0]
 
 SRF, in, 0, 0, 0, CSAIII_figur.bmp, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
-SRF, pa_traeger, 0, 0, 0, mod:Models/Persons/Feuerwehr/din_helm_gelb.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+SRF, pa_traeger, 0, 0, 0, din_helm_gelb.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 SRF, csa_traeger_III, 0, 0, 0, CSAIII.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 D, 289, -805, 880, 52, -217, 124, 63, 543, 0, 0, 0, 0
 D, 250, -968, -13, 24, -254, 5, 7, 547, 0, 0, 0, 0
