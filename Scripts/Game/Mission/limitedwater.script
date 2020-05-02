@@ -2,9 +2,9 @@
 
 const char PROTO_WATER_TANKER[]		= "mod:Prototypes/Vehicles/02 Fire Department/water_tanker.e4p";
 
-int MAX_WATER_ENGINE01 		= 1000;
-int MAX_WATER_ENGINE02 		= 750;
-int MAX_WATER_TANKER		= 6000;
+int MAX_WATER_ENGINE01 		= 3000;
+int MAX_WATER_ENGINE02 		= 3000;
+int MAX_WATER_TANKER		= 10000;
 
 int OUTTAKE_HOSE 			= 8;	//outtake per half second
 int OUTTAKE_TLF_CANNON 		= 20;
