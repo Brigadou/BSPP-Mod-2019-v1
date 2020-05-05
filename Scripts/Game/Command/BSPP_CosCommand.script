@@ -97,10 +97,10 @@ object COSSAP : CommandScript
 	void PushActions(GameObject *Caller, Actor *Target, int childID)
 	{
 		Caller->DisableAllCommands();
-		Caller->AssignCommand("Renfort_VSAVR");
-		Caller->EnableCommand("Renfort_VSAVR", true);
 		Caller->AssignCommand("Renfort_VSAVB");
 		Caller->EnableCommand("Renfort_VSAVB", true);
+		Caller->AssignCommand("Renfort_VSAVR");
+		Caller->EnableCommand("Renfort_VSAVR", true);
 		Caller->AssignCommand("Renfort_PSR");
 		Caller->EnableCommand("Renfort_PSR", true);
 		Caller->AssignCommand("Renfort_ARIveco");
