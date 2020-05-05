@@ -156,7 +156,7 @@ object Init_CSLAND : CommandScript
 {
 	Init_CSLAND()
 	{
-		SetIcon("CSLAND");
+		SetIcon("CSEM");
 		SetRestrictions(RESTRICT_SELFEXECUTE);
 	}
 
@@ -303,7 +303,7 @@ object Init_SAMU : CommandScript
 {
 	Init_SAMU()
 	{
-		SetIcon("samu");
+		SetIcon("initsamu");
 		SetRestrictions(RESTRICT_SELFEXECUTE);
 	}
 
@@ -327,7 +327,7 @@ object Init_TEC : CommandScript
 {
 	Init_TEC()
 	{
-		SetIcon("tec");
+		SetIcon("inittec");
 		SetRestrictions(RESTRICT_SELFEXECUTE);
 	}
 

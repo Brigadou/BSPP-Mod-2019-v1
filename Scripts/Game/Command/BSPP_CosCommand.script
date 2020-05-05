@@ -359,8 +359,6 @@ object COSMenu : CommandScript
 
 		if (StrCompare(Caller->GetPrototypeFileName(), OBJ_COS) == 0)
 		{
-			Caller->EnableCommand("MoveTo", true);
-			Caller->EnableCommand("EnterCar", true);
 			Caller->EnableCommand("Init_CSLAND", true);
 			Caller->EnableCommand("Init_CSBITCHE", true);
 			Caller->EnableCommand("Init_CSGRENELLE", true);
@@ -394,11 +392,7 @@ object COSMenuPol : CommandScript
 		Caller->EnableCommand("COSBRI", true);
 		Caller->EnableCommand("COSCRS", true);
 		Caller->EnableCommand("COSGN", true);
-		/*Caller->EnableCommand("COSGM", true);*/
-		
-		Caller->EnableCommand("MoveTo", true);
-		Caller->EnableCommand("EnterCar", true);
-		
+		/*Caller->EnableCommand("COSGM", true);*/		
 		Caller->EnableCommand("Renfort_PNDEMINAGE", true);
 		Caller->EnableCommand("Renfort_Fuite", true);
 
