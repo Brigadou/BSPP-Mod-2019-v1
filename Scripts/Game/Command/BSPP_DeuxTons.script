@@ -1084,6 +1084,18 @@ object Deux_Tons : CommandScript
 
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/gendarmerie.wav", CarPos, true);
  				}
+				
+				if (StrCompare(v.GetPrototypeFileName(), PROTO_ERDFkangoo) == 0)
+ 				{
+
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/ERDF.wav", CarPos, true);
+ 				}
+
+				if (StrCompare(v.GetPrototypeFileName(), PROTO_GRDFtrafic) == 0)
+ 				{
+
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/ERDF.wav", CarPos, true);
+ 				}
 				// Déclarations de véhicules de la police - fin
 
 				GameObject mDummy =  Game::CreateObject("mod:Prototypes/Objects/Misc/empty.e4p", NAME_DUMMYOBJECT);
