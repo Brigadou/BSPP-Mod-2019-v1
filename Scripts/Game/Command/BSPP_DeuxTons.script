@@ -25,7 +25,7 @@ const char DUMMY_FINDPATH[] = "DUMMYFindPath";
 const char CMD_MOVETO[] = "MoveTo";
 const char NAME_DUMMYOBJECT[] = "HelpingObjekt_Roger";
 
-// Déclarations de véhicules de Pompiers
+// Dï¿½clarations de vï¿½hicules de Pompiers
 const char PROTO_VLROGC[] 				= "mod:Prototypes/Vehicles/Fire Department/VLROGC.e4p";
 const char PROTO_VLRCGI[] 				= "mod:Prototypes/Vehicles/Fire Department/VLRCGI.e4p";
 const char PROTO_VLROPC[] 				= "mod:Prototypes/Vehicles/Fire Department/VLROPC.e4p";
@@ -94,7 +94,7 @@ const char PROTO_VTP[] 					= "mod:Prototypes/Vehicles/Fire Department/VTP.e4p";
 
 
 
-// Déclarations de véhicules du ambulances
+// Dï¿½clarations de vï¿½hicules du ambulances
 const char PROTO_PCMSAMU[] 			= "mod:Prototypes/Vehicles/Ambulance/PCM_samu.e4p";
 
 const char PROTO_UMHMASTER[] 		= "mod:Prototypes/Vehicles/Ambulance/SAMU_UMH_master.e4p";
@@ -122,12 +122,12 @@ const char PROTO_VRSD[] 					= "mod:Prototypes/Vehicles/Ambulance/VRSD.e4p";
 const char PROTO_PFG[] 					= "mod:Prototypes/Vehicles/Ambulance/PFG.e4p";
 
 const char PROTO_MasterPC[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_cube.e4p";
-const char PROTO_MasterPC2[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_2.e4p";
-const char PROTO_MasterPC3[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_3.e4p";
+const char PROTO_MasterPC_2[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_2.e4p";
+const char PROTO_MasterPC_3[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_3.e4p";
 const char PROTO_308PC[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_308.e4p";
 
 
-// Déclarations de véhicules de la police
+// Dï¿½clarations de vï¿½hicules de la police
 
 const char PROTO_MASTERPN[]				= "mod:Prototypes/Vehicles/Police/pn_master.e4p";
 const char PROTO_MASTERPN2[]				= "mod:Prototypes/Vehicles/Police/pn_master2.e4p";
@@ -193,7 +193,7 @@ const char PROTO_GNVBRG[]					= "mod:Prototypes/Vehicles/Police/gn_vbrg.e4p";
 
 const char PROTO_GETAWAY[]				= "mod:Prototypes/Vehicles/Police/getawaycar.e4p";
 
-// Déclarations de véhicules des Services Techniques
+// Dï¿½clarations de vï¿½hicules des Services Techniques
 const char PROTO_DEP[] 						= "mod:Prototypes/Vehicles/TEC/asf.e4p";
 const char PROTO_ERDFkangoo[] 			= "mod:Prototypes/Vehicles/TEC/erdf_kangoo.e4p";
 const char PROTO_GRDFtrafic[] 				= "mod:Prototypes/Vehicles/TEC/grdf_trafic.e4p";
@@ -201,7 +201,7 @@ const char PROTO_GRUE[] 						= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
 
 int DummyGroup = 20;
 
-// 01.0 - Déclaration de la commande Deux_Tons
+// 01.0 - Dï¿½claration de la commande Deux_Tons
 object Deux_Tons : CommandScript
 {
 	Deux_Tons()
@@ -247,7 +247,7 @@ object Deux_Tons : CommandScript
 
 
 
-				// Déclarations de véhicules Sapeurs Pompiers
+				// Dï¿½clarations de vï¿½hicules Sapeurs Pompiers
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_VLROGC) == 0)
  				{
@@ -693,13 +693,13 @@ object Deux_Tons : CommandScript
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_VAS) == 0)
  				{
 
- 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu2.wav", CarPos, true);
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu.wav", CarPos, true);
  				}
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_VRCP) == 0)
  				{
 
- 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu2.wav", CarPos, true);
+ 					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/samu.wav", CarPos, true);
  				}
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_VRM) == 0)
@@ -720,13 +720,13 @@ object Deux_Tons : CommandScript
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/vsav.wav", CarPos, true);
  				}
 
-				if (StrCompare(v.GetPrototypeFileName(), PROTO_MasterPC2) == 0)
+				if (StrCompare(v.GetPrototypeFileName(), PROTO_MasterPC_2) == 0)
  				{
 
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/vsav.wav", CarPos, true);
  				}
 
-				if (StrCompare(v.GetPrototypeFileName(), PROTO_MasterPC3) == 0)
+				if (StrCompare(v.GetPrototypeFileName(), PROTO_MasterPC_3) == 0)
  				{
 
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/vsav.wav", CarPos, true);
@@ -741,7 +741,7 @@ object Deux_Tons : CommandScript
 
 
 
-				// Déclarations de véhicules de la police - debut
+				// Dï¿½clarations de vï¿½hicules de la police - debut
 
 				if (StrCompare(v.GetPrototypeFileName(), PROTO_MASTERPN) == 0)
  				{
@@ -1096,7 +1096,7 @@ object Deux_Tons : CommandScript
 
  					soundID = Audio::PlaySample3D("mod:Audio/FX/Sirene/ERDF.wav", CarPos, true);
  				}
-				// Déclarations de véhicules de la police - fin
+				// Dï¿½clarations de vï¿½hicules de la police - fin
 
 				GameObject mDummy =  Game::CreateObject("mod:Prototypes/Objects/Misc/empty.e4p", NAME_DUMMYOBJECT);
 
@@ -1142,7 +1142,7 @@ object Deux_Tons : CommandScript
 	}
 };
 
-// 01.1 - Déclaration de la commande DUMMYUpdatePos
+// 01.1 - Dï¿½claration de la commande DUMMYUpdatePos
 object DUMMYUpdatePos : CommandScript
 {
 	DUMMYUpdatePos()
@@ -1212,7 +1212,7 @@ object DUMMYUpdatePos : CommandScript
 	}
 };
 
-// 01.2 - Déclaration de la commande DUMMYDisableSiren
+// 01.2 - Dï¿½claration de la commande DUMMYDisableSiren
 object DUMMYDisableSiren : CommandScript
 {
 	DUMMYDisableSiren()
@@ -1256,7 +1256,7 @@ object DUMMYDisableSiren : CommandScript
 	}
 };
 
-// 01.3 - Déclaration de la commande DUMMYFindPath
+// 01.3 - Dï¿½claration de la commande DUMMYFindPath
 object DUMMYFindPath : CommandScript
 {
 	DUMMYFindPath()
@@ -1274,7 +1274,7 @@ object DUMMYFindPath : CommandScript
 	}
 };
 
-// 01.4 - Déclaration de la commande DUMMYHasSiren
+// 01.4 - Dï¿½claration de la commande DUMMYHasSiren
 object DUMMYHasSiren : CommandScript
 {
 	DUMMYHasSiren()

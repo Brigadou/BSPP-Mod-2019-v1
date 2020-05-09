@@ -69,7 +69,7 @@
   
 	<events>
 	
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventFall>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -79,7 +79,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventFall>
 		
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventShock>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -89,7 +89,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventShock>
 		
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventCirculatoryCollapse>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -99,7 +99,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventCirculatoryCollapse>
 		
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventFoodPoisoning>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -109,7 +109,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventFoodPoisoning>
 		
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventHeartAttack>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -119,7 +119,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventHeartAttack>
 		
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventStroke>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -129,7 +129,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventStroke>
 		
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventFlashStrike>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes (gets multiplied by timezone parameter "flash/frequenceyfactor") -->
@@ -142,7 +142,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventFlashStrike>
 		
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPRandomFire>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -152,7 +152,7 @@
 			<SupervisorFinish value = "" />
 		</EFPRandomFire>
 			
-		<!-- JH -->
+		<!-- Mission SP -->
 		<EFPEventCigarette>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -164,9 +164,9 @@
 			<SupervisorFinish value = "" />
 		</EFPEventCigarette>
 		
-		<!-- JH -->
+		<!-- Mission PN -->
 		<EFPEventShopLifting>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "2.0" /> 
 			<!-- IsArmed: probability in percent -->
@@ -182,9 +182,9 @@
 			<SupervisorFinish value = "" />
 		</EFPEventShopLifting>
 		
-		<!-- JH -->
+		<!-- Mission PN -->
 		<EFPEventCarTheft>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "0.5" />
 			<!-- MaxRadius: in meter (max. distance between committer and car) -->
@@ -196,7 +196,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventCarTheft>
 		
-		<!-- DG -->
+		<!-- Mission SP -->
 		<EFPEventCarAccident>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -220,9 +220,9 @@
 			<SupervisorFinish value = "" />
 		</EFPCarAccidentNoWater>
 		
-		<!-- DG -->
+		<!-- Mission PN -->
 		<EFPRabidDog>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "1.5" />
 			<!-- Resistance against energy -->
@@ -236,7 +236,7 @@
 			<SupervisorFinish value = "" />
 		</EFPRabidDog>
 				
-		<!-- DG -->
+		<!-- Mission TEC -->
 		<EFPEventTrafficLightFailure>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -246,9 +246,9 @@
 			<SupervisorFinish value = "" />
 		</EFPEventTrafficLightFailure>
 		
-		<!-- DG -->
+		<!-- Mission PN -->
 		<EFPRowdy>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "1.0" />
 			<!-- Resistance against energy -->
@@ -262,9 +262,9 @@
 			<SupervisorFinish value = "" />
 		</EFPRowdy>
 		
-		<!-- DG -->
+		<!-- Mission PN -->
 		<EFPBomber>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "0.8" />
 			<!-- MaxDistance: in meter (max. way between bomb and bomber) -->
@@ -282,9 +282,9 @@
 			<SupervisorFinish value = "" />
 		</EFPBomber>		
 		
-		<!-- DG -->
+		<!-- Mission PN -->
 		<EFPHostageTaking>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "1.0" />
 			<!-- Time to send a flight car -->
@@ -298,7 +298,7 @@
 			<SupervisorFinish value = "" />
 		</EFPHostageTaking>
 		
-		<!-- DG -->
+		<!-- Mission PN et SP -->
 		<EFPArsonist>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -314,9 +314,9 @@
 			<SupervisorFinish value = "" />
 		</EFPArsonist>
 		
-		<!-- DG -->
+		<!-- Mission PN -->
 		<EFPDemonstration>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "2.0" />
 			<!-- MaxDistance: in meter (max. distance between committer and victim) -->
@@ -333,9 +333,9 @@
 			<SupervisorFinish value = "" />
 		</EFPDemonstration>
 		
-		<!-- DG -->
+		<!-- Mission PN -->
 		<EFPBankRobbery>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "1.0" />
 			<!-- Time to stay in bank -->
@@ -349,9 +349,9 @@
 			<SupervisorFinish value = "" />
 		</EFPBankRobbery>
 		
-		<!-- DG -->
+		<!-- Mission PN -->
 		<EFPPickpocketing>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "2.0" />
 			<!-- MaxDistance: in meter (max. distance between committer and victim) -->
@@ -365,7 +365,7 @@
 			<SupervisorFinish value = "" />
 		</EFPPickpocketing>
 		
-		<!-- DG -->
+		<!-- Mission SP -->
 		<EFPEventSuicideDrowning>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -376,7 +376,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventSuicideDrowning>
 		
-		<!-- DG -->
+		<!-- Mission PN et SP-->
 		<EFPEventSuicideTrack>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -388,7 +388,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventSuicideTrack>
 
-		<!-- DG -->
+		<!-- Mission SP -->
 		<EFPEventSuicideWindow>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -401,7 +401,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventSuicideWindow>
 		
-		<!-- AE -->
+		<!-- Mission TEC -->
 		<EFPEventCivilcarDefect>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -413,7 +413,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEventCivilcarDefect>
 		
-		<!-- AE -->
+		<!-- Mission SP -->
 		<EFPGasExplosion>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -423,7 +423,7 @@
 			<SupervisorFinish value = "" />
 		</EFPGasExplosion>
 		
-		<!-- AE -->
+		<!-- Mission SP -->
 		<EFPEventShortCircuit>
 			<Enabled value = "1" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -437,9 +437,9 @@
 			<SupervisorFinish value = "" />
 		</EFPEventShortCircuit>
 		
-		<!-- AE -->
+		<!-- Mission PN -->
 		<EFPRunningAmok>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "0.5" />
 			<!-- ReactionRange: in meters -->
@@ -461,9 +461,9 @@
 			<SupervisorFinish value = "" />
 		</EFPRunningAmok>
 		
-		<!-- AE -->
+		<!-- Mission PN -->
 		<EFPBecomingMurderer>
-			<Enabled value = "1" />
+			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
 			<AverageFrequency value = "2.0" />
 			<!-- MaxDistanceToVictim: in meter -->
@@ -475,7 +475,7 @@
 			<SupervisorFinish value = "" />
 		</EFPBecomingMurderer>
 		
-		<!-- AE -->
+		<!-- Mission tremblement terre -->
 		<EFPEarthquake>
 			<Enabled value = "0" />
 			<!-- AverageFrequency: average number of events per 10 minutes -->
@@ -493,6 +493,7 @@
 			<SupervisorFinish value = "" />
 		</EFPEarthquake>
 		
+		<!-- Mission TEC -->		
 		<EFPEventRailwayCrossingFailure> <!-- Bahnschranke defekt -->
 			<Enabled value = "0" />
 			<AverageFrequency value = "5.0" />
@@ -500,9 +501,10 @@
 			<SupervisorStart value = "ID_SUPERV_EVENT38" />
 			<SupervisorFinish value = "" />
 		</EFPEventRailwayCrossingFailure>
-                
-                <EFPBirdFlu> <!-- Vogelgrippe -->
-                      <Enabled value = "1" />
+  
+ 		<!-- Mission SP (grippe aviaire) --> 
+            <EFPBirdFlu> <!-- Vogelgrippe -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D01" />
@@ -510,9 +512,10 @@
 			<!-- ContamRange: in meter -->
 			<ContamRange value = "5.0" />
 		</EFPBirdFlu>
-		
-		<EFPHail> <!-- Hagelschauer -->
-                        <Enabled value = "1" />
+
+		<!-- Mission SP -->		
+			<EFPHail> <!-- Hagelschauer -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D02" />
@@ -526,9 +529,10 @@
 			<!-- MaxDamagedVehicles: maximale Anzahl zerstörter Fahrzeuge -->
 			<MaxDamagedVehicles value = "1" />
 		</EFPHail>
-		
-		<EFPAmokDrive> <!-- Amokfahrt -->
-                        <Enabled value = "1" />
+
+		<!-- Mission PN -->		
+			<EFPAmokDrive> <!-- Amokfahrt -->
+            <Enabled value = "0" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D03" />
@@ -536,9 +540,10 @@
 			<!-- MaxPathDistance: in units -->
 			<MaxPathDistance value = "1000.0" />
 		</EFPAmokDrive>
-		
-		<EFPTrafficJam> <!-- Stau -->
-                        <Enabled value = "1" />
+
+		<!-- Mission PN -->		
+			<EFPTrafficJam> <!-- Stau -->
+            <Enabled value = "0" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D05" />
@@ -550,17 +555,19 @@
 			<!-- CountdownTime: Zeit in der Stau aufgelöst werden muss (in sec.) -->
 			<CountdownTime value = "180.0" />
 		</EFPTrafficJam>
-		
-		<EFPHydrantDamaged> <!-- Defekter Hydrant -->
-                        <Enabled value = "1" />
+
+		<!-- Mission SP et TEC -->		
+			<EFPHydrantDamaged> <!-- Defekter Hydrant -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D06" />
 			<SupervisorFinish value = "" />
 		</EFPHydrantDamaged>
-		
-		<EFPSaboteur> <!-- Saboteur -->
-                        <Enabled value = "1" />
+
+		<!-- Mission PN -->		
+			<EFPSaboteur> <!-- Saboteur -->
+            <Enabled value = "0" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D04" />
@@ -572,9 +579,10 @@
 			<!-- AverageTimeTillExplode: Mittlere Zeit bis sabotiertes Fahrzeug explodiert (in sec.) -->
 			<AverageTimeTillExplode value = "60.0" />
 		</EFPSaboteur>
-		
-		<EFPElectricShock> <!-- Stromschlag -->
-                        <Enabled value = "1" />
+
+		<!-- Mission SP -->		
+			<EFPElectricShock> <!-- Stromschlag -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D11" />
@@ -582,9 +590,10 @@
 			<!-- AreaRadius: Bereich in dem Personen verletzt werden (in units) -->
 			<AreaRadius value = "250.0" />
 		</EFPElectricShock>
-		
-		<EFPSniper> <!-- Scharfschütze -->
-                        <Enabled value = "1" />
+
+		<!-- Mission PN -->		
+			<EFPSniper> <!-- Scharfschütze -->
+            <Enabled value = "0" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D10" />
@@ -596,9 +605,10 @@
 			<!-- CivilsFleeRange: Fluchtradius für Zivilisten un meter -->
 			<CivilsFleeRange value = "12.0" />
 		</EFPSniper>
-		
-		<EFPMissingPerson> <!-- Vermisste Person -->
-                        <Enabled value = "1" />
+
+		<!-- Mission SP -->		
+			<EFPMissingPerson> <!-- Vermisste Person -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "3.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D07" />
@@ -606,9 +616,10 @@
 			<!-- InjureFactor: Grad der Verletzung (0..1) -->
 			<InjureFactor value = "0.5" />
 		</EFPMissingPerson>
-		
-		<EFPHomicide> <!-- Mordopfer -->
-                        <Enabled value = "1" />
+
+		<!-- Mission PN -->		
+			<EFPHomicide> <!-- Mordopfer -->
+            <Enabled value = "0" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D08" />
@@ -616,9 +627,10 @@
 			<!-- AttractorRadius: Bereich in dem Helfer gesucht werden (in units) -->
 			<AttractorRadius value = "1000.0" />
 		</EFPHomicide>
-		
-		<EFPRadioactiveCloud> <!-- Radioaktive Wolke -->
-                        <Enabled value = "1" />
+
+		<!-- Mission SP NRBC -->		
+			<EFPRadioactiveCloud> <!-- Radioaktive Wolke -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D09" />
@@ -626,9 +638,10 @@
 			<!-- ContaminationRadius: Bereich in dem Personen kontaminiert werden (in units) -->
 			<ContaminationRadius value = "1000.0" />
 		</EFPRadioactiveCloud>
-		
-		<EFPZombie> <!-- Zombies -->
-                        <Enabled value = "1" />
+
+		<!-- Mission PN et SP-->		
+			<EFPZombie> <!-- Zombies -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D12" />
@@ -636,9 +649,10 @@
 			<!-- IgnoreDate: Nur an Halloween/Immer -->
 			<IgnoreDate value = "0" />
 		</EFPZombie>
-		
-		<EFPZombie> <!-- Silvester -->
-                        <Enabled value = "1" />
+
+		<!-- Mission PN et SP -->		
+			<EFPZombie> <!-- Silvester -->
+            <Enabled value = "1" />
 			<AverageFrequency value = "1.0" />
 			<Worth value = "5.0" />
 			<SupervisorStart value = "ID_SUPERV_EVENT_D13" />
@@ -674,7 +688,7 @@
     </weather>
 	
     <weather name="cloudy" changeduration="15.0" minduration="60" maxduration="180">
-      <fog intensity="0.3" color="7F7F7F" />
+      <fog intensity="0.0" color="7F7F7F" />
       <rain intensity="0.0" />
       <storm intensity="0.0" speed="0.0" />
       <flash frequencyfactor="0.0" />
@@ -686,14 +700,14 @@
     </weather>
 	
     <weather name="misty" changeduration="7.0" minduration="30" maxduration="90">
-      <fog intensity="0.7" color="a0a0a0" />
+      <fog intensity="0.0" color="a0a0a0" />
       <rain intensity="0.0" />
       <storm intensity="0.0" speed="0.0" />
       <flash frequencyfactor="0.0" />
       <sound name="" />
       <sound2 name="" />
       <transition state="fair" weight="0.5" />
-      <transition state="cloudy" weight="1.0" />
+      <transition state="cloudy" weight="0.0" />
       <transition state="light rain" weight="1.0" />
     </weather>
 	
