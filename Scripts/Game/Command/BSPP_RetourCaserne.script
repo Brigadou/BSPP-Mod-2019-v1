@@ -630,44 +630,6 @@ object VcmdToFireStation : CommandScript
 			return;
 		}
 
-		//ERDF 1 R  TEC
-		//ERDF 2 R  TEC
-		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
-		{
-			GameObjectList l1;
-			bool exitLoop = false;
-			
-			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_TEC, l1, ACTOR_VEHICLE);
-			for (int i = 0; i < l1.GetNumObjects(); i++)
-			{
-				GameObject *veh = l1.GetObject(i);
-				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
-					exitLoop=true;
-			}
-			
-			if (!exitLoop) {
-				FirstReturnParking(Caller, "ERDF_1", VO_SQUAD_TEC, PROTO_ERDF, "VO_ERDF_1_R", "");
-				return;
-			}
-			exitLoop = false; //Reset de la boucle
-			Game::CollectObstaclesOnVirtualObject(VO_SQUAD_TEC, l1, ACTOR_VEHICLE);
-			for (int i = 0; i < l1.GetNumObjects(); i++)
-			{
-				GameObject *veh = l1.GetObject(i);
-				if(StrCompare(veh->GetPrototypeFileName(), v.GetPrototypeFileName()) == 0)
-					exitLoop=true;
-			}
-			
-			if (!exitLoop) {
-				FirstReturnParking(Caller, "ERDF_2", VO_SQUAD_TEC, PROTO_ERDF, "VO_ERDF_2_R", ""); 
-				return;
-			}
-
-			Mission::PlayHint(HINT_NOSPACE);
-			v.PushActionReturnToBase(ACTION_NEWLIST);
-			return;
-		}
-
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ADPC_Master) == 0)
 		{
 			FirstReturnParking(Caller, "MasterPC", VO_SQUAD_EM, PROTO_ADPC_Master, "VO_MasterPC_R", "");
@@ -774,14 +736,25 @@ object VcmdToFireStation : CommandScript
 		{
 			FirstReturnParking(Caller, "UMH_sprinter", VO_SQUAD_SAMU, PROTO_UMHSPRINTER, "VO_UMH_merco_R", "");
 		}
+
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_VLMKANGOO) == 0)
 		{
 			FirstReturnParking(Caller, "VLM_kangoo", VO_SQUAD_SAMU, PROTO_VLMKANGOO, "VO_VLMkangoo_R", "");
 		}
-		
+
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
+		{
+			FirstReturnParking(Caller, "ERDF_1", VO_SQUAD_TEC, PROTO_GRDF, "VO_ERDF_1_R", "");
+		}
+
+		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
+		{
+			FirstReturnParking(Caller, "ERDF_2", VO_SQUAD_TEC, PROTO_GRDF, "VO_ERDF_2_R", "");
+		}
+
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_GRDF) == 0)
 		{
-			FirstReturnParking(Caller, "GRDF", VO_SQUAD_SAMU, PROTO_GRDF, "VO_GRDF_R", "");
+			FirstReturnParking(Caller, "GRDF", VO_SQUAD_TEC, PROTO_GRDF, "VO_GRDF_R", "");
 		}
 
 		else
@@ -1245,15 +1218,15 @@ object DummyCheckParked : CommandScript
 		//TEC
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
 		{
-			EndReturnParking(Caller, "ERDF_1", VO_SQUAD_SAMU);
+			EndReturnParking(Caller, "ERDF_1", VO_SQUAD_TEC);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_ERDF) == 0)
 		{
-			EndReturnParking(Caller, "ERDF_2", VO_SQUAD_SAMU);
+			EndReturnParking(Caller, "ERDF_2", VO_SQUAD_TEC);
 		}
 		else if(StrCompare(v.GetPrototypeFileName(), PROTO_GRDF) == 0)
 		{
-			EndReturnParking(Caller, "GRDF", VO_SQUAD_SAMU);
+			EndReturnParking(Caller, "GRDF", VO_SQUAD_TEC);
 		}
 	}
 };
