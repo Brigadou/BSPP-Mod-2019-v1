@@ -44,7 +44,7 @@ object Feu_2cl : CommandScript
 
 		Vehicle v(Target);
 
-		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF || v.GetVehicleType() == VT_FIREFIGHTERS_DEKONP)
 		{
 			return true;
 		}
@@ -82,7 +82,7 @@ object ARI_2cl : CommandScript
 
 		Vehicle v(Target);
 
-		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF || v.GetVehicleType() == VT_FIREFIGHTERS_DEKONP)
 		{
 			return true;
 		}
@@ -120,7 +120,7 @@ object Gilet_2cl : CommandScript
 
 		Vehicle v(Target);
 
-		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF || v.GetVehicleType() == VT_FIREFIGHTERS_DEKONP)
 		{
 			return true;
 		}
@@ -234,7 +234,7 @@ object Tenue_F1 : CommandScript
 
 		Vehicle v(Target);
 
-		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF || v.GetVehicleType() == VT_FIREFIGHTERS_DEKONP)
 		{
 			return true;
 		}
@@ -272,7 +272,7 @@ object ChangeToNBC : CommandScript
 
 		Vehicle v(Target);
 
-		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF)
+		if (v.IsValid() && !v.IsDestroyed() && v.GetVehicleType() == VT_FIREFIGHTERS_RW || v.GetVehicleType() == VT_FIREFIGHTERS_GTF || v.GetVehicleType() == VT_FIREFIGHTERS_DLK || v.GetVehicleType() == VT_FIREFIGHTERS_TLF || v.GetVehicleType() == VT_FIREFIGHTERS_LPF || v.GetVehicleType() == VT_FIREFIGHTERS_DEKONP)
 		{
 			return true;
 		}
@@ -565,7 +565,7 @@ object DummyChange : CommandScript
             }			
             if(childID == 7)
             {
-            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/tenue_nbc.e4p", Target->GetName());
+            	p = Game::CreatePerson("mod:Prototypes/Persons/Fire Department/tenue_nrbc.e4p", Target->GetName());
             }
             if(childID == 8)
             {

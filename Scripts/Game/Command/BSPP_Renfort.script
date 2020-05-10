@@ -63,6 +63,7 @@ const char OBJ_FEUCPT[]					= "mod:Prototypes/Persons/Fire Department/feu_cpt.e4
 const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
 const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
+const char OBJ_F1[]					= "mod:Prototypes/Persons/Fire Department/tenue_f1.e4p";
 
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/bspp_grdf.e4p";
@@ -367,6 +368,7 @@ class ClassRenfort: CommandScript
 			case 57 : return OBJ_DDE;break;
 			case 58 : return OBJ_DDE2;break;
 			case 60 : return OBJ_POMPE;break;
+			case 61 : return OBJ_F1;break;
 			default :
 				System::Log("[RENFORT] un child Id n'a pas été trouvé");
 				return;
@@ -1815,7 +1817,7 @@ object Renfort_CICCIB : CommandScript
 
 	void PushActions(GameObject *Caller, Actor *Target, int ChildID)
 	{
-		int personnelVehicule[6] = {22,22,22,22,22,0};
+		int personnelVehicule[6] = {61,61,61,0,0,0};
 		char * listSquadVO[] = {sNULL, sNULL, sNULL};
 		
 		ClassRenfort::Renfort(Caller, Game::GetCommandPos(), PROTO_CICCIB, VT_FIREFIGHTERS_DEKONP, listSquadVO, personnelVehicule, 5, 2);

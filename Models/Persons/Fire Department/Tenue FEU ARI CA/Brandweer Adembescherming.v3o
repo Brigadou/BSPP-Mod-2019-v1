@@ -9,10 +9,10 @@
 [NUMMUSCLEANIMS=0]
 [NUMMUSCLEFRAMES=0]
 
-SRF, FM_MASK_1, 0, 0, 0, AGT_2eme_cl.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
-SRF, FM_MASK_2, 0, 0, 0, HELMET.jpg, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
-SRF, FM_MASK_3, 0, 0, 0, BA_Mask.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
-SRF, FM_MASK_4, 0, 0, 0, AGT.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+SRF, FM_MASK_1, 0, 0, 0, Brandweer Adembescherming.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+SRF, FM_MASK_2, 0, 0, 0, HELMET.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+SRF, FM_MASK_3, 0, 0, 0, MASK.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+SRF, FM_MASK_4, 0, 0, 0, Brandweer Adembescherming.png, 517, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 D, -684, 771, 159, -51, 235, -87, 784, 690, 0, 0, 0, 0
 D, -684, 771, -155, 11, 248, 61, 237, 690, 0, 0, 0, 0
 D, -643, 944, 161, -2, 255, 1, 257, 684, 0, 0, 0, 0

@@ -33,6 +33,7 @@ const char OBJ_FEUCPT[]					= "mod:Prototypes/Persons/Fire Department/feu_cpt.e4
 const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
 const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
+const char OBJ_F1[]					= "mod:Prototypes/Persons/Fire Department/tenue_f1.e4p";
 
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/bspp_grdf.e4p";
@@ -287,6 +288,8 @@ object DummyCallCrew : CommandScript
 			Person p = Game::CreatePerson(OBJ_DEPANNEUR, UNNAMED);
 		else if (ChildID == 60)
 			Person p = Game::CreatePerson(OBJ_POMPE, UNNAMED);
+		else if (ChildID == 61)
+			Person p = Game::CreatePerson(OBJ_F1, UNNAMED);
 		else
 			return;
 
