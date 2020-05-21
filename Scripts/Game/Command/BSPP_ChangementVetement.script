@@ -435,7 +435,7 @@ object Feu_ca : CommandScript
 	{
 		Caller->PushActionMove(ACTION_NEWLIST, Target, TARGET_PASSENGERDOOR);
 		Caller->PushActionTurnTo(ACTION_APPEND, Target);
-            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 1, false);
+            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 11, false);
 	}
 };
 
@@ -473,7 +473,7 @@ object ARI_ca : CommandScript
 	{
 		Caller->PushActionMove(ACTION_NEWLIST, Target, TARGET_PASSENGERDOOR);
 		Caller->PushActionTurnTo(ACTION_APPEND, Target);
-            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 2, false);
+            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 12, false);
 	}
 };
 
@@ -511,7 +511,7 @@ object Gilet_ca : CommandScript
 	{
 		Caller->PushActionMove(ACTION_NEWLIST, Target, TARGET_PASSENGERDOOR);
 		Caller->PushActionTurnTo(ACTION_APPEND, Target);
-            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 3, false);
+            Caller->PushActionExecuteCommand(ACTION_APPEND, DUMMYCHANGE, Target, 13, false);
 	}
 };
 
