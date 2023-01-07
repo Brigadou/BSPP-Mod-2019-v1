@@ -18,35 +18,35 @@ const char DUMMY_HASSIREN[] 			= "DummyHasSiren";
 const char DUMMY_PATROL[] 				= "DummyPatrol";
 
 
-const char HINT_FEULEGER[] 								= "DEPART FEU LEGER ! PSE au depart";
-const char HINT_NORMAL[] 								= "DEPART NORMAL ! FPT - PS - EPA - VLRCGI au depart";
-const char HINT_RENFORTINCENDIE[] 				= "RENFORT INCENDIE ! FPT - PS - EPA - EPA - EPA - CA - CESD - VSAV - AR - CD - PEV - 1 GRCP (VSAV - CRAC) au depart";
-const char HINT_RENFORTHABITATION[] 			= "RENFORT HABITATION ! FPT - FPT - PS - PS - PS - EPA - EPA - VSAV - VSAV - AR - AR - PEV - CESD - CD - 1 GRCP (VSAV - CRAC) au depart";
-const char HINT_RENFORTANTICIPATION[] 		= "RENFORT ANTICIPATION ! FPT - EPA - VSAV - AR - CRAC - EDF au depart";
-const char HINT_RENFORTCOMMANDEMENT[] 		= "RENFORT COMMANDEMENT ! PC - VPCM - SPVLKangoo - SPVLClio au depart";
+const char HINT_FEULEGER[] 									= "DEPART FEU LEGER ! PSE au depart";
+const char HINT_NORMAL[] 									= "DEPART NORMAL ! FPT - PS - EPA - VLRCGI au depart";
+const char HINT_RENFORTINCENDIE[] 							= "RENFORT INCENDIE ! FPT - PS - EPA - EPA - EPA - CA - CESD - VSAV - AR - CD - PEV - 1 GRCP (VSAV - CRAC) au depart";
+const char HINT_RENFORTHABITATION[] 						= "RENFORT HABITATION ! FPT - FPT - PS - PS - PS - EPA - EPA - VSAV - VSAV - AR - AR - PEV - CESD - CD - 1 GRCP (VSAV - CRAC) au depart";
+const char HINT_RENFORTANTICIPATION[] 						= "RENFORT ANTICIPATION ! FPT - EPA - VSAV - AR - CRAC - EDF au depart";
+const char HINT_RENFORTCOMMANDEMENT[] 						= "RENFORT COMMANDEMENT ! PC - VPCM - SPVLKangoo - SPVLClio au depart";
 const char HINT_SRM[] 										= "DEPART SECOURS ROUTIER MOYEN ! CD - VSAV - PS - VPS au depart";
-const char HINT_SRLO[] 									= "DEPART SECOURS ROUTIER LOURD ! CD - VSAV - PS - AR - VPS au depart";
+const char HINT_SRLO[] 										= "DEPART SECOURS ROUTIER LOURD ! CD - VSAV - PS - AR - VPS au depart";
 const char HINT_SRA[] 										= "DEPART SECOURS ROUTIER AQUATIQUE ! CD - VSAV - SIS - CSP - VPS - AR au depart";
 const char HINT_UM[] 										= "DEPART URGENCE MEDICAL ! AR au depart";
 const char HINT_SM[] 										= "DEPART SECOURS MEDICAL ! VSAV au depart";
-const char HINT_SUICIDE[] 								= "DEPART TENTATIVE SUICIDE ! EPA - PSE5 - VSAV - KangooPN - VIMP - VAG  au depart";
+const char HINT_SUICIDE[] 									= "DEPART TENTATIVE SUICIDE ! EPA - PSE5 - VSAV - KangooPN - VIMP - VAG  au depart";
 const char HINT_GIFF[]										= "GROUPE INTERVENTION FEU FORET ! CCR - CCR - SPVLKangoo - CCR - CCR au depart";
-const char HINT_NRBC[]									= "DEPART NRBC ! CIC CIB - CIC CRR - VANRBC - VDIP - FPT - PS - AR - AR - VSAV - VSAV - VSAV - PSR - PSR au depart";
+const char HINT_NRBC[]										= "DEPART NRBC ! CIC CIB - CIC CRR - VANRBC - VDIP - FPT - PS - AR - AR - VSAV - VSAV - VSAV - PSR - PSR au depart";
 
 	
 const char SND_FEULEGER[]									= "mod:Audio/FX/depart/PSE.wav";
-const char SND_NORMAL[]									= "mod:Audio/FX/depart/DN.wav";
-const char SND_RENFORTINCENDIE[]					= "mod:Audio/FX/depart/DN2.wav";
-const char SND_RENFORTHABITATION[]				= "mod:Audio/FX/depart/DG.wav";
-const char SND_RENFORTANTICIPATION[]			= "mod:Audio/FX/depart/E.wav";
-const char SND_RENFORTCOMMANDEMENT[]		= "mod:Audio/FX/depart/VLR.wav";
-const char SND_SECOURROUTIERMOYEN[]			= "mod:Audio/FX/depart/VID.wav";
-const char SND_SECOUROUTIERLOURD[]				= "mod:Audio/FX/depart/FACA.wav";
-const char SND_SECOUROUTIERAQUATIQUE[]		= "mod:Audio/FX/depart/CA.wav";
-const char SND_URGENCEMEDICALE[]					= "mod:Audio/FX/depart/AR1.wav";
-const char SND_SECOURSMEDICALE[]					= "mod:Audio/FX/depart/VSAV1.wav";
-const char SND_TENTATIVEDESUICIDE[]				= "mod:Audio/FX/depart/VSAVrenfort.wav";	
-const char SND_GIFF[]											= "mod:Audio/FX/depart/RonfleurLong.wav";
+const char SND_NORMAL[]										= "mod:Audio/FX/depart/DN.wav";
+const char SND_RENFORTINCENDIE[]							= "mod:Audio/FX/depart/DN2.wav";
+const char SND_RENFORTHABITATION[]							= "mod:Audio/FX/depart/DG.wav";
+const char SND_RENFORTANTICIPATION[]						= "mod:Audio/FX/depart/E.wav";
+const char SND_RENFORTCOMMANDEMENT[]						= "mod:Audio/FX/depart/VLR.wav";
+const char SND_SECOURROUTIERMOYEN[]							= "mod:Audio/FX/depart/VID.wav";
+const char SND_SECOUROUTIERLOURD[]							= "mod:Audio/FX/depart/FACA.wav";
+const char SND_SECOUROUTIERAQUATIQUE[]						= "mod:Audio/FX/depart/CA.wav";
+const char SND_URGENCEMEDICALE[]							= "mod:Audio/FX/depart/AR1.wav";
+const char SND_SECOURSMEDICALE[]							= "mod:Audio/FX/depart/VSAV1.wav";
+const char SND_TENTATIVEDESUICIDE[]							= "mod:Audio/FX/depart/VSAVrenfort.wav";	
+const char SND_GIFF[]										= "mod:Audio/FX/depart/RonfleurLong.wav";
 const char SND_NRBC[]										= "mod:Audio/FX/depart/RonfleurLong.wav";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

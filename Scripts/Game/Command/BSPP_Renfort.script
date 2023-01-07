@@ -36,8 +36,8 @@ const char VO_SQUAD_SAMU[] 				= "VO_SQUAD_SAMU";
 const char sNULL[]						= "";
 
 
-const char OBJ_SAMUBRA[]			= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
-const char OBJ_SAMUMED[]			= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
+const char OBJ_SAMUBRA[]				= "mod:Prototypes/Persons/Ambulance/bran_samu.e4p";
+const char OBJ_SAMUMED[]				= "mod:Prototypes/Persons/Ambulance/medecin_samu.e4p";
 const char OBJ_SAMUINF[]				= "mod:Prototypes/Persons/Ambulance/infirmier_samu.e4p";
 const char OBJ_POMPE[]					= "mod:Prototypes/Persons/PFG/pompe.e4p";
 
@@ -63,37 +63,37 @@ const char OBJ_FEUCPT[]					= "mod:Prototypes/Persons/Fire Department/feu_cpt.e4
 const char OBJ_FDF[]					= "mod:Prototypes/Persons/Fire Department/feu_fdf.e4p";
 const char OBJ_ARI[]					= "mod:Prototypes/Persons/Fire Department/ari.e4p";
 const char OBJ_ARICA[]					= "mod:Prototypes/Persons/Fire Department/ari_ca.e4p";
-const char OBJ_F1[]					= "mod:Prototypes/Persons/Fire Department/tenue_f1.e4p";
+const char OBJ_F1[]						= "mod:Prototypes/Persons/Fire Department/tenue_f1.e4p";
 
 const char OBJ_ERDF[]					= "mod:Prototypes/Persons/TEC/bspp_erdf.e4p";
 const char OBJ_GRDF[]					= "mod:Prototypes/Persons/TEC/bspp_grdf.e4p";
 const char OBJ_DIR[]					= "mod:Prototypes/Persons/TEC/DIR.e4p";
 const char OBJ_DDE[]					= "mod:Prototypes/Persons/TEC/bspp_dde1.e4p";
 const char OBJ_DDE2[]					= "mod:Prototypes/Persons/TEC/bspp_dde2.e4p";
-const char OBJ_DEPANNEUR[]		= "mod:Prototypes/Persons/TEC/depanneur.e4p";
+const char OBJ_DEPANNEUR[]				= "mod:Prototypes/Persons/TEC/depanneur.e4p";
 
 const char OBJ_BAC[]					= "mod:Prototypes/Persons/Police/bac.e4p";
 const char OBJ_BACF[]					= "mod:Prototypes/Persons/Police/bac_f.e4p";
 const char OBJ_BRI[]					= "mod:Prototypes/Persons/Police/bureau_brigadier.e4p";
 const char OBJ_CRS[]					= "mod:Prototypes/Persons/P_BEPO1_0/p1000_0BP_00.e4p";
-const char OBJ_CRSMOB[]			= "mod:Prototypes/Persons/P_BEPO1_0/p1000_0BP_21.e4p";
+const char OBJ_CRSMOB[]					= "mod:Prototypes/Persons/P_BEPO1_0/p1000_0BP_21.e4p";
 const char OBJ_DEM[]					= "mod:Prototypes/Persons/Police/deminage.e4p";
-const char OBJ_GENNEG[]				= "mod:Prototypes/Persons/Police/gend_negociateur.e4p";
+const char OBJ_GENNEG[]					= "mod:Prototypes/Persons/Police/gend_negociateur.e4p";
 const char OBJ_GEN[]					= "mod:Prototypes/Persons/Police/tenue_gn.e4p";
 const char OBJ_GEN2[]					= "mod:Prototypes/Persons/Police/tenue_gn2.e4p";
 const char OBJ_GEN3[]					= "mod:Prototypes/Persons/Police/tenue_gn3.e4p";
-const char OBJ_GENMOB[]			= "mod:Prototypes/Persons/P_BEPO1_1/P1120_0BP_21.e4p";
+const char OBJ_GENMOB[]					= "mod:Prototypes/Persons/P_BEPO1_1/P1120_0BP_21.e4p";
 const char OBJ_PSIG[]					= "mod:Prototypes/Persons/Police/tenue_psig.e4p";
-const char OBJ_GIGNNEG[]			= "mod:Prototypes/Persons/Police/gign_negociateur.e4p";
-const char OBJ_GIGNSNIP[]			= "mod:Prototypes/Persons/Police/gign_sniper.e4p";
-const char OBJ_GIGNASS[]			= "mod:Prototypes/Persons/Police/gign_assaut.e4p";
-const char OBJ_GIGNECL[]			= "mod:Prototypes/Persons/Police/gign_eclaireur.e4p";
+const char OBJ_GIGNNEG[]				= "mod:Prototypes/Persons/Police/gign_negociateur.e4p";
+const char OBJ_GIGNSNIP[]				= "mod:Prototypes/Persons/Police/gign_sniper.e4p";
+const char OBJ_GIGNASS[]				= "mod:Prototypes/Persons/Police/gign_assaut.e4p";
+const char OBJ_GIGNECL[]				= "mod:Prototypes/Persons/Police/gign_eclaireur.e4p";
 const char OBJ_POL[]					= "mod:Prototypes/Persons/Police/tenue_pn.e4p";
 const char OBJ_POL2[]					= "mod:Prototypes/Persons/Police/tenue_pn2.e4p";
 const char OBJ_POL3[]					= "mod:Prototypes/Persons/Police/tenue_pn3.e4p";
-const char OBJ_MOTOGN[]			= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
-const char OBJ_MOTOPN[]				= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
-const char OBJ_DOUANE[]				= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
+const char OBJ_MOTOGN[]					= "mod:Prototypes/Persons/Police/Motard_GN.e4p";
+const char OBJ_MOTOPN[]					= "mod:Prototypes/Persons/Police/Motard_PN.e4p";
+const char OBJ_DOUANE[]					= "mod:Prototypes/Persons/Police/tenue_douane.e4p";
 
 
 
@@ -172,7 +172,7 @@ const char PROTO_PCMSAMU[] 				= "mod:Prototypes/Vehicles/Ambulance/SAMU_PCM_mas
 const char PROTO_UMHMASTER[] 			= "mod:Prototypes/Vehicles/Ambulance/SAMU_UMH_master.e4p";
 const char PROTO_UMHSPRINTER[] 			= "mod:Prototypes/Vehicles/Ambulance/SAMU_UMH_sprinter.e4p";
 const char PROTO_VLMKANGOO[] 			= "mod:Prototypes/Vehicles/Ambulance/SAMU_VLM_kangoo.e4p";
-const char PROTO_VLMVITO[] 			= "mod:Prototypes/Vehicles/Ambulance/SAMU_VLM_vito.e4p";
+const char PROTO_VLMVITO[] 				= "mod:Prototypes/Vehicles/Ambulance/SAMU_VLM_vito.e4p";
 
 const char PROTO_CMO[] 					= "mod:Prototypes/Vehicles/Ambulance/CMO.e4p";
 const char PROTO_VPCM[] 				= "mod:Prototypes/Vehicles/Ambulance/VPCM.e4p";
@@ -196,10 +196,10 @@ const char PROTO_VLRVETO[] 				= "mod:Prototypes/Vehicles/Ambulance/VLRVETO.e4p"
 const char PROTO_VSC[] 					= "mod:Prototypes/Vehicles/Ambulance/VSC.e4p";
 const char PROTO_VEC[] 					= "mod:Prototypes/Vehicles/Ambulance/VEC.e4p";
 
-const char PROTO_ADPC308[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_308.e4p";
+const char PROTO_ADPC308[] 				= "mod:Prototypes/Vehicles/Ambulance/ADPC_308.e4p";
 const char PROTO_ADPC_Master[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_cube.e4p";
-const char PROTO_ADPC_Master_2[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_2.e4p";
-const char PROTO_ADPC_Master_3[] 			= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_3.e4p";
+const char PROTO_ADPC_Master_2[] 		= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_2.e4p";
+const char PROTO_ADPC_Master_3[] 		= "mod:Prototypes/Vehicles/Ambulance/ADPC_master_3.e4p";
 
 
 // Déclarations de véhicules de la police
@@ -248,7 +248,7 @@ const char PROTO_TITUSGIGN[]			= "mod:Prototypes/Vehicles/Police/gign_titus.e4p"
 const char PROTO_MASTERCRS[]			= "mod:Prototypes/Vehicles/Police/crs_master.e4p";
 const char PROTO_TRANSITCRS[]			= "mod:Prototypes/Vehicles/Police/crs_transit.e4p";
 const char PROTO_BUSCRS[]				= "mod:Prototypes/Vehicles/Police/crs_bus.e4p";
-const char PROTO_CANONCRS[]			= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
+const char PROTO_CANONCRS[]				= "mod:Prototypes/Vehicles/Police/crs_canon.e4p";
 
 //GN
 const char PROTO_C4GN[]					= "mod:Prototypes/Vehicles/Police/gn_c4.e4p";
@@ -280,18 +280,18 @@ const char PROTO_GRUE[] 				= "mod:Prototypes/Vehicles/Sonstiges/Kran.e4p";
 
 
 const char SND_VSAV[]					= "mod:Audio/FX/depart/VSAV1.wav";
-const char SND_VSAV2[]				= "mod:Audio/FX/depart/VSAV2.wav";
+const char SND_VSAV2[]					= "mod:Audio/FX/depart/VSAV2.wav";
 const char SND_PSR[]					= "mod:Audio/FX/depart/VSAV3.wav";
-const char SND_ADPC[]				= "mod:Audio/FX/depart/ANPC-CRF.wav";
+const char SND_ADPC[]					= "mod:Audio/FX/depart/ANPC-CRF.wav";
 const char SND_AR[]						= "mod:Audio/FX/depart/AR1.wav";
 const char SND_AR2[]					= "mod:Audio/FX/depart/AR2.wav";
-const char SND_ECHELLE[]			= "mod:Audio/FX/depart/EPA.wav";
+const char SND_ECHELLE[]				= "mod:Audio/FX/depart/EPA.wav";
 const char SND_FEU[]					= "mod:Audio/FX/depart/FE.wav";
-const char SND_FPT[]					= "mod:Audio/FX/depart/AR1.wav";
-const char SND_PSE[]					= "mod:Audio/FX/depart/AR2.wav";
-const char SND_VID[]					= "mod:Audio/FX/depart/AR1.wav";
-const char SND_VLR[]					= "mod:Audio/FX/depart/AR2.wav";
-const char SND_VSAVR[]				= "mod:Audio/FX/depart/VSAVrenfort.wav";
+const char SND_FPT[]					= "mod:Audio/FX/depart/FPT.wav";
+const char SND_PSE[]					= "mod:Audio/FX/depart/PSE.wav";
+const char SND_VID[]					= "mod:Audio/FX/depart/VID.wav";
+const char SND_VLR[]					= "mod:Audio/FX/depart/VLR.wav";
+const char SND_VSAVR[]					= "mod:Audio/FX/depart/VSAVrenfort.wav";
 const char SND_CA[]						= "mod:Audio/FX/depart/CA.wav";
 
 const char UNNAMED[] 					= "Unnamed";
